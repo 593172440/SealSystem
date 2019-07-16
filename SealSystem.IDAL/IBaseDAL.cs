@@ -12,12 +12,12 @@ namespace SealSystem.IDAL
     /// <typeparam name="T"></typeparam>
     public interface IBaseDAL<T> : IDisposable where T : Models.BaseEntity
     {
-        Task AddAsync(T t,bool saved=true);
-        Task EditAsync(T t,bool saved=true);
-        Task RemoveAsync(int id, bool saved = true);
-        Task RemoveAsync(T t, bool saved = true);
-        Task SaveAsync();
-        Task<T> GetOneAsync(int id);
+        void Add(T t,bool saved=true);
+        void Edit(T t,bool saved=true);
+        void Remove(int id, bool saved = true);
+        void Remove(T t, bool saved = true);
+        void Save();
+        T GetOne(int id);
         IQueryable<T> GetAll();
         IQueryable<T> GetAllOrder(bool asc = true);
         IQueryable<T> GetAllByPage(int pageSize = 10, int pageIndex = 0);

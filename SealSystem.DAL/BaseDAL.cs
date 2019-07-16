@@ -10,12 +10,12 @@ namespace SealSystem.DAL
     public class BaseDAL<T> : IDAL.IBaseDAL<T>, IDisposable where T : Models.BaseEntity, new()
     {
         private Models.SSContext db = new Models.SSContext();
-        public async Task AddAsync(T t, bool saved = true)
+        public void Add(T t, bool saved = true)
         {
             db.Set<T>().Add(t);
-            if(saved)
+            if (saved)
             {
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
         }
 
@@ -24,14 +24,15 @@ namespace SealSystem.DAL
             db.Dispose();
         }
 
-        public async Task EditAsync(T t, bool saved = true)
+        public void Edit(T t, bool saved = true)
         {
             db.Configuration.ValidateOnSaveEnabled = false;
             db.Entry(t).State = EntityState.Unchanged;
-            if(saved)
+            if (saved)
             {
-                await db.SaveChangesAsync();
+
                 db.Configuration.ValidateOnSaveEnabled = true;
+                db.SaveChanges();
             }
         }
         public IQueryable<T> GetAll()
@@ -50,7 +51,7 @@ namespace SealSystem.DAL
 
         public IQueryable<T> GetAllOrder(bool asc = true)
         {
-            if(asc)
+            if (asc)
             {
                 return GetAll().OrderBy(m => m.CreateTime);
             }
@@ -59,31 +60,31 @@ namespace SealSystem.DAL
                 return GetAll().OrderByDescending(m => m.CreateTime);
             }
         }
-        public async Task<T> GetOneAsync(int id)
+        public T GetOne(int id)
         {
-            return await GetAll().FirstAsync(m => m.Id == id);
+            return GetAll().First(m => m.Id == id);
         }
-        public async Task RemoveAsync(int id, bool saved = true)
+        public void Remove(int id, bool saved = true)
         {
             db.Configuration.ValidateOnSaveEnabled = false;
             var data = new T { Id = id };
             db.Entry(data).State = EntityState.Unchanged;
             data.IsRemoved = true;
-            if(saved)
+            if (saved)
             {
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 db.Configuration.ValidateOnSaveEnabled = true;
             }
         }
 
-        public async Task RemoveAsync(T t, bool saved = true)
+        public void Remove(T t, bool saved = true)
         {
-            await RemoveAsync(t.Id, saved);
+            Remove(t.Id, saved);
         }
 
-        public async Task SaveAsync()
+        public void Save()
         {
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             db.Configuration.ValidateOnSaveEnabled = true;
         }
     }
