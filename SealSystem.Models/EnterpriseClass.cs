@@ -8,22 +8,14 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 用户表
+    /// 单位分类表
     /// </summary>
-    public class User:BaseEntity
+    public class EnterpriseClass:BaseEntity
     {
         /// <summary>
-        /// 用户名
+        /// 单位分类名称
         /// </summary>
         [Required]
-        [StringLength(50)]
-        public string UserName { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        [Required]
-        [StringLength(50)]
-        public string UserPwd { get; set; }
-
+        public string Name { get; set; }
     }
 }

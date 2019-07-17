@@ -8,22 +8,19 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 用户表
+    /// 印章类型表
     /// </summary>
-    public class User:BaseEntity
+    public class SealType:BaseEntity
     {
         /// <summary>
-        /// 用户名
+        /// 印章类型名称
         /// </summary>
         [Required]
         [StringLength(50)]
-        public string UserName { get; set; }
+        public string Name { get; set; }
         /// <summary>
-        /// 密码
+        /// 印章类型图片
         /// </summary>
-        [Required]
-        [StringLength(50)]
-        public string UserPwd { get; set; }
-
+        public string Pic { get; set; }
     }
 }

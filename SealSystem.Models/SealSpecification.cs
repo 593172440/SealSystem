@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +9,21 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 用户表
+    /// 印章规格表
     /// </summary>
-    public class User:BaseEntity
+    public class SealSpecification:BaseEntity
     {
         /// <summary>
-        /// 用户名
+        /// 印章规格名称
         /// </summary>
         [Required]
-        [StringLength(50)]
-        public string UserName { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        [Required]
-        [StringLength(50)]
-        public string UserPwd { get; set; }
+        public string Name { get; set; }
 
+        /// <summary>
+        /// 印章类型Id
+        /// </summary>
+        [ForeignKey(nameof(SealType))]
+        public int SealType_Id { get; set; }
+        public SealType SealType { get; set; }
     }
 }
