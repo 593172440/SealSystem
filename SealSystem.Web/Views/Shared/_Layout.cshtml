@@ -29,7 +29,10 @@
             </div>
         </div>
     </div>
-    <main class="row body-content">
+    <iframe src="~/Views/Shared/_Layout.cshtml">
+
+    </iframe>
+    <div>
         <div class="navbar-left">
             @Html.Partial("_LeftSidebar")
         </div>
@@ -40,7 +43,7 @@
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </footer>
         </div>
-    </main>
+    </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 
