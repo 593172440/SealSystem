@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,10 +16,10 @@ namespace SealSystem.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(SealSystem.Models.User user)
+        public async Task<ActionResult> Index(string name,string pwd)
         {
-            IDAL.IUserDAL data = new DAL.UserDAL();
-            data.Add(user);
+            var data = new DAL.UserDAL();
+            await data.AddUserAsync(name, pwd);
             return Content("创建成功");
         }
     }

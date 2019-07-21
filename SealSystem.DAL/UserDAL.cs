@@ -8,7 +8,13 @@ namespace SealSystem.DAL
 {
     public class UserDAL:BaseDAL<Models.User>
     {
-        public async Task AddUser(string name,string pwd)
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public async Task AddUserAsync(string name,string pwd)
         {
             using (DAL.UserDAL db = new UserDAL())
             {
