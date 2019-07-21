@@ -16,6 +16,7 @@ namespace SealSystem.Models
         /// 单位类型名称
         /// </summary>
         [Required]
+        [Display(Name="企业类型")]
         public string Name { get; set; }
     }
 }

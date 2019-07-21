@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SealSystem.BLL", "SealSyste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SealSystem.Dto", "SealSystem.Dto\SealSystem.Dto.csproj", "{0FBAFE61-431D-4145-BBFC-21546331D3AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SealSystem.Web2", "SealSystem.Web2\SealSystem.Web2.csproj", "{6E32C5A3-56AC-4877-99C6-1D10AEC48CAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0FBAFE61-431D-4145-BBFC-21546331D3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBAFE61-431D-4145-BBFC-21546331D3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBAFE61-431D-4145-BBFC-21546331D3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E32C5A3-56AC-4877-99C6-1D10AEC48CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E32C5A3-56AC-4877-99C6-1D10AEC48CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E32C5A3-56AC-4877-99C6-1D10AEC48CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E32C5A3-56AC-4877-99C6-1D10AEC48CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,7 +18,23 @@
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
+        
         public DbSet<User> Users { get; set; }
+        public DbSet<EngravingLevel> EngravingLevels { get; set; }
+        public DbSet<EngravingType> EngravingTypes { get; set; }
+        public DbSet<Enterpise> Enterpises { get; set; }
+        public DbSet<EnterpriseClass> EnterpriseClasses { get; set; }
+        public DbSet<EnterpriseDocumentsType> EnterpriseDocumentsTypes { get; set; }
+        public DbSet<EnterpriseType> EnterpriseTypes { get; set; }
+        public DbSet<Handler> Handlers { get; set; }
+        public DbSet<KeepRecord> keepRecords { get; set; }
+        public DbSet<KeepRecordType> keepRecordTypes { get; set; }
+        public DbSet<RegistrationClass> RegistrationClasses { get; set; }
+        public DbSet<SealInfor> SealInfors { get; set; }
+        public DbSet<SealMaterial> SealMaterials { get; set; }
+        public DbSet<SealShape> SealShapes { get; set; }
+        public DbSet<SealSpecification> SealSpecifications { get; set; }
+        public DbSet<SealType> SealTypes { get; set; }
     }
 
     

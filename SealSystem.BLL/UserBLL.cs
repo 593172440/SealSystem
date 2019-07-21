@@ -12,7 +12,7 @@ namespace SealSystem.BLL
         {
             using (DAL.UserDAL db = new DAL.UserDAL())
             {
-                db.Add
+                await db.AddAsync(user);
             }
         }
     }

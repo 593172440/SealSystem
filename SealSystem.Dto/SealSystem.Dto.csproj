@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnterpriseDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SealInfomationManagement.cs" />
+    <Compile Include="EnterpiseInfomationManagement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
