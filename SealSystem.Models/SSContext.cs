@@ -54,18 +54,18 @@
         /// <summary>
         /// 印章类型表(登记类别)(数据上下文)
         /// </summary>
-        //public DbSet<SealCategory> SealCategorys { get; set; }
+        public DbSet<SealCategory> SealCategorys { get; set; }
         /// <summary>
         /// 章面(体)材料(数据上下文)
         /// </summary>
-        //public DbSet<SealMaterial> SealMaterials { get; set; }
+        public DbSet<SealMaterial> SealMaterials { get; set; }
         /// <summary>
         /// 印章状态代码表(数据上下文)
         /// </summary>
-        //public DbSet<SealState> SealStates { get; set; }
+        public DbSet<SealState> SealStates { get; set; }
         /// <summary>
         /// 印章使用单位类型表(数据上下文)
         /// </summary>
-        //public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
+        public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
     }
 }
