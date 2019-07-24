@@ -24,6 +24,11 @@ namespace SealSystem.Models
         [Required]
         [StringLength(50)]
         public string UserPwd { get; set; }
+        /// <summary>
+        /// 单位名称
+        /// </summary>
+        [Required]
+        public string EntityName { get; set; }
 
     }
 }

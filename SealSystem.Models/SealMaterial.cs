@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 章体材料
+    /// 章面(体)材料
     /// </summary>
     public class SealMaterial:BaseEntity
     {
         /// <summary>
-        /// 章体材料名称
+        /// 章面(体)材料名称
         /// </summary>
         public string Name { get; set; }
+        public string Code { get; set; }
     }
 }

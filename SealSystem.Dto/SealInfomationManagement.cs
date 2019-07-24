@@ -15,29 +15,29 @@ namespace SealSystem.Dto
         /// <summary>
         /// 印章编号
         /// </summary>
-        public string SealInforNum { get; set; }
+        public string SealInfor_SealInforNum { get; set; }
         /// <summary>
         /// 印章内容
         /// </summary>
-        public string SealContent { get; set; }
+        public string SealInfor_SealContent { get; set; }
         /// <summary>
         /// 印章类型
         /// </summary>
-        public string EngravingType { get; set; }
+        public string SealType_Name { get; set; }
         /// <summary>
-        /// 申请人
+        /// 申请人!!!不知道在哪个表中!!!
         /// </summary>
         public string Applicant{ get; set; }
         /// <summary>
         /// 申请日期
         /// </summary>
-        public DateTime ApplicantTime { get; set; }
+        public DateTime SealType_CreateTime { get; set; }
         /// <summary>
-        /// 印章状态
+        /// 印章状态!!!不知道在哪个表中！！！
         /// </summary>
         public string SealState { get; set; }
         /// <summary>
-        /// 当前状态
+        /// 当前状态！！！不知道在哪个表中！！！
         /// </summary>
         public string CurrentState { get; set; }
 

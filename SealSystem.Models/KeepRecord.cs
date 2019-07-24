@@ -28,6 +28,6 @@ namespace SealSystem.Models
         /// 所属企业
         /// </summary>
         public int Enterpise_Id { get; set; }
-        public Enterpise Enterpise { get; set; }
+        public SealUseUnitInfor Enterpise { get; set; }
     }
 }

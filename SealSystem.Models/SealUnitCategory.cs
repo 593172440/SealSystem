@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 单位类型表
+    /// 印章使用单位类型表
     /// </summary>
-    public class EnterpriseType:BaseEntity
+    public class SealUnitCategory:BaseEntity
     {
         /// <summary>
         /// 单位类型名称
         /// </summary>
         [Required]
-        [Display(Name="企业类型")]
+        [Display(Name="单位类型")]
         public string Name { get; set; }
+        public string Code { get; set; }
     }
 }

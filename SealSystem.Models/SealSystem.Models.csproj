@@ -53,16 +53,20 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="EngravingLevel.cs" />
     <Compile Include="EngravingType.cs" />
-    <Compile Include="Enterpise.cs" />
+    <Compile Include="SealApprovalUnitInfor.cs" />
+    <Compile Include="SealImageData.cs" />
+    <Compile Include="SealMakingUnitInfor.cs" />
+    <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="EnterpriseClass.cs" />
     <Compile Include="EnterpriseDocumentsType.cs" />
-    <Compile Include="EnterpriseType.cs" />
+    <Compile Include="SealState.cs" />
+    <Compile Include="SealUnitCategory.cs" />
     <Compile Include="Handler.cs" />
     <Compile Include="KeepRecord.cs" />
     <Compile Include="KeepRecordType.cs" />
-    <Compile Include="Migrations\201907211442502_one.cs" />
-    <Compile Include="Migrations\201907211442502_one.Designer.cs">
-      <DependentUpon>201907211442502_one.cs</DependentUpon>
+    <Compile Include="Migrations\201907240926218_one.cs" />
+    <Compile Include="Migrations\201907240926218_one.Designer.cs">
+      <DependentUpon>201907240926218_one.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,7 +75,7 @@
     <Compile Include="SealMaterial.cs" />
     <Compile Include="SealShape.cs" />
     <Compile Include="SealSpecification.cs" />
-    <Compile Include="SealType.cs" />
+    <Compile Include="SealCategory.cs" />
     <Compile Include="SSContext.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
@@ -81,8 +85,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907211442502_one.resx">
-      <DependentUpon>201907211442502_one.cs</DependentUpon>
+    <Content Include="数据库初始化文件.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907240926218_one.resx">
+      <DependentUpon>201907240926218_one.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

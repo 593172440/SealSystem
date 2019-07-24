@@ -151,6 +151,7 @@ namespace SealSystem.Models.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         UserName = c.String(nullable: false, maxLength: 50),
                         UserPwd = c.String(nullable: false, maxLength: 50),
+                        EntityName = c.String(nullable: false),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })
@@ -173,11 +174,12 @@ namespace SealSystem.Models.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         SealInforNum = c.Int(nullable: false),
-                        SealFrontNum = c.Int(nullable: false),
+                        SealName = c.Int(nullable: false),
                         SealContent = c.String(),
                         SealOtherContent = c.String(),
                         Remark = c.String(),
                         SealShape_Id = c.Int(nullable: false),
+                        Enterpise_EnterpiseNumber_Id = c.Int(nullable: false),
                         SealMaterial_Id = c.Int(nullable: false),
                         EngravingType_Id = c.Int(nullable: false),
                         EngravingLevel_Id = c.Int(nullable: false),
@@ -189,11 +191,13 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.EngravingLevels", t => t.EngravingLevel_Id)
                 .ForeignKey("dbo.EngravingTypes", t => t.EngravingType_Id)
+                .ForeignKey("dbo.Enterpises", t => t.Enterpise_EnterpiseNumber_Id)
                 .ForeignKey("dbo.KeepRecords", t => t.KeepRecord_Id)
                 .ForeignKey("dbo.RegistrationClasses", t => t.RegistrationClass_Id)
                 .ForeignKey("dbo.SealMaterials", t => t.SealMaterial_Id)
                 .ForeignKey("dbo.SealShapes", t => t.SealShape_Id)
                 .Index(t => t.SealShape_Id)
+                .Index(t => t.Enterpise_EnterpiseNumber_Id)
                 .Index(t => t.SealMaterial_Id)
                 .Index(t => t.EngravingType_Id)
                 .Index(t => t.EngravingLevel_Id)
@@ -242,7 +246,7 @@ namespace SealSystem.Models.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 50),
-                        Pic = c.String(),
+                        Code = c.String(),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })
@@ -257,6 +261,7 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.SealInfors", "SealMaterial_Id", "dbo.SealMaterials");
             DropForeignKey("dbo.SealInfors", "RegistrationClass_Id", "dbo.RegistrationClasses");
             DropForeignKey("dbo.SealInfors", "KeepRecord_Id", "dbo.KeepRecords");
+            DropForeignKey("dbo.SealInfors", "Enterpise_EnterpiseNumber_Id", "dbo.Enterpises");
             DropForeignKey("dbo.SealInfors", "EngravingType_Id", "dbo.EngravingTypes");
             DropForeignKey("dbo.SealInfors", "EngravingLevel_Id", "dbo.EngravingLevels");
             DropForeignKey("dbo.Handlers", "KeepRecord_Id", "dbo.KeepRecords");
@@ -272,6 +277,7 @@ namespace SealSystem.Models.Migrations
             DropIndex("dbo.SealInfors", new[] { "EngravingLevel_Id" });
             DropIndex("dbo.SealInfors", new[] { "EngravingType_Id" });
             DropIndex("dbo.SealInfors", new[] { "SealMaterial_Id" });
+            DropIndex("dbo.SealInfors", new[] { "Enterpise_EnterpiseNumber_Id" });
             DropIndex("dbo.SealInfors", new[] { "SealShape_Id" });
             DropIndex("dbo.KeepRecords", new[] { "User_Id1" });
             DropIndex("dbo.KeepRecords", new[] { "KeepRecordType_Id1" });

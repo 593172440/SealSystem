@@ -9,7 +9,7 @@ namespace SealSystem.DAL
     /// <summary>
     /// 企业类型
     /// </summary>
-    public class EnterpriseTypeDAL:BaseDAL<Models.EnterpriseType>
+    public class EnterpriseTypeDAL:BaseDAL<Models.SealUnitCategory>
     {
 
     }

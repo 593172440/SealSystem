@@ -24,6 +24,7 @@ namespace SealSystem.Models
         /// </summary>
         [ForeignKey(nameof(SealType))]
         public int SealType_Id { get; set; }
-        public SealType SealType { get; set; }
+        public SealCategory SealType { get; set; }
+      
     }
 }

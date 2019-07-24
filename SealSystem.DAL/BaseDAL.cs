@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq.Expressions;
 
 namespace SealSystem.DAL
 {
-    public class BaseDAL<T> :IDisposable where T : Models.BaseEntity, new()
+    public class BaseDAL<T> : IDisposable where T : Models.BaseEntity, new()
     {
         private Models.SSContext db = new Models.SSContext();
         public async Task AddAsync(T t, bool saved = true)
@@ -63,7 +64,7 @@ namespace SealSystem.DAL
         {
             return await GetAll().FirstAsync(m => m.Id == id);
         }
-        public async void RemoveAsync(int id, bool saved = true)
+        public async Task RemoveAsync(int id, bool saved = true)
         {
             db.Configuration.ValidateOnSaveEnabled = false;
             var data = new T { Id = id };
@@ -76,12 +77,12 @@ namespace SealSystem.DAL
             }
         }
 
-        public void Remove(T t, bool saved = true)
+        public async Task RemoveAsync(T t, bool saved = true)
         {
-            RemoveAsync(t.Id, saved);
+            await RemoveAsync(t.Id, saved);
         }
 
-        public async Task Save()
+        public async Task SaveAsync()
         {
             await db.SaveChangesAsync();
             db.Configuration.ValidateOnSaveEnabled = true;

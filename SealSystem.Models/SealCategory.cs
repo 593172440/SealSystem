@@ -10,7 +10,7 @@ namespace SealSystem.Models
     /// <summary>
     /// 印章类型表
     /// </summary>
-    public class SealType:BaseEntity
+    public class SealCategory:BaseEntity
     {
         /// <summary>
         /// 印章类型名称
@@ -19,8 +19,8 @@ namespace SealSystem.Models
         [StringLength(50)]
         public string Name { get; set; }
         /// <summary>
-        /// 印章类型图片
+        /// 印章类型代码
         /// </summary>
-        public string Pic { get; set; }
+        public string Code { get; set; }
     }
 }
