@@ -75,11 +75,9 @@ namespace SealSystem.Models
         public int SealUnitClass_Id { get; set; }
         public SealUnitClass SealUnitClass { get; set; }
         /// <summary>
-        /// 企业证件类型
+        /// 企业证件类型(自定义下拉列表)
         /// </summary>
-        [ForeignKey(nameof(SealUnitClass))]
-        public int EnterpriseDocumentsType_Id { get; set; }
-        public EnterpriseDocumentsType EnterpriseDocumentsType { get; set; }
+        public string EnterpriseDocumentsType { get; set; }
         /// <summary>
         /// 证件号
         /// </summary>

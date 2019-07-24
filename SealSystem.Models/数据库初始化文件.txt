@@ -7,6 +7,7 @@
                 new SealCategory { Code = "05", Name = "法定代表人名章" },
                 new SealCategory { Code = "99", Name = "其它类型印章" }
                 );
+				//章面(体)材料
 			context.SealMaterials.AddOrUpdate(
                 new SealMaterial { Code = "01", Name = "有机玻璃" },
                 new SealMaterial { Code = "02", Name = "铜" },
@@ -15,6 +16,7 @@
                 new SealMaterial { Code = "05", Name = "牛角" },
                 new SealMaterial { Code = "99", Name = "其他章面材料" }
                 );
+				//印章使用单位类型
 			context.SealUnitCategorys.AddOrUpdate(
                 new SealUnitCategory { Code = "01", Name = "党政机关、人大、政协" },
                 new SealUnitCategory { Code = "02", Name = "企业单位" },
@@ -23,6 +25,7 @@
                 new SealUnitCategory { Code = "05", Name = "民办非企业单位" },
                 new SealUnitCategory { Code = "99", Name = "其他" }
                 );
+				//印章状态代码
 			context.SealStates.AddOrUpdate(
                 new SealState { Code = "1", Name = "已审批" },
                 new SealState { Code = "2", Name = "已承接" },
