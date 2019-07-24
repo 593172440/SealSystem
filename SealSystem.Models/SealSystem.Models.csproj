@@ -59,9 +59,6 @@
     <Compile Include="EnterpriseDocumentsType.cs" />
     <Compile Include="SealState.cs" />
     <Compile Include="SealUnitCategory.cs" />
-    <Compile Include="Handler.cs" />
-    <Compile Include="KeepRecord.cs" />
-    <Compile Include="KeepRecordType.cs" />
     <Compile Include="Migrations\201907240926218_one.cs" />
     <Compile Include="Migrations\201907240926218_one.Designer.cs">
       <DependentUpon>201907240926218_one.cs</DependentUpon>
