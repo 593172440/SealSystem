@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
 
-        public SSContext() : base("con1")
+        public SSContext() : base("con2")
         {
             Database.SetInitializer<SSContext>(null);
         }
@@ -47,6 +47,7 @@
         /// 用户表(数据上下文)
         /// </summary>
         public DbSet<User> Users { get; set; }
+
 
         //------- 以下仅限数据库实例化 -----------------------
 

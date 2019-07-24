@@ -27,5 +27,24 @@ namespace SealSystem.Models
         /// 印章图像数据地址，默认为磁盘存放(但是这里要求为二进制数)
         /// </summary>
         public string ImageDataPath { get; set; }
+
+        //------------------------------------------------
+
+        /// <summary>
+        /// 印章规格(自定义下拉列表)
+        /// </summary>
+        public int SealSpecification { get; set; }
+        /// <summary>
+        /// 印章形状(自定义下拉列表)
+        /// </summary>
+        public string SealShape { get; set; }
+        /// <summary>
+        /// 刻制类型(自定义下拉列表)
+        /// </summary>
+        public string EngravingType { get; set; }
+        /// <summary>
+        /// 制作等级(自定义下拉列表)
+        /// </summary>
+        public string EngravingLevel { get; set; }
     }
 }

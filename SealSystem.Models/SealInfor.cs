@@ -113,23 +113,7 @@ namespace SealSystem.Models
         public int SealImageData_Id { get; set; }
         public SealImageData SealImageData { get; set; }
 
-        //------------------------------------------------
-        /// <summary>
-        /// 印章规格(自定义下拉列表)
-        /// </summary>
-        public int SealSpecification { get; set; }
-        /// <summary>
-        /// 印章形状(自定义下拉列表)
-        /// </summary>
-        public string SealShape { get; set; }
-        /// <summary>
-        /// 刻制类型(自定义下拉列表)
-        /// </summary>
-        public string EngravingType { get; set; }
-        /// <summary>
-        /// 制作等级(自定义下拉列表)
-        /// </summary>
-        public string EngravingLevel { get; set; }
+        
 
 
     }

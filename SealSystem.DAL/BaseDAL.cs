@@ -67,7 +67,7 @@ namespace SealSystem.DAL
         public async Task RemoveAsync(int id, bool saved = true)
         {
             db.Configuration.ValidateOnSaveEnabled = false;
-            var data = new T { Id = id };
+            var data = GetAll().First(m => m.Id == id); 
             db.Entry(data).State = EntityState.Modified;
             data.IsRemoved = true;
             if (saved)
