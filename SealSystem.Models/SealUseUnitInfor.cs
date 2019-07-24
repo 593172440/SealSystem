@@ -64,6 +64,26 @@ namespace SealSystem.Models
         /// 邮政编码
         /// </summary>
         public string TheZipCode { get; set; }
-        
+
+
+        //-----------------------------------------------------
+
+        /// <summary>
+        /// 单位分类
+        /// </summary>
+        [ForeignKey(nameof(SealUnitClass))]
+        public int SealUnitClass_Id { get; set; }
+        public SealUnitClass SealUnitClass { get; set; }
+        /// <summary>
+        /// 企业证件类型
+        /// </summary>
+        [ForeignKey(nameof(SealUnitClass))]
+        public int EnterpriseDocumentsType_Id { get; set; }
+        public EnterpriseDocumentsType EnterpriseDocumentsType { get; set; }
+        /// <summary>
+        /// 证件号
+        /// </summary>
+        public string IdNumbers { get; set; }
+
     }
 }

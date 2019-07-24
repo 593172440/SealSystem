@@ -10,7 +10,7 @@ namespace SealSystem.Models
     /// <summary>
     /// 单位分类表
     /// </summary>
-    public class EnterpriseClass:BaseEntity
+    public class SealUnitClass:BaseEntity
     {
         /// <summary>
         /// 单位分类名称

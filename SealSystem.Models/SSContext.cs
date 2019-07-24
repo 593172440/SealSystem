@@ -23,7 +23,7 @@
         public DbSet<EngravingLevel> EngravingLevels { get; set; }
         public DbSet<EngravingType> EngravingTypes { get; set; }
         public DbSet<SealUseUnitInfor> UnitInfors { get; set; }
-        public DbSet<EnterpriseClass> EnterpriseClasses { get; set; }
+        public DbSet<SealUnitClass> EnterpriseClasses { get; set; }
         public DbSet<EnterpriseDocumentsType> EnterpriseDocumentsTypes { get; set; }
         public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
         public DbSet<Handler> Handlers { get; set; }

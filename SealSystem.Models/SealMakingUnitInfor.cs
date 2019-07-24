@@ -53,5 +53,24 @@ namespace SealSystem.Models
         /// </summary>
         public string TheZipCode { get; set; }
 
+        //--------------------------------------------------
+
+        /// <summary>
+        /// 联系人
+        /// </summary>
+        public string Contact { get; set; }
+        /// <summary>
+        /// 营业执照
+        /// </summary>
+        public string BusinessLicense { get; set; }
+        /// <summary>
+        /// 营业状态
+        /// </summary>
+        public string BusinessState { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remarks { get; set; }
+
     }
 }

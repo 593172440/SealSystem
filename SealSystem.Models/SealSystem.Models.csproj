@@ -51,13 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="EngravingLevel.cs" />
-    <Compile Include="EngravingType.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealImageData.cs" />
     <Compile Include="SealMakingUnitInfor.cs" />
     <Compile Include="SealUseUnitInfor.cs" />
-    <Compile Include="EnterpriseClass.cs" />
+    <Compile Include="SealUnitClass.cs" />
     <Compile Include="EnterpriseDocumentsType.cs" />
     <Compile Include="SealState.cs" />
     <Compile Include="SealUnitCategory.cs" />
@@ -70,18 +68,15 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationClass.cs" />
     <Compile Include="SealInfor.cs" />
     <Compile Include="SealMaterial.cs" />
     <Compile Include="SealShape.cs" />
-    <Compile Include="SealSpecification.cs" />
     <Compile Include="SealCategory.cs" />
     <Compile Include="SSContext.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

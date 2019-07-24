@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 印章类型表
+    /// 印章类型表(登记类别)
     /// </summary>
     public class SealCategory:BaseEntity
     {
