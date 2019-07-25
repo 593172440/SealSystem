@@ -35,6 +35,18 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.SealCategories",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 50),
+                        Code = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.SealImageDatas",
                 c => new
                     {
@@ -96,18 +108,6 @@ namespace SealSystem.Models.Migrations
                 .Index(t => t.SealCategory_Id_Code)
                 .Index(t => t.SealMaterial_Id_Code)
                 .Index(t => t.SealImageData_Id);
-            
-            CreateTable(
-                "dbo.SealCategories",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Code = c.String(),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.SealMakingUnitInfors",
@@ -237,9 +237,9 @@ namespace SealSystem.Models.Migrations
             DropTable("dbo.SealStates");
             DropTable("dbo.SealMaterials");
             DropTable("dbo.SealMakingUnitInfors");
-            DropTable("dbo.SealCategories");
             DropTable("dbo.SealInfors");
             DropTable("dbo.SealImageDatas");
+            DropTable("dbo.SealCategories");
             DropTable("dbo.SealApprovalUnitInfors");
             DropTable("dbo.SealUnitClasses");
         }

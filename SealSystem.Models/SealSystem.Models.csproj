@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="Migrations\201907241443384_one.cs" />
-    <Compile Include="Migrations\201907241443384_one.Designer.cs">
-      <DependentUpon>201907241443384_one.cs</DependentUpon>
+    <Compile Include="Migrations\201907250726587_one.cs" />
+    <Compile Include="Migrations\201907250726587_one.Designer.cs">
+      <DependentUpon>201907250726587_one.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
@@ -78,8 +78,8 @@
     <Content Include="数据库初始化文件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907241443384_one.resx">
-      <DependentUpon>201907241443384_one.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907250726587_one.resx">
+      <DependentUpon>201907250726587_one.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
