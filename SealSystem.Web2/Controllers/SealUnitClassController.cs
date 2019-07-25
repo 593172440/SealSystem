@@ -12,9 +12,17 @@ namespace SealSystem.Web2.Controllers
         // GET: SealUnitClass
         public async Task<ActionResult> Index()
         {
+            //var data = new BLL.SealUnitClassBLL();
+            //await data.RemoveAsync(1);
+            //return Content("删除成功");
+            return View();
+        }
+        public async Task<ActionResult> View1()
+        {
             var data = new BLL.SealUnitClassBLL();
-            await data.RemoveAsync(1);
-            return Content("删除成功");
+            var db= await data.GetAllAsync();
+            ViewBag.count = db.Count;
+            return View(db);
         }
     }
 }

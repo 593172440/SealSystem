@@ -288,6 +288,7 @@
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Shared\_Layout2 - 复制.cshtml" />
+    <Content Include="Views\SealUnitClass\View1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
