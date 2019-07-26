@@ -113,9 +113,11 @@
                 $(".layui-tab.layui-tab-brief.layui-body li").each(function (data) {
                     aciton.push($(this).text().replace('ဆ', ''));
                 });
+                console.log(aciton);
                 var isarr = $.inArray(this.text, aciton);//判断数据是否存在数组中
+                console.log(isarr);
                 //判断导航中文字是否存在tab中
-                if (isarr==-1) {
+                if (isarr == -1 && this.getAttribute('lay-id') != null) {
                     //增加选项卡
                     element.tabAdd('lay_MainBody', {
                         title: this.text
@@ -124,7 +126,7 @@
                     });
                     element.tabChange("lay_MainBody", this.getAttribute('lay-id'));//获取当前选中的lay-id值
                 }
-                else {
+                if (isarr >= 0) {
                     element.tabChange("lay_MainBody", this.getAttribute('lay-id'));
                 }
             });
