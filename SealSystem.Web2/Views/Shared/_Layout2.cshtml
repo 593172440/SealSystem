@@ -44,23 +44,23 @@
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;">信息登记</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" lay-id="1" >印章信息管理</a></dd>
-                            <dd><a href="javascript:;" lay-id="2" >使用单位信息管理</a></dd>
-                            <dd><a href="javascript:;" lay-id="3" >制作单位信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="1">印章信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="2">使用单位信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="3">制作单位信息管理</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">生产管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" lay-id="5" >备案申请</a></dd>
-                            <dd><a href="javascript:;" lay-id="6" >刻章企业信息</a></dd>
+                            <dd><a href="javascript:;" lay-id="5">备案申请</a></dd>
+                            <dd><a href="javascript:;" lay-id="6">刻章企业信息</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">信息查询 </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" lay-id="8" >印章信息查询</a></dd>
-                            <dd><a href="javascript:;" lay-id="9" >公告通知查询 </a></dd>
+                            <dd><a href="javascript:;" lay-id="8">印章信息查询</a></dd>
+                            <dd><a href="javascript:;" lay-id="9">公告通知查询 </a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -70,17 +70,9 @@
         <div id="mainBody" class="layui-tab layui-tab-brief layui-body" lay-allowClose="true" lay-filter="lay_MainBody">
             <ul class="layui-tab-title">
                 <li class="layui-this">主页</li>
-                <li>用户基本管理</li>
-                <li>权限分配</li>
-                <li>全部历史商品管理文字长一点试试</li>
-                <li>订单管理</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">@RenderBody()</div>
-                <div class="layui-tab-item">2</div>
-                <div class="layui-tab-item">3</div>
-                <div class="layui-tab-item">4</div>
-                <div class="layui-tab-item">5</div>
             </div>
         </div>
         @*<div class="layui-body">
@@ -102,8 +94,7 @@
         layui.use('element', function () {
             var element = layui.element;
 
-            var layid = $("lay-id");
-            console.log(layid);
+
             //$("#yinZhang").click(() => {
             //    element.tabChange(filter, layid);
             //    element.tabAdd('layMainBody', {
@@ -113,35 +104,30 @@
             //    });
             //})
 
-            //this.getAttribute('lay-id');//获取当前选中的lay-id值 
-            element.on('tab(lay_MainBody)', function (data) {
-                console.log(this.getAttribute('lay-id'));
-            });
+
+            var aciton = new Array();
+            //监听左测导航选择
             element.on('nav(lay_DaoHang)', function (elem) {
-                //console.log(this.getAttribute('lay-id')); //得到当前点击的DOM对象
-                //console.log(this.attributes[1].value);
-                var arr = ["信息登记", "生产管理", "信息查询"];
-                var isarr = $.inArray(this.text, arr);//判断数据是否存在数组中
-                if (isarr < 0) {//不存在
-                    
+                aciton.length = 0;
+
+                $(".layui-tab.layui-tab-brief.layui-body li").each(function (data) {
+                    aciton.push($(this).text().replace('ဆ', ''));
+                });
+                var isarr = $.inArray(this.text, aciton);//判断数据是否存在数组中
+                //判断导航中文字是否存在tab中
+                if (isarr==-1) {
+                    //增加选项卡
                     element.tabAdd('lay_MainBody', {
                         title: this.text
                         , content: '<h1>Hello World</h1>' //支持传入html
-                        , id: this.attributes[1].value
+                        , id: this.getAttribute('lay-id')
                     });
-                    element.tabChange("lay_MainBody", this.attributes[1].value);
+                    element.tabChange("lay_MainBody", this.getAttribute('lay-id'));//获取当前选中的lay-id值
                 }
                 else {
-                    //存在数据中
-                    //element.tabChange("lay_MainBody", this.attributes[1].value);
+                    element.tabChange("lay_MainBody", this.getAttribute('lay-id'));
                 }
-                
             });
-
-            
-
-
-
         });
     </script>
 </body>
