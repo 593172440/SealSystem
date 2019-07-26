@@ -7,13 +7,22 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <style>
+        #mainBody {
+            padding-top: 0px;
+            padding-left: 2px;
+            padding-bottom: 2px;
+            padding-right: 2px;
+        }
+        
+    </style>
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
         <div class="layui-header">
             <div class="layui-logo">信息中心</div>
             <!-- 头部区域（可配合layui已有的水平导航） -->
-           
+
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
                     <a href="javascript:;">
@@ -34,9 +43,9 @@
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">信息登记</a>
+                        <a href="javascript:;">信息登记</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">印章信息管理</a></dd>
+                            <dd><a href="javascript:;" id="yinZhang">印章信息管理</a></dd>
                             <dd><a href="javascript:;">使用单位信息管理</a></dd>
                             <dd><a href="javascript:;">制作单位信息管理</a></dd>
                         </dl>
@@ -58,11 +67,27 @@
                 </ul>
             </div>
         </div>
-
-        <div class="layui-body">
-            <!-- 内容主体区域 -->
-            <div style="padding: 15px;">@RenderBody()</div>
+        <!--页面标签-->
+        <div id="mainBody" class="layui-tab layui-tab-brief layui-body" lay-allowClose="true" lay-filter="layMainBody">
+            <ul class="layui-tab-title">
+                <li class="layui-this">主页</li>
+                <li>用户基本管理</li>
+                <li>权限分配</li>
+                <li>全部历史商品管理文字长一点试试</li>
+                <li>订单管理</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">@RenderBody()</div>
+                <div class="layui-tab-item">2</div>
+                <div class="layui-tab-item">3</div>
+                <div class="layui-tab-item">4</div>
+                <div class="layui-tab-item">5</div>
+            </div>
         </div>
+        @*<div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div id="mainBody"></div>
+        </div>*@
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
@@ -77,6 +102,21 @@
         //JavaScript代码区域
         layui.use('element', function () {
             var element = layui.element;
+
+
+            $("#yinZhang").click(() => {
+                element.tabAdd('layMainBody', {
+                    title: '印章管理'
+                    , content: '<h1>Hello World</h1>' //支持传入html
+                    , id: '1'
+                }); 
+            })
+
+           
+
+
+
+
 
         });
     </script>

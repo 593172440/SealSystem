@@ -289,7 +289,6 @@
     <Content Include="Views\SealUseUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\Shared\_Layout2 - 复制.cshtml" />
     <Content Include="Views\SealUnitClass\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
