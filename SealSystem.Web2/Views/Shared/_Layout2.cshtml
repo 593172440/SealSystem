@@ -14,7 +14,6 @@
             padding-bottom: 2px;
             padding-right: 2px;
         }
-        
     </style>
 </head>
 <body class="layui-layout-body">
@@ -41,34 +40,34 @@
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <ul class="layui-nav layui-nav-tree" lay-filter="lay_DaoHang">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;">信息登记</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" id="yinZhang">印章信息管理</a></dd>
-                            <dd><a href="javascript:;">使用单位信息管理</a></dd>
-                            <dd><a href="javascript:;">制作单位信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="1" >印章信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="2" >使用单位信息管理</a></dd>
+                            <dd><a href="javascript:;" lay-id="3" >制作单位信息管理</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">生产管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">备案申请</a></dd>
-                            <dd><a href="javascript:;">刻章企业信息</a></dd>
+                            <dd><a href="javascript:;" lay-id="5" >备案申请</a></dd>
+                            <dd><a href="javascript:;" lay-id="6" >刻章企业信息</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">信息查询 </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">印章信息查询</a></dd>
-                            <dd><a href="javascript:;">公告通知查询 </a></dd>
+                            <dd><a href="javascript:;" lay-id="8" >印章信息查询</a></dd>
+                            <dd><a href="javascript:;" lay-id="9" >公告通知查询 </a></dd>
                         </dl>
                     </li>
                 </ul>
             </div>
         </div>
         <!--页面标签-->
-        <div id="mainBody" class="layui-tab layui-tab-brief layui-body" lay-allowClose="true" lay-filter="layMainBody">
+        <div id="mainBody" class="layui-tab layui-tab-brief layui-body" lay-allowClose="true" lay-filter="lay_MainBody">
             <ul class="layui-tab-title">
                 <li class="layui-this">主页</li>
                 <li>用户基本管理</li>
@@ -85,9 +84,9 @@
             </div>
         </div>
         @*<div class="layui-body">
-            <!-- 内容主体区域 -->
-            <div id="mainBody"></div>
-        </div>*@
+                <!-- 内容主体区域 -->
+                <div id="mainBody"></div>
+            </div>*@
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
@@ -103,19 +102,43 @@
         layui.use('element', function () {
             var element = layui.element;
 
+            var layid = $("lay-id");
+            console.log(layid);
+            //$("#yinZhang").click(() => {
+            //    element.tabChange(filter, layid);
+            //    element.tabAdd('layMainBody', {
+            //        title: '印章管理'
+            //        , content: '<h1>Hello World</h1>' //支持传入html
+            //        , id: '1'
+            //    });
+            //})
 
-            $("#yinZhang").click(() => {
-                element.tabChange(filter, layid);
-                element.tabAdd('layMainBody', {
-                    title: '印章管理'
-                    , content: '<h1>Hello World</h1>' //支持传入html
-                    , id: '1'
-                }); 
-            })
+            //this.getAttribute('lay-id');//获取当前选中的lay-id值 
+            element.on('tab(lay_MainBody)', function (data) {
+                console.log(this.getAttribute('lay-id'));
+            });
+            element.on('nav(lay_DaoHang)', function (elem) {
+                //console.log(this.getAttribute('lay-id')); //得到当前点击的DOM对象
+                //console.log(this.attributes[1].value);
+                var arr = ["信息登记", "生产管理", "信息查询"];
+                var isarr = $.inArray(this.text, arr);//判断数据是否存在数组中
+                if (isarr < 0) {//不存在
+                    
+                    element.tabAdd('lay_MainBody', {
+                        title: this.text
+                        , content: '<h1>Hello World</h1>' //支持传入html
+                        , id: this.attributes[1].value
+                    });
+                    element.tabChange("lay_MainBody", this.attributes[1].value);
+                }
+                else {
+                    //存在数据中
+                    //element.tabChange("lay_MainBody", this.attributes[1].value);
+                }
+                
+            });
 
-           
-
-
+            
 
 
 
