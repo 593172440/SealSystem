@@ -9,10 +9,10 @@
     <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
     <style>
         #mainBody {
-            padding-top: 0px;
-            padding-left: 2px;
-            padding-bottom: 2px;
-            padding-right: 2px;
+            padding-top: 4px;
+            padding-left: 4px;
+            padding-bottom: 4px;
+            padding-right: 4px;
         }
     </style>
 </head>
@@ -45,7 +45,7 @@
                         <a href="javascript:;">信息登记</a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;" lay-id="1">印章信息管理</a></dd>
-                            <dd><a href="javascript:;" lay-id="2">使用单位信息管理</a></dd>
+                            <dd><a href="/SealUseUnitInfors" lay-id="2">使用单位信息管理</a></dd>
                             <dd><a href="javascript:;" lay-id="3">制作单位信息管理</a></dd>
                         </dl>
                     </li>
@@ -66,26 +66,18 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;">后台设置 </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" lay-id="10">单位分类</a></dd>
+                            <dd><a href="/SealUnitClasses" lay-id="10">单位分类</a></dd>
                             <dd><a href="javascript:;" lay-id="11">公告通知查询 </a></dd>
                         </dl>
                     </li>
                 </ul>
             </div>
         </div>
-        <!--页面标签-->
-        <div id="mainBody" class="layui-tab layui-tab-brief layui-body" lay-allowClose="true" lay-filter="lay_MainBody">
-            <ul class="layui-tab-title">
-                <li class="layui-this">主页</li>
-            </ul>
-            <div class="layui-tab-content">
-                <div class="layui-tab-item layui-show">@RenderBody()</div>
-            </div>
+       
+       <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div id="mainBody">@RenderBody()</div>
         </div>
-        @*<div class="layui-body">
-                <!-- 内容主体区域 -->
-                <div id="mainBody"></div>
-            </div>*@
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
@@ -95,12 +87,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/Content/layui/layui.js"></script>
+    @*<script src="~/Content/layui/layui.js"></script>
     <script>
         //JavaScript代码区域
-        layui.use('element', function () {
+        layui.use(['element','table'], function () {
             var element = layui.element;
-
+            var table = layui.table;
 
             //$("#yinZhang").click(() => {
             //    element.tabChange(filter, layid);
@@ -112,33 +104,12 @@
             //})
 
 
-            var aciton = new Array();
             //监听左测导航选择
             element.on('nav(lay_DaoHang)', function (elem) {
-                aciton.length = 0;
 
-                $(".layui-tab.layui-tab-brief.layui-body li").each(function (data) {
-                    aciton.push($(this).text().replace('ဆ', ''));
-                });
-                console.log(aciton);
-                var isarr = $.inArray(this.text, aciton);//判断数据是否存在数组中
-                console.log(isarr);
-                //判断导航中文字是否存在tab中
-                if (isarr == -1 && this.getAttribute('lay-id') != null) {
-                    //增加选项卡
-                    element.tabAdd('lay_MainBody', {
-                        title: this.text
-                        , content: '' //支持传入html
-                        , id: this.getAttribute('lay-id')
-                    });
-                    element.tabChange("lay_MainBody", this.getAttribute('lay-id'));//获取当前选中的lay-id值
-                }
-                if (isarr >= 0) {
-                    element.tabChange("lay_MainBody", this.getAttribute('lay-id'));
-                }
             });
         });
-    </script>
+    </script>*@
 </body>
 
 </html>

@@ -29,3 +29,26 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+<script src="~/Content/layui/layui.js"></script>
+<script>
+        //JavaScript代码区域
+        layui.use(['element','table'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+            //$("#yinZhang").click(() => {
+            //    element.tabChange(filter, layid);
+            //    element.tabAdd('layMainBody', {
+            //        title: '印章管理'
+            //        , content: '<h1>Hello World</h1>' //支持传入html
+            //        , id: '1'
+            //    });
+            //})
+
+
+            //监听左测导航选择
+            element.on('nav(lay_DaoHang)', function (elem) {
+
+            });
+        });
+</script>

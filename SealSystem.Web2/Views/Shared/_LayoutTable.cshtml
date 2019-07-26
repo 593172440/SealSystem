@@ -1,25 +1,18 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Test</title>
+    <title>@ViewBag.Title</title>
     <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
 </head>
 <body>
 
 
     <table class="layui-hide" id="test"></table>
-
-
-
-
-
+    @*@RenderBody()*@
+    这是一个Table模板
+    
     <script src="~/Content/layui/layui.js"></script>
     <script>
         layui.use('table', function () {
