@@ -128,8 +128,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
+    <Compile Include="Controllers\SealUseUnitInforsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +239,16 @@
     <Content Include="Views\Shared\_PartialFooter.cshtml" />
     <Content Include="Views\Shared\_PartialTopNavigation.cshtml" />
     <Content Include="Views\Shared\_PartialTopHeadImages.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\Details.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\SealUseUnitInfors\Create.cshtml" />
+    <Content Include="Views\SealUseUnitInfors\Delete.cshtml" />
+    <Content Include="Views\SealUseUnitInfors\Details.cshtml" />
+    <Content Include="Views\SealUseUnitInfors\Edit.cshtml" />
+    <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

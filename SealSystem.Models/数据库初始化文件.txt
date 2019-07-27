@@ -35,3 +35,7 @@
                 new SealState { Code = "6", Name = "已缴销" },
                 new SealState { Code = "7", Name = "已挂失" }
                 );
+			context.Areas.AddOrUpdate(
+                new Area { Code = "120116", Name = "天津" }
+                );
+				

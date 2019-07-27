@@ -7,13 +7,13 @@ namespace SealSystem.Models.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class one : IMigrationMetadata
+    public sealed partial class tow : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(one));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tow));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907250726587_one"; }
+            get { return "201907271329138_tow"; }
         }
         
         string IMigrationMetadata.Source

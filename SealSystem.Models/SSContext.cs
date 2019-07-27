@@ -7,8 +7,8 @@
 
     public class SSContext : DbContext
     {
-
-        public SSContext() : base("con1")
+        //con1是112.112.112.18；con2是本地
+        public SSContext() : base("con2")
         {
             Database.SetInitializer<SSContext>(null);
         }
@@ -47,6 +47,10 @@
         /// 用户表(数据上下文)
         /// </summary>
         public DbSet<User> Users { get; set; }
+        /// <summary>
+        /// 地区区域表
+        /// </summary>
+        public DbSet<Area> Areas { get; set; }
 
 
         //------- 以下仅限数据库实例化 -----------------------

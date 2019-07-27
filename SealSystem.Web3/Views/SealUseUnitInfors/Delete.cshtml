@@ -1,0 +1,171 @@
+﻿@model SealSystem.Models.SealUseUnitInfor
+<div class="container body">
+    <div class="main_container">
+        <!--右上角头像区-->
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        <!--/右上角头像区-->
+        <!--顶部导航-->
+        <div class="top_nav">
+            <div class="nav_menu">
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+            </div>
+        </div>
+        <!--/顶部导航 -->
+        <!-- page content -->
+        <div class="right_col" role="main" style=null>
+            <div class="">
+                <!--内容模块-->
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>删除区域 <small>注:删除之后无法恢复</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.UnitNumber)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.UnitNumber)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.EthnicMinoritiesName)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.EthnicMinoritiesName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.EnglishName)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.EnglishName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.VoiceQueryPassword)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.VoiceQueryPassword)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.LegelPerson)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.LegelPerson)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.IdNumber)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.IdNumber)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.UnitAddress)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.UnitAddress)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Phone)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TheZipCode)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.TheZipCode)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.EnterpriseDocumentsType)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.EnterpriseDocumentsType)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.IdNumbers)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.IdNumbers)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CreateTime)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CreateTime)
+                                </dd>
+                            </dl>
+                            <div class="ln_solid"></div>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+
+                                    @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                    <input type="submit" value="删除" class="btn btn-danger" style="width:240px" />
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <!--/内容模块-->
+            </div>
+        </div>
+        <!-- /page content -->
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+    </div>
+</div>

@@ -1,0 +1,202 @@
+﻿@model SealSystem.Models.SealUseUnitInfor
+<div class="container body">
+    <div class="main_container">
+        <!--右上角头像区-->
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        <!--/右上角头像区-->
+        <!--顶部导航-->
+        <div class="top_nav">
+            <div class="nav_menu">
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+            </div>
+        </div>
+        <!--/顶部导航 -->
+        <!-- page content -->
+        <div class="right_col" role="main" style=null>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>增加单位 <small>增加单位详细信息</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <hr />
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            企业编号 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.UnitNumber, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.UnitNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位名称 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位名称(少数民族文字) <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.EthnicMinoritiesName, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                            @Html.ValidationMessageFor(model => model.EthnicMinoritiesName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位名称(英文名) <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                            @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位分类 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealUnitClass_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name" })
+                                            @Html.ValidationMessageFor(model => model.SealUnitClass_Id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位类型 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("EnterpriseType_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name" })
+                                            @Html.ValidationMessageFor(model => model.EnterpriseType_Id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            法定代表人 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.LegelPerson, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.LegelPerson, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            法定代表人身份证号 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.IdNumber, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.IdNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            法定代表人电话 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            企业证件类型 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="EnterpriseDocumentsType" class="form-control">
+                                                <option>统一社会信用代码</option>
+                                                <option>其它</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.EnterpriseDocumentsType, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            证件号 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.IdNumbers, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.IdNumbers, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            单位地址 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.UnitAddress, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.UnitAddress, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            区域信息 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("Area_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name" })
+                                            @Html.ValidationMessageFor(model => model.Area_Id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                                            @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                            <button type="submit" class="btn btn-success" style="width:240px">提交</button>
+                                            <button class="btn btn-primary" type="reset">重写</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+    </div>
+</div>
+
