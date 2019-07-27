@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SealSystem.Models
 {
@@ -14,18 +10,22 @@ namespace SealSystem.Models
         /// <summary>
         /// 图像宽度
         /// </summary>
+        [Display(Name = "图像宽度")]
         public string ImageWidth { get; set; }
         /// <summary>
         /// 图像高度
         /// </summary>
+        [Display(Name = "图像高度")]
         public string ImageHeight { get; set; }
         /// <summary>
         /// 压缩标记(图像是否压缩，1：压缩，2：不压缩)
         /// </summary>
+        [Display(Name = "压缩标记")]
         public string CompressTag { get; set; }
         /// <summary>
         /// 印章图像数据地址，默认为磁盘存放(但是这里要求为二进制数)
         /// </summary>
+        [Display(Name = "印章图像数据地址")]
         public string ImageDataPath { get; set; }
 
         //------------------------------------------------
@@ -33,18 +33,22 @@ namespace SealSystem.Models
         /// <summary>
         /// 印章规格(自定义下拉列表)
         /// </summary>
+        [Display(Name = "印章规格")]
         public int SealSpecification { get; set; }
         /// <summary>
         /// 印章形状(自定义下拉列表)
         /// </summary>
+        [Display(Name = "印章形状")]
         public string SealShape { get; set; }
         /// <summary>
         /// 刻制类型(自定义下拉列表)
         /// </summary>
+        [Display(Name = "刻制类型")]
         public string EngravingType { get; set; }
         /// <summary>
         /// 制作等级(自定义下拉列表)
         /// </summary>
+        [Display(Name = "制作等级")]
         public string EngravingLevel { get; set; }
     }
 }

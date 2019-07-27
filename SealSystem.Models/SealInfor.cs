@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SealSystem.Models
 {
@@ -17,10 +13,12 @@ namespace SealSystem.Models
         /// 印章编号(标准：GA 241.1)
         /// </summary>
         [Required]
+        [Display(Name = "印章编号")]
         public int SealInforNum { get; set; }
         /// <summary>
-        /// 印章名称
+        /// 印章名称(内容)
         /// </summary>
+        [Display(Name = "印章名称(内容)")]
         public int SealName { get; set; }
         /// <summary>
         /// 印章状态代码(标准：GA 241.2)
@@ -61,50 +59,62 @@ namespace SealSystem.Models
         /// <summary>
         /// 印油说明
         /// </summary>
+        [Display(Name = "印油说明")]
         public string ManyInstructions { get; set; }
         /// <summary>
-        /// 经办人
+        /// 经办人(申请人)
         /// </summary>
+        [Display(Name = "经办人(申请人)")]
         public string Attention { get; set; }
         /// <summary>
         /// 经办人身份证
         /// </summary>
+        [Display(Name = "经办人身份证")]
         public string AttentionIdCard { get; set; }
         /// <summary>
         /// 审批人
         /// </summary>
+        [Display(Name = "审批人")]
         public string Approval{ get; set; }
         /// <summary>
         /// 审批日期
         /// </summary>
+        [Display(Name = "审批日期")]
         public DateTime ApprovalTime { get; set; }
         /// <summary>
         /// 承接日期
         /// </summary>
+        [Display(Name = "承接日期")]
         public DateTime UndertakeTime { get; set; }
         /// <summary>
         /// 制作日期
         /// </summary>
+        [Display(Name = "制作日期")]
         public DateTime MakingTime { get; set; }
         /// <summary>
         /// 交付日期
         /// </summary>
+        [Display(Name = "交付日期")]
         public DateTime DeliveryTime { get; set; }
         /// <summary>
         /// 报废日期
         /// </summary>
+        [Display(Name = "报废日期")]
         public DateTime ScrapTime { get; set; }
         /// <summary>
         /// 缴销日期
         /// </summary>
+        [Display(Name = "缴销日期")]
         public DateTime HandTime { get; set; }
         /// <summary>
         /// 挂失日期
         /// </summary>
+        [Display(Name = "挂失日期")]
         public DateTime LossTime { get; set; }
         /// <summary>
         /// 最后年检日期
         /// </summary>
+        [Display(Name = "最后年检日期")]
         public DateTime LastAnnualTime { get; set; }
         /// <summary>
         /// 印章图像信息(外键)

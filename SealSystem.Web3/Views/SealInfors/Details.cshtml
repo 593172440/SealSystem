@@ -1,0 +1,202 @@
+﻿@model SealSystem.Models.SealInfor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SealInfor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SealApprovalUnitInfor.ApprovalUnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealApprovalUnitInfor.ApprovalUnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealCategory.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealCategory.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealImageData.ImageWidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealImageData.ImageWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealMakingUnitInfor.MakingUnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealMakingUnitInfor.MakingUnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealMaterial.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealMaterial.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealState.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealState.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealUseUnitInfor.UnitNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealUseUnitInfor.UnitNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealInforNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealInforNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManyInstructions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManyInstructions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Attention)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attention)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttentionIdCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttentionIdCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UndertakeTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UndertakeTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScrapTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScrapTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HandTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HandTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LossTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LossTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastAnnualTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastAnnualTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRemoved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRemoved)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

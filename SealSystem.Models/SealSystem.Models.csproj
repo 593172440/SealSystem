@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201907271329138_tow.Designer.cs">
       <DependentUpon>201907271329138_tow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907271619042_002.cs" />
+    <Compile Include="Migrations\201907271619042_002.Designer.cs">
+      <DependentUpon>201907271619042_002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealImageData.cs" />
@@ -81,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907271329138_tow.resx">
       <DependentUpon>201907271329138_tow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907271619042_002.resx">
+      <DependentUpon>201907271619042_002.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

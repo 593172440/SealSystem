@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SealInforsController.cs" />
+    <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -249,6 +251,16 @@
     <Content Include="Views\SealUseUnitInfors\Details.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
+    <Content Include="Views\SealMakingUnitInfors\Create.cshtml" />
+    <Content Include="Views\SealMakingUnitInfors\Delete.cshtml" />
+    <Content Include="Views\SealMakingUnitInfors\Details.cshtml" />
+    <Content Include="Views\SealMakingUnitInfors\Edit.cshtml" />
+    <Content Include="Views\SealMakingUnitInfors\Index.cshtml" />
+    <Content Include="Views\SealInfors\Create.cshtml" />
+    <Content Include="Views\SealInfors\Delete.cshtml" />
+    <Content Include="Views\SealInfors\Details.cshtml" />
+    <Content Include="Views\SealInfors\Edit.cshtml" />
+    <Content Include="Views\SealInfors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
