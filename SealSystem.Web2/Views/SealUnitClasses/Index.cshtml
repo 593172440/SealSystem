@@ -1,132 +1,52 @@
 ﻿@model IEnumerable<SealSystem.Models.SealUnitClass>
-@using SealSystem.Web2.Models
-@using Newtonsoft.Json;
 
 @{
-
+    
 }
 
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">后台设置</li>
+    <li class="active">单位分类</li>
 
-<body>
-    @*<p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreateTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsRemoved)
-                </th>
-                <th></th>
-            </tr>
+</ol>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreateTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsRemoved)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-            }
+<p>
+    @Html.ActionLink("创建", "Create","", new { @Class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRemoved)
+        </th>
+        <th></th>
+    </tr>
 
-        </table>*@
-    <table class="layui-hide" id="test" lay-filter="test"></table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRemoved)
+        </td>
+        <td>
+            <div class="btn-group  btn-group-sm" role="group" aria-label="...">
+                @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @Class = "btn btn-default" })
+                @Html.ActionLink("查看", "Details", new { id = item.Id }, new { @Class = "btn btn-default" })
+                @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @Class = "btn btn-default" })
+            </div>
+        </td>
+    </tr>
+}
 
-    <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-
-    </script>
-
-
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
-    <script src="~/Content/layui/layui.js"></script>
-    <script>
-        layui.use(['element', 'table'], function () {
-            var element = layui.element;
-            var table = layui.table;
-
-            table.render({
-                elem: '#test'
-                , url: '/SealUnitClasses/DataJsons'
-                , toolbar: 'default'
-                , title: '用户数据表'
-                , cellMinWidth: 60
-                , height: 'full-200'
-                , page: true
-                , cols: [[
-                    { type: 'checkbox', fixed: 'left' }
-                    , { field: 'Id', title: '@Html.DisplayNameFor(model => model.Id)' }
-                    , { field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)' }
-                    , { field: 'CreateTime', title: '@Html.DisplayNameFor(model => model.CreateTime)' }
-                    , {fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}
-                ]]
-            });
-
-            //监听头部工具栏事件
-            table.on('toolbar(test)', function (obj) {
-                var checkStatus = table.checkStatus(obj.config.id);
-                switch (obj.event) {
-                    case 'add':
-                        layer.msg('添加');
-                        break;
-                    case 'delete':
-                        layer.msg('删除');
-                        break;
-                    case 'update':
-                        layer.msg('编辑');
-                        break;
-                };
-            });
-            //监听复选框选择
-            table.on('checkbox(test)', function (obj) {
-                console.log(obj.checked); //当前是否选中状态
-                console.log(obj.data.Id); //选中行的相关数据
-                console.log(obj.type); //如果触发的是全选，则为：all，如果触发的是单选，则为：one
-            });
-
-            //监听工具条
-            table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
-                var data = obj.data; //获得当前行数据
-                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-                var tr = obj.tr; //获得当前行 tr 的DOM对象
-                if (layEvent === 'detail') { //查看
-                    var ids = data.Id;
-                    window.location = '/SealUnitClasses/Details/' + ids;                           
-                } else if (layEvent === 'del') { //删除
-                    layer.confirm('真的删除行么', function (index) {
-                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
-                        layer.close(index);
-                        //向服务端发送删除指令
-                    });
-                } else if (layEvent === 'edit') { //编辑
-                    //do something
-
-                    //同步更新缓存对应的值
-                    obj.update({
-                        username: '123'
-                        , title: 'xxx'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-
+</table>

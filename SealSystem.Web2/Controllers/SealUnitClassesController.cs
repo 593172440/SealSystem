@@ -8,8 +8,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SealSystem.Models;
-using SealSystem.Web2.Models;
-using Newtonsoft.Json;
 
 namespace SealSystem.Web2.Controllers
 {
@@ -19,20 +17,10 @@ namespace SealSystem.Web2.Controllers
 
         // GET: SealUnitClasses
         public async Task<ActionResult> Index()
-        {   
+        {
             return View(await db.EnterpriseClasses.ToListAsync());
         }
-        public string DataJsons()
-        {
-            DataJson datajson = new DataJson()
-            {
-                code = 0,
-                count = 10,
-                msg = "",
-                data = db.EnterpriseClasses.ToArray()
-            };
-            return JsonConvert.SerializeObject(datajson);
-        }
+
         // GET: SealUnitClasses/Details/5
         public async Task<ActionResult> Details(int? id)
         {

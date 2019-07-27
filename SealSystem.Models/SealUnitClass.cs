@@ -16,6 +16,7 @@ namespace SealSystem.Models
         /// 单位分类名称
         /// </summary>
         [Required]
+        [Display(Name ="单位分类名称")]
         public string Name { get; set; }
     }
 }

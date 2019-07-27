@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
 
-        public SSContext() : base("con2")
+        public SSContext() : base("con1")
         {
             Database.SetInitializer<SSContext>(null);
         }

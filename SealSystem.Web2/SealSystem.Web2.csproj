@@ -288,12 +288,12 @@
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Shared\_LayoutTable.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\SealUnitClasses\Create.cshtml" />
     <Content Include="Views\SealUnitClasses\Delete.cshtml" />
     <Content Include="Views\SealUnitClasses\Details.cshtml" />
     <Content Include="Views\SealUnitClasses\Edit.cshtml" />
     <Content Include="Views\SealUnitClasses\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

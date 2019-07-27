@@ -4,10 +4,15 @@
      ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="active">信息登录</li>
+    <li class="active">使用单位信息管理</li>
+</ol>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("创建", "Create", "", new { @Class = "btn btn-default" })
 </p>
 <table class="table">
     <tr>
