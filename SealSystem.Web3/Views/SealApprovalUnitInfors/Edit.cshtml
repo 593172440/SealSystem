@@ -1,0 +1,129 @@
+﻿@model SealSystem.Models.SealApprovalUnitInfor
+<div class="container body">
+    <div class="main_container">
+        <!--右上角头像区-->
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        <!--/右上角头像区-->
+        <!--顶部导航-->
+        <div class="top_nav">
+            <div class="nav_menu">
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+            </div>
+        </div>
+        <!--/顶部导航 -->
+        <!-- page content -->
+        <div class="right_col" role="main" style=null>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>增加单位 <small>增加单位详细信息</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        <hr />
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                备案单位编码 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.ApprovalUnitCode, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.ApprovalUnitCode, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                单位名称 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                负责人 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.LegelPerson, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.LegelPerson, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                单位地址 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.UnitAddress, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.UnitAddress, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                电话 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                邮政编码 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.TheZipCode, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                                @Html.ValidationMessageFor(model => model.TheZipCode, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                                                @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                                <button type="submit" class="btn btn-success" style="width:240px">提交</button>
+                                                <button class="btn btn-primary" type="reset">重写</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+    </div>
+</div>

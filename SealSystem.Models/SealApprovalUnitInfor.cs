@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 印章审批单位信息表
+    /// 印章备案(审批)单位信息表
     /// </summary>
     public class SealApprovalUnitInfor:BaseEntity
     {
         /// <summary>
-        /// 审批单位编码(标准：GA 241.1)
+        /// 备案单位编码(标准：GA 241.1)
         /// </summary>
-        [Display(Name = "审批单位编码")]
+        [Display(Name = "备案单位编码")]
         public string ApprovalUnitCode { get; set; }
         /// <summary>
         /// 单位名称(汉字)

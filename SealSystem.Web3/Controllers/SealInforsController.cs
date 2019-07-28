@@ -55,7 +55,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,CreateTime,IsRemoved")] SealInfor sealInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,SealSpecification,SealShape,EngravingType,EngravingLevel,CreateTime,IsRemoved")] SealInfor sealInfor)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,CreateTime,IsRemoved")] SealInfor sealInfor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,SealSpecification,SealShape,EngravingType,EngravingLevel,CreateTime,IsRemoved")] SealInfor sealInfor)
         {
             if (ModelState.IsValid)
             {

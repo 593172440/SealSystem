@@ -152,7 +152,12 @@
                                                 营业状态 <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.BusinessState, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                                <select name="BusinessState" class="form-control">
+                                                    <option>正常营业</option>
+                                                    <option>停业整顿</option>
+                                                    <option>申请入网</option>
+                                                </select>
+                                                @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
                                                 @Html.ValidationMessageFor(model => model.BusinessState, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

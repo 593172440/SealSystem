@@ -10,16 +10,16 @@ namespace SealSystem.Models
     public class SealInfor:BaseEntity
     {
         /// <summary>
-        /// 印章编号(标准：GA 241.1)
+        /// 印章编码(标准：GA 241.1)
         /// </summary>
         [Required]
-        [Display(Name = "印章编号")]
-        public int SealInforNum { get; set; }
+        [Display(Name = "印章编码")]
+        public string SealInforNum { get; set; }
         /// <summary>
         /// 印章名称(内容)
         /// </summary>
         [Display(Name = "印章名称(内容)")]
-        public int SealName { get; set; }
+        public string SealName { get; set; }
         /// <summary>
         /// 印章状态代码(标准：GA 241.2)
         /// </summary>
@@ -33,7 +33,7 @@ namespace SealSystem.Models
         public int SealUseUnitInfor_Id_UnitNumber { get; set; }
         public SealUseUnitInfor SealUseUnitInfor { get; set; }
         /// <summary>
-        /// 审批单位编码(标准：GA 241.1)
+        /// 备案单位编码(标准：GA 241.1)
         /// </summary>
         [ForeignKey(nameof(SealApprovalUnitInfor))]
         public int SealApprovalUnitInfor_Id_ApprovalUnitCode { get; set; }
@@ -72,50 +72,50 @@ namespace SealSystem.Models
         [Display(Name = "经办人身份证")]
         public string AttentionIdCard { get; set; }
         /// <summary>
-        /// 审批人
+        /// 备案人
         /// </summary>
         [Display(Name = "审批人")]
         public string Approval{ get; set; }
         /// <summary>
-        /// 审批日期
+        /// 备案日期
         /// </summary>
         [Display(Name = "审批日期")]
-        public DateTime ApprovalTime { get; set; }
+        public DateTime? ApprovalTime { get; set; }
         /// <summary>
         /// 承接日期
         /// </summary>
         [Display(Name = "承接日期")]
-        public DateTime UndertakeTime { get; set; }
+        public DateTime? UndertakeTime { get; set; }
         /// <summary>
         /// 制作日期
         /// </summary>
         [Display(Name = "制作日期")]
-        public DateTime MakingTime { get; set; }
+        public DateTime? MakingTime { get; set; }
         /// <summary>
         /// 交付日期
         /// </summary>
         [Display(Name = "交付日期")]
-        public DateTime DeliveryTime { get; set; }
+        public DateTime? DeliveryTime { get; set; }
         /// <summary>
         /// 报废日期
         /// </summary>
         [Display(Name = "报废日期")]
-        public DateTime ScrapTime { get; set; }
+        public DateTime? ScrapTime { get; set; }
         /// <summary>
         /// 缴销日期
         /// </summary>
         [Display(Name = "缴销日期")]
-        public DateTime HandTime { get; set; }
+        public DateTime? HandTime { get; set; }
         /// <summary>
         /// 挂失日期
         /// </summary>
         [Display(Name = "挂失日期")]
-        public DateTime LossTime { get; set; }
+        public DateTime? LossTime { get; set; }
         /// <summary>
         /// 最后年检日期
         /// </summary>
         [Display(Name = "最后年检日期")]
-        public DateTime LastAnnualTime { get; set; }
+        public DateTime? LastAnnualTime { get; set; }
         /// <summary>
         /// 印章图像信息(外键)
         /// </summary>
@@ -123,7 +123,29 @@ namespace SealSystem.Models
         public int SealImageData_Id { get; set; }
         public SealImageData SealImageData { get; set; }
 
-        
+
+        //------------------------------------------------
+
+        /// <summary>
+        /// 印章规格(自定义下拉列表)
+        /// </summary>
+        [Display(Name = "印章规格")]
+        public string SealSpecification { get; set; }
+        /// <summary>
+        /// 印章形状(自定义下拉列表)
+        /// </summary>
+        [Display(Name = "印章形状")]
+        public string SealShape { get; set; }
+        /// <summary>
+        /// 刻制类型(自定义下拉列表)
+        /// </summary>
+        [Display(Name = "刻制类型")]
+        public string EngravingType { get; set; }
+        /// <summary>
+        /// 制作等级(自定义下拉列表)
+        /// </summary>
+        [Display(Name = "制作等级")]
+        public string EngravingLevel { get; set; }
 
 
     }

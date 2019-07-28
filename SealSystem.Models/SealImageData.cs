@@ -28,27 +28,6 @@ namespace SealSystem.Models
         [Display(Name = "印章图像数据地址")]
         public string ImageDataPath { get; set; }
 
-        //------------------------------------------------
-
-        /// <summary>
-        /// 印章规格(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "印章规格")]
-        public int SealSpecification { get; set; }
-        /// <summary>
-        /// 印章形状(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "印章形状")]
-        public string SealShape { get; set; }
-        /// <summary>
-        /// 刻制类型(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "刻制类型")]
-        public string EngravingType { get; set; }
-        /// <summary>
-        /// 制作等级(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "制作等级")]
-        public string EngravingLevel { get; set; }
+       
     }
 }

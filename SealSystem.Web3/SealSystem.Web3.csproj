@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealInforsController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
@@ -261,6 +262,11 @@
     <Content Include="Views\SealInfors\Details.cshtml" />
     <Content Include="Views\SealInfors\Edit.cshtml" />
     <Content Include="Views\SealInfors\Index.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Create.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Delete.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

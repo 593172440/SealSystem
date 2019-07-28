@@ -60,6 +60,22 @@
     <Compile Include="Migrations\201907271619042_002.Designer.cs">
       <DependentUpon>201907271619042_002.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907281322190_003.cs" />
+    <Compile Include="Migrations\201907281322190_003.Designer.cs">
+      <DependentUpon>201907281322190_003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907281356120_004.cs" />
+    <Compile Include="Migrations\201907281356120_004.Designer.cs">
+      <DependentUpon>201907281356120_004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907281425026_005.cs" />
+    <Compile Include="Migrations\201907281425026_005.Designer.cs">
+      <DependentUpon>201907281425026_005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907281445086_006.cs" />
+    <Compile Include="Migrations\201907281445086_006.Designer.cs">
+      <DependentUpon>201907281445086_006.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealImageData.cs" />
@@ -88,6 +104,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907271619042_002.resx">
       <DependentUpon>201907271619042_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281322190_003.resx">
+      <DependentUpon>201907281322190_003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281356120_004.resx">
+      <DependentUpon>201907281356120_004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281425026_005.resx">
+      <DependentUpon>201907281425026_005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281445086_006.resx">
+      <DependentUpon>201907281445086_006.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
