@@ -18,7 +18,7 @@ namespace SealSystem.Web3.Controllers
         // GET: SealUnitClasses
         public async Task<ActionResult> Index()
         {
-            return View(await db.EnterpriseClasses.ToListAsync());
+            return View(await db.SealUnitClasses.ToListAsync());
         }
 
         // GET: SealUnitClasses/Details/5
@@ -28,7 +28,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.EnterpriseClasses.FindAsync(id);
+            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
             if (sealUnitClass == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace SealSystem.Web3.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.EnterpriseClasses.Add(sealUnitClass);
+                db.SealUnitClasses.Add(sealUnitClass);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.EnterpriseClasses.FindAsync(id);
+            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
             if (sealUnitClass == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.EnterpriseClasses.FindAsync(id);
+            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
             if (sealUnitClass == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace SealSystem.Web3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SealUnitClass sealUnitClass = await db.EnterpriseClasses.FindAsync(id);
-            db.EnterpriseClasses.Remove(sealUnitClass);
+            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
+            db.SealUnitClasses.Remove(sealUnitClass);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

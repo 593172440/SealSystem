@@ -54,7 +54,7 @@ namespace SealSystem.Models.Migrations
             context.Areas.AddOrUpdate(
                 new Area { Code = "120116", Name = "Ìì½ò" }
                 );
-
+            
         }
     }
 }

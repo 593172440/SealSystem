@@ -35,7 +35,7 @@
         /// <summary>
         /// 单位分类表(数据上下文)
         /// </summary>
-        public DbSet<SealUnitClass> EnterpriseClasses { get; set; }
+        public DbSet<SealUnitClass> SealUnitClasses { get; set; }
         /// <summary>
         /// 印章使用单位信息表(数据上下文)
         /// </summary>

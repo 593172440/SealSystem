@@ -42,7 +42,7 @@ namespace SealSystem.Web3.Controllers
         {
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code");
             ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name");
-            ViewBag.SealUnitClass_Id = new SelectList(db.EnterpriseClasses, "Id", "Name");
+            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace SealSystem.Web3.Controllers
 
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
             ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.EnterpriseClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
+            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 
@@ -80,7 +80,7 @@ namespace SealSystem.Web3.Controllers
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
             ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.EnterpriseClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
+            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 
@@ -99,7 +99,7 @@ namespace SealSystem.Web3.Controllers
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
             ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.EnterpriseClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
+            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 
