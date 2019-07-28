@@ -18,7 +18,7 @@ namespace SealSystem.Web3.Controllers
         // GET: SealInfors
         public async Task<ActionResult> Index()
         {
-            var sealInfors = db.SealInfors.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealImageData).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealState).Include(s => s.SealUseUnitInfor);
+            var sealInfors = db.SealInfors.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealState).Include(s => s.SealUseUnitInfor);
             return View(await sealInfors.ToListAsync());
         }
 
@@ -42,7 +42,6 @@ namespace SealSystem.Web3.Controllers
         {
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode");
             ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name");
-            ViewBag.SealImageData_Id = new SelectList(db.SealImageDatas, "Id", "ImageWidth");
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode");
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name");
             ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name");
@@ -55,7 +54,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,SealSpecification,SealShape,EngravingType,EngravingLevel,CreateTime,IsRemoved")] SealInfor sealInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,ImageWidth,ImageHeight,CompressTag,ImageDataPath,SealSpecification,SealShape,EngravingType,EngravingLevel,RegistrationCategory,CreateTime,IsRemoved")] SealInfor sealInfor)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +65,6 @@ namespace SealSystem.Web3.Controllers
 
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode", sealInfor.SealApprovalUnitInfor_Id_ApprovalUnitCode);
             ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name", sealInfor.SealCategory_Id_Code);
-            ViewBag.SealImageData_Id = new SelectList(db.SealImageDatas, "Id", "ImageWidth", sealInfor.SealImageData_Id);
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode", sealInfor.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInfor.SealMaterial_Id_Code);
             ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInfor.SealState_Id_Code);
@@ -88,7 +86,6 @@ namespace SealSystem.Web3.Controllers
             }
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode", sealInfor.SealApprovalUnitInfor_Id_ApprovalUnitCode);
             ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name", sealInfor.SealCategory_Id_Code);
-            ViewBag.SealImageData_Id = new SelectList(db.SealImageDatas, "Id", "ImageWidth", sealInfor.SealImageData_Id);
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode", sealInfor.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInfor.SealMaterial_Id_Code);
             ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInfor.SealState_Id_Code);
@@ -101,7 +98,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,SealImageData_Id,SealSpecification,SealShape,EngravingType,EngravingLevel,CreateTime,IsRemoved")] SealInfor sealInfor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealName,SealState_Id_Code,SealUseUnitInfor_Id_UnitNumber,SealApprovalUnitInfor_Id_ApprovalUnitCode,SealMakingUnitInfor_Id_MakingUnitCode,SealCategory_Id_Code,SealMaterial_Id_Code,ManyInstructions,Attention,AttentionIdCard,Approval,ApprovalTime,UndertakeTime,MakingTime,DeliveryTime,ScrapTime,HandTime,LossTime,LastAnnualTime,ImageWidth,ImageHeight,CompressTag,ImageDataPath,SealSpecification,SealShape,EngravingType,EngravingLevel,RegistrationCategory,CreateTime,IsRemoved")] SealInfor sealInfor)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +108,6 @@ namespace SealSystem.Web3.Controllers
             }
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode", sealInfor.SealApprovalUnitInfor_Id_ApprovalUnitCode);
             ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name", sealInfor.SealCategory_Id_Code);
-            ViewBag.SealImageData_Id = new SelectList(db.SealImageDatas, "Id", "ImageWidth", sealInfor.SealImageData_Id);
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode", sealInfor.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInfor.SealMaterial_Id_Code);
             ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInfor.SealState_Id_Code);

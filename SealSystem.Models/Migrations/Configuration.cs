@@ -55,7 +55,6 @@ namespace SealSystem.Models.Migrations
                 new Area { Code = "120116", Name = "Ìì½ò" }
                 );
 
-
         }
     }
 }

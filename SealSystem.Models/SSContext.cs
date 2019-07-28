@@ -23,10 +23,7 @@
         /// 印章审批单位信息表(数据上下文)
         /// </summary>
         public DbSet<SealApprovalUnitInfor> SealApprovalUnitInfors { get; set; }
-        /// <summary>
-        /// 印章图像信息表(数据上下文)
-        /// </summary>
-        public DbSet<SealImageData> SealImageDatas { get; set; }
+       
         /// <summary>
         /// 印章基本信息表(数据上下文)
         /// </summary>
@@ -51,7 +48,10 @@
         /// 地区区域表
         /// </summary>
         public DbSet<Area> Areas { get; set; }
-
+        /// <summary>
+        /// 文件上传表
+        /// </summary>
+        public DbSet<DataFile> DataFiles { get; set; }
 
         //------- 以下仅限数据库实例化 -----------------------
 

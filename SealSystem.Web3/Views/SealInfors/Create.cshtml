@@ -1,116 +1,19 @@
 ﻿@model SealSystem.Models.SealInfor
 
-
-
-@using (Html.BeginForm()) 
+@*@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>SealInfor</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealInforNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SealInforNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SealName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SealName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealState_Id_Code, "SealState_Id_Code", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealState_Id_Code", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealState_Id_Code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealUseUnitInfor_Id_UnitNumber, "SealUseUnitInfor_Id_UnitNumber", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealUseUnitInfor_Id_UnitNumber", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealApprovalUnitInfor_Id_ApprovalUnitCode, "SealApprovalUnitInfor_Id_ApprovalUnitCode", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealApprovalUnitInfor_Id_ApprovalUnitCode", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealApprovalUnitInfor_Id_ApprovalUnitCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "SealMakingUnitInfor_Id_MakingUnitCode", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealMakingUnitInfor_Id_MakingUnitCode", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealCategory_Id_Code, "SealCategory_Id_Code", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SealMaterial_Id_Code, "SealMaterial_Id_Code", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.ManyInstructions, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ManyInstructions, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ManyInstructions, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Attention, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AttentionIdCard, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AttentionIdCard, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Approval, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Approval, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ApprovalTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -171,71 +74,290 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SealImageData_Id, "SealImageData_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ImageWidth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SealImageData_Id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SealImageData_Id, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ImageWidth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImageWidth, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SealSpecification, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ImageHeight, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SealSpecification, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ImageHeight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImageHeight, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SealShape, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CompressTag, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SealShape, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.CompressTag, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompressTag, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EngravingType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ImageDataPath, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EngravingType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EngravingType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EngravingLevel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EngravingLevel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EngravingLevel, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreateTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreateTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsRemoved, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsRemoved)
-                    @Html.ValidationMessageFor(model => model.IsRemoved, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                @Html.EditorFor(model => model.ImageDataPath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImageDataPath, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
-}
+}*@
+
+<div class="container body">
+    <div class="main_container">
+        <!--右上角头像区-->
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        <!--/右上角头像区-->
+        <!--顶部导航-->
+        <div class="top_nav">
+            <div class="nav_menu">
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+            </div>
+        </div>
+        <!--/顶部导航 -->
+        <!-- page content -->
+        <div class="right_col" role="main" style=null>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>增加印章(未完成) <small>增加印章信息</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br />
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <hr />
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章编号 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.SealInforNum, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章类型 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章规格 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="SealSpecification" class="form-control" id="SealSpecification">
+                                                <option>40公章</option>
+                                                <option>30公章</option>
+                                                <option>20公章</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章内容 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.SealName, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                            @Html.ValidationMessageFor(model => model.SealName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章材料 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            制作等级 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="EngravingLevel" class="form-control">
+                                                <option>普通</option>
+                                                <option>一级</option>
+                                                <option>二级</option>
+                                                <option>三级</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.EngravingLevel, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            刻制类型 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="EngravingType" class="form-control">
+                                                <option>类型一</option>
+                                                <option>类型二</option>
+                                                <option>类型三</option>
+                                                <option>类型四</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.EngravingType, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            登记类别 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="RegistrationCategory" class="form-control">
+                                                <option>企业登记章</option>
+                                                <option>企业登记章1</option>
+                                                <option>企业登记章2</option>
+                                                <option>其它</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.RegistrationCategory, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章状态 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealState_Id_Code", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealState_Id_Code, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            使用单位编码 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealUseUnitInfor_Id_UnitNumber", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            备案单位编码 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealApprovalUnitInfor_Id_ApprovalUnitCode", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealApprovalUnitInfor_Id_ApprovalUnitCode, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            制作单位编码 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("SealMakingUnitInfor_Id_MakingUnitCode", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            经办人 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            经办人身份证 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.AttentionIdCard, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            备案人 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Approval, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            备案日期 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            印章形状 <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="SealShape" class="form-control">
+                                                <option>圆形</option>
+                                                <option>方形</option>
+                                                <option>其它形</option>
+                                            </select>
+                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            @Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                                            @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                            <button type="submit" class="btn btn-success" style="width:240px">提交</button>
+                                            <button class="btn btn-primary" type="reset">重写</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
-
+        </div>
+        <!-- /page content -->
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+    </div>
+</div>

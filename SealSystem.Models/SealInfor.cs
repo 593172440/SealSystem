@@ -74,12 +74,12 @@ namespace SealSystem.Models
         /// <summary>
         /// 备案人
         /// </summary>
-        [Display(Name = "审批人")]
+        [Display(Name = "备案人")]
         public string Approval{ get; set; }
         /// <summary>
         /// 备案日期
         /// </summary>
-        [Display(Name = "审批日期")]
+        [Display(Name = "备案日期")]
         public DateTime? ApprovalTime { get; set; }
         /// <summary>
         /// 承接日期
@@ -117,12 +117,26 @@ namespace SealSystem.Models
         [Display(Name = "最后年检日期")]
         public DateTime? LastAnnualTime { get; set; }
         /// <summary>
-        /// 印章图像信息(外键)
+        /// 图像宽度
         /// </summary>
-        [ForeignKey(nameof(SealImageData))]
-        public int SealImageData_Id { get; set; }
-        public SealImageData SealImageData { get; set; }
-
+        [Display(Name = "图像宽度")]
+        public string ImageWidth { get; set; }
+        /// <summary>
+        /// 图像高度
+        /// </summary>
+        [Display(Name = "图像高度")]
+        public string ImageHeight { get; set; }
+        /// <summary>
+        /// 压缩标记(图像是否压缩，1：压缩，2：不压缩)
+        /// </summary>
+        [Display(Name = "压缩标记")]
+        public string CompressTag { get; set; }
+        /// <summary>
+        /// 印章图像数据地址，默认为磁盘存放(但是这里要求为二进制数)
+        /// </summary>
+        [Display(Name = "印章图像数据地址")]
+        public string ImageDataPath { get; set; }
+        
 
         //------------------------------------------------
 
@@ -146,7 +160,11 @@ namespace SealSystem.Models
         /// </summary>
         [Display(Name = "制作等级")]
         public string EngravingLevel { get; set; }
-
+        /// <summary>
+        /// 登记类别
+        /// </summary>
+        [Display(Name = "登记类别")]
+        public string RegistrationCategory { get; set; }
 
     }
 }
