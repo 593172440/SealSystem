@@ -16,16 +16,16 @@ namespace SealSystem.Web3.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Index(SealSystem.Models.User model)
+        public async Task<ActionResult> Index(string userName,string userPwd)
         {
             if (ModelState.IsValid)
             {
                 BLL.UserBLL user = new BLL.UserBLL();
-                if(await user.Login(model.UserName, model.UserPwd))
+                if(await user.Login(userName, userPwd))
                 {
                     //跳转
                     //判断是用Session还是用cookie
-                    Session["loginName"] = model.UserName;
+                    Session["loginName"] = userName;
                     return RedirectToAction("index", "Home");
                 }
                 else
