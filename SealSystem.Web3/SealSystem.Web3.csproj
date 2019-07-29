@@ -201,6 +201,7 @@
     <Content Include="Scripts\dataTables.keyTable.min.js" />
     <Content Include="Scripts\dataTables.responsive.min.js" />
     <Content Include="Scripts\dataTables.scroller.min.js" />
+    <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\icheck.min.js" />
