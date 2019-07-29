@@ -26,5 +26,6 @@ namespace SealSystem.Web3.Controllers
 
             return View();
         }
+        
     }
 }
