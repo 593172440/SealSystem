@@ -13,7 +13,7 @@ namespace SealSystem.Models.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201907281754578_001"; }
+            get { return "201907290051531_001"; }
         }
         
         string IMigrationMetadata.Source

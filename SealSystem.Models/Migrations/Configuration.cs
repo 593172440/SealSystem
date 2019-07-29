@@ -51,10 +51,19 @@ namespace SealSystem.Models.Migrations
                 new SealState { Code = "6", Name = "已缴销" },
                 new SealState { Code = "7", Name = "已挂失" }
                 );
+            //地区区域
             context.Areas.AddOrUpdate(
                 new Area { Code = "120116", Name = "天津" }
                 );
-            
+            //单位分类
+            context.SealUnitClasses.AddOrUpdate(
+                new SealUnitClass {  Name = "农,林,牧,渔业" },
+                new SealUnitClass {  Name = "采掘业" },
+                new SealUnitClass {  Name = "制造业" },
+                new SealUnitClass {  Name = "其它" }
+                );
+
+
         }
     }
 }

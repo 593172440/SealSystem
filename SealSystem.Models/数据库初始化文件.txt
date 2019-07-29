@@ -39,11 +39,11 @@
 			context.Areas.AddOrUpdate(
                 new Area { Code = "120116", Name = "天津" }
                 );
-				//单位分类
-			context.SealUnitClasses.AddOrUpdate(
-				new SealUnitClass { Code = "1", Name = "农,林,牧,渔业" },
-				new SealUnitClass { Code = "1", Name = "采掘业" },
-				new SealUnitClass { Code = "1", Name = "制造业" },
-				new SealUnitClass { Code = "1", Name = "其它" }
+				 //单位分类
+            context.SealUnitClasses.AddOrUpdate(
+                new SealUnitClass {  Name = "农,林,牧,渔业" },
+                new SealUnitClass {  Name = "采掘业" },
+                new SealUnitClass {  Name = "制造业" },
+                new SealUnitClass {  Name = "其它" }
                 );
 				

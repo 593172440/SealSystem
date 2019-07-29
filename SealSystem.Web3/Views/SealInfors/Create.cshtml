@@ -106,7 +106,6 @@
         </div>
     </div>
 }*@
-
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -155,26 +154,25 @@
                                 @Html.AntiForgeryToken()
 
                                 <div class="form-horizontal">
-                                    <hr />
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章编号 <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-6 col-xs-12">
                                             @Html.EditorFor(model => model.SealInforNum, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章类型 <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-6 col-xs-12">
                                             @Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章规格 <span class="required"></span>
                                         </label>
@@ -188,7 +186,7 @@
                                             @Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章内容 <span class="required"></span>
                                         </label>
@@ -197,7 +195,7 @@
                                             @Html.ValidationMessageFor(model => model.SealName, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章材料 <span class="required"></span>
                                         </label>
@@ -206,7 +204,7 @@
                                             @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             制作等级 <span class="required"></span>
                                         </label>
@@ -221,7 +219,7 @@
                                             @Html.ValidationMessageFor(model => model.EngravingLevel, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             刻制类型 <span class="required"></span>
                                         </label>
@@ -236,7 +234,7 @@
                                             @Html.ValidationMessageFor(model => model.EngravingType, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             登记类别 <span class="required"></span>
                                         </label>
@@ -251,7 +249,7 @@
                                             @Html.ValidationMessageFor(model => model.RegistrationCategory, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章状态 <span class="required"></span>
                                         </label>
@@ -260,7 +258,7 @@
                                             @Html.ValidationMessageFor(model => model.SealState_Id_Code, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             使用单位编码 <span class="required"></span>
                                         </label>
@@ -269,7 +267,7 @@
                                             @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             备案单位编码 <span class="required"></span>
                                         </label>
@@ -278,7 +276,7 @@
                                             @Html.ValidationMessageFor(model => model.SealApprovalUnitInfor_Id_ApprovalUnitCode, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             制作单位编码 <span class="required"></span>
                                         </label>
@@ -287,7 +285,7 @@
                                             @Html.ValidationMessageFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class=col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             经办人 <span class="required">*</span>
                                         </label>
@@ -296,7 +294,7 @@
                                             @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             经办人身份证 <span class="required">*</span>
                                         </label>
@@ -305,7 +303,7 @@
                                             @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             备案人 <span class="required">*</span>
                                         </label>
@@ -314,8 +312,8 @@
                                             @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             备案日期 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -323,11 +321,11 @@
                                             @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             印章形状 <span class="required"></span>
                                         </label>
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-6 col-xs-12">
                                             <select name="SealShape" class="form-control">
                                                 <option>圆形</option>
                                                 <option>方形</option>

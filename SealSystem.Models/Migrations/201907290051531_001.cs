@@ -33,17 +33,6 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.SealUnitClasses",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.SealApprovalUnitInfors",
                 c => new
                     {
@@ -214,6 +203,17 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.SealUnitClasses",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
@@ -249,6 +249,7 @@ namespace SealSystem.Models.Migrations
             DropIndex("dbo.SealInfors", new[] { "SealUseUnitInfor_Id_UnitNumber" });
             DropIndex("dbo.SealInfors", new[] { "SealState_Id_Code" });
             DropTable("dbo.Users");
+            DropTable("dbo.SealUnitClasses");
             DropTable("dbo.SealUnitCategories");
             DropTable("dbo.SealUseUnitInfors");
             DropTable("dbo.SealStates");
@@ -257,7 +258,6 @@ namespace SealSystem.Models.Migrations
             DropTable("dbo.SealInfors");
             DropTable("dbo.SealCategories");
             DropTable("dbo.SealApprovalUnitInfors");
-            DropTable("dbo.SealUnitClasses");
             DropTable("dbo.DataFiles");
             DropTable("dbo.Areas");
         }
