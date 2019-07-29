@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealInforsController.cs" />
@@ -148,6 +149,7 @@
     <Content Include="Content\buttons.bootstrap.min.css" />
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\dataTables.bootstrap.min.css" />
+    <Content Include="Content\dropzone.min.css" />
     <Content Include="Content\fixedHeader.bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\green.css" />
@@ -199,6 +201,7 @@
     <Content Include="Scripts\dataTables.keyTable.min.js" />
     <Content Include="Scripts\dataTables.responsive.min.js" />
     <Content Include="Scripts\dataTables.scroller.min.js" />
+    <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\icheck.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -271,6 +274,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="upLoads\" />
+    <Folder Include="Views\FileAndImage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
