@@ -132,11 +132,13 @@
     <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuTablesController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealInforsController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
+    <Compile Include="Controllers\UserPermissionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -279,6 +281,16 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\UserPermissions\Create.cshtml" />
+    <Content Include="Views\UserPermissions\Delete.cshtml" />
+    <Content Include="Views\UserPermissions\Details.cshtml" />
+    <Content Include="Views\UserPermissions\Edit.cshtml" />
+    <Content Include="Views\UserPermissions\Index.cshtml" />
+    <Content Include="Views\MenuTables\Create.cshtml" />
+    <Content Include="Views\MenuTables\Delete.cshtml" />
+    <Content Include="Views\MenuTables\Details.cshtml" />
+    <Content Include="Views\MenuTables\Edit.cshtml" />
+    <Content Include="Views\MenuTables\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

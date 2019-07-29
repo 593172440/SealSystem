@@ -52,6 +52,14 @@
         /// 文件上传表
         /// </summary>
         public DbSet<DataFile> DataFiles { get; set; }
+        /// <summary>
+        /// 菜单表
+        /// </summary>
+        public DbSet<MenuTable> MenuTables { get; set; }
+        /// <summary>
+        /// 用户权限表
+        /// </summary>
+        public DbSet<UserPermissions> UserPermissions { get; set; }
 
         //------- 以下仅限数据库实例化 -----------------------
 

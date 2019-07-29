@@ -3,7 +3,7 @@ namespace SealSystem.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _001 : DbMigration
+    public partial class _002 : DbMigration
     {
         public override void Up()
         {
@@ -27,6 +27,17 @@ namespace SealSystem.Models.Migrations
                         Name = c.String(),
                         FileInstructions = c.String(),
                         Note = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.MenuTables",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })
@@ -214,6 +225,22 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.UserPermissions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        User_Id = c.Int(nullable: false),
+                        Menu_Id = c.Int(nullable: false),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.MenuTables", t => t.Menu_Id)
+                .ForeignKey("dbo.Users", t => t.User_Id)
+                .Index(t => t.User_Id)
+                .Index(t => t.Menu_Id);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
@@ -230,6 +257,8 @@ namespace SealSystem.Models.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.UserPermissions", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.UserPermissions", "Menu_Id", "dbo.MenuTables");
             DropForeignKey("dbo.SealInfors", "SealUseUnitInfor_Id_UnitNumber", "dbo.SealUseUnitInfors");
             DropForeignKey("dbo.SealUseUnitInfors", "SealUnitClass_Id", "dbo.SealUnitClasses");
             DropForeignKey("dbo.SealUseUnitInfors", "EnterpriseType_Id", "dbo.SealUnitCategories");
@@ -239,6 +268,8 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.SealInfors", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
             DropForeignKey("dbo.SealInfors", "SealCategory_Id_Code", "dbo.SealCategories");
             DropForeignKey("dbo.SealInfors", "SealApprovalUnitInfor_Id_ApprovalUnitCode", "dbo.SealApprovalUnitInfors");
+            DropIndex("dbo.UserPermissions", new[] { "Menu_Id" });
+            DropIndex("dbo.UserPermissions", new[] { "User_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "Area_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitClass_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "EnterpriseType_Id" });
@@ -249,6 +280,7 @@ namespace SealSystem.Models.Migrations
             DropIndex("dbo.SealInfors", new[] { "SealUseUnitInfor_Id_UnitNumber" });
             DropIndex("dbo.SealInfors", new[] { "SealState_Id_Code" });
             DropTable("dbo.Users");
+            DropTable("dbo.UserPermissions");
             DropTable("dbo.SealUnitClasses");
             DropTable("dbo.SealUnitCategories");
             DropTable("dbo.SealUseUnitInfors");
@@ -258,6 +290,7 @@ namespace SealSystem.Models.Migrations
             DropTable("dbo.SealInfors");
             DropTable("dbo.SealCategories");
             DropTable("dbo.SealApprovalUnitInfors");
+            DropTable("dbo.MenuTables");
             DropTable("dbo.DataFiles");
             DropTable("dbo.Areas");
         }
