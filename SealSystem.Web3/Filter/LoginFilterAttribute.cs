@@ -31,8 +31,8 @@ namespace SealSystem.Web3.Filter
                 //filterContext.Result = new RedirectResult("/Login/index");
                 filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary()
                 {
-                    {"controller","Login" },
-                    {"action","Index" }
+                    {"controller","Home" },
+                    {"action","LoginIndex" }
                 });
             }
 

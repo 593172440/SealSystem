@@ -131,7 +131,6 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuTablesController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealInforsController.cs" />
@@ -267,7 +266,6 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\UserPermissions\Create.cshtml" />
     <Content Include="Views\UserPermissions\Delete.cshtml" />
     <Content Include="Views\UserPermissions\Details.cshtml" />
@@ -278,6 +276,7 @@
     <Content Include="Views\MenuTables\Details.cshtml" />
     <Content Include="Views\MenuTables\Edit.cshtml" />
     <Content Include="Views\MenuTables\Index.cshtml" />
+    <Content Include="Views\Home\LoginIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
