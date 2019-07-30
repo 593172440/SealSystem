@@ -1,8 +1,9 @@
-﻿<div class="col-md-3 left_col">
+﻿
+<div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         @*<div class="navbar nav_title" style="border: 0;">
-            <a href="/Home/index" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-        </div>*@
+                <a href="/Home/index" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+            </div>*@
 
         <div class="clearfix"></div>
 
@@ -13,7 +14,7 @@
             </div>
             <div class="profile_info">
                 <span>@Session["loginName"]</span>
-                <h2>@Request.Cookies["entityName"].Value</h2>
+                <h2>@HttpUtility.UrlDecode(Request.Cookies["entityName"].Value)</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->

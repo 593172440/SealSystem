@@ -14,7 +14,12 @@ namespace SealSystem.Web3.Controllers
         [LoginFilter]
         public ActionResult Index(Models.User user)
         {
-            Response.Cookies["entityName"].Value = user.EntityName;
+            Response.Cookies.Add(new HttpCookie("entityName")
+            {
+                Value = HttpUtility.UrlEncode(user.EntityName)
+
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
             return View(user);
         }
         [LoginFilter]
