@@ -54,13 +54,9 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="DataFile.cs" />
     <Compile Include="MenuTable.cs" />
-    <Compile Include="Migrations\201907291432450_002.cs" />
-    <Compile Include="Migrations\201907291432450_002.Designer.cs">
-      <DependentUpon>201907291432450_002.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907291454509_003.cs" />
-    <Compile Include="Migrations\201907291454509_003.Designer.cs">
-      <DependentUpon>201907291454509_003.cs</DependentUpon>
+    <Compile Include="Migrations\201907300112448_one.cs" />
+    <Compile Include="Migrations\201907300112448_one.Designer.cs">
+      <DependentUpon>201907300112448_one.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
@@ -85,11 +81,8 @@
     <Content Include="数据库初始化文件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907291432450_002.resx">
-      <DependentUpon>201907291432450_002.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907291454509_003.resx">
-      <DependentUpon>201907291454509_003.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907300112448_one.resx">
+      <DependentUpon>201907300112448_one.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

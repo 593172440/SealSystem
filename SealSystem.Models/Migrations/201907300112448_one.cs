@@ -3,7 +3,7 @@ namespace SealSystem.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _002 : DbMigration
+    public partial class one : DbMigration
     {
         public override void Up()
         {
@@ -37,7 +37,9 @@ namespace SealSystem.Models.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        CodeId = c.Int(nullable: false),
                         Name = c.String(),
+                        SuperiorCodeId = c.Int(nullable: false),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })
