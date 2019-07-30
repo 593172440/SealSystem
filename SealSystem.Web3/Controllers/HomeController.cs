@@ -7,8 +7,10 @@ using System.Web.Mvc;
 
 namespace SealSystem.Web3.Controllers
 {
+    [LoginFilter]
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();

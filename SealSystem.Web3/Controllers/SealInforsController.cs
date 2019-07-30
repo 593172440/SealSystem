@@ -8,9 +8,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SealSystem.Models;
+using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
+    [LoginFilter]
     public class SealInforsController : Controller
     {
         private SSContext db = new SSContext();

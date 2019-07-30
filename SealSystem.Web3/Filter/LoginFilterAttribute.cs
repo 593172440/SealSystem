@@ -20,11 +20,11 @@ namespace SealSystem.Web3.Filter
         {
             //base.OnAuthorization(filterContext);
             //判断是否跳过授权过滤器
-            if (filterContext.ActionDescriptor.IsDefined(typeof(AllowHtmlAttribute), true) ||
-                filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowHtmlAttribute), true))
-            {
-                return;
-            }
+            //if (filterContext.ActionDescriptor.IsDefined(typeof(AllowHtmlAttribute), true) ||
+            //    filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowHtmlAttribute), true))
+            //{
+            //    return;
+            //}
             //判断登录情况
             if ((filterContext.HttpContext.Session["loginName"]==null))
             {
