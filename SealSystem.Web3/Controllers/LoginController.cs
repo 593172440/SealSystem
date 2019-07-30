@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Data.Entity;
 namespace SealSystem.Web3.Controllers
 {
     [AllowAnonymous]
@@ -22,12 +22,21 @@ namespace SealSystem.Web3.Controllers
             if (ModelState.IsValid)
             {
                 BLL.UserBLL user = new BLL.UserBLL();
+                Models.User userdb = await user.GetUserOne(userName);
+                ViewBag.userName = userdb.UserName;
+                
                 if(await user.Login(userName, userPwd))
                 {
+                    
                     //跳转
                     //判断是用Session还是用cookie
                     Session["loginName"] = userName;
                     return RedirectToAction("index", "Home");
+                    //登录成功
+                    
+
+
+
                 }
                 else
                 {

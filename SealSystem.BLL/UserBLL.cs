@@ -26,6 +26,13 @@ namespace SealSystem.BLL
                 });
             }
         }
+        public async Task<Models.User> GetUserOne(string userName)
+        {
+            using (var db = new DAL.UserDAL())
+            {
+                return await db.GetAll().FirstAsync(m => m.UserName == userName);
+            }
+        }
         /// <summary>
         /// 获取所有用户
         /// </summary>
