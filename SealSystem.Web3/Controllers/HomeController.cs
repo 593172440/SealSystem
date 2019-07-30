@@ -14,6 +14,7 @@ namespace SealSystem.Web3.Controllers
         [LoginFilter]
         public ActionResult Index(Models.User user)
         {
+            Response.Cookies["entityName"].Value = user.EntityName;
             return View(user);
         }
         [LoginFilter]

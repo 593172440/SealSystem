@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>@Session["loginName"]</span>
-                <h2>@Model.EntityName</h2>
+                <h2>@Response.Cookies["entityName"].Value</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
