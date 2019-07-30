@@ -53,6 +53,7 @@
     <Compile Include="SealUnitClassDAL.cs" />
     <Compile Include="SealUseUnitInforDAL.cs" />
     <Compile Include="UserDAL.cs" />
+    <Compile Include="UserPermissionsDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SealSystem.Models\SealSystem.Models.csproj">

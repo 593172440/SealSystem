@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace SealSystem.Web3.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         [LoginFilter]
@@ -46,15 +46,14 @@ namespace SealSystem.Web3.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 BLL.UserBLL user = new BLL.UserBLL();
                 if (await user.Login(userName, userPwd))
                 {
-                    var dbData= await user.GetUserOne(userPwd);
+                    var dbData = await user.GetUserOne(userPwd);
                     //跳转
                     //判断是用Session还是用cookie
                     Session["loginName"] = userName;
-                    return RedirectToAction("index", "Home",dbData);
+                    return RedirectToAction("index", "Home", dbData);
                     //登录成功
                 }
                 else
@@ -63,7 +62,19 @@ namespace SealSystem.Web3.Controllers
                 }
             }
             return View();
-
+        }
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LoginOut()
+        {
+            Session.Clear();
+            Response.Cookies.Add(new HttpCookie("entityName")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            return RedirectToAction("LoginIndex", "Home");
         }
 
     }
