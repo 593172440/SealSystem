@@ -21,10 +21,8 @@ namespace SealSystem.Web3.Controllers
         {
             if (ModelState.IsValid)
             {
-                BLL.UserBLL user = new BLL.UserBLL();
-                Models.User userdb = await user.GetUserOne(userName);
-                ViewBag.userName = userdb.UserName;
                 
+                BLL.UserBLL user = new BLL.UserBLL();
                 if(await user.Login(userName, userPwd))
                 {
                     
@@ -33,10 +31,6 @@ namespace SealSystem.Web3.Controllers
                     Session["loginName"] = userName;
                     return RedirectToAction("index", "Home");
                     //登录成功
-                    
-
-
-
                 }
                 else
                 {
