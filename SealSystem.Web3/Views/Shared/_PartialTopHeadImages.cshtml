@@ -28,34 +28,25 @@
                     <li>
                         <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/SealInfors/Index">印章信息管理</a></li>
-                            <li><a href="/SealUseUnitInfors/index">使用单位信息管理</a></li>
-                            <li><a href="/SealMakingUnitInfors/Index">制章单位信息管理</a></li>
-                            <li><a href="/SealApprovalUnitInfors/Index">备案单位信息</a></li>
+                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiDengJi"].Value))
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-edit"></i> 生产管理 <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="form.html">备案申请</a></li>
-                            <li><a href="form_advanced.html">刻章企业信息</a></li>
+                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["ShengChanGuanLi"].Value))
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-database"></i> 信息查询 <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="general_elements.html">印章信息查询</a></li>
-                            <li><a href="media_gallery.html">公告通知查询</a></li>
+                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiChaXun"].Value))
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-desktop"></i> 后台设置 <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/SealUnitClasses/Index">单位分类管理</a></li>
-                            <li><a href="/Areas/Index">区域管理</a></li>
-                            <li><a href="/Users/Index">用户管理</a></li>
-                            <li><a href="/UserPermissions/Index">权限管理</a></li>
-                            <li><a href="/MenuTables/Index">菜单管理</a></li>
+                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["HouTaiSheZhi"].Value))
                         </ul>
                     </li>
 

@@ -23,6 +23,9 @@ namespace SealSystem.Models
         /// 上级菜单号默认为0，没有上级
         /// </summary>
         public int SuperiorCodeId { get; set; } = 0;
-
+        /// <summary>
+        /// 菜单路径
+        /// </summary>
+        public string MenuPath { get; set; }
     }
 }

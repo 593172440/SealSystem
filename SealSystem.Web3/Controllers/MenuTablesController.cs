@@ -49,7 +49,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,CreateTime,IsRemoved")] MenuTable menuTable)
+        public async Task<ActionResult> Create([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,CreateTime,IsRemoved")] MenuTable menuTable)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,CreateTime,IsRemoved")] MenuTable menuTable)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,CreateTime,IsRemoved")] MenuTable menuTable)
         {
             if (ModelState.IsValid)
             {

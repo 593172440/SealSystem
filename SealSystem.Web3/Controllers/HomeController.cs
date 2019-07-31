@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Text;
+
 namespace SealSystem.Web3.Controllers
 {
 
@@ -23,18 +25,64 @@ namespace SealSystem.Web3.Controllers
             //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
             List<int> meun = new List<int>();//保存菜单id
             Models.SSContext db = new Models.SSContext();//数据上下文
-            var menusId= db.UserPermissions.Where(m => m.User_Id == user.Id);//获取所有的菜单id
+            var menusId = db.UserPermissions.Where(m => m.User_Id == user.Id);//获取所有的菜单id
             foreach (var item in menusId)
             {
                 meun.Add(item.Menu_Id);
             }
-            List<Models.MenuTable> menusData= db.MenuTables.Where(m => meun.Contains(m.Id)).ToList();
+            List<Models.MenuTable> menusData = db.MenuTables.Where(m => meun.Contains(m.Id)).ToList();
             //////////////////////////////////////
-            
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            StringBuilder sb3 = new StringBuilder();
+            StringBuilder sb4 = new StringBuilder();
+            foreach (var item in menusData)
+            {
+                if (!string.IsNullOrEmpty(item.MenuPath)&&item.SuperiorCodeId==100)
+                {
+                    sb1.Append(item.MenuPath);
+                }
+                if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 200)
+                {
+                    sb2.Append(item.MenuPath);
+                }
+                if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 300)
+                {
+                    sb3.Append(item.MenuPath);
+                }
+                if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 400)
+                {
+                    sb4.Append(item.MenuPath);
+                }
+            }
+            Response.Cookies.Add(new HttpCookie("XinXiDengJi")
+            {
 
+                Value = HttpUtility.UrlEncode(sb1.ToString())
 
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("ShengChanGuanLi")
+            {
 
+                Value = HttpUtility.UrlEncode(sb2.ToString())
 
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("XinXiChaXun")
+            {
+
+                Value = HttpUtility.UrlEncode(sb3.ToString())
+
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("HouTaiSheZhi")
+            {
+
+                Value = HttpUtility.UrlEncode(sb4.ToString())
+
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
             return View(user);
         }
         [LoginFilter]
@@ -86,6 +134,22 @@ namespace SealSystem.Web3.Controllers
         {
             Session.Clear();
             Response.Cookies.Add(new HttpCookie("entityName")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("XinXiDengJi")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("ShengChanGuanLi")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("XinXiChaXun")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("HouTaiSheZhi")
             {
                 Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
             });
