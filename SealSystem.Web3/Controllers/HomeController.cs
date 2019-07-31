@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Data.Entity;
 namespace SealSystem.Web3.Controllers
 {
 
@@ -20,6 +20,21 @@ namespace SealSystem.Web3.Controllers
 
                 //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
+            //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
+            List<int> meun = new List<int>();//保存菜单id
+            Models.SSContext db = new Models.SSContext();//数据上下文
+            var menusId= db.UserPermissions.Where(m => m.User_Id == user.Id);//获取所有的菜单id
+            foreach (var item in menusId)
+            {
+                meun.Add(item.Menu_Id);
+            }
+            List<Models.MenuTable> menusData= db.MenuTables.Where(m => meun.Contains(m.Id)).ToList();
+            //////////////////////////////////////
+            
+
+
+
+
             return View(user);
         }
         [LoginFilter]
