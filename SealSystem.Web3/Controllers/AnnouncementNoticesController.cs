@@ -8,107 +8,107 @@ using System.Web.Mvc;
 namespace SealSystem.Web3.Controllers
 {
     [LoginFilter]
-    public class SealUnitClassesController : Controller
+    public class AnnouncementNoticesController : Controller
     {
         private SSContext db = new SSContext();
 
-        // GET: SealUnitClasses
+        // GET: AnnouncementNotices
         public async Task<ActionResult> Index()
         {
-            return View(await db.SealUnitClasses.ToListAsync());
+            return View(await db.AnnouncementNotices.ToListAsync());
         }
 
-        // GET: SealUnitClasses/Details/5
+        // GET: AnnouncementNotices/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
-            if (sealUnitClass == null)
+            AnnouncementNotice announcementNotice = await db.AnnouncementNotices.FindAsync(id);
+            if (announcementNotice == null)
             {
                 return HttpNotFound();
             }
-            return View(sealUnitClass);
+            return View(announcementNotice);
         }
 
-        // GET: SealUnitClasses/Create
+        // GET: AnnouncementNotices/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SealUnitClasses/Create
+        // POST: AnnouncementNotices/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,CreateTime,IsRemoved")] SealUnitClass sealUnitClass)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Content,UserName,CreateTime,IsRemoved")] AnnouncementNotice announcementNotice)
         {
             if (ModelState.IsValid)
             {
-                db.SealUnitClasses.Add(sealUnitClass);
+                db.AnnouncementNotices.Add(announcementNotice);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(sealUnitClass);
+            return View(announcementNotice);
         }
 
-        // GET: SealUnitClasses/Edit/5
+        // GET: AnnouncementNotices/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
-            if (sealUnitClass == null)
+            AnnouncementNotice announcementNotice = await db.AnnouncementNotices.FindAsync(id);
+            if (announcementNotice == null)
             {
                 return HttpNotFound();
             }
-            return View(sealUnitClass);
+            return View(announcementNotice);
         }
 
-        // POST: SealUnitClasses/Edit/5
+        // POST: AnnouncementNotices/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,CreateTime,IsRemoved")] SealUnitClass sealUnitClass)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Content,UserName,CreateTime,IsRemoved")] AnnouncementNotice announcementNotice)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sealUnitClass).State = EntityState.Modified;
+                db.Entry(announcementNotice).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(sealUnitClass);
+            return View(announcementNotice);
         }
 
-        // GET: SealUnitClasses/Delete/5
+        // GET: AnnouncementNotices/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
-            if (sealUnitClass == null)
+            AnnouncementNotice announcementNotice = await db.AnnouncementNotices.FindAsync(id);
+            if (announcementNotice == null)
             {
                 return HttpNotFound();
             }
-            return View(sealUnitClass);
+            return View(announcementNotice);
         }
 
-        // POST: SealUnitClasses/Delete/5
+        // POST: AnnouncementNotices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SealUnitClass sealUnitClass = await db.SealUnitClasses.FindAsync(id);
-            db.SealUnitClasses.Remove(sealUnitClass);
+            AnnouncementNotice announcementNotice = await db.AnnouncementNotices.FindAsync(id);
+            db.AnnouncementNotices.Remove(announcementNotice);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

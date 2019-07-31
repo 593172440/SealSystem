@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using SealSystem.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using SealSystem.Models;
-using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
     public class MenuTablesController : Controller
     {
         private SSContext db = new SSContext();
@@ -49,7 +42,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,CreateTime,IsRemoved")] MenuTable menuTable)
+        public async Task<ActionResult> Create([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,Add,Edit,Details,Delete,CreateTime,IsRemoved")] MenuTable menuTable)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +74,8 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,CreateTime,IsRemoved")] MenuTable menuTable)
+        [ValidateInput(false)]
+        public async Task<ActionResult> Edit([Bind(Include = "Id,CodeId,Name,SuperiorCodeId,MenuPath,Add,Edit,Details,Delete,CreateTime,IsRemoved")] MenuTable menuTable)
         {
             if (ModelState.IsValid)
             {

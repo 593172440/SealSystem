@@ -1,4 +1,11 @@
 ﻿@model IEnumerable<SealSystem.Models.SealInfor>
+@{
+    if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
+    {
+        List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
+        if (list.Any(m => m == "印章信息管理:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加印章", "Create") + "</h2>"); }
+    }
+}
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -32,7 +39,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2><span class="glyphicon glyphicon-plus"></span>@Html.ActionLink("增加印章", "Create")</h2>
+                                @ViewBag.add
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
                                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -73,33 +80,48 @@
 
                                         @foreach (var item in Model)
                                         {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SealInforNum)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SealName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SealCategory_Id_Code)
-                                            </td>
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SealInforNum)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SealName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SealCategory_Id_Code)
+                                                </td>
 
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Attention)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CreateTime)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SealState_Id_Code)
-                                            </td>
-                                           
-                                            <td>
-                                                @Html.ActionLink("编辑", "Edit", new { id = item.Id }) |
-                                                @*@Html.ActionLink("查看", "Details", new { id = item.Id }) |*@
-                                                @Html.ActionLink("删除", "Delete", new { id = item.Id })
-                                            </td>
-                                        </tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Attention)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CreateTime)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SealState_Id_Code)
+                                                </td>
+
+                                                <td>
+                                                    @if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
+                                                    {
+                                                        List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
+                                                        if (list.Any(m => m == "印章信息管理:Edit"))
+                                                        {
+                                                            @Html.ActionLink("编辑", "Edit", new { id = item.Id });
+                                                            @Html.Raw(" | ");
+                                                        }
+                                                        if (list.Any(m => m == "印章信息管理:Details"))
+                                                        {
+                                                            @Html.ActionLink("查看", "Details", new { id = item.Id });
+                                                            @Html.Raw(" | ");
+                                                        }
+                                                        if (list.Any(m => m == "印章信息管理:Delete"))
+                                                        {
+                                                            @Html.ActionLink("删除", "Delete", new { id = item.Id });
+                                                        }
+                                                    }
+                                                </td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>

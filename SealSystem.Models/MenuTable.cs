@@ -27,5 +27,21 @@ namespace SealSystem.Models
         /// 菜单路径
         /// </summary>
         public string MenuPath { get; set; }
+        /// <summary>
+        /// 增加权限
+        /// </summary>
+        public bool Add { get; set; }
+        /// <summary>
+        /// 修改权限
+        /// </summary>
+        public bool Edit { get; set; }
+        /// <summary>
+        /// 查看权限
+        /// </summary>
+        public bool Details { get; set; }
+        /// <summary>
+        /// 删除权限
+        /// </summary>
+        public bool Delete { get; set; }
     }
 }

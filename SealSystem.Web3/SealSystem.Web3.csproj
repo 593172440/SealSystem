@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnnouncementNoticesController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -271,12 +272,17 @@
     <Content Include="Views\UserPermissions\Details.cshtml" />
     <Content Include="Views\UserPermissions\Edit.cshtml" />
     <Content Include="Views\UserPermissions\Index.cshtml" />
+    <Content Include="Views\Home\LoginIndex.cshtml" />
+    <Content Include="Views\AnnouncementNotices\Create.cshtml" />
+    <Content Include="Views\AnnouncementNotices\Delete.cshtml" />
+    <Content Include="Views\AnnouncementNotices\Details.cshtml" />
+    <Content Include="Views\AnnouncementNotices\Edit.cshtml" />
+    <Content Include="Views\AnnouncementNotices\Index.cshtml" />
     <Content Include="Views\MenuTables\Create.cshtml" />
     <Content Include="Views\MenuTables\Delete.cshtml" />
     <Content Include="Views\MenuTables\Details.cshtml" />
     <Content Include="Views\MenuTables\Edit.cshtml" />
     <Content Include="Views\MenuTables\Index.cshtml" />
-    <Content Include="Views\Home\LoginIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<SealSystem.Models.SealApprovalUnitInfor>
-
+@{
+    if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
+    {
+        List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
+        if (list.Any(m => m == "备案单位信息:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加新单位", "Create") + "</h2>"); }
+    }
+}
 
 <div class="container body">
     <div class="main_container">
@@ -34,7 +40,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2><span class="glyphicon glyphicon-plus"></span>@Html.ActionLink("增加新单位", "Create")</h2>
+                                @ViewBag.add
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
                                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -93,9 +99,24 @@
                                                 </td>
 
                                                 <td>
-                                                    @Html.ActionLink("编辑", "Edit", new { id = item.Id }) |
-                                                    @*@Html.ActionLink("查看", "Details", new { id = item.Id }) |*@
-                                                    @Html.ActionLink("删除", "Delete", new { id = item.Id })
+                                                    @if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
+                                                    {
+                                                        List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
+                                                        if (list.Any(m => m == "备案单位信息:Edit"))
+                                                        {
+                                                            @Html.ActionLink("编辑", "Edit", new { id = item.Id });
+                                                            @Html.Raw(" | ");
+                                                        }
+                                                        if (list.Any(m => m == "备案单位信息:Details"))
+                                                        {
+                                                            @Html.ActionLink("查看", "Details", new { id = item.Id });
+                                                            @Html.Raw(" | ");
+                                                        }
+                                                        if (list.Any(m => m == "备案单位信息:Delete"))
+                                                        {
+                                                            @Html.ActionLink("删除", "Delete", new { id = item.Id });
+                                                        }
+                                                    }
                                                 </td>
                                             </tr>
                                         }

@@ -3,7 +3,7 @@ namespace SealSystem.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class one : DbMigration
+    public partial class _001 : DbMigration
     {
         public override void Up()
         {
@@ -40,6 +40,7 @@ namespace SealSystem.Models.Migrations
                         CodeId = c.Int(nullable: false),
                         Name = c.String(),
                         SuperiorCodeId = c.Int(nullable: false),
+                        MenuPath = c.String(),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })

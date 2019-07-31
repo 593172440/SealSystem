@@ -1,12 +1,12 @@
-﻿using SealSystem.Web3.Filter;
+﻿using Newtonsoft.Json;
+using SealSystem.Web3.Filter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
-using System.Text;
 
 namespace SealSystem.Web3.Controllers
 {
@@ -36,9 +36,10 @@ namespace SealSystem.Web3.Controllers
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             StringBuilder sb4 = new StringBuilder();
+            List<string> sb5 = new List<string>();
             foreach (var item in menusData)
             {
-                if (!string.IsNullOrEmpty(item.MenuPath)&&item.SuperiorCodeId==100)
+                if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 100)
                 {
                     sb1.Append(item.MenuPath);
                 }
@@ -54,6 +55,10 @@ namespace SealSystem.Web3.Controllers
                 {
                     sb4.Append(item.MenuPath);
                 }
+                if (item.Add) { sb5.Add(item.Name + ":Add"); }
+                if (item.Delete) { sb5.Add(item.Name + ":Delete"); }
+                if (item.Details) { sb5.Add(item.Name + ":Details"); }
+                if (item.Edit) { sb5.Add(item.Name+":Edit"); }
             }
             Response.Cookies.Add(new HttpCookie("XinXiDengJi")
             {
@@ -81,6 +86,11 @@ namespace SealSystem.Web3.Controllers
 
                 Value = HttpUtility.UrlEncode(sb4.ToString())
 
+                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("ZXGC")
+            {
+                Value = HttpUtility.UrlEncode(JsonConvert.SerializeObject(sb5))
                 //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             return View(user);
@@ -150,6 +160,10 @@ namespace SealSystem.Web3.Controllers
                 Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("HouTaiSheZhi")
+            {
+                Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
+            });
+            Response.Cookies.Add(new HttpCookie("ZXGC")
             {
                 Expires = DateTime.Now.AddHours(-1)//cookie保存1小时
             });

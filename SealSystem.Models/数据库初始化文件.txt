@@ -58,11 +58,19 @@
                 new MenuTable { CodeId = 8, Name = "备案申请", SuperiorCodeId = 200, MenuPath = "<li><a href='#'>备案申请</a></li>" },
                 new MenuTable { CodeId = 300, Name = "信息查询", SuperiorCodeId = 0, MenuPath = "" },
                 new MenuTable { CodeId = 10, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='#'>印章信息查询</a></li>" },
-                new MenuTable { CodeId = 11, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='#'>公告通知查询</a></li>" },
+                new MenuTable { CodeId = 11, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>" },
                 new MenuTable { CodeId = 400, Name = "后台设置", SuperiorCodeId = 0, MenuPath = "" },
                 new MenuTable { CodeId = 13, Name = "单位分类", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealUnitClasses/Index'>单位分类</a></li>" },
                 new MenuTable { CodeId = 14, Name = "区域管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Areas/Index'>区域管理</a></li>" },
                 new MenuTable { CodeId = 15, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
                 new MenuTable { CodeId = 16, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
-                new MenuTable { CodeId = 17, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" }
+                new MenuTable { CodeId = 17, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>",Edit=true }
+                );
+				//增加管理员
+			context.Users.AddOrUpdate(
+                new User { UserName="admin",UserPwd="admin",EntityName="管理员"}
+                );
+				//增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
+			context.UserPermissions.AddOrUpdate(
+                new UserPermissions { User_Id=1,Menu_Id=16}
                 );
