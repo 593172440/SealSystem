@@ -1,4 +1,5 @@
 ﻿using SealSystem.Models;
+using SealSystem.Web3.Filter;
 using System.Data.Entity;
 using System.Net;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 
 namespace SealSystem.Web3.Controllers
 {
+    [LoginFilter]
     public class MenuTablesController : Controller
     {
         private SSContext db = new SSContext();
