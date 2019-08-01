@@ -71,7 +71,20 @@
 			context.Users.AddOrUpdate(
                 new User { UserName="admin",UserPwd="admin",EntityName="管理员"}
                 );
-				//增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
-			context.UserPermissions.AddOrUpdate(
-                 new UserPermissions { User_Id = 1, Menu_Id = 16, Add = true, Delete = true,Edit=true }
+				  //增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
+            context.UserPermissions.AddOrUpdate(
+                 new UserPermissions { User_Id = 1, Menu_Id = 2, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 3, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 4, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 5, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 7, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 8, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 10, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 11, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 13, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 14, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 15, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 16, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 17 },
+                 new UserPermissions { User_Id = 1, Menu_Id = 18, Add = true, Delete = true, Edit = true }
                  );
