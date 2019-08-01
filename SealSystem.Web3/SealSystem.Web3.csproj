@@ -130,7 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnnouncementNoticesController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
-    <Compile Include="Controllers\FileAndImageController.cs" />
+    <Compile Include="Controllers\FileAndImagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuTablesController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
@@ -283,12 +283,16 @@
     <Content Include="Views\MenuTables\Details.cshtml" />
     <Content Include="Views\MenuTables\Edit.cshtml" />
     <Content Include="Views\MenuTables\Index.cshtml" />
+    <Content Include="Views\FileAndImages\Create.cshtml" />
+    <Content Include="Views\FileAndImages\Delete.cshtml" />
+    <Content Include="Views\FileAndImages\Details.cshtml" />
+    <Content Include="Views\FileAndImages\Edit.cshtml" />
+    <Content Include="Views\FileAndImages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="upLoads\" />
-    <Folder Include="Views\FileAndImage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -158,7 +158,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章编号 <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-8 col-sm-6 col-xs-12">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
                                             @Html.EditorFor(model => model.SealInforNum, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
                                         </div>
@@ -167,7 +167,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章类型 <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-8 col-sm-6 col-xs-12">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
                                             @Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
                                         </div>
@@ -313,20 +313,21 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             备案日期 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            @Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                             印章形状 <span class="required"></span>
                                         </label>
-                                        <div class="col-md-8 col-sm-6 col-xs-12">
-                                            <select name="SealShape" class="form-control">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select name="SealShape" class="form-control col-md-7 col-xs-12">
                                                 <option>圆形</option>
                                                 <option>方形</option>
                                                 <option>其它形</option>
@@ -337,7 +338,6 @@
                                     </div>
 
 
-                                    <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
                                             @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
@@ -351,10 +351,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">

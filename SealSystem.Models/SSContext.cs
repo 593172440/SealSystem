@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con1")
+        public SSContext() : base("con2")
         {
             Database.SetInitializer<DbContext>(null);
         }
@@ -60,6 +60,14 @@
         /// 用户权限表
         /// </summary>
         public DbSet<UserPermissions> UserPermissions { get; set; }
+        /// <summary>
+        /// 通知公告表
+        /// </summary>
+        public System.Data.Entity.DbSet<SealSystem.Models.AnnouncementNotice> AnnouncementNotices { get; set; }
+        /// <summary>
+        /// 文件和图像表
+        /// </summary>
+        public System.Data.Entity.DbSet<SealSystem.Models.FileAndImage> FileAndImages { get; set; }
 
         //------- 以下仅限数据库实例化 -----------------------
 
@@ -79,7 +87,6 @@
         /// 印章使用单位类型表(数据上下文)
         /// </summary>
         public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
-
-        public System.Data.Entity.DbSet<SealSystem.Models.AnnouncementNotice> AnnouncementNotices { get; set; }
+        
     }
 }

@@ -64,7 +64,8 @@
                 new MenuTable { CodeId = 14, Name = "区域管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Areas/Index'>区域管理</a></li>" },
                 new MenuTable { CodeId = 15, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
                 new MenuTable { CodeId = 16, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
-                new MenuTable { CodeId = 17, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>",Edit=true }
+                new MenuTable { CodeId = 17, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>",Edit=true },
+                new MenuTable { CodeId = 17, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>",Edit=true }
                 );
 				//增加管理员
 			context.Users.AddOrUpdate(
