@@ -16,7 +16,9 @@ namespace SealSystem.Web3.Controllers
         [LoginFilter]
         public ActionResult Index(Models.User user)
         {
-            List<string> sb5 = new List<string>();//保存修改，查看，删除权限
+            List<string> sb5 = new List<string>();
+            List<string> sb6 = new List<string>();//保存权限表中的菜单Id和标识符"Add";格式:1:Add
+
             Response.Cookies.Add(new HttpCookie("entityName")
             {
                 Value = HttpUtility.UrlEncode(user.EntityName)
@@ -30,9 +32,10 @@ namespace SealSystem.Web3.Controllers
             foreach (var item in menusId)//获取每个权限的详细信息
             {
                 meunId.Add(item.Menu_Id);
-                if (item.Delete) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Delete"); }
-                if (item.Details) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Details"); }
-                if (item.Edit) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Edit"); }
+                if (item.Add) { sb6.Add(item.Menu_Id + ":Add"); }
+                if (item.Delete) { sb6.Add(item.Menu_Id + ":Delete"); }
+                if (item.Details) { sb6.Add(item.Menu_Id + ":Details"); }
+                if (item.Edit) { sb6.Add(item.Menu_Id + ":Edit"); }
             }
             List<Models.MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
             //////////////////////////////////////
@@ -40,7 +43,7 @@ namespace SealSystem.Web3.Controllers
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             StringBuilder sb4 = new StringBuilder();
-            
+
             foreach (var item in menusData)//获取菜单
             {
                 if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 100)
@@ -61,9 +64,13 @@ namespace SealSystem.Web3.Controllers
                 }
                 //sb6里面保存都admin:菜单Id:Add
                 //sb6.Add(item.Id, item.Name);
-                if(meunId.Any(m=>m==item.Id))
+                if (sb6.Count>0)
                 {
-                    sb5.Add(user.UserName + ":" + item.Name + ":Add");
+                    foreach (var item2 in sb6)
+                    {
+                        if(item2.Split(':')[0]==item.Id.ToString())
+                        sb5.Add(user.UserName + ":" + item.Name + ":" + item2.Split(':')[1]);
+                    }
                 }
             }
             Response.Cookies.Add(new HttpCookie("XinXiDengJi")

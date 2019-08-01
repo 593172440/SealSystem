@@ -3,7 +3,7 @@
     if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
     {
         List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
-        if (list.Any(m => m == "备案单位信息:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加新单位", "Create") + "</h2>"); }
+        if (list.Any(m => m == Session["loginName"] + ":备案单位信息:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加新单位", "Create") + "</h2>"); }
     }
 }
 
@@ -102,17 +102,17 @@
                                                     @if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
                                                     {
                                                         List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
-                                                        if (list.Any(m => m == "备案单位信息:Edit"))
+                                                        if (list.Any(m => m == Session["loginName"] + ":备案单位信息:Edit"))
                                                         {
                                                             @Html.ActionLink("编辑", "Edit", new { id = item.Id });
                                                             @Html.Raw(" | ");
                                                         }
-                                                        if (list.Any(m => m == "备案单位信息:Details"))
+                                                        if (list.Any(m => m == Session["loginName"] + ":备案单位信息:Details"))
                                                         {
                                                             @Html.ActionLink("查看", "Details", new { id = item.Id });
                                                             @Html.Raw(" | ");
                                                         }
-                                                        if (list.Any(m => m == "备案单位信息:Delete"))
+                                                        if (list.Any(m => m == Session["loginName"] + ":备案单位信息:Delete"))
                                                         {
                                                             @Html.ActionLink("删除", "Delete", new { id = item.Id });
                                                         }
