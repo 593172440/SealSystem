@@ -1,4 +1,5 @@
 ﻿@model SealSystem.Models.MenuTable
+
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -80,54 +81,10 @@
                                                 菜单路径 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @*<input class="form-control col-md-7 col-xs-12 text-box single-line" id="first-name" name="MenuPath" required="required" type="text" value="@HttpUtility.HtmlEncode(Model.MenuPath)">*@
-                                                @Html.EditorFor(model =>model.MenuPath, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.EditorFor(model => model.MenuPath, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
                                                 @Html.ValidationMessageFor(model => model.MenuPath, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-
-
-                                        <div class="row ">
-
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 增加权限 </label>
-                                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                                    @Html.EditorFor(model => model.Add)
-                                                    @Html.ValidationMessageFor(model => model.Add, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                    修改权限 <span class="required"></span>
-                                                </label>
-                                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                                    @Html.EditorFor(model => model.Edit)
-                                                    @Html.ValidationMessageFor(model => model.Edit, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                    查看权限 <span class="required"></span>
-                                                </label>
-                                                <div class="col-md-4 col-sm-6 col-xs-12">
-
-                                                    @Html.EditorFor(model => model.Details)
-                                                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                    删除权限 <span class="required"></span>
-                                                </label>
-                                                <div class="col-md-4 col-sm-6 col-xs-12">
-
-                                                    @Html.EditorFor(model => model.Delete)
-                                                    @Html.ValidationMessageFor(model => model.Delete, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">

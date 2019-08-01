@@ -47,7 +47,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,User_Id,Menu_Id,CreateTime,IsRemoved")] UserPermissions userPermissions)
+        public async Task<ActionResult> Create([Bind(Include = "Id,User_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,User_Id,Menu_Id,CreateTime,IsRemoved")] UserPermissions userPermissions)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,User_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
         {
             if (ModelState.IsValid)
             {

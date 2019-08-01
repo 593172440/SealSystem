@@ -16,6 +16,7 @@ namespace SealSystem.Web3.Controllers
         [LoginFilter]
         public ActionResult Index(Models.User user)
         {
+            List<string> sb5 = new List<string>();//保存修改，查看，删除权限
             Response.Cookies.Add(new HttpCookie("entityName")
             {
                 Value = HttpUtility.UrlEncode(user.EntityName)
@@ -23,21 +24,24 @@ namespace SealSystem.Web3.Controllers
                 //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
-            List<int> meun = new List<int>();//保存菜单id
+            List<int> meunId = new List<int>();//保存菜单id
             Models.SSContext db = new Models.SSContext();//数据上下文
-            var menusId = db.UserPermissions.Where(m => m.User_Id == user.Id);//获取所有的菜单id
-            foreach (var item in menusId)
+            var menusId = db.UserPermissions.Where(m => m.User_Id == user.Id);//根据用户名获取所有的相应的菜单Id
+            foreach (var item in menusId)//获取每个权限的详细信息
             {
-                meun.Add(item.Menu_Id);
+                meunId.Add(item.Menu_Id);
+                if (item.Delete) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Delete"); }
+                if (item.Details) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Details"); }
+                if (item.Edit) { sb5.Add(user.UserName + ":" + item.Menu_Id + ":Edit"); }
             }
-            List<Models.MenuTable> menusData = db.MenuTables.Where(m => meun.Contains(m.Id)).ToList();
+            List<Models.MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
             //////////////////////////////////////
             StringBuilder sb1 = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             StringBuilder sb4 = new StringBuilder();
-            List<string> sb5 = new List<string>();
-            foreach (var item in menusData)
+            
+            foreach (var item in menusData)//获取菜单
             {
                 if (!string.IsNullOrEmpty(item.MenuPath) && item.SuperiorCodeId == 100)
                 {
@@ -55,10 +59,12 @@ namespace SealSystem.Web3.Controllers
                 {
                     sb4.Append(item.MenuPath);
                 }
-                if (item.Add) { sb5.Add(item.Name + ":Add"); }
-                if (item.Delete) { sb5.Add(item.Name + ":Delete"); }
-                if (item.Details) { sb5.Add(item.Name + ":Details"); }
-                if (item.Edit) { sb5.Add(item.Name+":Edit"); }
+                //sb6里面保存都admin:菜单Id:Add
+                //sb6.Add(item.Id, item.Name);
+                if(meunId.Any(m=>m==item.Id))
+                {
+                    sb5.Add(user.UserName + ":" + item.Name + ":Add");
+                }
             }
             Response.Cookies.Add(new HttpCookie("XinXiDengJi")
             {

@@ -267,27 +267,27 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\UserPermissions\Create.cshtml" />
-    <Content Include="Views\UserPermissions\Delete.cshtml" />
-    <Content Include="Views\UserPermissions\Details.cshtml" />
-    <Content Include="Views\UserPermissions\Edit.cshtml" />
-    <Content Include="Views\UserPermissions\Index.cshtml" />
     <Content Include="Views\Home\LoginIndex.cshtml" />
     <Content Include="Views\AnnouncementNotices\Create.cshtml" />
     <Content Include="Views\AnnouncementNotices\Delete.cshtml" />
     <Content Include="Views\AnnouncementNotices\Details.cshtml" />
     <Content Include="Views\AnnouncementNotices\Edit.cshtml" />
     <Content Include="Views\AnnouncementNotices\Index.cshtml" />
-    <Content Include="Views\MenuTables\Create.cshtml" />
-    <Content Include="Views\MenuTables\Delete.cshtml" />
-    <Content Include="Views\MenuTables\Details.cshtml" />
-    <Content Include="Views\MenuTables\Edit.cshtml" />
-    <Content Include="Views\MenuTables\Index.cshtml" />
     <Content Include="Views\FileAndImages\Create.cshtml" />
     <Content Include="Views\FileAndImages\Delete.cshtml" />
     <Content Include="Views\FileAndImages\Details.cshtml" />
     <Content Include="Views\FileAndImages\Edit.cshtml" />
     <Content Include="Views\FileAndImages\Index.cshtml" />
+    <Content Include="Views\UserPermissions\Delete.cshtml" />
+    <Content Include="Views\UserPermissions\Details.cshtml" />
+    <Content Include="Views\UserPermissions\Edit.cshtml" />
+    <Content Include="Views\MenuTables\Create.cshtml" />
+    <Content Include="Views\MenuTables\Delete.cshtml" />
+    <Content Include="Views\MenuTables\Details.cshtml" />
+    <Content Include="Views\MenuTables\Edit.cshtml" />
+    <Content Include="Views\MenuTables\Index.cshtml" />
+    <Content Include="Views\UserPermissions\Index.cshtml" />
+    <Content Include="Views\UserPermissions\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

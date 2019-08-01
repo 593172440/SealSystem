@@ -46,35 +46,74 @@
                                 {
                                     @Html.AntiForgeryToken()
 
-                                    <div class="form-horizontal">
-                                        <hr />
+                                <div class="form-horizontal">
+                                    <hr />
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            用户 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("User_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.User_Id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            要分配的菜单权限 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.DropDownList("Menu_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Menu_Id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+
                                         <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 增加权限 </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.Add)
+                                                @Html.ValidationMessageFor(model => model.Add, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                用户 <span class="required">*</span>
+                                                修改权限 <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.DropDownList("User_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" })
-                                                @Html.ValidationMessageFor(model => model.User_Id, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Edit)
+                                                @Html.ValidationMessageFor(model => model.Edit, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                查看权限 <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+
+                                                @Html.EditorFor(model => model.Details)
+                                                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                要分配的菜单权限 <span class="required">*</span>
+                                                删除权限 <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.DropDownList("Menu_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" })
-                                                @Html.ValidationMessageFor(model => model.Menu_Id, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                            <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
-                                                @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
-                                                <button type="submit" class="btn btn-success" style="width:240px">提交</button>
-                                                <button class="btn btn-primary" type="reset">重写</button>
+
+                                                @Html.EditorFor(model => model.Delete)
+                                                @Html.ValidationMessageFor(model => model.Delete, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                                            @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                            <button type="submit" class="btn btn-success" style="width:240px">提交</button>
+                                            <button class="btn btn-primary" type="reset">重写</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 }
                             </div>
                         </div>

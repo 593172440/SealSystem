@@ -56,29 +56,9 @@
     <Compile Include="DataFile.cs" />
     <Compile Include="FileAndImage.cs" />
     <Compile Include="MenuTable.cs" />
-    <Compile Include="Migrations\201907311233125_001.cs" />
-    <Compile Include="Migrations\201907311233125_001.Designer.cs">
-      <DependentUpon>201907311233125_001.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907311252306_002.cs" />
-    <Compile Include="Migrations\201907311252306_002.Designer.cs">
-      <DependentUpon>201907311252306_002.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907311344328_003.cs" />
-    <Compile Include="Migrations\201907311344328_003.Designer.cs">
-      <DependentUpon>201907311344328_003.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908010533075_004.cs" />
-    <Compile Include="Migrations\201908010533075_004.Designer.cs">
-      <DependentUpon>201908010533075_004.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908010546205_005.cs" />
-    <Compile Include="Migrations\201908010546205_005.Designer.cs">
-      <DependentUpon>201908010546205_005.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908010552537_006.cs" />
-    <Compile Include="Migrations\201908010552537_006.Designer.cs">
-      <DependentUpon>201908010552537_006.cs</DependentUpon>
+    <Compile Include="Migrations\201908010751281_001.cs" />
+    <Compile Include="Migrations\201908010751281_001.Designer.cs">
+      <DependentUpon>201908010751281_001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
@@ -103,23 +83,8 @@
     <Content Include="数据库初始化文件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907311233125_001.resx">
-      <DependentUpon>201907311233125_001.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907311252306_002.resx">
-      <DependentUpon>201907311252306_002.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907311344328_003.resx">
-      <DependentUpon>201907311344328_003.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908010533075_004.resx">
-      <DependentUpon>201908010533075_004.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908010546205_005.resx">
-      <DependentUpon>201908010546205_005.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908010552537_006.resx">
-      <DependentUpon>201908010552537_006.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908010751281_001.resx">
+      <DependentUpon>201908010751281_001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
