@@ -38,8 +38,8 @@ namespace SealSystem.Web3.Controllers
         public ActionResult Create()
         {
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name");
-            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Code");
+            //ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
+            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name");
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name");
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name");
             ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "Name");
@@ -51,7 +51,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealState,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState_Id_Code,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
         {
             if (ModelState.IsValid)
             {
@@ -61,8 +61,8 @@ namespace SealSystem.Web3.Controllers
             }
 
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name", sealInforNew.SealApprovalUnitInfor_Id_ApprovalUnitCode);
-            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Code",sealInforNew.SealCategory_Id_Code);
+            //ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
+            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name",sealInforNew.SealCategory_Id_Code);
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name", sealInforNew.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInforNew.SealMaterial_Id_Code);
             //ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInforNew.SealState_Id_Code);
@@ -96,7 +96,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealState,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState_Id_Code,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
         {
             if (ModelState.IsValid)
             {

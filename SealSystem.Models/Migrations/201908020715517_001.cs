@@ -77,7 +77,7 @@ namespace SealSystem.Models.Migrations
                         RegistrationCategory = c.String(),
                         SealShape = c.String(),
                         EngravingLevel = c.String(),
-                        SealState_Id_Code = c.Int(nullable: false),
+                        SealState = c.Int(nullable: false),
                         Attention = c.String(),
                         AttentionIdCard = c.String(),
                         Contact = c.String(),
@@ -95,13 +95,11 @@ namespace SealSystem.Models.Migrations
                 .ForeignKey("dbo.SealCategories", t => t.SealCategory_Id_Code)
                 .ForeignKey("dbo.SealMakingUnitInfors", t => t.SealMakingUnitInfor_Id_MakingUnitCode)
                 .ForeignKey("dbo.SealMaterials", t => t.SealMaterial_Id_Code)
-                .ForeignKey("dbo.SealStates", t => t.SealState_Id_Code)
                 .ForeignKey("dbo.SealUseUnitInfors", t => t.SealUseUnitInfor_Id_UnitNumber)
                 .Index(t => t.SealCategory_Id_Code)
                 .Index(t => t.SealUseUnitInfor_Id_UnitNumber)
                 .Index(t => t.SealMakingUnitInfor_Id_MakingUnitCode)
                 .Index(t => t.SealMaterial_Id_Code)
-                .Index(t => t.SealState_Id_Code)
                 .Index(t => t.SealApprovalUnitInfor_Id_ApprovalUnitCode);
             
             CreateTable(
@@ -158,18 +156,6 @@ namespace SealSystem.Models.Migrations
             
             CreateTable(
                 "dbo.SealMaterials",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Code = c.String(),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.SealStates",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -255,7 +241,7 @@ namespace SealSystem.Models.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         SealInforNum = c.String(nullable: false),
                         SealName = c.String(),
-                        SealState_Id_Code = c.Int(nullable: false),
+                        SealState = c.String(),
                         SealUseUnitInfor_Id_UnitNumber = c.Int(nullable: false),
                         SealApprovalUnitInfor_Id_ApprovalUnitCode = c.Int(nullable: false),
                         SealMakingUnitInfor_Id_MakingUnitCode = c.Int(nullable: false),
@@ -290,9 +276,7 @@ namespace SealSystem.Models.Migrations
                 .ForeignKey("dbo.SealCategories", t => t.SealCategory_Id_Code)
                 .ForeignKey("dbo.SealMakingUnitInfors", t => t.SealMakingUnitInfor_Id_MakingUnitCode)
                 .ForeignKey("dbo.SealMaterials", t => t.SealMaterial_Id_Code)
-                .ForeignKey("dbo.SealStates", t => t.SealState_Id_Code)
                 .ForeignKey("dbo.SealUseUnitInfors", t => t.SealUseUnitInfor_Id_UnitNumber)
-                .Index(t => t.SealState_Id_Code)
                 .Index(t => t.SealUseUnitInfor_Id_UnitNumber)
                 .Index(t => t.SealApprovalUnitInfor_Id_ApprovalUnitCode)
                 .Index(t => t.SealMakingUnitInfor_Id_MakingUnitCode)
@@ -339,7 +323,6 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.UserPermissions", "User_Id", "dbo.Users");
             DropForeignKey("dbo.UserPermissions", "Menu_Id", "dbo.MenuTables");
             DropForeignKey("dbo.SealInfors", "SealUseUnitInfor_Id_UnitNumber", "dbo.SealUseUnitInfors");
-            DropForeignKey("dbo.SealInfors", "SealState_Id_Code", "dbo.SealStates");
             DropForeignKey("dbo.SealInfors", "SealMaterial_Id_Code", "dbo.SealMaterials");
             DropForeignKey("dbo.SealInfors", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
             DropForeignKey("dbo.SealInfors", "SealCategory_Id_Code", "dbo.SealCategories");
@@ -349,7 +332,6 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.SealUseUnitInfors", "SealUnitClass_Id", "dbo.SealUnitClasses");
             DropForeignKey("dbo.SealUseUnitInfors", "EnterpriseType_Id", "dbo.SealUnitCategories");
             DropForeignKey("dbo.SealUseUnitInfors", "Area_Id", "dbo.Areas");
-            DropForeignKey("dbo.SealInforNews", "SealState_Id_Code", "dbo.SealStates");
             DropForeignKey("dbo.SealInforNews", "SealMaterial_Id_Code", "dbo.SealMaterials");
             DropForeignKey("dbo.SealInforNews", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
             DropForeignKey("dbo.SealInforNews", "SealCategory_Id_Code", "dbo.SealCategories");
@@ -361,12 +343,10 @@ namespace SealSystem.Models.Migrations
             DropIndex("dbo.SealInfors", new[] { "SealMakingUnitInfor_Id_MakingUnitCode" });
             DropIndex("dbo.SealInfors", new[] { "SealApprovalUnitInfor_Id_ApprovalUnitCode" });
             DropIndex("dbo.SealInfors", new[] { "SealUseUnitInfor_Id_UnitNumber" });
-            DropIndex("dbo.SealInfors", new[] { "SealState_Id_Code" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "Area_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitClass_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "EnterpriseType_Id" });
             DropIndex("dbo.SealInforNews", new[] { "SealApprovalUnitInfor_Id_ApprovalUnitCode" });
-            DropIndex("dbo.SealInforNews", new[] { "SealState_Id_Code" });
             DropIndex("dbo.SealInforNews", new[] { "SealMaterial_Id_Code" });
             DropIndex("dbo.SealInforNews", new[] { "SealMakingUnitInfor_Id_MakingUnitCode" });
             DropIndex("dbo.SealInforNews", new[] { "SealUseUnitInfor_Id_UnitNumber" });
@@ -379,7 +359,6 @@ namespace SealSystem.Models.Migrations
             DropTable("dbo.SealUnitClasses");
             DropTable("dbo.SealUnitCategories");
             DropTable("dbo.SealUseUnitInfors");
-            DropTable("dbo.SealStates");
             DropTable("dbo.SealMaterials");
             DropTable("dbo.SealMakingUnitInfors");
             DropTable("dbo.SealCategories");
