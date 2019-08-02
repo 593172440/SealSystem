@@ -77,7 +77,7 @@ namespace SealSystem.Models.Migrations
                         RegistrationCategory = c.String(),
                         SealShape = c.String(),
                         EngravingLevel = c.String(),
-                        SealState = c.Int(nullable: false),
+                        SealState = c.String(),
                         Attention = c.String(),
                         AttentionIdCard = c.String(),
                         Contact = c.String(),
