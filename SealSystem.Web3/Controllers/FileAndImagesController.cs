@@ -15,7 +15,7 @@ namespace SealSystem.Web3.Controllers
         // GET: FileAndImages
         public async Task<ActionResult> Index()
         {
-            var fileAndImages = db.FileAndImages.Include(f => f.SealInfor);
+            var fileAndImages = db.FileAndImages.Include(f => f.SealInforNew);
             return View(await fileAndImages.ToListAsync());
         }
 
@@ -46,7 +46,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInfor_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInfor_Id);
+            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 
@@ -71,7 +71,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInfor_Id);
+            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 
@@ -80,7 +80,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInfor_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInfor_Id);
+            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 

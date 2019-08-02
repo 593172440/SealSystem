@@ -49,7 +49,7 @@
 				 //菜单表
             context.MenuTables.AddOrUpdate(
                 new MenuTable { CodeId = 100, Name = "信息登记", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 2, Name = "印章信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealInfors/Index'>印章信息管理</a></li>" },
+                new MenuTable { CodeId = 2, Name = "印章信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealInforNews/Index'>印章信息管理</a></li>" },
                 new MenuTable { CodeId = 3, Name = "使用单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealUseUnitInfors/Index'>使用单位信息管理</a></li>" },
                 new MenuTable { CodeId = 4, Name = "制章单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealMakingUnitInfors/Index'>制章单位信息管理</a></li>" },
                 new MenuTable { CodeId = 5, Name = "备案单位信息", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealApprovalUnitInfors/Index'>备案单位信息</a></li>" },

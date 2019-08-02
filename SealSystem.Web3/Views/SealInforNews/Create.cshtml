@@ -1,111 +1,22 @@
-﻿@model SealSystem.Models.SealInfor
-
-@*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>SealInfor</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ManyInstructions, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ManyInstructions, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ManyInstructions, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.UndertakeTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.UndertakeTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UndertakeTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.MakingTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MakingTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MakingTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DeliveryTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DeliveryTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DeliveryTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ScrapTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ScrapTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ScrapTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.HandTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HandTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HandTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.LossTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LossTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LossTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.LastAnnualTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LastAnnualTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LastAnnualTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ImageWidth, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ImageWidth, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ImageWidth, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ImageHeight, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ImageHeight, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ImageHeight, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CompressTag, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CompressTag, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CompressTag, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ImageDataPath, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ImageDataPath, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ImageDataPath, "", new { @class = "text-danger" })
-                </div>
-            </div>
+﻿@model SealSystem.Models.SealInforNew
+@*
+    <div class="form-group">
+        @Html.LabelFor(model => model.MakeWay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MakeWay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MakeWay, "", new { @class = "text-danger" })
         </div>
-    }*@
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TheProducer, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TheProducer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TheProducer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+*@
+
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -191,8 +102,8 @@
                                             印章内容 <span class="required"></span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            @Html.EditorFor(model => model.SealName, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
-                                            @Html.ValidationMessageFor(model => model.SealName, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.SealContent, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                            @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
@@ -321,6 +232,24 @@
                                             @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            外文内容 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.ForeignLanguageContent, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ForeignLanguageContent, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            备注 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
 
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
@@ -389,10 +318,10 @@
 
                             <form action="/FileAndImage/index" class="dropzone needsclick " id="demo-upload">
                                 @Html.AntiForgeryToken()
-                               <div class="dz-message needsclick">
+                                <div class="dz-message needsclick">
                                     拖拽进行上传
                                 </div>
-                                
+
                             </form>
 
                         </div>
@@ -400,14 +329,14 @@
                 </div>
             </div>
 
-            
+
 
 
         </div>
     </div>
     <!-- /page content -->
     @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
-    
+
     <script src="~/Scripts/dropzone.js"></script>
     <script>
         Dropzone.autoDiscover = false;
@@ -426,7 +355,7 @@
             dictFileTooBig: "文件过大上传文件最大支持.",
             //dictRemoveLinks: "删除",
             dictCancelUpload: "取消",
-            dictRemoveFile:"删除",
+            dictRemoveFile: "删除",
             init: function () {
                 this.on("addedfile", function (file) {
                     // 上传文件时触发的事件
@@ -446,9 +375,7 @@
                 });
             }
         });
-        
+
 
     </script>
 </div>
-
-

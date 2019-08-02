@@ -56,12 +56,25 @@
     <Compile Include="DataFile.cs" />
     <Compile Include="FileAndImage.cs" />
     <Compile Include="MenuTable.cs" />
-    <Compile Include="Migrations\201908011033163_001.cs" />
-    <Compile Include="Migrations\201908011033163_001.Designer.cs">
-      <DependentUpon>201908011033163_001.cs</DependentUpon>
+    <Compile Include="Migrations\201908020032227_001.cs" />
+    <Compile Include="Migrations\201908020032227_001.Designer.cs">
+      <DependentUpon>201908020032227_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020308284_002.cs" />
+    <Compile Include="Migrations\201908020308284_002.Designer.cs">
+      <DependentUpon>201908020308284_002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020335543_003.cs" />
+    <Compile Include="Migrations\201908020335543_003.Designer.cs">
+      <DependentUpon>201908020335543_003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020348538_004.cs" />
+    <Compile Include="Migrations\201908020348538_004.Designer.cs">
+      <DependentUpon>201908020348538_004.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
+    <Compile Include="SealInforNew.cs" />
     <Compile Include="SealMakingUnitInfor.cs" />
     <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="SealUnitClass.cs" />
@@ -83,8 +96,17 @@
     <Content Include="数据库初始化文件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908011033163_001.resx">
-      <DependentUpon>201908011033163_001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020032227_001.resx">
+      <DependentUpon>201908020032227_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020308284_002.resx">
+      <DependentUpon>201908020308284_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020335543_003.resx">
+      <DependentUpon>201908020335543_003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020348538_004.resx">
+      <DependentUpon>201908020348538_004.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

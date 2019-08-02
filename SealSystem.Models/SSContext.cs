@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con2")
+        public SSContext() : base("con1")
         {
             Database.SetInitializer<DbContext>(null);
         }
@@ -87,6 +87,13 @@
         /// 印章使用单位类型表(数据上下文)
         /// </summary>
         public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
-        
+        /// <summary>
+        /// 新的印章基本信息
+        /// </summary>
+        public System.Data.Entity.DbSet<SealSystem.Models.SealInforNew> SealInforNews { get; set; }
+        /// <summary>
+        /// 印章表
+        /// </summary>
+
     }
 }

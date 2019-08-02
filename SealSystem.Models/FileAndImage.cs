@@ -20,9 +20,9 @@ namespace SealSystem.Models
         /// <summary>
         /// 是哪个印章里面的相关文件
         /// </summary>
-        [ForeignKey(nameof(SealInfor))]
-        public int? SealInfor_Id { get; set; }
-        public SealInfor SealInfor { get; set; }
+        [ForeignKey(nameof(SealInforNew))]
+        public int? SealInforNew_Id { get; set; }
+        public SealInforNew SealInforNew { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
