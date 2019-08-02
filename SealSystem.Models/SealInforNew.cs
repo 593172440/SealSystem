@@ -76,7 +76,7 @@ namespace SealSystem.Models
         /// <summary>
         /// 印章状态代码(标准：GA 241.2)
         /// </summary>
-        public int SealState { get; set; }
+        public string SealState { get; set; }
 
         //-------------------------------------//
 

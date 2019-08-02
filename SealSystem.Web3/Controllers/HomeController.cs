@@ -77,7 +77,8 @@ namespace SealSystem.Web3.Controllers
             {
 
                 Value = HttpUtility.UrlEncode(sb1.ToString())
-
+                
+                
                 //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("ShengChanGuanLi")
@@ -106,6 +107,7 @@ namespace SealSystem.Web3.Controllers
                 Value = HttpUtility.UrlEncode(JsonConvert.SerializeObject(sb5))
                 //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
+            
             return View(user);
         }
         [LoginFilter]
