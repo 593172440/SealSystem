@@ -37,11 +37,12 @@ namespace SealSystem.Web3.Controllers
         // GET: SealInforNews/Create
         public ActionResult Create()
         {
-            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode");
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name");
-            ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode");
+            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name");
+            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
+            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Code");
+            ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name");
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name");
-            ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "UnitNumber");
+            ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "Name");
             return View();
         }
 
@@ -59,12 +60,13 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "ApprovalUnitCode", sealInforNew.SealApprovalUnitInfor_Id_ApprovalUnitCode);
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name", sealInforNew.SealCategory_Id_Code);
-            ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "MakingUnitCode", sealInforNew.SealMakingUnitInfor_Id_MakingUnitCode);
+            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name", sealInforNew.SealApprovalUnitInfor_Id_ApprovalUnitCode);
+            ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
+            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Code",sealInforNew.SealCategory_Id_Code);
+            ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name", sealInforNew.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInforNew.SealMaterial_Id_Code);
             //ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInforNew.SealState_Id_Code);
-            ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "UnitNumber", sealInforNew.SealUseUnitInfor_Id_UnitNumber);
+            ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "Name", sealInforNew.SealUseUnitInfor_Id_UnitNumber);
             return View(sealInforNew);
         }
 
