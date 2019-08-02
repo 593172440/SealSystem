@@ -23,9 +23,7 @@ namespace SealSystem.Models
         /// <summary>
         /// 印章状态代码(标准：GA 241.2)
         /// </summary>
-        [ForeignKey(nameof(SealState))]
-        public int SealState_Id_Code { get; set; }
-        public SealState SealState { get; set; }
+        public string SealState { get; set; }
         /// <summary>
         /// 使用单位编码(标准：GA 241.1)
         /// </summary>
