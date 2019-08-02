@@ -147,8 +147,8 @@
                                             印章状态 <span class="required"></span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <select name="SealState_Id_Code" class="form-control">
-                                                <option>已录入</option>
+                                            <select name="SealState" class="form-control">
+                                                <option selected>已录入</option>
                                                 <option>已承接</option>
                                                 <option>已制作</option>
                                                 <option>已审批</option>
@@ -157,7 +157,7 @@
                                                 <option>已缴销</option>
                                                 <option>已挂失</option>
                                             </select>
-                                            @*@Html.DropDownList("SealState_Id_Code", null, htmlAttributes: new { @class = "form-control" })*@
+                                            @*@Html.EditorFor(model => model.SealState, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })*@
                                             @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -221,8 +221,7 @@
                                             备案日期 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <input type="date" name="ApprovalTime" value="" />
-                                            @*@Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { id = "first-name", required = "required" } })*@
+                                            @Html.EditorFor(model => model.ApprovalTime, new { htmlAttributes = new { id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
                                         </div>
                                     </div>

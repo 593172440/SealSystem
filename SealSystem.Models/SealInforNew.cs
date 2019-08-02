@@ -74,7 +74,7 @@ namespace SealSystem.Models
         [Display(Name = "制作等级")]
         public string EngravingLevel { get; set; }
         /// <summary>
-        /// 印章状态代码(标准：GA 241.2)
+        /// 印章状态(标准：GA 241.2)
         /// </summary>
         public string SealState { get; set; }
 
