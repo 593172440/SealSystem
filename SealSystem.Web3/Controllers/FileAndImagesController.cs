@@ -1,12 +1,14 @@
-﻿using SealSystem.Models;
-using SealSystem.Web3.Filter;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SealSystem.Models;
+using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
@@ -18,8 +20,7 @@ namespace SealSystem.Web3.Controllers
         // GET: FileAndImages
         public async Task<ActionResult> Index()
         {
-            var fileAndImages = db.FileAndImages.Include(f => f.SealInforNew);
-            return View(await fileAndImages.ToListAsync());
+            return View(await db.FileAndImages.ToListAsync());
         }
 
         // GET: FileAndImages/Details/5
@@ -40,7 +41,6 @@ namespace SealSystem.Web3.Controllers
         // GET: FileAndImages/Create
         public ActionResult Create()
         {
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_SealInforNum,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,6 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 
@@ -74,7 +73,6 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 
@@ -83,7 +81,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_SealInforNum,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +89,6 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SealInfor_Id = new SelectList(db.SealInfors, "Id", "SealInforNum", fileAndImage.SealInforNew_Id);
             return View(fileAndImage);
         }
 
@@ -145,9 +142,20 @@ namespace SealSystem.Web3.Controllers
                 }
                 //return new HttpStatusCodeResult(500, "格式不正确");
                 return Content("格式不正确");
-
             }
             return View();
         }
+        public string ASJXUpFile(string name, string namePath, string sealInforNew_SealInforNum, string note)
+        {
+            db.FileAndImages.Add(new FileAndImage()
+            {
+                Name = name,
+                NamePath = namePath,
+                SealInforNew_SealInforNum = sealInforNew_SealInforNum
+            });
+            db.SaveChanges();
+            return "ok";
+        }
+
     }
 }

@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<SealSystem.Models.FileAndImage>
-
 @{
     if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
     {
@@ -69,6 +68,7 @@
                                         <tr>
                                             <th>文件名称</th>
                                             <th>文件路径</th>
+                                            <th>印章编码</th>
                                             <th>创建时间</th>
                                             <th>备注</th>
                                             <th></th>
@@ -85,6 +85,9 @@
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.NamePath)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SealInforNew_SealInforNum)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.CreateTime)
@@ -126,4 +129,3 @@
         @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
     </div>
 </div>
-

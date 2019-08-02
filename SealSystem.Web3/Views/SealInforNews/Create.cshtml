@@ -61,10 +61,10 @@
                         <div class="x_content">
                             <p>注：此功能正在测试中(支持拖拽)</p>
                             @*@using (Html.BeginForm("index", "FileAndImage", FormMethod.Post,new { @class = "dropzone" }))
-                        {
-                            @Html.AntiForgeryToken()
+                                {
+                                    @Html.AntiForgeryToken()
 
-                        }*@
+                                }*@
 
 
                             <form action="/FileAndImages/UpFileData" class="dropzone needsclick " id="demo-upload">
@@ -341,10 +341,10 @@
                     </div>
                 </div>
 
-               
-                
+
+
             </div>
-            
+
         </div>
     </div>
     <!-- /page content -->
@@ -377,9 +377,29 @@
                 this.on("success", function (file, data) {
                     // 上传成功触发的事件
                     console.log("上传成功触发的事件");
-                    //var tables = $("#rows1");
-                    //$("#rows").append(tables);
-                    $("#rows").append($("#rows1").prop('outerHTML'));
+                    //$("#rows").append($("#rows1").prop('outerHTML'));
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/FileAndImages/ASJXUpFile",
+                        data: {
+                            Name: '123',
+                            NamePath: '123',
+                            SealInforNew_SealInforNum:'123'
+                        },
+                            success: function (result) {
+                                console.log(result);
+                            },
+                            error: function () {
+                                console.log("异常");
+                            }
+                        });
+
+
+
+
+
+
                 });
                 this.on("error", function (file, data) {
                     // 上传失败触发的事件

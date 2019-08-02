@@ -18,11 +18,9 @@ namespace SealSystem.Models
         /// </summary>
         public string NamePath { get; set; }
         /// <summary>
-        /// 是哪个印章里面的相关文件
+        /// 是哪个印章里面的相关文件编码
         /// </summary>
-        [ForeignKey(nameof(SealInforNew))]
-        public int? SealInforNew_Id { get; set; }
-        public SealInforNew SealInforNew { get; set; }
+        public string SealInforNew_SealInforNum { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
