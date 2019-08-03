@@ -22,8 +22,6 @@ namespace SealSystem.Web3.Controllers
             Response.Cookies.Add(new HttpCookie("entityName")
             {
                 Value = HttpUtility.UrlEncode(user.EntityName)
-
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
             List<int> meunId = new List<int>();//保存菜单id
@@ -75,39 +73,24 @@ namespace SealSystem.Web3.Controllers
             }
             Response.Cookies.Add(new HttpCookie("XinXiDengJi")
             {
-
                 Value = HttpUtility.UrlEncode(sb1.ToString())
-                
-                
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("ShengChanGuanLi")
             {
-
                 Value = HttpUtility.UrlEncode(sb2.ToString())
-
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("XinXiChaXun")
             {
-
                 Value = HttpUtility.UrlEncode(sb3.ToString())
-
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("HouTaiSheZhi")
             {
-
                 Value = HttpUtility.UrlEncode(sb4.ToString())
-
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
             Response.Cookies.Add(new HttpCookie("ZXGC")
             {
                 Value = HttpUtility.UrlEncode(JsonConvert.SerializeObject(sb5))
-                //Expires = DateTime.Now.AddHours(1)//cookie保存1小时
             });
-            
             return View(user);
         }
         [LoginFilter]
