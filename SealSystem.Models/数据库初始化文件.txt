@@ -44,18 +44,19 @@
                 new MenuTable { CodeId = 4, Name = "制章单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealMakingUnitInfors/Index'>制章单位信息管理</a></li>" },
                 new MenuTable { CodeId = 5, Name = "备案单位信息", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealApprovalUnitInfors/Index'>备案单位信息</a></li>" },
                 new MenuTable { CodeId = 200, Name = "生产管理", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 7, Name = "刻章企业信息", SuperiorCodeId = 200, MenuPath = "<li><a href='#'>刻章企业信息</a></li>" },
-                new MenuTable { CodeId = 8, Name = "备案申请", SuperiorCodeId = 200, MenuPath = "<li><a href='#'>备案申请</a></li>" },
+                new MenuTable { CodeId = 7, Name = "印章制作", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsMaking/Index'>印章制作</a></li>" },
+                new MenuTable { CodeId = 8, Name = "印章交付", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>" },
+                new MenuTable { CodeId = 9, Name = "备案申请", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsBeiAn/Index'>备案申请</a></li>" },
                 new MenuTable { CodeId = 300, Name = "信息查询", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 10, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='#'>印章信息查询</a></li>" },
-                new MenuTable { CodeId = 11, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>" },
+                new MenuTable { CodeId = 11, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='#'>印章信息查询</a></li>" },
+                new MenuTable { CodeId = 12, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>" },
                 new MenuTable { CodeId = 400, Name = "后台设置", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 13, Name = "单位分类", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealUnitClasses/Index'>单位分类</a></li>" },
-                new MenuTable { CodeId = 14, Name = "区域管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Areas/Index'>区域管理</a></li>" },
-                new MenuTable { CodeId = 15, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
-                new MenuTable { CodeId = 16, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
-                new MenuTable { CodeId = 17, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
-                new MenuTable { CodeId = 18, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" }
+                new MenuTable { CodeId = 14, Name = "单位分类", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealUnitClasses/Index'>单位分类</a></li>" },
+                new MenuTable { CodeId = 15, Name = "区域管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Areas/Index'>区域管理</a></li>" },
+                new MenuTable { CodeId = 16, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
+                new MenuTable { CodeId = 17, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
+                new MenuTable { CodeId = 18, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
+                new MenuTable { CodeId = 19, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" }
                 );
 				//增加管理员
 			context.Users.AddOrUpdate(
@@ -69,12 +70,13 @@
                  new UserPermissions { User_Id = 1, Menu_Id = 5, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 7, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 8, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 10, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 9, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 11, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 13, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 12, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 14, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 15, Add = true, Delete = true, Edit = true },
                  new UserPermissions { User_Id = 1, Menu_Id = 16, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 17 },
-                 new UserPermissions { User_Id = 1, Menu_Id = 18, Add = true, Delete = true, Edit = true }
+                 new UserPermissions { User_Id = 1, Menu_Id = 17, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { User_Id = 1, Menu_Id = 18 },
+                 new UserPermissions { User_Id = 1, Menu_Id = 19, Add = true, Delete = true, Edit = true }
                  );

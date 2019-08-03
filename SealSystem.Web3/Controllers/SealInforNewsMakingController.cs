@@ -7,8 +7,11 @@ using System.Web.Mvc;
 
 namespace SealSystem.Web3.Controllers
 {
+    /// <summary>
+    /// 印章制作菜单
+    /// </summary>
     [LoginFilter]
-    public class SealInforNewsController : Controller
+    public class SealInforNewsMakingController : Controller
     {
         private SSContext db = new SSContext();
         private BLL.SealInforNewBLL sealDb = new BLL.SealInforNewBLL();

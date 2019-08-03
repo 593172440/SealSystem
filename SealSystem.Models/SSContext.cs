@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con1")
+        public SSContext() : base("con2")
         {
             Database.SetInitializer<DbContext>(null);
         }
@@ -20,7 +20,7 @@
         }
 
         /// <summary>
-        /// 印章审批单位信息表(数据上下文)
+        /// 印章备案(审批)单位信息表(数据上下文)
         /// </summary>
         public DbSet<SealApprovalUnitInfor> SealApprovalUnitInfors { get; set; }
        

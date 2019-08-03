@@ -53,7 +53,7 @@
                                                 备案单位编码 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.ApprovalUnitCode, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                <input type="text" name="ApprovalUnitCode" value="120116" form-control" class="form-control" required="required" />
                                                 @Html.ValidationMessageFor(model => model.ApprovalUnitCode, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

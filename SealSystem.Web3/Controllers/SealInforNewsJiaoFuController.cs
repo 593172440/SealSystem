@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace SealSystem.Web3.Controllers
 {
     [LoginFilter]
-    public class SealInforNewsController : Controller
+    public class SealInforNewsJiaoFuController : Controller
     {
         private SSContext db = new SSContext();
         private BLL.SealInforNewBLL sealDb = new BLL.SealInforNewBLL();

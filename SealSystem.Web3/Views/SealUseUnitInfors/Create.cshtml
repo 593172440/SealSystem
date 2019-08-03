@@ -54,7 +54,7 @@
                                             企业编号 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            @Html.EditorFor(model => model.UnitNumber, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            <input type="text" name="UnitNumber" value="120116"form-control" class = "form-control" required = "required"/>
                                             @Html.ValidationMessageFor(model => model.UnitNumber, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
