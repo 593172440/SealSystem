@@ -15,7 +15,10 @@
             @Html.ValidationMessageFor(model => model.TheProducer, "", new { @class = "text-danger" })
         </div>
     </div>
-*@
+    @*@
+@{
+    string abc = "";
+}
 
 <div class="container body">
     <div class="main_container">
@@ -117,8 +120,7 @@
                                             印章编号 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input type="text" name="SealInforNum" value="@ViewBag.SealId"  class = "form-control"/>
-                                            @*@Html.EditorFor(model => model.SealInforNum, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            <input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />
                                             @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -143,7 +145,6 @@
                                                 <option>30公章</option>
                                                 <option>20公章</option>
                                             </select>
-                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
                                             @Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -342,6 +343,11 @@
                     </div>
                 </div>
 
+                @*<input type="button" class="btn" value="生成窗体" onclick="btn_generate()" />*@
+                <div class="row" id="main_row">
+                    <!-- form input mask -->
+                    <!-- /form input mask -->
+                </div>
 
 
             </div>
@@ -377,30 +383,25 @@
                 });
                 this.on("success", function (file, data) {
                     // 上传成功触发的事件
-                    console.log("上传成功触发的事件");
-                    //$("#rows").append($("#rows1").prop('outerHTML'));
+                    console.log("上传成功触发的事件"),
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/FileAndImages/ASJXUpFile",
-                        data: {
-                            Name: '123',
-                            NamePath: '123',
-                            SealInforNew_SealInforNum:'123'
-                        },
-                            success: function (result) {
-                                console.log(result);
-                            },
-                            error: function () {
-                                console.log("异常");
-                            }
-                        });
+                        btn_generate()
 
-
-
-
-
-
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: "/FileAndImages/ASJXUpFile",
+                    //    data: {
+                    //        Name: '123',
+                    //        NamePath: '123',
+                    //        SealInforNew_SealInforNum: '123'
+                    //    },
+                    //    success: function (result) {
+                    //        console.log(result);
+                    //    },
+                    //    error: function () {
+                    //        console.log("异常");
+                    //    }
+                    //});
                 });
                 this.on("error", function (file, data) {
                     // 上传失败触发的事件
@@ -414,5 +415,93 @@
         });
 
 
+    </script>
+    <script type="text/javascript">
+        var idIndex = 0
+        function generate_instance() {
+            var classForm = '<div class="col-md-6 col-sm-12 col-xs-12" id="demo_row"><div class="x_panel">';
+            classForm += '<div class="x_title">';
+            classForm += '<h2>印章信息 @abc</h2>';
+            classForm += '<ul class="nav navbar-right panel_toolbox" style="min-width:0px;">';
+            classForm += '<li><a class="close-link" onclick="delDevelopmentNumber(this)"><i class="fa fa-close"></i></a>';
+            classForm += '</li>';
+            classForm += '</ul>';
+            classForm += '<div class="clearfix"></div>';
+            classForm += '</div>';
+            classForm += '<div class="x_content">';
+            classForm += '<form class="form-horizontal form-label-left">';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章编号</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += '<input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />';
+            classForm += '@Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章规格</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += `<select name="SealSpecification" class="form-control" id="SealSpecification">`;
+            classForm += `<option>40公章</option>`;
+            classForm += ` <option>30公章</option>`;
+            classForm += ` <option>20公章</option>`;
+            classForm += ` </select>`;
+            classForm += '@Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章类型</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += `@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;
+            classForm += '@Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章形状</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += `<select name="SealSpecification" class="form-control" id="SealSpecification">`;
+            classForm += `<option>圆形</option>`;
+            classForm += ` <option>方形</option>`;
+            classForm += ` <option>其它形</option>`;
+            classForm += ` </select>`;
+            classForm += '@Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章材料</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += `@Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;
+            classForm += '@Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '<div class="form-group col-md-6">';
+            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章内容</label>';
+            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
+            classForm += `@Html.EditorFor(model => model.SealContent, new { htmlAttributes = new { @class = "form-control", id = "first-name" } })`;
+            classForm += ' @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })';
+            classForm += '</div>';
+            classForm += '</div>';
+
+            classForm += '</form>';
+            classForm += '</div>';
+            classForm += '</div>';
+            classForm += '</div>';
+            return classForm;
+        }
+        function btn_generate() {
+            idIndex += 1;
+            $("#main_row").append(generate_instance())
+
+        }
+
+        function delDevelopmentNumber(e) {
+            console.log($(e).parent())
+            $(e).parent().parent().parent().parent().parent().remove();
+        }
     </script>
 </div>

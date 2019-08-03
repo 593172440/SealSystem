@@ -48,7 +48,7 @@
                 new MenuTable { CodeId = 8, Name = "印章交付", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>" },
                 new MenuTable { CodeId = 9, Name = "备案申请", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsBeiAn/Index'>备案申请</a></li>" },
                 new MenuTable { CodeId = 300, Name = "信息查询", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 11, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='#'>印章信息查询</a></li>" },
+                new MenuTable { CodeId = 11, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/SealInforNewsQuery/Index'>印章信息查询</a></li>" },
                 new MenuTable { CodeId = 12, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>" },
                 new MenuTable { CodeId = 400, Name = "后台设置", SuperiorCodeId = 0, MenuPath = "" },
                 new MenuTable { CodeId = 14, Name = "单位分类", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealUnitClasses/Index'>单位分类</a></li>" },

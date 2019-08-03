@@ -70,12 +70,12 @@
                                             印章规格 <span class="required"></span>
                                         </label>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <select name="SealSpecification" class="form-control" id="SealSpecification">
+                                            @*<select name="SealSpecification" class="form-control" id="SealSpecification">
                                                 <option>40公章</option>
                                                 <option>30公章</option>
                                                 <option>20公章</option>
-                                            </select>
-                                            @* @Html.EditorFor(model => model.EnterpriseDocumentsType, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })*@
+                                            </select>*@
+                                            @Html.EditorFor(model => model.SealSpecification, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
