@@ -1,13 +1,16 @@
-﻿using SealSystem.Models;
-using SealSystem.Web3.Filter;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using SealSystem.Models;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
     public class UserPermissionsController : Controller
     {
         private SSContext db = new SSContext();
@@ -15,7 +18,7 @@ namespace SealSystem.Web3.Controllers
         // GET: UserPermissions
         public async Task<ActionResult> Index()
         {
-            var userPermissions = db.UserPermissions.Include(u => u.MenuTable).Include(u => u.User);
+            var userPermissions = db.UserPermissions.Include(u => u.MenuTable).Include(u => u.UserGroup);
             return View(await userPermissions.ToListAsync());
         }
 
@@ -38,7 +41,7 @@ namespace SealSystem.Web3.Controllers
         public ActionResult Create()
         {
             ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name");
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name");
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,User_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UserGroup_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +60,7 @@ namespace SealSystem.Web3.Controllers
             }
 
             ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "UserName", userPermissions.User_Id);
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }
 
@@ -74,7 +77,7 @@ namespace SealSystem.Web3.Controllers
                 return HttpNotFound();
             }
             ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "UserName", userPermissions.User_Id);
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }
 
@@ -83,7 +86,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,User_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserGroup_Id,Menu_Id,Add,Edit,Details,Delete,CreateTime,IsRemoved")] UserPermissions userPermissions)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +95,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "UserName", userPermissions.User_Id);
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }
 

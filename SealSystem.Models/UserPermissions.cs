@@ -12,9 +12,12 @@ namespace SealSystem.Models
     /// </summary>
     public class UserPermissions:BaseEntity
     {
-        [ForeignKey(nameof(User))]
-        public int User_Id { get; set; }
-        public User User { get; set; }
+        /// <summary>
+        /// 每个组有许多权限
+        /// </summary>
+        [ForeignKey(nameof(UserGroup))]
+        public int UserGroup_Id { get; set; }
+        public UserGroup UserGroup { get; set; }
 
 
         [ForeignKey(nameof(MenuTable))]

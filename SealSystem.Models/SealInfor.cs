@@ -139,11 +139,6 @@ namespace SealSystem.Models
         //------------------------------------------------
 
         /// <summary>
-        /// 印章规格(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "印章规格")]
-        public string SealSpecification { get; set; }
-        /// <summary>
         /// 印章形状(自定义下拉列表)
         /// </summary>
         [Display(Name = "印章形状")]

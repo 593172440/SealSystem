@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,12 @@ namespace SealSystem.Models
         /// </summary>
         [Required]
         public string EntityName { get; set; }
+        /// <summary>
+        /// 每个组里有多个用户(用户组外键)
+        /// </summary>
+        [ForeignKey(nameof(UserGroup))]
+        public int UserGroup_Id { get; set; }
+        public UserGroup UserGroup { get; set; }
 
     }
 }

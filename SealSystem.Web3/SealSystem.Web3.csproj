@@ -135,6 +135,7 @@
     <Compile Include="Controllers\SealInforNewsController.cs" />
     <Compile Include="Controllers\SealInforsController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
+    <Compile Include="Controllers\SealSpecificationsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
     <Compile Include="Controllers\UserPermissionsController.cs" />
@@ -290,16 +291,11 @@
     <Content Include="Views\AnnouncementNotices\Details.cshtml" />
     <Content Include="Views\AnnouncementNotices\Edit.cshtml" />
     <Content Include="Views\AnnouncementNotices\Index.cshtml" />
-    <Content Include="Views\UserPermissions\Delete.cshtml" />
-    <Content Include="Views\UserPermissions\Details.cshtml" />
-    <Content Include="Views\UserPermissions\Edit.cshtml" />
     <Content Include="Views\MenuTables\Create.cshtml" />
     <Content Include="Views\MenuTables\Delete.cshtml" />
     <Content Include="Views\MenuTables\Details.cshtml" />
     <Content Include="Views\MenuTables\Edit.cshtml" />
     <Content Include="Views\MenuTables\Index.cshtml" />
-    <Content Include="Views\UserPermissions\Index.cshtml" />
-    <Content Include="Views\UserPermissions\Create.cshtml" />
     <Content Include="Views\SealInforNews\Create.cshtml" />
     <Content Include="Views\SealInforNews\Delete.cshtml" />
     <Content Include="Views\SealInforNews\Details.cshtml" />
@@ -340,6 +336,16 @@
     <Content Include="Views\SealInforNewsQuery\Details.cshtml" />
     <Content Include="Views\SealInforNewsQuery\Edit.cshtml" />
     <Content Include="Views\SealInforNewsQuery\Index.cshtml" />
+    <Content Include="Views\SealSpecifications\Create.cshtml" />
+    <Content Include="Views\SealSpecifications\Delete.cshtml" />
+    <Content Include="Views\SealSpecifications\Details.cshtml" />
+    <Content Include="Views\SealSpecifications\Edit.cshtml" />
+    <Content Include="Views\SealSpecifications\Index.cshtml" />
+    <Content Include="Views\UserPermissions\Create.cshtml" />
+    <Content Include="Views\UserPermissions\Delete.cshtml" />
+    <Content Include="Views\UserPermissions\Details.cshtml" />
+    <Content Include="Views\UserPermissions\Edit.cshtml" />
+    <Content Include="Views\UserPermissions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
