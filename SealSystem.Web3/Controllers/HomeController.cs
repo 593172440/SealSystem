@@ -129,7 +129,10 @@ namespace SealSystem.Web3.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "用户名或密码有就误");
+                    //ModelState.AddModelError("", "用户名或密码有就误");
+                    ViewBag.error = "no";
+                    //return this.Content("<script>alert('操作成功')</script>");
+
                 }
             }
             return View();
