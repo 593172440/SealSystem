@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SealSystem.Models
 {
+    /// <summary>
+    /// 文件图像存储表
+    /// </summary>
     public class FileAndImage:BaseEntity
     {
         /// <summary>
@@ -20,7 +23,9 @@ namespace SealSystem.Models
         /// <summary>
         /// 是哪个印章里面的相关文件编码
         /// </summary>
-        public string SealInforNew_SealInforNum { get; set; }
+        [ForeignKey(nameof(SealInforNew))]
+        public int SealInforNew_Id { get; set; }
+        public SealInforNew SealInforNew { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

@@ -15,7 +15,8 @@ namespace SealSystem.Web3.Controllers
         // GET: Users
         public async Task<ActionResult> Index()
         {
-            return View(await db.Users.ToListAsync());
+            var users = db.Users.Include(u => u.UserGroup);
+            return View(await users.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -36,6 +37,7 @@ namespace SealSystem.Web3.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name");
             return View();
         }
 
@@ -44,7 +46,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,UserName,UserPwd,EntityName,CreateTime,IsRemoved")] User user)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UserName,UserPwd,EntityName,UserGroup_Id,CreateTime,IsRemoved")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -53,6 +55,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", user.UserGroup_Id);
             return View(user);
         }
 
@@ -68,6 +71,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", user.UserGroup_Id);
             return View(user);
         }
 
@@ -76,7 +80,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,UserPwd,EntityName,CreateTime,IsRemoved")] User user)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,UserPwd,EntityName,UserGroup_Id,CreateTime,IsRemoved")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -84,6 +88,7 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", user.UserGroup_Id);
             return View(user);
         }
 

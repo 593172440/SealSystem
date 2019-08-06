@@ -1,4 +1,4 @@
-﻿@model SealSystem.Models.SealSpecification
+﻿@model SealSystem.Models.SealCategory
 
 @{
     ViewBag.Title = "Delete";
@@ -8,9 +8,25 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>SealSpecification</h4>
+    <h4>SealCategory</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.SealSpecifications)
         </dt>
@@ -25,14 +41,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.TestImagePath)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SealCategory_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SealCategory_Id)
         </dd>
 
         <dt>

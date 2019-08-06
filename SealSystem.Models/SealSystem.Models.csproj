@@ -60,11 +60,22 @@
     <Compile Include="Migrations\201908051707599_001.Designer.cs">
       <DependentUpon>201908051707599_001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908060909414_002.cs" />
+    <Compile Include="Migrations\201908060909414_002.Designer.cs">
+      <DependentUpon>201908060909414_002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908060933253_003.cs" />
+    <Compile Include="Migrations\201908060933253_003.Designer.cs">
+      <DependentUpon>201908060933253_003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908060944524_00.cs" />
+    <Compile Include="Migrations\201908060944524_00.Designer.cs">
+      <DependentUpon>201908060944524_00.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealInforNew.cs" />
     <Compile Include="SealMakingUnitInfor.cs" />
-    <Compile Include="SealSpecification.cs" />
     <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="SealUnitClass.cs" />
     <Compile Include="SealUnitCategory.cs" />
@@ -87,6 +98,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908051707599_001.resx">
       <DependentUpon>201908051707599_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060909414_002.resx">
+      <DependentUpon>201908060909414_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060933253_003.resx">
+      <DependentUpon>201908060933253_003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060944524_00.resx">
+      <DependentUpon>201908060944524_00.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

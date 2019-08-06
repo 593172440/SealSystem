@@ -19,22 +19,22 @@ namespace SealSystem.Web3.Controllers
             List<string> sb5 = new List<string>();
             List<string> sb6 = new List<string>();//保存权限表中的菜单Id和标识符"Add";格式:1:Add
 
-            Response.Cookies.Add(new HttpCookie("entityName")
+            Response.Cookies.Add(new HttpCookie("entityName")//将用户单位信息储存要cookie中
             {
                 Value = HttpUtility.UrlEncode(user.EntityName)
             });
             //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
             List<int> meunId = new List<int>();//保存菜单id
             Models.SSContext db = new Models.SSContext();//数据上下文
-            //var menusId = db.UserPermissions.Where(m => m.User_Id == user.Id);//根据用户名获取所有的相应的菜单Id
-            //foreach (var item in menusId)//获取每个权限的详细信息
-            //{
-            //    meunId.Add(item.Menu_Id);
-            //    if (item.Add) { sb6.Add(item.Menu_Id + ":Add"); }
-            //    if (item.Delete) { sb6.Add(item.Menu_Id + ":Delete"); }
-            //    if (item.Details) { sb6.Add(item.Menu_Id + ":Details"); }
-            //    if (item.Edit) { sb6.Add(item.Menu_Id + ":Edit"); }
-            //}
+            var menusId = db.UserPermissions.Where(m => m.UserGroup_Id == user.UserGroup_Id);//根据用户组获取所有的相应的菜单Id
+            foreach (var item in menusId)//获取每个权限的详细信息
+            {
+                meunId.Add(item.Menu_Id);
+                if (item.Add) { sb6.Add(item.Menu_Id + ":Add"); }
+                if (item.Delete) { sb6.Add(item.Menu_Id + ":Delete"); }
+                if (item.Details) { sb6.Add(item.Menu_Id + ":Details"); }
+                if (item.Edit) { sb6.Add(item.Menu_Id + ":Edit"); }
+            }
             List<Models.MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
             //////////////////////////////////////
             StringBuilder sb1 = new StringBuilder();
@@ -93,20 +93,7 @@ namespace SealSystem.Web3.Controllers
             });
             return View(user);
         }
-        [LoginFilter]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        [LoginFilter]
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
         public ActionResult LoginIndex()
         {
             return View();

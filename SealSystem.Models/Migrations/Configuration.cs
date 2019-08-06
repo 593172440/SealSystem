@@ -14,8 +14,8 @@ namespace SealSystem.Models.Migrations
 
         protected override void Seed(SealSystem.Models.SSContext context)
         {
-            
-            
+          
+
         }
     }
 }

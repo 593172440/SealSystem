@@ -7,6 +7,9 @@ using System.Web.Mvc;
 
 namespace SealSystem.Web3.Controllers
 {
+    /// <summary>
+    /// 印章信息控制器
+    /// </summary>
     [LoginFilter]
     public class SealInforNewsController : Controller
     {
@@ -52,7 +55,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +100,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,SealSpecification,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SealInforNum,SealCategory_Id_Code,SealContent,ForeignLanguageContent,SealUseUnitInfor_Id_UnitNumber,EngravingType,SealMakingUnitInfor_Id_MakingUnitCode,SealMaterial_Id_Code,RegistrationCategory,SealShape,EngravingLevel,SealState,Attention,AttentionIdCard,Contact,Approval,ApprovalTime,SealApprovalUnitInfor_Id_ApprovalUnitCode,Note,MakeWay,TheProducer,CreateTime,IsRemoved")] SealInforNew sealInforNew)
         {
             if (ModelState.IsValid)
             {

@@ -7,6 +7,10 @@
                 new SealCategory { Code = "05", Name = "法定代表人名章" },
                 new SealCategory { Code = "99", Name = "其它类型印章" }
                 );
+				//印章规格(只可以初始化一次)
+            context.SealSpecifications.AddOrUpdate(
+                new SealSpecification { SealSpecifications="30公章",SealCategory_Id=1,TestImagePath=""}
+                );
 				//章面(体)材料
 			context.SealMaterials.AddOrUpdate(
                 new SealMaterial { Code = "01", Name = "有机玻璃" },
@@ -56,25 +60,26 @@
                 new MenuTable { CodeId = 16, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
                 new MenuTable { CodeId = 17, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
                 new MenuTable { CodeId = 18, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
-                new MenuTable { CodeId = 19, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" }
+                new MenuTable { CodeId = 19, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" },
+                new MenuTable { CodeId = 20, Name = "印章规格管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealSpecifications/Index'>印章规格管理</a></li>" }
                 );
 				  //增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
             context.UserPermissions.AddOrUpdate(
-                 new UserPermissions { User_Id = 1, Menu_Id = 2, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 3, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 4, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 5, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 7, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 8, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 9, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 11, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 12, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 14, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 15, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 16, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 17, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { User_Id = 1, Menu_Id = 18 },
-                 new UserPermissions { User_Id = 1, Menu_Id = 19, Add = true, Delete = true, Edit = true }
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 2, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 3, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 4, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 5, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 7, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 8, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 9, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 11, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 12, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 14, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 15, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 16, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 17, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 18 },
+                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 19, Add = true, Delete = true, Edit = true }
                  );
 				 //增加用户组
 			context.UserGroups.AddOrUpdate(
@@ -87,3 +92,9 @@
             context.Users.AddOrUpdate(
                 new User { UserName = "admin", UserPwd = "admin", EntityName = "管理员", UserGroup_Id = 1 }
                 );
+
+
+
+
+				//---------------------------//
+				印章状态:已录入,已承接,已制作,已备案,,已交付,已报废,已缴销,已挂失

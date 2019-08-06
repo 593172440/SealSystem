@@ -151,7 +151,7 @@ namespace SealSystem.Web3.Controllers
             {
                 Name = name,
                 NamePath = namePath,
-                SealInforNew_SealInforNum = sealInforNew_SealInforNum
+                //SealInforNew_SealInforNum = sealInforNew_SealInforNum
             });
             db.SaveChanges();
             return "ok";

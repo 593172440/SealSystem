@@ -52,11 +52,7 @@ namespace SealSystem.Models
         [ForeignKey(nameof(SealMaterial))]
         public int SealMaterial_Id_Code { get; set; }
         public SealMaterial SealMaterial { get; set; }
-        /// <summary>
-        /// 印章规格(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "印章规格")]
-        public string SealSpecification { get; set; }
+       
         /// <summary>
         /// 登记类别
         /// </summary>

@@ -1,114 +1,120 @@
-﻿using SealSystem.Models;
-using SealSystem.Web3.Filter;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using SealSystem.Models;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
-    public class SealSpecificationsController : Controller
+    /// <summary>
+    /// 印章类型规格控制器
+    /// </summary>
+    public class SealCategoriesController : Controller
     {
         private SSContext db = new SSContext();
 
-        // GET: SealSpecifications
+        // GET: SealCategories
         public async Task<ActionResult> Index()
         {
-            return View(await db.SealSpecifications.ToListAsync());
+            return View(await db.SealCategorys.ToListAsync());
         }
 
-        // GET: SealSpecifications/Details/5
+        // GET: SealCategories/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealSpecification sealSpecification = await db.SealSpecifications.FindAsync(id);
-            if (sealSpecification == null)
+            SealCategory sealCategory = await db.SealCategorys.FindAsync(id);
+            if (sealCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sealSpecification);
+            return View(sealCategory);
         }
 
-        // GET: SealSpecifications/Create
+        // GET: SealCategories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SealSpecifications/Create
+        // POST: SealCategories/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SealSpecifications,TestImagePath,SealCategory_Id,CreateTime,IsRemoved")] SealSpecification sealSpecification)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Code,SealSpecifications,TestImagePath,CreateTime,IsRemoved")] SealCategory sealCategory)
         {
             if (ModelState.IsValid)
             {
-                db.SealSpecifications.Add(sealSpecification);
+                db.SealCategorys.Add(sealCategory);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(sealSpecification);
+            return View(sealCategory);
         }
 
-        // GET: SealSpecifications/Edit/5
+        // GET: SealCategories/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealSpecification sealSpecification = await db.SealSpecifications.FindAsync(id);
-            if (sealSpecification == null)
+            SealCategory sealCategory = await db.SealCategorys.FindAsync(id);
+            if (sealCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sealSpecification);
+            return View(sealCategory);
         }
 
-        // POST: SealSpecifications/Edit/5
+        // POST: SealCategories/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SealSpecifications,TestImagePath,SealCategory_Id,CreateTime,IsRemoved")] SealSpecification sealSpecification)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Code,SealSpecifications,TestImagePath,CreateTime,IsRemoved")] SealCategory sealCategory)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sealSpecification).State = EntityState.Modified;
+                db.Entry(sealCategory).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(sealSpecification);
+            return View(sealCategory);
         }
 
-        // GET: SealSpecifications/Delete/5
+        // GET: SealCategories/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealSpecification sealSpecification = await db.SealSpecifications.FindAsync(id);
-            if (sealSpecification == null)
+            SealCategory sealCategory = await db.SealCategorys.FindAsync(id);
+            if (sealCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sealSpecification);
+            return View(sealCategory);
         }
 
-        // POST: SealSpecifications/Delete/5
+        // POST: SealCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SealSpecification sealSpecification = await db.SealSpecifications.FindAsync(id);
-            db.SealSpecifications.Remove(sealSpecification);
+            SealCategory sealCategory = await db.SealCategorys.FindAsync(id);
+            db.SealCategorys.Remove(sealCategory);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

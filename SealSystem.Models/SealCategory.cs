@@ -3,7 +3,7 @@
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 印章类型表(登记类别)
+    /// 印章类型规格表表(登记类别)
     /// </summary>
     public class SealCategory:BaseEntity
     {
@@ -17,5 +17,13 @@ namespace SealSystem.Models
         /// 印章类型代码
         /// </summary>
         public string Code { get; set; }
+        /// <summary>
+        /// 印章规格名称
+        /// </summary>
+        public string SealSpecifications { get; set; }
+        /// <summary>
+        /// 测试印章图片地址
+        /// </summary>
+        public string TestImagePath { get; set; }
     }
 }
