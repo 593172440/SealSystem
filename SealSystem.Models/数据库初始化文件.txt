@@ -1,16 +1,38 @@
 ﻿			//印章类型代码表初始化
             context.SealCategorys.AddOrUpdate(
-                new SealCategory { Code = "01", Name = "单位专用章" },
-                new SealCategory { Code = "02", Name = "财务专用章" },
-                new SealCategory { Code = "03", Name = "税务专用章" },
-                new SealCategory { Code = "04", Name = "合同专用章" },
-                new SealCategory { Code = "05", Name = "法定代表人名章" },
-                new SealCategory { Code = "99", Name = "其它类型印章" }
-                );
-				//印章规格(只可以初始化一次)
-            context.SealSpecifications.AddOrUpdate(
-                new SealSpecification { SealSpecifications="30公章",SealCategory_Id=1,TestImagePath=""}
-                );
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40公章",TestImagePath= "40DWZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="42公章",TestImagePath= "42DWZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="42党微章",TestImagePath= "42DHZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications= "40党微章", TestImagePath= "40DHZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40公会章",TestImagePath= "40GHZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications= "42公会章", TestImagePath= "42GHZY.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="其它",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="38单位公章",TestImagePath= "" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40中英文单位章",TestImagePath= "40ZYGZ.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="45-30中英文公章",TestImagePath= "45-30ZYGZ.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications= "50-35中英文公章", TestImagePath= "50-35ZYGZ.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="38个体章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="38无后段",TestImagePath= "38GTZY.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="35财务",TestImagePath= "35CWZ.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="35个体财务",TestImagePath= "35GTCWZ.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="35财务章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="38财务章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="25财务",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="20X30财务章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications="中英文财务章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "02", Name = "财务专用章",SealSpecifications= "其它", TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "03", Name = "发票专用章",SealSpecifications= "40X30发票章", TestImagePath= "40x30FPZ.png" },
+                  new SealCategory { Code = "03", Name = "财务专用章",SealSpecifications= "其它", TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="38合同章",TestImagePath= "38HT.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="40合同章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="50合同章",TestImagePath= "50DHT.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="38人体合同章",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="38中英文",TestImagePath= "38ZYWHT.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="38大合同",TestImagePath= "58DHT.png" },
+                  new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="其它",TestImagePath= "noimage.png" },
+                  new SealCategory { Code = "99", Name = "其它", SealSpecifications= "其它", TestImagePath= "noimage.png" }
+                  );
+				
 				//章面(体)材料
 			context.SealMaterials.AddOrUpdate(
                 new SealMaterial { Code = "01", Name = "有机玻璃" },
