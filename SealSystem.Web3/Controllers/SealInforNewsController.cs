@@ -1,6 +1,8 @@
-﻿using SealSystem.Models;
+﻿using Microsoft.Ajax.Utilities;
+using SealSystem.Models;
 using SealSystem.Web3.Filter;
 using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -43,7 +45,9 @@ namespace SealSystem.Web3.Controllers
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name");
             //ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
             ViewBag.SealId = "120116"+sealDb.GetAllCount();
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name");
+            //var sealList = db.SealCategorys.SqlQuery("select distinct name from sealcategories");
+            //ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys,"Id","Name");
+            ViewBag.SealCategory_Id_Code = db.SealCategorys.ToList();
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name");
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name");
             ViewBag.SealUseUnitInfor_Id_UnitNumber = new SelectList(db.UnitInfors, "Id", "Name");

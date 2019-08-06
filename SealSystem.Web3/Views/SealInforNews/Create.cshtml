@@ -1,4 +1,5 @@
 ﻿@model SealSystem.Models.SealInforNew
+
 @*
     <div class="form-group">
         @Html.LabelFor(model => model.MakeWay, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -130,7 +131,21 @@
                                             印章类型 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            @Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })
+                                            @{
+                                                List<string> list = new List<string>();
+                                            }
+                                            @foreach (SealSystem.Models.SealCategory item in ViewBag.SealCategory_Id_Code)
+                                            {
+                                                list.Add(item.Name);
+                                            }
+                                            <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control">
+                                                @foreach (var item in list.Distinct())
+                                                {
+                                                    <option>@item</option>
+                                                }
+                                            </select>
+
+                                            @*@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })*@
                                             @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -141,11 +156,12 @@
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
                                             <select name="SealSpecification" class="form-control" id="SealSpecification">
-                                                <option>40公章</option>
+
+                                                @*<option>40公章</option>
                                                 <option>30公章</option>
-                                                <option>20公章</option>
+                                                <option>20公章</option>*@
                                             </select>
-                                            @Html.ValidationMessageFor(model => model.SealCategory., "", new { @class = "text-danger" })
+                                            @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
@@ -216,7 +232,7 @@
                                             印章状态 <span class="required"></span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input type="text" name="SealState" value="已录入" readonly class = "form-control"/>
+                                            <input type="text" name="SealState" value="已录入" readonly class="form-control" />
                                             @*@Html.EditorFor(Model=>Model.SealState, new { htmlAttributes = new { @class = "form-control", id = "first-name", required = "required" } })*@
                                             @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                         </div>
@@ -445,7 +461,7 @@
             classForm += '<div class="form-group col-md-6">';
             classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章类型</label>';
             classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += `@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;
+            @*classForm += `@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;*@
             classForm += '@Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })';
             classForm += '</div>';
             classForm += '</div>';
@@ -494,5 +510,7 @@
             console.log($(e).parent())
             $(e).parent().parent().parent().parent().parent().remove();
         }
+
+
     </script>
 </div>

@@ -49,7 +49,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_SealInforNum,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_SealInforNum,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +145,7 @@ namespace SealSystem.Web3.Controllers
             }
             return View();
         }
-        public string ASJXUpFile(string name, string namePath, string sealInforNew_SealInforNum, string note)
+        public string ASJXUpFile(string name, string namePath, string SealInforNew_Id, string note)
         {
             db.FileAndImages.Add(new FileAndImage()
             {

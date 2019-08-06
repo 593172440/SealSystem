@@ -7,7 +7,7 @@
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40公会章",TestImagePath= "40GHZY.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications= "42公会章", TestImagePath= "42GHZY.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="其它",TestImagePath= "noimage.png" },
-                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="38单位公章",TestImagePath= "" },
+                  new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="38单位公章",TestImagePath= "noimage.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40中英文单位章",TestImagePath= "40ZYGZ.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="45-30中英文公章",TestImagePath= "45-30ZYGZ.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications= "50-35中英文公章", TestImagePath= "50-35ZYGZ.png" },
@@ -83,8 +83,19 @@
                 new MenuTable { CodeId = 17, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
                 new MenuTable { CodeId = 18, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
                 new MenuTable { CodeId = 19, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" },
-                new MenuTable { CodeId = 20, Name = "印章规格管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealSpecifications/Index'>印章规格管理</a></li>" }
+                new MenuTable { CodeId = 20, Name = "印章类型管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealCategories/Index'>印章类型管理</a></li>" }
                 );
+				//增加用户组
+			context.UserGroups.AddOrUpdate(
+                new UserGroup { Name = "管理员组" },
+                new UserGroup { Name = "制章单位组" },
+                new UserGroup { Name = "备案单位组" },
+                new UserGroup { Name = "使用单位组" }
+                );
+
+				//--------------------以下信息要一个一个的来更新数据库------------------//
+
+
 				  //增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
             context.UserPermissions.AddOrUpdate(
                  new UserPermissions { UserGroup_Id = 1, Menu_Id = 2, Add = true, Delete = true, Edit = true },
@@ -103,13 +114,7 @@
                  new UserPermissions { UserGroup_Id = 1, Menu_Id = 18 },
                  new UserPermissions { UserGroup_Id = 1, Menu_Id = 19, Add = true, Delete = true, Edit = true }
                  );
-				 //增加用户组
-			context.UserGroups.AddOrUpdate(
-                new UserGroup { Name = "管理员组" },
-                new UserGroup { Name = "制章单位组" },
-                new UserGroup { Name = "备案单位组" },
-                new UserGroup { Name = "使用单位组" }
-                );
+			
 				//增加管理员（注：这个最后增加）
             context.Users.AddOrUpdate(
                 new User { UserName = "admin", UserPwd = "admin", EntityName = "管理员", UserGroup_Id = 1 }
