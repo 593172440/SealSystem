@@ -133,8 +133,9 @@
                                         <div class="col-md-7 col-sm-6 col-xs-12">
                                             @{
                                                 List<string> list = new List<string>();
+                                                List<SealSystem.Models.SealCategory> SealList = ViewBag.SealCategory_Id_Code;
                                             }
-                                            @foreach (SealSystem.Models.SealCategory item in ViewBag.SealCategory_Id_Code)
+                                            @foreach (SealSystem.Models.SealCategory item in SealList)
                                             {
                                                 list.Add(item.Name);
                                             }
