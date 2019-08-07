@@ -20,7 +20,7 @@
 @{
     string abc = "";
 }
-
+<script src="~/Scripts/vue.min.js"></script>
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -157,10 +157,10 @@
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
                                             <select name="SealSpecification" class="form-control" id="SealSpecification">
-
+                                              
                                                 @*<option>40公章</option>
-                                                <option>30公章</option>
-                                                <option>20公章</option>*@
+                                                    <option>30公章</option>
+                                                    <option>20公章</option>*@
                                             </select>
                                             @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                         </div>
