@@ -1,6 +1,8 @@
 ﻿using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 using SealSystem.Models;
 using SealSystem.Web3.Filter;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -44,7 +46,7 @@ namespace SealSystem.Web3.Controllers
         {
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name");
             //ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
-            ViewBag.SealId = "120116"+sealDb.GetAllCount();
+            ViewBag.SealId = "120116" + sealDb.GetAllCount();
             //var sealList = db.SealCategorys.SqlQuery("select distinct name from sealcategories");
             //ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys,"Id","Name");
             ViewBag.SealCategory_Id_Code = db.SealCategorys.ToList();
@@ -70,7 +72,7 @@ namespace SealSystem.Web3.Controllers
 
             ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode = new SelectList(db.SealApprovalUnitInfors, "Id", "Name", sealInforNew.SealApprovalUnitInfor_Id_ApprovalUnitCode);
             //ViewBag.SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson = new SelectList(db.SealApprovalUnitInfors, "Id", "LegelPerson");
-            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name",sealInforNew.SealCategory_Id_Code);
+            ViewBag.SealCategory_Id_Code = new SelectList(db.SealCategorys, "Id", "Name", sealInforNew.SealCategory_Id_Code);
             ViewBag.SealMakingUnitInfor_Id_MakingUnitCode = new SelectList(db.SealMakingUnitInfors, "Id", "Name", sealInforNew.SealMakingUnitInfor_Id_MakingUnitCode);
             ViewBag.SealMaterial_Id_Code = new SelectList(db.SealMaterials, "Id", "Name", sealInforNew.SealMaterial_Id_Code);
             //ViewBag.SealState_Id_Code = new SelectList(db.SealStates, "Id", "Name", sealInforNew.SealState_Id_Code);
@@ -154,6 +156,22 @@ namespace SealSystem.Web3.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public async Task<ActionResult> SealUserUnitInforList(string Name)
+        {
+            var unitInfors = db.UnitInfors.Include(s => s.Area).Include(s => s.SealUnitCategory).Include(s => s.SealUnitClass);
+            SealUseUnitInfor list = await unitInfors.FirstOrDefaultAsync(m => m.Name == Name);
+            if (list==null)
+            {
+                return Content("0");
+            }
+            else
+            {
+                ViewBag.SealUUList = JsonConvert.SerializeObject(list);
+                return View("Create", ViewBag.SealUUList);
+            }
+
+
         }
     }
 }
