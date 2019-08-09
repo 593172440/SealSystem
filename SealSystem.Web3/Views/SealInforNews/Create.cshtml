@@ -20,7 +20,7 @@
 @{
     string abc = "";
 }
-<script src="~/Scripts/vue.min.js"></script>
+<script src="~/Scripts/vue.js"></script>
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -36,57 +36,51 @@
         <!-- page content -->
         <div class="right_col" role="main" style=null>
 
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2>文件文档上传</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="#">Settings 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Settings 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <p>注：此功能正在测试中(支持拖拽)</p>
-                            @*@using (Html.BeginForm("index", "FileAndImage", FormMethod.Post,new { @class = "dropzone" }))
-                                {
+            @*<div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>文件文档上传</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <p>注：此功能正在测试中(支持拖拽)</p>
+
+                                <form action="/FileAndImages/UpFileData" class="dropzone needsclick " id="demo-upload">
                                     @Html.AntiForgeryToken()
+                                    <div class="dz-message needsclick">
+                                        拖拽进行上传
+                                    </div>
 
-                                }*@
+                                </form>
 
-
-                            <form action="/FileAndImages/UpFileData" class="dropzone needsclick " id="demo-upload">
-                                @Html.AntiForgeryToken()
-                                <div class="dz-message needsclick">
-                                    拖拽进行上传
-                                </div>
-
-                            </form>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>*@
 
             <div id="rows" class="row">
 
-                <div id="rows1" class="col-md-6 col-sm-12 col-xs-12">
+                <div id="rows1" class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>增加印章(未完成) <small>增加印章信息</small></h2>
@@ -113,8 +107,18 @@
                             @using (Html.BeginForm())
                             {
                                 @Html.AntiForgeryToken()
-                                <div class="form-horizontal">
+                            <div id="app">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
+                                        单位名称 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input v-on:change="danWeiName" v-model="danWeiNameModel" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称检查是否存在"/>
+                                    </div>
+                                  
+                                </div>
 
+                                <div v-if="set1" class="form-horizontal" >
 
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
@@ -125,7 +129,6 @@
                                             @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             印章类型 <span class="required">*</span>
@@ -150,17 +153,16 @@
                                             @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
                                             印章规格 <span class="required"></span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
                                             <select name="SealSpecification" class="form-control" id="SealSpecification">
-                                              
+
                                                 @*<option>40公章</option>
-                                                    <option>30公章</option>
-                                                    <option>20公章</option>*@
+                        <option>30公章</option>
+                        <option>20公章</option>*@
                                             </select>
                                             @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                         </div>
@@ -265,12 +267,12 @@
                                             @Html.ValidationMessageFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class=col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             经办人 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control", id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -279,7 +281,7 @@
                                             身份证 <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            @Html.EditorFor(model => model.AttentionIdCard, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                            @Html.EditorFor(model => model.AttentionIdCard, new { htmlAttributes = new { @class = "form-control", id = "first-name", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -312,7 +314,7 @@
                                             @Html.ValidationMessageFor(model => model.ForeignLanguageContent, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class=" col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             备注 <span class="required"></span>
                                         </label>
@@ -321,7 +323,6 @@
                                             @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                             印章形状 <span class="required"></span>
@@ -336,8 +337,6 @@
                                             @Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
-
                                     <div class="form-group">
                                         <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-3">
                                             @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
@@ -346,16 +345,17 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             }
                         </div>
                     </div>
                 </div>
 
-                @*<input type="button" class="btn" value="生成窗体" onclick="btn_generate()" />*@
-                <div class="row" id="main_row">
-                    <!-- form input mask -->
-                    <!-- /form input mask -->
-                </div>
+                @*<input type="button" class="btn" value="生成窗体" onclick="btn_generate()" />
+                    <div class="row" id="main_row">
+                        <!-- form input mask -->
+                        <!-- /form input mask -->
+                    </div>*@
 
 
             </div>
@@ -367,63 +367,78 @@
 
     <script src="~/Scripts/dropzone.js"></script>
     <script>
-        Dropzone.autoDiscover = false;
-        var myDropzone = new Dropzone("#demo-upload", {
-            maxFiles: 20,// 一次性上传的文件数量上限
-            maxFilesize: 2, // 文件大小，单位：MB
-            acceptedFiles: ".jpg,.gif,.png,.jpeg,.txt,.zip,.rar,.doc,.docx,.xlsx,.xls", // 上传的类型
-            addRemoveLinks: true,
-            parallelUploads: 2,// 一次上传的文件数量
-            //previewsContainer:"#preview", // 上传图片的预览窗口
-            //dictDefaultMessage: '拖动文件至此或者点击上传',
-            dictMaxFilesExceeded: "您最多只能上传20个文件！",
-            dictResponseError: '文件上传失败!',
-            dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg,*.txt,*.rar,*.zip,*.doc,*.docx,*.xlsx,*.xls。",
-            dictFallbackMessage: "浏览器不受支持",
-            dictFileTooBig: "文件过大上传文件最大支持.",
-            //dictRemoveLinks: "删除",
-            dictCancelUpload: "取消",
-            dictRemoveFile: "删除",
-            init: function () {
-                this.on("addedfile", function (file) {
-                    // 上传文件时触发的事件
-                    console.log("上传文件时触发的事件");
-                });
-                this.on("success", function (file, data) {
-                    // 上传成功触发的事件
-                    console.log("上传成功触发的事件"),
-
-                        btn_generate()
-
-                    //$.ajax({
-                    //    type: "POST",
-                    //    url: "/FileAndImages/ASJXUpFile",
-                    //    data: {
-                    //        Name: '123',
-                    //        NamePath: '123',
-                    //        SealInforNew_SealInforNum: '123'
-                    //    },
-                    //    success: function (result) {
-                    //        console.log(result);
-                    //    },
-                    //    error: function () {
-                    //        console.log("异常");
-                    //    }
-                    //});
-                });
-                this.on("error", function (file, data) {
-                    // 上传失败触发的事件
-                    console.log("上传失败触发的事件");
-                });
-                this.on("removedfile", function (file) {
-                    // 删除文件时触发的方法
-                    console.log("删除文件时触发的方法");
-                });
+        var app = new Vue({
+            el: "#app",
+            data: {
+                set1: false,
+                danWeiNameModel:""
+            },
+            methods: {
+                danWeiName: function () {
+                    console.log(this.danWeiNameModel);
+                    @Ajax.
+                }
             }
-        });
-
-
+        })
     </script>
+    @*<script>
+            Dropzone.autoDiscover = false;
+            var myDropzone = new Dropzone("#demo-upload", {
+                maxFiles: 20,// 一次性上传的文件数量上限
+                maxFilesize: 2, // 文件大小，单位：MB
+                acceptedFiles: ".jpg,.gif,.png,.jpeg,.txt,.zip,.rar,.doc,.docx,.xlsx,.xls", // 上传的类型
+                addRemoveLinks: true,
+                parallelUploads: 2,// 一次上传的文件数量
+                //previewsContainer:"#preview", // 上传图片的预览窗口
+                //dictDefaultMessage: '拖动文件至此或者点击上传',
+                dictMaxFilesExceeded: "您最多只能上传20个文件！",
+                dictResponseError: '文件上传失败!',
+                dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg,*.txt,*.rar,*.zip,*.doc,*.docx,*.xlsx,*.xls。",
+                dictFallbackMessage: "浏览器不受支持",
+                dictFileTooBig: "文件过大上传文件最大支持.",
+                //dictRemoveLinks: "删除",
+                dictCancelUpload: "取消",
+                dictRemoveFile: "删除",
+                init: function () {
+                    this.on("addedfile", function (file) {
+                        // 上传文件时触发的事件
+                        console.log("上传文件时触发的事件");
+                    });
+                    this.on("success", function (file, data) {
+                        // 上传成功触发的事件
+                        console.log("上传成功触发的事件"),
+
+                            btn_generate()
+
+                        //$.ajax({
+                        //    type: "POST",
+                        //    url: "/FileAndImages/ASJXUpFile",
+                        //    data: {
+                        //        Name: '123',
+                        //        NamePath: '123',
+                        //        SealInforNew_SealInforNum: '123'
+                        //    },
+                        //    success: function (result) {
+                        //        console.log(result);
+                        //    },
+                        //    error: function () {
+                        //        console.log("异常");
+                        //    }
+                        //});
+                    });
+                    this.on("error", function (file, data) {
+                        // 上传失败触发的事件
+                        console.log("上传失败触发的事件");
+                    });
+                    this.on("removedfile", function (file) {
+                        // 删除文件时触发的方法
+                        console.log("删除文件时触发的方法");
+                    });
+                }
+            });
+
+
+        </script>*@
     <script type="text/javascript">
         var idIndex = 0
         function generate_instance() {
