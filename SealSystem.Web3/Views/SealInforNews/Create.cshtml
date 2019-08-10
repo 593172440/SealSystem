@@ -146,7 +146,8 @@
                                                 {
                                                     listType.Add(item.Name);
                                                 }
-                                                <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control">
+                                                <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" v-model="SelectedLeiXing" v-on:change="selectedType">
+                                                    <option disabled value="">请选择</option>
                                                     @foreach (var item in listType.Distinct())
                                                     {
                                                         <option>@item</option>
@@ -162,8 +163,8 @@
                                                 印章规格 <span class="required"></span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <select name="SealSpecification" class="form-control" id="SealSpecification">
-
+                                                <select  name="SealSpecification" class="form-control" id="SealSpecification" >
+                                                    <option v-for="item in SealSpecificationModel">{{item}}</option>
                                                     @*<option>40公章</option>
                                                         <option>30公章</option>
                                                         <option>20公章</option>*@
@@ -249,7 +250,7 @@
                                                 使用单位 <span class="required"></span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="SealUseUnitInfor_Id_UnitNumber" v-model="shiYongDanWei" class="form-control" />
+                                                <input type="text" name="SealUseUnitInfor_Id_UnitNumber" v-model="jsonData.Name" class="form-control" readonly="readonly" />
                                                 @*@Html.DropDownList("SealUseUnitInfor_Id_UnitNumber", null, htmlAttributes: new { @class = "form-control" })*@
                                                 @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
                                             </div>
@@ -295,7 +296,6 @@
                                                 备案人 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                @*@Html.DropDownList("SealApprovalUnitInfor_Id_ApprovalUnitCode_LegelPerson", null, htmlAttributes: new { @class = "form-control" })*@
                                                 @Html.EditorFor(model => model.Approval, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
                                                 @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
                                             </div>
@@ -379,7 +379,10 @@
                 set1: false,
                 danWeiNameModel: "",
                 isShow: false,
-                shiYongDanWei:""
+                jsonData: "",
+                SelectedLeiXing: "",//印章类型
+                SealSpecificationModel: [],//印章规格
+
             },
             methods: {
                 danWeiName: function () {
@@ -393,38 +396,51 @@
                             if (result != "0") {
                                 app.isShow = false;
                                 app.set1 = true;
-                                console.log(result);
-
-
+                                app.jsonData = $.parseJSON(result);
                             } else {
                                 app.isShow = true;
                                 app.set1 = false;
 
                             }
-                            @*@{
-                                if(!string.IsNullOrEmpty(ViewBag.SealUUList))
-                                {
-                                    List<SealSystem.Models.SealUseUnitInfor> list = JsonConvert.DeserializeObject<List<SealSystem.Models.SealUseUnitInfor>>(@ViewBag.SealUUList);
-                                    foreach (var item in list)
-                                    {
-                                       <text>
-                                app.shiYongDanWei = @item.Name;
-                                console.log(@item.Name+"000");
-                                       </text>
-                                    }
-                                }
-                            }*@
-                           
                         },
                         error: function () {
                             console.log("异常");
                         }
                     });
+
+                },
+                selectedType: function (data) {
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/SealInforNews/GetSealSpecification",
+                        data: {
+                            str: this.SelectedLeiXing
+                        },
+                        success: function (result) {
+                            app.SealSpecificationModel = $.parseJSON(result);
+                            console.log(result);
+                        },
+                        error: function () {
+                            console.log("异常");
+                        }
+                    });
+
+
+
                 }
             },
 
         })
+
+
+
+
+
+
+
     </script>
+
     @*<script>
             Dropzone.autoDiscover = false;
             var myDropzone = new Dropzone("#demo-upload", {

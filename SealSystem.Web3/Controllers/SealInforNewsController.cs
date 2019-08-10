@@ -170,8 +170,24 @@ namespace SealSystem.Web3.Controllers
                 
                 return Content(JsonConvert.SerializeObject(list));
             }
-
-
+        }
+        /// <summary>
+        /// 根据印章类型，获取印章规格
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public async Task<ActionResult> GetSealSpecification(string str)
+        {
+            List<string> strs = new List<string>();
+            var list = await db.SealCategorys.ToListAsync();
+            foreach (var item in list)
+            {
+                if(item.Name==str)
+                {
+                    strs.Add(item.SealSpecifications);
+                }
+            }
+            return Content(JsonConvert.SerializeObject(strs));
         }
     }
 }
