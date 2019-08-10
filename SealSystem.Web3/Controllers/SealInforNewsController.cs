@@ -167,8 +167,8 @@ namespace SealSystem.Web3.Controllers
             }
             else
             {
-                ViewBag.SealUUList = JsonConvert.SerializeObject(list);
-                return View("Create", ViewBag.SealUUList);
+                
+                return Content(JsonConvert.SerializeObject(list));
             }
 
 

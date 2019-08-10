@@ -19,7 +19,6 @@
     @*@
 @{
     string abc = "";
-    ViewBag.SealUUList = "";
 }
 <script src="~/Scripts/vue.js"></script>
 <div class="container body">
@@ -391,11 +390,18 @@
                             Name: this.danWeiNameModel
                         },
                         success: function (result) {
-                            console.log(result);
-                            if (result == "ok") {
+                            if (result != "0") {
                                 app.isShow = false;
                                 app.set1 = true;
-                            @{
+                                console.log(result);
+
+
+                            } else {
+                                app.isShow = true;
+                                app.set1 = false;
+
+                            }
+                            @*@{
                                 if(!string.IsNullOrEmpty(ViewBag.SealUUList))
                                 {
                                     List<SealSystem.Models.SealUseUnitInfor> list = JsonConvert.DeserializeObject<List<SealSystem.Models.SealUseUnitInfor>>(@ViewBag.SealUUList);
@@ -407,12 +413,8 @@
                                        </text>
                                     }
                                 }
-                            }
-                            } else {
-                                app.isShow = true;
-                                app.set1 = false;
-
-                            }
+                            }*@
+                           
                         },
                         error: function () {
                             console.log("异常");
