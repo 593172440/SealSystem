@@ -177,7 +177,7 @@
                                                 印章内容 <span class="required"></span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.SealContent, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                                <input type="text" name="SealContent" v-model="SealContent" class = "form-control"/>
                                                 @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -377,12 +377,16 @@
             el: "#app",
             data: {
                 set1: false,
-                danWeiNameModel: "",
+                danWeiNameModel: "",//单位名称
                 isShow: false,
                 jsonData: "",
                 SelectedLeiXing: "",//印章类型
                 SealSpecificationModel: [],//印章规格
-
+            },
+            computed: {
+                SealContent: function () {  //印章内容
+                    return this.danWeiNameModel + this.SelectedLeiXing;
+                }
             },
             methods: {
                 danWeiName: function () {
