@@ -178,16 +178,18 @@ namespace SealSystem.Web3.Controllers
         /// <returns></returns>
         public async Task<ActionResult> GetSealSpecification(string str)
         {
-            List<string> strs = new List<string>();
+            //List<string> strs = new List<string>();
+            List<Models.SealInforAndPng> png = new List<Models.SealInforAndPng>();
             var list = await db.SealCategorys.ToListAsync();
             foreach (var item in list)
             {
                 if(item.Name==str)
                 {
-                    strs.Add(item.SealSpecifications);
+                    //strs.Add(item.SealSpecifications);
+                    png.Add(new Models.SealInforAndPng { SealGuiGe = item.SealSpecifications, SealPng = item.TestImagePath });
                 }
             }
-            return Content(JsonConvert.SerializeObject(strs));
+            return Content(JsonConvert.SerializeObject(png));
         }
     }
 }

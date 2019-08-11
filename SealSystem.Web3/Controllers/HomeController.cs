@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using SealSystem.Models;
 namespace SealSystem.Web3.Controllers
 {
 
     public class HomeController : Controller
     {
         [LoginFilter]
-        public ActionResult Index(Models.User user)
+        public ActionResult Index(User user)
         {
             List<string> sb5 = new List<string>();
             List<string> sb6 = new List<string>();//保存权限表中的菜单Id和标识符"Add";格式:1:Add
@@ -25,7 +25,7 @@ namespace SealSystem.Web3.Controllers
             });
             //这里后期可以简化!!!!!!!!!!!!!!!!!!!!
             List<int> meunId = new List<int>();//保存菜单id
-            Models.SSContext db = new Models.SSContext();//数据上下文
+            SSContext db = new SSContext();//数据上下文
             var menusId = db.UserPermissions.Where(m => m.UserGroup_Id == user.UserGroup_Id);//根据用户组获取所有的相应的菜单Id
             foreach (var item in menusId)//获取每个权限的详细信息
             {
@@ -35,7 +35,7 @@ namespace SealSystem.Web3.Controllers
                 if (item.Details) { sb6.Add(item.Menu_Id + ":Details"); }
                 if (item.Edit) { sb6.Add(item.Menu_Id + ":Edit"); }
             }
-            List<Models.MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
+            List<MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
             //////////////////////////////////////
             StringBuilder sb1 = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
