@@ -225,7 +225,7 @@
                                                         <img v-bind:src="imgUrl" alt="" class="img-circle img-responsive">
                                                     </div>
                                                     <div class="rigth col-md-2 text-center" style="margin-top:60px">
-                                                        <button class="form-control">增加印章</button>
+                                                        <button type="button" class="form-control" v-on:click="AddSeal">增加印章</button>
                                                     </div>
                                                 </div>
 
@@ -417,6 +417,9 @@
                             console.log(this.imgUrl);
                         }
                     }
+                },
+                AddSeal: function () {//增加印章
+                    console.log("增加印章");
                 }
                 
             },
