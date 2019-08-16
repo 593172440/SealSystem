@@ -102,9 +102,48 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
+
+
+
+                        @*<div class="row" id="main_row">
+                                <!-- form input mask -->
+                                <div class="col-md-6 col-sm-12 col-xs-12" id="demo_row">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Input Mask</h2>
+                                            <ul class="nav navbar-right panel_toolbox" style="min-width:0px">
+                                                <li>
+                                                    <a class="close-link" onclick="delDevelopmentNumber(this)"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <form class="form-horizontal form-label-left form_cls">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Date Mask1</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                                        <input type="text" class="form-control" name="name1">
+                                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                                    </div>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Date Mask2</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                                        <input type="text" class="form-control" name="name2">
+                                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /form input mask -->
+                            </div>*@
+
+
                         <div class="x_content">
                             <br />
-                            @using (Html.BeginForm())
+                            @using (Html.BeginForm())//这里是一个form表单
                             {
                                 @Html.AntiForgeryToken()
                                 <div id="app">
@@ -121,115 +160,143 @@
                                         </div>
 
                                     </div>
-                                    
+
                                     <div class="clearfix"></div>
                                     <div v-show="set1" class="form-horizontal">
+                                        <input type="button" class="btn" value="生成窗体" onclick="btnGenerate()" />
+                                        <input type="button" class="btn" value="全部提交" onclick="btnSubmitAll()" />
+                                        <div class="form-group">
+                                            <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-3">
+                                                @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
+                                                <button type="submit" class="btn btn-success" style="width:240px">提交</button>
+                                                <button class="btn btn-primary" type="reset">重写</button>
+                                            </div>
+                                        </div>
 
-                                        <div class="col-md-12 col-sm-12 col-xs-12 profile_details">
-                                            <div class="well " style="overflow: auto">
-                                                <div class="col-md-12">
-                                                    <div class="left col-md-4">
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章编号:</label>
-                                                            <input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />
-                                                            @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章规格:<span class="required"></span></label>
-                                                            <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" v-on:change="selectedPng">
-                                                                <option v-for="item in SealSpecificationModel">{{item.SealGuiGe}}</option>
-                                                            </select>
-                                                            @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章内容:<span class="required"></span></label>
-                                                            <input type="text" name="SealContent" v-model="SealContent" class="form-control" />
-                                                            @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>制作等级:</label>
-                                                            <select name="EngravingLevel" class="form-control" style="width:196px">
-                                                                <option>普通</option>
-                                                                <option>一级</option>
-                                                                <option>二级</option>
-                                                                <option>三级</option>
-                                                            </select>
-                                                            @Html.ValidationMessageFor(model => model.EngravingLevel, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>登记类别:</label>
-                                                            <select name="RegistrationCategory" class="form-control" style="width:196px">
-                                                                <option>企业登记章</option>
-                                                                <option>企业登记章1</option>
-                                                                <option>企业登记章2</option>
-                                                                <option>其它</option>
-                                                            </select>
-                                                            @Html.ValidationMessageFor(model => model.RegistrationCategory, "", new { @class = "text-danger" })
-                                                        </div>
+
+
+
+
+                                        <div id="main_row" class="col-md-12 col-sm-12 col-xs-12 profile_details">
+                                            <div class="col-md-6 col-sm-12 col-xs-12" id="demo_row">
+                                                <div class="x_panel">
+                                                    <div class="x_title">
+                                                        <h2>印章信息</h2>
+                                                        <ul class="nav navbar-right panel_toolbox" style="min-width:0px">
+                                                            <li>
+                                                                <a class="close-link" onclick="delDevelopmentNumber(this)"><i class="fa fa-close"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="clearfix"></div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="x_content form_cls">
 
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章类型:</label>
-                                                            @{
-                                                                List<string> listType = new List<string>();
-                                                                List<SealSystem.Models.SealCategory> SealList = ViewBag.SealCategory_Id_Code;
-                                                            }
-                                                            @foreach (SealSystem.Models.SealCategory item in SealList)
-                                                            {
-                                                                listType.Add(item.Name);
-                                                            }
-                                                            <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" v-model="SelectedLeiXing" v-on:change="selectedType" style="width:196px">
-                                                                <option disabled value="">请选择</option>
-                                                                @foreach (var item in listType.Distinct())
-                                                                {
-                                                                    <option>@item</option>
-                                                                }
-                                                            </select>
+                                                        <div class="col-md-12">
+                                                            <div class="left col-md-4">
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章编号:</label>
+                                                                    <input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />
+                                                                    @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章规格:<span class="required"></span></label>
+                                                                    <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" v-on:change="selectedPng">
+                                                                        <option v-for="item in SealSpecificationModel">{{item.SealGuiGe}}</option>
+                                                                    </select>
+                                                                    @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章内容:<span class="required"></span></label>
+                                                                    <input type="text" name="SealContent" v-model="SealContent" class="form-control" />
+                                                                    @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>制作等级:</label>
+                                                                    <select name="EngravingLevel" class="form-control" style="width:196px">
+                                                                        <option>普通</option>
+                                                                        <option>一级</option>
+                                                                        <option>二级</option>
+                                                                        <option>三级</option>
+                                                                    </select>
+                                                                    @Html.ValidationMessageFor(model => model.EngravingLevel, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>登记类别:</label>
+                                                                    <select name="RegistrationCategory" class="form-control" style="width:196px">
+                                                                        <option>企业登记章</option>
+                                                                        <option>企业登记章1</option>
+                                                                        <option>企业登记章2</option>
+                                                                        <option>其它</option>
+                                                                    </select>
+                                                                    @Html.ValidationMessageFor(model => model.RegistrationCategory, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
 
-                                                            @*@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })*@
-                                                            @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章类型:</label>
+                                                                    @{
+                                                                        List<string> listType = new List<string>();
+                                                                        List<SealSystem.Models.SealCategory> SealList = ViewBag.SealCategory_Id_Code;
+                                                                    }
+                                                                    @foreach (SealSystem.Models.SealCategory item in SealList)
+                                                                    {
+                                                                        listType.Add(item.Name);
+                                                                    }
+                                                                    <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" v-model="SelectedLeiXing" v-on:change="selectedType" style="width:196px">
+                                                                        <option disabled value="">请选择</option>
+                                                                        @foreach (var item in listType.Distinct())
+                                                                        {
+                                                                            <option>@item</option>
+                                                                        }
+                                                                    </select>
+
+                                                                    @*@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })*@
+                                                                    @Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })
+
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章材料:</label>
+                                                                    @Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control", style = "width:196px" })
+                                                                    @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>印章形状:</label>
+                                                                    <select name="SealShape" class="form-control" style="width:196px">
+                                                                        <option>圆形</option>
+                                                                        <option>方形</option>
+                                                                        <option>其它形</option>
+                                                                    </select>
+                                                                    @Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline row" style="margin-bottom:5px">
+                                                                    <label>刻制类型:</label>
+                                                                    <select name="EngravingType" class="form-control" style="width:196px">
+                                                                        <option>新刻</option>
+                                                                        <option>换刻</option>
+                                                                        <option>类型三</option>
+                                                                        <option>类型四</option>
+                                                                    </select>
+                                                                    @Html.ValidationMessageFor(model => model.EngravingType, "", new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-inline" style="margin-bottom:5px">
+                                                                    <label>备注:</label>
+                                                                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", style = "width:196px" } })
+                                                                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                            <div class="right col-md-4 text-center">
+                                                                <img v-bind:src="imgUrl" alt="" class="img-circle img-responsive">
+                                                            </div>
 
                                                         </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章材料:</label>
-                                                            @Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control", style = "width:196px" })
-                                                            @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>印章形状:</label>
-                                                            <select name="SealShape" class="form-control" style="width:196px">
-                                                                <option>圆形</option>
-                                                                <option>方形</option>
-                                                                <option>其它形</option>
-                                                            </select>
-                                                            @Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline row" style="margin-bottom:5px">
-                                                            <label>刻制类型:</label>
-                                                            <select name="EngravingType" class="form-control" style="width:196px">
-                                                                <option>新刻</option>
-                                                                <option>换刻</option>
-                                                                <option>类型三</option>
-                                                                <option>类型四</option>
-                                                            </select>
-                                                            @Html.ValidationMessageFor(model => model.EngravingType, "", new { @class = "text-danger" })
-                                                        </div>
-                                                        <div class="form-inline" style="margin-bottom:5px">
-                                                            <label>备注:</label>
-                                                            @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", style = "width:196px" } })
-                                                            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-                                                    <div class="right col-md-2 text-center">
-                                                        <img v-bind:src="imgUrl" alt="" class="img-circle img-responsive">
-                                                    </div>
-                                                    <div class="rigth col-md-2 text-center" style="margin-top:60px">
-                                                        <button type="button" class="form-control" v-on:click="AddSeal">增加印章</button>
+
+
                                                     </div>
                                                 </div>
-
                                             </div>
+
+
                                         </div>
 
                                         <div class="col-md-6 col-sm-12 col-xs-12 form-group">
@@ -318,26 +385,13 @@
                                         </div>
 
 
-                                        <div class="form-group">
-                                            <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-3">
-                                                @Html.ActionLink("返回列表", "Index", "", new { @class = "btn btn-primary" })
-                                                <button type="submit" class="btn btn-success" style="width:240px">提交</button>
-                                                <button class="btn btn-primary" type="reset">重写</button>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             }
                         </div>
                     </div>
                 </div>
-
-                @*<input type="button" class="btn" value="生成窗体" onclick="btn_generate()" />
-                    <div class="row" id="main_row">
-                        <!-- form input mask -->
-                        <!-- /form input mask -->
-                    </div>*@
-
 
             </div>
 
@@ -358,8 +412,8 @@
                 jsonData: "",
                 SelectedLeiXing: "",//印章类型
                 SealSpecificationModel: [],//印章规格数据里面有印章类型和印章规格
-                SealSpecification:"",//印章规格名称
-                imgUrl:"",//图片路径
+                SealSpecification: "",//印章规格名称
+                imgUrl: "",//图片路径
             },
             computed: {
                 SealContent: function () {  //印章内容
@@ -421,7 +475,7 @@
                 AddSeal: function () {//增加印章
                     console.log("增加印章");
                 }
-                
+
             },
 
         })
@@ -487,93 +541,33 @@
 
         </script>*@
     <script type="text/javascript">
-        var idIndex = 0
-        function generate_instance() {
-            var classForm = '<div class="col-md-6 col-sm-12 col-xs-12" id="demo_row"><div class="x_panel">';
-            classForm += '<div class="x_title">';
-            classForm += '<h2>印章信息 @abc</h2>';
-            classForm += '<ul class="nav navbar-right panel_toolbox" style="min-width:0px;">';
-            classForm += '<li><a class="close-link" onclick="delDevelopmentNumber(this)"><i class="fa fa-close"></i></a>';
-            classForm += '</li>';
-            classForm += '</ul>';
-            classForm += '<div class="clearfix"></div>';
-            classForm += '</div>';
-            classForm += '<div class="x_content">';
-            classForm += '<form class="form-horizontal form-label-left">';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章编号</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += '<input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />';
-            classForm += '@Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })';
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章规格</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += `<select name="SealSpecification" class="form-control" id="SealSpecification">`;
-            classForm += `<option>40公章</option>`;
-            classForm += ` <option>30公章</option>`;
-            classForm += ` <option>20公章</option>`;
-            classForm += ` </select>`;
-            @*classForm += '@Html.ValidationMessageFor(model => model.SealSpecification, "", new { @class = "text-danger" })';*@
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章类型</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            @*classForm += `@Html.DropDownList("SealCategory_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;*@
-            classForm += '@Html.ValidationMessageFor(model => model.SealCategory_Id_Code, "", new { @class = "text-danger" })';
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章形状</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += `<select name="SealSpecification" class="form-control" id="SealSpecification">`;
-            classForm += `<option>圆形</option>`;
-            classForm += ` <option>方形</option>`;
-            classForm += ` <option>其它形</option>`;
-            classForm += ` </select>`;
-            classForm += '@Html.ValidationMessageFor(model => model.SealShape, "", new { @class = "text-danger" })';
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章材料</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += `@Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control" })`;
-            classForm += '@Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })';
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '<div class="form-group col-md-6">';
-            classForm += '<label class="control-label col-md-4 col-sm-4 col-xs-4">印章内容</label>';
-            classForm += '<div class="col-md-8 col-sm-8 col-xs-8">';
-            classForm += `@Html.EditorFor(model => model.SealContent, new { htmlAttributes = new { @class = "form-control", id = "first-name" } })`;
-            classForm += ' @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })';
-            classForm += '</div>';
-            classForm += '</div>';
-
-            classForm += '</form>';
-            classForm += '</div>';
-            classForm += '</div>';
-            classForm += '</div>';
-            return classForm;
+        function btnGenerate() {
+            $("#main_row").append($("#demo_row").prop("outerHTML"))
         }
-        function btn_generate() {
-            idIndex += 1;
-            $("#main_row").append(generate_instance())
-
-        }
-
         function delDevelopmentNumber(e) {
             console.log($(e).parent())
             $(e).parent().parent().parent().parent().parent().remove();
         }
 
-
+        function btnSubmit(e) {
+            var form_object = $(e).parent().parent().parent();
+            console.log(form_object.serialize());
+        }
+        function btnSubmitAll() {
+            all_result = []
+            var form_index = 0;
+            $(".form_cls").each(function () {
+                console.log($(this))
+                var temp_dict = []
+                $.each($(this).serializeArray(), function (i, field) {
+                    temp_dict[field.name] = field.value;
+                });
+                temp_dict["form_index"] = form_index;
+                form_index += 1;
+                all_result.push(temp_dict);
+            })
+            console.log(all_result)
+        }
     </script>
+
 </div>
