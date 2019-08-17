@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using SealSystem.Models;
 using SealSystem.Web3.Filter;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -190,6 +192,12 @@ namespace SealSystem.Web3.Controllers
                 }
             }
             return Content(JsonConvert.SerializeObject(png));
+        }
+        public bool CreateSealList(string seal,string ars)
+        {
+
+            
+            return true;
         }
     }
 }

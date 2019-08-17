@@ -8,12 +8,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SealSystem.Models;
+using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
     /// <summary>
     /// 印章类型规格控制器
     /// </summary>
+    [LoginFilter]
     public class SealCategoriesController : Controller
     {
         private SSContext db = new SSContext();
