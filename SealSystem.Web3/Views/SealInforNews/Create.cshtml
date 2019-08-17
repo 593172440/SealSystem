@@ -557,14 +557,20 @@
             all_result = []
             var form_index = 0;
             $(".form_cls").each(function () {
-                console.log($(this))
                 var temp_dict = []
-                $.each($(this).serializeArray(), function (i, field) {
-                    temp_dict[field.name] = field.value;
-                });
+                $(this).find("input").each(function () {
+                    $.each($(this).serializeArray(), function (i, field) {
+                        temp_dict[field.name] = field.value;
+                    });
+                })
+                $(this).find("select").each(function () {
+                    $.each($(this).serializeArray(), function (i, field) {
+                        temp_dict[field.name] = field.value;
+                    });
+                })
                 temp_dict["form_index"] = form_index;
-                form_index += 1;
                 all_result.push(temp_dict);
+                form_index += 1;
             })
             console.log(all_result)
         }
