@@ -114,7 +114,7 @@
                                             要搜索的单位名称： <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input onchange="danWeiName()" id="SealInforNum" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称检查是否存在" />
+                                            <input v-on:change="danWeiName" v-model="danWeiNameModel" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称检查是否存在" />
                                         </div>
                                         <div v-show="isShow">
                                             <span>使用单位不存在，请完善企业信息</span>
@@ -158,14 +158,14 @@
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章规格:<span class="required"></span></label>
-                                                                    <!--<select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px"  v-on:change="selectedPng">-->
-                                                                    <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" onchange="selectedPng(this)">
+                                                                    <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" v-on:change="selectedPng">
+                                                                        <option v-for="item in SealSpecificationModel">{{item.SealGuiGe}}</option>
                                                                     </select>
                                                                     @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章内容:<span class="required"></span></label>
-                                                                    <input id="SealContent" type="text" name="SealContent" class="form-control" />
+                                                                    <input type="text" name="SealContent" v-model="SealContent" class="form-control" />
                                                                     @Html.ValidationMessageFor(model => model.SealContent, "", new { @class = "text-danger" })
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
@@ -201,8 +201,8 @@
                                                                     {
                                                                         listType.Add(item.Name);
                                                                     }
-                                                                    <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" onchange="selectedType(this)" style="width:196px">
-                                                                        <option value="">请选择</option>
+                                                                    <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" v-model="SelectedLeiXing" v-on:change="selectedType" style="width:196px">
+                                                                        <option disabled value="">请选择</option>
                                                                         @foreach (var item in listType.Distinct())
                                                                         {
                                                                             <option>@item</option>
@@ -359,78 +359,6 @@
     <script src="~/Scripts/dropzone.js"></script>
     <script src="~/Scripts/axios.min.js"></script>
     <script>
-        function danWeiName() {//要搜索的单位名称
-            console.log($("#SealInforNum").val());
-            
-            
-            $.ajax({
-                type: "POST",
-                url: "/SealInforNews/SealUserUnitInforList",
-                data: {
-                    Name: $("#SealInforNum").val()
-                },
-                success: function (result) {
-                    if (result != "0") {
-                        app.set1 = true;
-                        app.isShow = false;
-                        console.log($.parseJSON(result));
-                    } else {
-                        app.isShow = true;
-                        app.set1 = false;
-
-                    }
-                },
-                error: function () {
-                    console.log("异常");
-                }
-            });
-        };
-        function selectedType(e) {//印章类型下拉事件,参数e代表当前点击的select dom对象
-            console.log($(e).find("option:selected").val());
-            //$("#SealContent").val($("#SealInforNum").val() + $(e).find("option:selected").val());//印章显示内容
-            console.log($(e).parent().parent().parent().find("#SealContent")[0]);
-            $($(e).parent().parent().parent().find("#SealContent")[0]).val(
-                $("#SealInforNum").val() + $($(e).parent().parent().parent().find("#SealCategory_Id_Code")[0]).find("option:selected").val()
-            );
-            //console.log($($(e).parent().parent().parent().find("#SealCategory_Id_Code")[0]).find("option:selected").val())
-            $.ajax({
-                type: "POST",
-                url: "/SealInforNews/GetSealSpecification",
-                data: {
-                    str: $(e).find("option:selected").val()
-                },
-                success: function (result) {
-                    var sealSpec = $.parseJSON(result); //将印章规格json字符串转为对象
-                    var SealSpecificationObject = $(e).parent().parent().parent().find("#SealSpecification")[0]//获取当前点击的select对象的父对象>父对象>父对象(具体几个父对象可以去数标签层,每跳出一层标签就是一个父对象),通过父对象找到id为SealSpecification的select dom对象,找到的可能是数组,所以取第一个
-
-                    var imgObject = $(e).parent().parent().parent().find(".img-circle")[0]//同理,找到class为img-circle的image dom对象
-                    if (sealSpec.length > 0) {
-                        $(SealSpecificationObject).empty();//清空当前找到的SealSpecification select的option
-                        for (var i = 0; i < sealSpec.length; i++) {//遍历印章规格
-                            //绑定规格名称,同时给option添加ref_url属性(这个属性是自己定义的,随便起名就行,后面用jquery的attr来获取就行)存储图片地址
-                            $(SealSpecificationObject).append("<option ref_url='" + sealSpec[i].SealPng + "'>" + sealSpec[i].SealGuiGe + "</option>")
-                        }
-                        $(SealSpecificationObject).find("option").eq(0).prop("selected", true) //默认SealSpecification选中第一个印章规格名字
-                        $(imgObject).attr("src", "../images/SealImages/" + sealSpec[0].SealPng)//同时image dom对象使用第一个印章规格图片
-                    } else {
-                        //清空处理
-                        $(SealSpecificationObject).empty();
-                        $(imgObject).attr("src", "");
-
-                    }
-                },
-                error: function () {
-                    console.log("异常");
-                }
-            });
-        }
-
-        function selectedPng(e) { //参数e代表当前点击的select dom对象
-            var selectSpecPng = $(e).find("option:selected").attr("ref_url"); //获取当前选中的option的ref_url属性的值
-            var imgObject = $(e).parent().parent().parent().find(".img-circle")[0];//找到当前select相对的class为img-circle的image dom对象
-            $(imgObject).attr("src", "../images/SealImages/" + selectSpecPng); //将图片地址绑定到对应图片上
-        }
-
         var app = new Vue({
             el: "#app",
             data: {
@@ -455,12 +383,45 @@
             },
             methods: {
                 danWeiName: function () {
-                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/SealInforNews/SealUserUnitInforList",
+                        data: {
+                            Name: this.danWeiNameModel
+                        },
+                        success: function (result) {
+                            if (result != "0") {
+                                app.isShow = false;
+                                app.set1 = true;
+                                app.jsonData = $.parseJSON(result);
+                            } else {
+                                app.isShow = true;
+                                app.set1 = false;
+
+                            }
+                        },
+                        error: function () {
+                            console.log("异常");
+                        }
+                    });
 
                 },
                 selectedType: function () {
 
-                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/SealInforNews/GetSealSpecification",
+                        data: {
+                            str: this.SelectedLeiXing
+                        },
+                        success: function (result) {
+                            app.SealSpecificationModel = $.parseJSON(result);
+                            console.log(result);
+                        },
+                        error: function () {
+                            console.log("异常");
+                        }
+                    });
                 },
                 selectedPng: function (data) {
                     console.log(data.path[0].value);

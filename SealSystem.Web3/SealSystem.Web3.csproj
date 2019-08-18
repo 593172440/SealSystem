@@ -367,6 +367,7 @@
     <Content Include="Views\SealCategories\Details.cshtml" />
     <Content Include="Views\SealCategories\Edit.cshtml" />
     <Content Include="Views\SealCategories\Index.cshtml" />
+    <Content Include="Views\SealInforNews\Create - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
