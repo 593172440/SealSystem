@@ -195,7 +195,8 @@ namespace SealSystem.Web3.Controllers
         }
         public bool CreateSealList(string seal,string ars)
         {
-
+            List<Models.SealInforNew1> s1= JsonConvert.DeserializeObject<List<Models.SealInforNew1>>(seal);
+            Models.SealInforNew2 s2= JsonConvert.DeserializeObject<Models.SealInforNew2>(ars);
             
             return true;
         }

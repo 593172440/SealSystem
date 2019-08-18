@@ -202,7 +202,7 @@
                                                                         listType.Add(item.Name);
                                                                     }
                                                                     <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" onchange="selectedType(this)" style="width:196px">
-                                                                        <option value="">请选择</option>
+                                                                        <option >请选择</option>
                                                                         @foreach (var item in listType.Distinct())
                                                                         {
                                                                             <option>@item</option>
@@ -298,7 +298,7 @@
                                                 经办人 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="Attention" v-model="Attention" class="form-control" />
+                                                <input type="text" id="Attention" name="Attention" v-model="Attention" class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -307,7 +307,7 @@
                                                 身份证 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="AttentionIdCard" v-model="AttentionIdCard" class="form-control" />
+                                                <input type="text" id="AttentionIdCard" name="AttentionIdCard" v-model="AttentionIdCard" class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -316,7 +316,7 @@
                                                 备案人 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="Approval" v-model="Approval" class="form-control" />
+                                                <input type="text" id="Approval" name="Approval" v-model="Approval" class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -334,7 +334,7 @@
                                                 外文内容 <span class="required"></span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="ForeignLanguageContent" v-model="ForeignLanguageContent" class="form-control" />
+                                                <input type="text" id="ForeignLanguageContent" name="ForeignLanguageContent" v-model="ForeignLanguageContent" class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ForeignLanguageContent, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -552,6 +552,9 @@
             console.log(form_object.serialize());
         }
         function btnSubmitAll() {
+            if ($("#SealCategory_Id_Code option:selected").val()== "请选择") {
+                return alert("请选择印章类型")
+            }
             if (app.Attention == "") {
                 return alert("经办人不能为空");
             }
@@ -585,7 +588,11 @@
                 SealState: app.SealState,//印章状态
                 SealApprovalUnitInfor_Id_ApprovalUnitCode: $("#SealApprovalUnitInfor_Id_ApprovalUnitCode option:selected").val(),//备案单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
                 SealMakingUnitInfor_Id_MakingUnitCode:$("#SealMakingUnitInfor_Id_MakingUnitCode option:selected").val(),//制作单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
-                ApprovalTime: $("#ApprovalTime").val()//备案日期
+                ApprovalTime: $("#ApprovalTime").val(),//备案日期
+                Attention: $("#Attention").val(),//经办人
+                AttentionIdCard: $("#AttentionIdCard").val(),//身份证
+                Approval: $("#Approval").val(),//备案人
+                ForeignLanguageContent: $("#ForeignLanguageContent").val()//外文内容
             }
             console.log(JSON.stringify(all_result));
 
@@ -605,8 +612,8 @@
                 },
 
 
-                error: function () {
-                    console.log("异常");
+                error: function (err) {
+                    console.log("异常"+err);
                 }
             })
         }
