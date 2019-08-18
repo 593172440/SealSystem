@@ -262,8 +262,7 @@
                                                 使用单位 <span class="required"></span>
                                             </label>
                                             <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="SealUseUnitInfor_Id_UnitNumber" v-model="jsonData.Name" class="form-control" readonly="readonly" />
-                                                @*@Html.DropDownList("SealUseUnitInfor_Id_UnitNumber", null, htmlAttributes: new { @class = "form-control" })*@
+                                                <input type="text" id="SealUseUnitInfor_Id_UnitNumber" name="SealUseUnitInfor_Id_UnitNumber" class="form-control" readonly="readonly" />
                                                 @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -362,7 +361,7 @@
         function danWeiName() {//要搜索的单位名称
             console.log($("#SealInforNum").val());
             
-            
+            $("#SealUseUnitInfor_Id_UnitNumber").val($("#SealInforNum").val());
             $.ajax({
                 type: "POST",
                 url: "/SealInforNews/SealUserUnitInforList",
@@ -582,7 +581,7 @@
             })
 
             var arss = {
-                SealUseUnitInfor_Id_UnitNumber: app.jsonData.Name,//使用单位//这里获取到是使用单位,需要后台转换为id属性
+                SealUseUnitInfor_Id_UnitNumber: $("#SealUseUnitInfor_Id_UnitNumber").val(),//使用单位//这里获取到是使用单位,需要后台转换为id属性
                 SealState: app.SealState,//印章状态
                 SealApprovalUnitInfor_Id_ApprovalUnitCode: $("#SealApprovalUnitInfor_Id_ApprovalUnitCode option:selected").val(),//备案单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
                 SealMakingUnitInfor_Id_MakingUnitCode:$("#SealMakingUnitInfor_Id_MakingUnitCode option:selected").val(),//制作单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
