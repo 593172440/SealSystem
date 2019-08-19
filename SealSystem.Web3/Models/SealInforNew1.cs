@@ -17,5 +17,9 @@ namespace SealSystem.Web3.Models
         public string SealMaterial_Id_Code { get; set; }
         public string EngravingType { get; set; }
         public string form_index { get; set; }
+        /// <summary>
+        /// 印章规格
+        /// </summary>
+        public string SealSpecification { get; set; }
     }
 }

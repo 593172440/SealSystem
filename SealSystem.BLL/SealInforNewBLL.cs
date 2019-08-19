@@ -33,5 +33,13 @@ namespace SealSystem.BLL
                 return strs;
             }
         }
+        public async Task AddAsync(Models.SealInforNew model)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                await db.AddAsync(model);
+            }
+
+        }
     }
 }

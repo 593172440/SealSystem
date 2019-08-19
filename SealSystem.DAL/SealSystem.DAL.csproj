@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SealCategoriesDAL.cs" />
     <Compile Include="SealInforNewDAL.cs" />
     <Compile Include="SealUnitClassDAL.cs" />
     <Compile Include="SealUseUnitInforDAL.cs" />

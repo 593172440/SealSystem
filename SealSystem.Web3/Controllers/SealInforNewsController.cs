@@ -159,18 +159,23 @@ namespace SealSystem.Web3.Controllers
             }
             base.Dispose(disposing);
         }
+        /// <summary>
+        /// 根据单位名称获取单位信息
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
         public async Task<ActionResult> SealUserUnitInforList(string Name)
         {
             var unitInfors = db.UnitInfors.Include(s => s.Area).Include(s => s.SealUnitCategory).Include(s => s.SealUnitClass);
-            SealUseUnitInfor list = await unitInfors.FirstOrDefaultAsync(m => m.Name == Name);
-            if (list==null)
+            SealUseUnitInfor _sealUserUnitInfor = await unitInfors.FirstOrDefaultAsync(m => m.Name == Name);
+            if (_sealUserUnitInfor == null)
             {
                 return Content("0");
             }
             else
             {
-                
-                return Content(JsonConvert.SerializeObject(list));
+
+                return Content(JsonConvert.SerializeObject(_sealUserUnitInfor));
             }
         }
         /// <summary>
@@ -185,7 +190,7 @@ namespace SealSystem.Web3.Controllers
             var list = await db.SealCategorys.ToListAsync();
             foreach (var item in list)
             {
-                if(item.Name==str)
+                if (item.Name == str)
                 {
                     //strs.Add(item.SealSpecifications);
                     png.Add(new Models.SealInforAndPng { SealGuiGe = item.SealSpecifications, SealPng = item.TestImagePath });
@@ -193,11 +198,68 @@ namespace SealSystem.Web3.Controllers
             }
             return Content(JsonConvert.SerializeObject(png));
         }
-        public bool CreateSealList(string seal,string ars)
+        /// <summary>
+        /// 向数据库插入印章信息
+        /// </summary>
+        /// <param name="seal"></param>
+        /// <param name="ars"></param>
+        /// <returns></returns>
+        public async Task<bool> CreateSealList(string seal, string ars)
         {
-            List<Models.SealInforNew1> s1= JsonConvert.DeserializeObject<List<Models.SealInforNew1>>(seal);
-            Models.SealInforNew2 s2= JsonConvert.DeserializeObject<Models.SealInforNew2>(ars);
-            
+            List<Models.SealInforNew1> s1 = JsonConvert.DeserializeObject<List<Models.SealInforNew1>>(seal);
+            Models.SealInforNew2 s2 = JsonConvert.DeserializeObject<Models.SealInforNew2>(ars);
+            SealSystem.BLL.SealCategoriesBLL sc = new BLL.SealCategoriesBLL();
+
+            SealSystem.Models.SealInforNew list = new SealInforNew();
+            List<SealSystem.Models.SealInforNew> listss = new List<SealInforNew>();
+            foreach (var item in s1)
+            {
+                list.Approval = s2.Approval;
+                list.ApprovalTime = Convert.ToDateTime(s2.ApprovalTime);
+                list.Attention = s2.Attention;
+                list.AttentionIdCard = s2.AttentionIdCard;
+                //list.Contact = item.SealContent;
+                list.EngravingLevel = item.EngravingLevel;
+                list.EngravingType = item.EngravingType;
+                list.ForeignLanguageContent = s2.ForeignLanguageContent;
+                list.Note = item.Note;
+                list.RegistrationCategory = item.RegistrationCategory;
+                list.SealApprovalUnitInfor_Id_ApprovalUnitCode = Convert.ToInt32(s2.SealApprovalUnitInfor_Id_ApprovalUnitCode);
+                list.SealCategory_Id_Code = sc.GetSelected(item.SealCategory_Id_Code, item.SealSpecification);
+                //Convert.ToInt32(item.SealCategory_Id_Code);//这里要查询数据
+                list.SealContent = item.SealContent;
+                list.SealInforNum = item.SealInforNum;
+                list.SealMakingUnitInfor_Id_MakingUnitCode = Convert.ToInt32(s2.SealMakingUnitInfor_Id_MakingUnitCode);
+                list.SealMaterial_Id_Code = Convert.ToInt32(item.SealMaterial_Id_Code);
+                list.SealShape = item.SealShape;
+                list.SealState = s2.SealState;
+
+                if (!string.IsNullOrEmpty(s2.SealUseUnitInfor_Id_UnitNumber))
+                {
+                    var unitInfors = db.UnitInfors.Include(s => s.Area).Include(s => s.SealUnitCategory).Include(s => s.SealUnitClass);
+                    SealUseUnitInfor _sealUserUnitInfor = await unitInfors.FirstOrDefaultAsync(m => m.Name == s2.SealUseUnitInfor_Id_UnitNumber);
+                    list.SealUseUnitInfor_Id_UnitNumber = _sealUserUnitInfor.Id;
+                }
+
+
+                // Convert.ToInt32(s2.SealUseUnitInfor_Id_UnitNumber);//这里也要查询数据
+                listss.Add(list);
+            }
+            try
+            {
+                foreach (var item in listss)
+                {
+                    await sealDb.AddAsync(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+
             return true;
         }
     }
