@@ -22,6 +22,11 @@ namespace SealSystem.WebAPI.Filters
 
         public async Task<HttpResponseMessage> ExecuteAuthorizationFilterAsync(HttpActionContext actionContext, CancellationToken cancellationToken, Func<Task<HttpResponseMessage>> continuation)
         {
+            //当某个特定的action加入了allowAnonymous特定时跳过检查
+            if (actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>(true).Count>0)
+            {
+                return await continuation();
+            }
             //尝试在headers头里面获取jwt加密串
             if(actionContext.Request.Headers.TryGetValues("token",out headers))
             {
