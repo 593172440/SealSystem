@@ -105,7 +105,7 @@ namespace SealSystem.Web3.Controllers
             if (ModelState.IsValid)
             {
                 BLL.UserBLL user = new BLL.UserBLL();
-                if (await user.Login(userName, userPwd))
+                if (await BLL.UserBLL.Login(userName, userPwd))
                 {
                     var dbData = await user.GetUserOne(userPwd);
                     //跳转

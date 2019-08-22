@@ -78,13 +78,38 @@ namespace SealSystem.BLL
         /// <param name="user"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public async Task<bool> Login(string user,string pwd)
+        public static async Task<bool> Login(string user,string pwd)
         {
             using (var db = new DAL.UserDAL())
             {
                 return await db.GetAll().AnyAsync(m => m.UserName == user && m.UserPwd == pwd);
             }
 
+        }
+        /// <summary>
+        /// 登录并返回id
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="pwd"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static bool Login(string user, string pwd, out int id)
+        {
+            using (var db = new DAL.UserDAL())
+            {
+                var emp = db.GetAll().FirstOrDefaultAsync(m => m.UserName == user && m.UserPwd == pwd);
+                emp.Wait();
+                if (emp.Result == null)
+                {
+                    id = -1;
+                    return false;
+                }
+                else
+                {
+                    id = emp.Id;
+                    return true;
+                }
+            }
         }
     }
 }

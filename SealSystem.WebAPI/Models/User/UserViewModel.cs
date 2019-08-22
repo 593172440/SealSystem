@@ -8,6 +8,7 @@ namespace SealSystem.WebAPI.Models.User
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
         /// <summary>
         /// 用户名
         /// </summary>
@@ -23,7 +24,6 @@ namespace SealSystem.WebAPI.Models.User
         /// <summary>
         /// 单位名称
         /// </summary>
-        [Required]
         public string EntityName { get; set; }
         /// <summary>
         /// 每个组里有多个用户(用户组外键)
