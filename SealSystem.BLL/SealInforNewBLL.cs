@@ -102,6 +102,17 @@ namespace SealSystem.BLL
                 await db.EditAsync(sealInfo);
             }
         }
-
+        /// <summary>
+        /// 根据印章id伪删除印章信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task DeletedAsync(int id)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                await db.RemoveAsync(id);
+            }
+        }
     }
 }

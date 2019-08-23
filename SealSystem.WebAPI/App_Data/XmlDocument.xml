@@ -514,6 +514,13 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.DeletedAsync(System.Int32)">
+            <summary>
+            根据印章id伪删除印章信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户

@@ -110,5 +110,16 @@ namespace SealSystem.WebAPI.Controllers
             se.TheProducer = model.TheProducer;
             await BLL.SealInforNewBLL.EditAsync(sealInforNum, se);
         }
+        /// <summary>
+        /// 根据印章id伪删除印章信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("DeletedAsync")]
+        [HttpGet]
+        public async Task DeletedAsync(int id)
+        {
+            await BLL.SealInforNewBLL.DeletedAsync(id);
+        }
     }
 }
