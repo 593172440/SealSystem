@@ -16,6 +16,11 @@ namespace SealSystem.WebAPI.Controllers
     [RoutePrefix("api/UserGroup")]
     public class UserGroupController : ApiController
     {
+        /// <summary>
+        /// 增加用户组
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<IHttpActionResult> Post(Models.User.UserGroupViewModel model)
         {
             if (ModelState.IsValid)
@@ -32,6 +37,10 @@ namespace SealSystem.WebAPI.Controllers
         {
             return await BLL.UserGroupBLL.GetUserGroupOne(name);
         }
+        /// <summary>
+        /// 获取所有的用户组信息
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<SealSystem.Models.UserGroup>> GetAll()
         {
             return await BLL.UserGroupBLL.GetAll();

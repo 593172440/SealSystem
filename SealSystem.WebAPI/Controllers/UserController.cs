@@ -10,7 +10,9 @@ using System.Web.Http.Cors;
 
 namespace SealSystem.WebAPI.Controllers
 {
-    
+    /// <summary>
+    /// 用户
+    /// </summary>
     [EnableCors(origins:"*",methods:"*",headers:"*")]
     [RoutePrefix("api/user")]
     public class UserController : ApiController
