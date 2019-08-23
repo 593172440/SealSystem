@@ -567,6 +567,26 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:SealSystem.WebAPI.Controllers.SealMakingUnitInforController">
+            <summary>
+            印章制作单位信息
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.AddAsync(SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel)">
+            <summary>
+            增加印章制作单位
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.EditAsync(System.Int32,SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel)">
+            <summary>
+            根据印章制作单位Id修改相应的数据
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户
@@ -740,6 +760,81 @@
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.TheProducer">
             <summary>
             制作人(一般为制章单位人或单位名称)
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel">
+            <summary>
+            印章制作单位信息表
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.MakingUnitCode">
+            <summary>
+            制作单位编码(标准：GA241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Name">
+            <summary>
+            单位名称(汉字)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.EthnicMinoritiesName">
+            <summary>
+            单位名称(少数民族文字)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.EnglishName">
+            <summary>
+            单位名称(英文名)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.LegelPerson">
+            <summary>
+            法定代表人(负责人)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.IdNumber">
+            <summary>
+            法定代表人(负责人)身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.UnitAddress">
+            <summary>
+            单位地址
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.TheZipCode">
+            <summary>
+            邮政编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.ContanctPhone">
+            <summary>
+            联系人电话
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.BusinessLicense">
+            <summary>
+            营业执照
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.BusinessState">
+            <summary>
+            营业状态
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Remarks">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">
