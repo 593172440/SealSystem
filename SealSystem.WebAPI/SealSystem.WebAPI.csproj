@@ -153,6 +153,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
@@ -162,6 +163,7 @@
     </Compile>
     <Compile Include="Models\Auth\ApplicationUser.cs" />
     <Compile Include="Models\Auth\UserIdentity.cs" />
+    <Compile Include="Models\FileAndImage\FileAndImageViewModel.cs" />
     <Compile Include="Models\ResponseData.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />

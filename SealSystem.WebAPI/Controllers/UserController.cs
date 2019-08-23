@@ -17,6 +17,11 @@ namespace SealSystem.WebAPI.Controllers
     [RoutePrefix("api/user")]
     public class UserController : ApiController
     {
+        /// <summary>
+        /// 用户登录成功则返回token值
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回token值</returns>
         [Route("login"),HttpPost]
         public IHttpActionResult Login(Models.User.UserViewModel model)
         {

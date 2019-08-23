@@ -481,6 +481,52 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:SealSystem.WebAPI.Controllers.FileAndImageController">
+            <summary>
+            印章文件和印章图像存储
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.AddAsync(SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel)">
+            <summary>
+            添加文件/图像
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetAll">
+            <summary>
+            获取所有的文件/图像数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForId(System.Int32)">
+            <summary>
+            根据id获取相应的数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForName(System.String)">
+            <summary>
+            根据文件/图像名获取相应的数据
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.Int32)">
+            <summary>
+            根据印章编号获取相应的数据
+            </summary>
+            <param name="sealInforNew_Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.RemoveAsync(System.Int32)">
+            <summary>
+            根据id删除相应的数据
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealInforNewController">
             <summary>
             印章信息
@@ -526,6 +572,13 @@
             用户
             </summary>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.UserController.Login(SealSystem.WebAPI.Models.User.UserViewModel)">
+            <summary>
+            用户登录成功则返回token值
+            </summary>
+            <param name="model"></param>
+            <returns>返回token值</returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserGroupController">
             <summary>
             用户组
@@ -547,6 +600,31 @@
         <member name="T:SealSystem.WebAPI.Filters.MyAuthAttribute">
             <summary>
             自定义过滤器,用来验证用户信息
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel">
+            <summary>
+            文件/图像存储
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.Name">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.NamePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.SealInforNew_Id">
+            <summary>
+            是哪个印章里面的相关文件编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.Note">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.ResponseData">
