@@ -118,6 +118,7 @@
   <ItemGroup>
     <Content Include="API使用说明.xlsx" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\webapi.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
