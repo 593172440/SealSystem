@@ -19,7 +19,7 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         [Display(Name = "印章编码")]
         public string SealInforNum { get; set; }
         /// <summary>
-        /// 印章类型代码(标准：GA 241.2)
+        /// 印章类型代码(标准：GA 241.2)(SealCategory外键)
         /// </summary>
         public int SealCategory_Id_Code { get; set; }
         /// <summary>
@@ -31,7 +31,7 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// </summary>
         public string ForeignLanguageContent { get; set; }
         /// <summary>
-        /// 使用单位编码(标准：GA 241.1)
+        /// 使用单位编码(标准：GA 241.1)(SealUseUnitInfor外键)
         /// </summary>
         [Required]
         public int SealUseUnitInfor_Id_UnitNumber { get; set; }
@@ -41,12 +41,12 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         [Display(Name = "刻制类型")]
         public string EngravingType { get; set; }
         /// <summary>
-        /// 制章单位编码(标准：GA 241.1)
+        /// 制章单位编码(标准：GA 241.1)(SealMakingUnitInfor外键)
         /// </summary>
         [Required]
         public int SealMakingUnitInfor_Id_MakingUnitCode { get; set; }
         /// <summary>
-        /// 章面材料代码(标准：GA 241.2)
+        /// 章面材料代码(标准：GA 241.2)(SealMaterial外键)
         /// </summary>
         [Required]
         public int SealMaterial_Id_Code { get; set; }
@@ -100,7 +100,7 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         [Display(Name = "备案日期")]
         public DateTime? ApprovalTime { get; set; }
         /// <summary>
-        /// 备案单位编码(标准：GA 241.1)
+        /// 备案单位编码(标准：GA 241.1)(SealApprovalUnitInfor外键)
         /// </summary>
         [Required]
         public int SealApprovalUnitInfor_Id_ApprovalUnitCode { get; set; }

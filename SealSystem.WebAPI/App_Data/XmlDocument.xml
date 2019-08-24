@@ -587,6 +587,60 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.GetAll">
+            <summary>
+            获取所有的印章制作单位数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.GetOneForMakingUnitCode(System.String)">
+            <summary>
+            根据制作单位编码获取相应的数据
+            </summary>
+            <param name="makingUnitCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.RemoveAsyncForId(System.Int32)">
+            <summary>
+            根据Id删除相应的数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SealSystem.WebAPI.Controllers.SealUseUnitInforController">
+            <summary>
+            印章使用单位信息
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealUseUnitInforController.AddAsync(SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel)">
+            <summary>
+            增加印章使用单位信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealUseUnitInforController.EditForUnitNumber(System.String,SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel)">
+            <summary>
+            根据单位编号修改印章使用单位信息
+            </summary>
+            <param name="unitNumber"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealUseUnitInforController.EditForId(System.Int32,SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel)">
+            <summary>
+            根据Id修改印章使用单位信息
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealUseUnitInforController.GetAll">
+            <summary>
+            获取印章使用单位全部信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户
@@ -639,7 +693,7 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.SealInforNew_Id">
             <summary>
-            是哪个印章里面的相关文件编码
+            是哪个印章里面的相关文件编码(印章信息外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.Note">
@@ -664,7 +718,7 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealCategory_Id_Code">
             <summary>
-            印章类型代码(标准：GA 241.2)
+            印章类型代码(标准：GA 241.2)(SealCategory外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealContent">
@@ -679,7 +733,7 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealUseUnitInfor_Id_UnitNumber">
             <summary>
-            使用单位编码(标准：GA 241.1)
+            使用单位编码(标准：GA 241.1)(SealUseUnitInfor外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.EngravingType">
@@ -689,12 +743,12 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMakingUnitInfor_Id_MakingUnitCode">
             <summary>
-            制章单位编码(标准：GA 241.1)
+            制章单位编码(标准：GA 241.1)(SealMakingUnitInfor外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMaterial_Id_Code">
             <summary>
-            章面材料代码(标准：GA 241.2)
+            章面材料代码(标准：GA 241.2)(SealMaterial外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.RegistrationCategory">
@@ -744,7 +798,7 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealApprovalUnitInfor_Id_ApprovalUnitCode">
             <summary>
-            备案单位编码(标准：GA 241.1)
+            备案单位编码(标准：GA 241.1)(SealApprovalUnitInfor外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Note">
@@ -835,6 +889,86 @@
         <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Remarks">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel">
+            <summary>
+            印章使用单位信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.UnitNumber">
+            <summary>
+            单位编号(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.Name">
+            <summary>
+            单位名称(汉字)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.EthnicMinoritiesName">
+            <summary>
+            单位名称(少数民族文字)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.EnglishName">
+            <summary>
+            单位名称(英文名)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.SealUnitCategory_Id">
+            <summary>
+            单位类型(标准：GA 241.2)(外键)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.VoiceQueryPassword">
+            <summary>
+            语音查询密码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.LegelPerson">
+            <summary>
+            法定代表人(负责人)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.IdNumber">
+            <summary>
+            法定代表人(负责人)身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.UnitAddress">
+            <summary>
+            单位地址
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.TheZipCode">
+            <summary>
+            邮政编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.SealUnitClass_Id">
+            <summary>
+            单位分类(外键)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.EnterpriseDocumentsType">
+            <summary>
+            企业证件类型(自定义下拉列表)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.IdNumbers">
+            <summary>
+            证件号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.Area_Id">
+            <summary>
+            区域信息(外键)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">

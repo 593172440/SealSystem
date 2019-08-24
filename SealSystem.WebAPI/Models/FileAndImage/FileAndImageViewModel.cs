@@ -17,7 +17,7 @@ namespace SealSystem.WebAPI.Models.FileAndImage
         /// </summary>
         public string NamePath { get; set; }
         /// <summary>
-        /// 是哪个印章里面的相关文件编码
+        /// 是哪个印章里面的相关文件编码(印章信息外键)
         /// </summary>
         public int SealInforNew_Id { get; set; }
         /// <summary>

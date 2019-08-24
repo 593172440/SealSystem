@@ -68,5 +68,34 @@ namespace SealSystem.WebAPI.Controllers
             sealInfo.UnitAddress = model.UnitAddress;
             await BLL.SealMakingUnitInforBLL.EditAsync(id, sealInfo);
         }
+        /// <summary>
+        /// 获取所有的印章制作单位数据
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetAll"),HttpGet]
+        public async Task<List<SealSystem.Models.SealMakingUnitInfor>> GetAll()
+        {
+            return await BLL.SealMakingUnitInforBLL.GetAll();
+        }
+        /// <summary>
+        /// 根据制作单位编码获取相应的数据
+        /// </summary>
+        /// <param name="makingUnitCode"></param>
+        /// <returns></returns>
+        [Route("GetOneForMakingUnitCode"),HttpGet]
+        public async Task<SealSystem.Models.SealMakingUnitInfor> GetOneForMakingUnitCode(string makingUnitCode)
+        {
+            return await BLL.SealMakingUnitInforBLL.GetOneForMakingUnitCode(makingUnitCode);
+        }
+        /// <summary>
+        /// 根据Id删除相应的数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("RemoveAsyncForId"),HttpGet]
+        public async Task RemoveAsyncForId(int id)
+        {
+            await BLL.SealMakingUnitInforBLL.RemoveAsyncForId(id);
+        }
     }
 }

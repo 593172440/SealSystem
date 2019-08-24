@@ -58,7 +58,7 @@ namespace SealSystem.Web3.Controllers
             }
 
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
+            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
@@ -76,7 +76,7 @@ namespace SealSystem.Web3.Controllers
                 return HttpNotFound();
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
+            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
@@ -95,7 +95,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.EnterpriseType_Id);
+            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }

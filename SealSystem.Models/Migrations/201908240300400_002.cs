@@ -3,7 +3,7 @@ namespace SealSystem.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _001 : DbMigration
+    public partial class _002 : DbMigration
     {
         public override void Up()
         {
@@ -176,7 +176,7 @@ namespace SealSystem.Models.Migrations
                         Name = c.String(nullable: false),
                         EthnicMinoritiesName = c.String(),
                         EnglishName = c.String(),
-                        EnterpriseType_Id = c.Int(nullable: false),
+                        SealUnitCategory_Id = c.Int(nullable: false),
                         VoiceQueryPassword = c.String(),
                         LegelPerson = c.String(nullable: false),
                         IdNumber = c.String(nullable: false, maxLength: 18),
@@ -192,9 +192,9 @@ namespace SealSystem.Models.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Areas", t => t.Area_Id)
-                .ForeignKey("dbo.SealUnitCategories", t => t.EnterpriseType_Id)
+                .ForeignKey("dbo.SealUnitCategories", t => t.SealUnitCategory_Id)
                 .ForeignKey("dbo.SealUnitClasses", t => t.SealUnitClass_Id)
-                .Index(t => t.EnterpriseType_Id)
+                .Index(t => t.SealUnitCategory_Id)
                 .Index(t => t.SealUnitClass_Id)
                 .Index(t => t.Area_Id);
             
@@ -345,7 +345,7 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.FileAndImages", "SealInforNew_Id", "dbo.SealInforNews");
             DropForeignKey("dbo.SealInforNews", "SealUseUnitInfor_Id_UnitNumber", "dbo.SealUseUnitInfors");
             DropForeignKey("dbo.SealUseUnitInfors", "SealUnitClass_Id", "dbo.SealUnitClasses");
-            DropForeignKey("dbo.SealUseUnitInfors", "EnterpriseType_Id", "dbo.SealUnitCategories");
+            DropForeignKey("dbo.SealUseUnitInfors", "SealUnitCategory_Id", "dbo.SealUnitCategories");
             DropForeignKey("dbo.SealUseUnitInfors", "Area_Id", "dbo.Areas");
             DropForeignKey("dbo.SealInforNews", "SealMaterial_Id_Code", "dbo.SealMaterials");
             DropForeignKey("dbo.SealInforNews", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
@@ -361,7 +361,7 @@ namespace SealSystem.Models.Migrations
             DropIndex("dbo.SealInfors", new[] { "SealUseUnitInfor_Id_UnitNumber" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "Area_Id" });
             DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitClass_Id" });
-            DropIndex("dbo.SealUseUnitInfors", new[] { "EnterpriseType_Id" });
+            DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitCategory_Id" });
             DropIndex("dbo.SealInforNews", new[] { "SealApprovalUnitInfor_Id_ApprovalUnitCode" });
             DropIndex("dbo.SealInforNews", new[] { "SealMaterial_Id_Code" });
             DropIndex("dbo.SealInforNews", new[] { "SealMakingUnitInfor_Id_MakingUnitCode" });

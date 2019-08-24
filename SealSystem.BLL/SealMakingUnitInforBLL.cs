@@ -52,5 +52,40 @@ namespace SealSystem.BLL
                 await db.EditAsync(sealInfo);
             }
         }
+        /// <summary>
+        /// 获取所有的印章制作单位数据
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<Models.SealMakingUnitInfor>> GetAll()
+        {
+            using (var db = new DAL.SealMakingUnitInforDAL())
+            {
+                return await db.GetAll().ToListAsync();
+            }
+        }
+        /// <summary>
+        /// 根据制作单位编码获取相应的数据
+        /// </summary>
+        /// <param name="makingUnitCode"></param>
+        /// <returns></returns>
+        public static async Task<Models.SealMakingUnitInfor> GetOneForMakingUnitCode(string makingUnitCode)
+        {
+            using (var db = new DAL.SealMakingUnitInforDAL())
+            {
+                return await db.GetAll().FirstAsync(m => m.MakingUnitCode == makingUnitCode);
+            }
+        }
+        /// <summary>
+        /// 根据Id删除相应的数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task RemoveAsyncForId(int id)
+        {
+            using (var db = new DAL.SealMakingUnitInforDAL())
+            {
+                await db.RemoveAsync(id);
+            }
+        }
     }
 }

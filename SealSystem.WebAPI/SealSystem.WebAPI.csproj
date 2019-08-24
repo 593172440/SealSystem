@@ -156,6 +156,7 @@
     <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforController.cs" />
+    <Compile Include="Controllers\SealUseUnitInfor.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="Filters\MyAuthAttribute.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Models\ResponseData.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\SealMakingUnitInfor\SealMakingUnitInforViewModel.cs" />
+    <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforViewModel.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Models\User\UserGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

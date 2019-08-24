@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace SealSystem.Models
+namespace SealSystem.WebAPI.Models.SealUseUnitInfor
 {
     /// <summary>
-    /// 印章使用单位信息表
+    /// 印章使用单位信息
     /// </summary>
-    public class SealUseUnitInfor : BaseEntity
+    public class SealUseUnitInforViewModel
     {
         /// <summary>
         /// 单位编号(标准：GA 241.1)
         /// </summary>
-        [Display(Name ="单位编号")]
+        [Display(Name = "单位编号")]
         public string UnitNumber { get; set; }
         /// <summary>
         /// 单位名称(汉字)
@@ -35,11 +34,9 @@ namespace SealSystem.Models
         [Display(Name = "单位名称(英文名)")]
         public string EnglishName { get; set; }
         /// <summary>
-        /// 单位类型(标准：GA 241.2)
+        /// 单位类型(标准：GA 241.2)(外键)
         /// </summary>
-        [ForeignKey(nameof(SealUnitCategory))]
         public int SealUnitCategory_Id { get; set; }
-        public SealUnitCategory SealUnitCategory { get; set; }
         /// <summary>
         /// 语音查询密码
         /// </summary>
@@ -79,11 +76,9 @@ namespace SealSystem.Models
         //-----------------------------------------------------
 
         /// <summary>
-        /// 单位分类
+        /// 单位分类(外键)
         /// </summary>
-        [ForeignKey(nameof(SealUnitClass))]
         public int SealUnitClass_Id { get; set; }
-        public SealUnitClass SealUnitClass { get; set; }
         /// <summary>
         /// 企业证件类型(自定义下拉列表)
         /// </summary>
@@ -95,11 +90,8 @@ namespace SealSystem.Models
         [Display(Name = "证件号")]
         public string IdNumbers { get; set; }
         /// <summary>
-        /// 区域信息
+        /// 区域信息(外键)
         /// </summary>
-        [ForeignKey(nameof(Area))]
         public int Area_Id { get; set; }
-        public Area Area { get; set; }
-
     }
 }
