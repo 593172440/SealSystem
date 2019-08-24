@@ -138,6 +138,7 @@
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserPermissionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Filter\LoginFilterAttribute.cs" />
@@ -365,13 +366,14 @@
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\SealCategories\Create.cshtml" />
     <Content Include="Views\SealCategories\Delete.cshtml" />
     <Content Include="Views\SealCategories\Details.cshtml" />
     <Content Include="Views\SealCategories\Edit.cshtml" />
     <Content Include="Views\SealCategories\Index.cshtml" />
     <Content Include="Views\SealInforNews\Create - 复制.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,28 @@
+﻿@*@model IEnumerable<SealSystem.Models.User>*@
+@{
+//if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
+//{
+//    List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
+//    if (list.Any(m => m == Session["loginName"] + ":用户管理:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加新用户", "Create") + "</h2>"); }
+//}
+}
+<div class="container body">
+    <div class="main_container">
+        <!--右上角头像区-->
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        <!--/右上角头像区-->
+        <!--顶部导航-->
+        <div class="top_nav">
+            <div class="nav_menu">
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+            </div>
+        </div>
+        <!--/顶部导航 -->
+        <!-- page content -->
+        <div class="right_col" role="main" style=null>
+            
+        </div>
+        <!-- /page content -->
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+    </div>
+</div>
