@@ -46,6 +46,7 @@
     <Compile Include="SealBasicInformation.cs" />
     <Compile Include="SealInfomationManagement.cs" />
     <Compile Include="EnterpiseInfomationManagement.cs" />
+    <Compile Include="SealInforNewDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

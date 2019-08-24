@@ -10,34 +10,34 @@ namespace SealSystem.DAL
 {
     public class BaseDAL<T> : IDisposable where T : Models.BaseEntity, new()
     {
-        private Models.SSContext db = new Models.SSContext();
+        public Models.SSContext _db = new Models.SSContext();
         public async Task AddAsync(T t, bool saved = true)
         {
-            db.Set<T>().Add(t);
+            _db.Set<T>().Add(t);
             if (saved)
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
         }
 
         public void Dispose()
         {
-            db.Dispose();
+            _db.Dispose();
         }
 
         public async Task EditAsync(T t, bool saved = true)
         {
-            db.Configuration.ValidateOnSaveEnabled = false;
-            db.Entry(t).State = EntityState.Modified;
+            _db.Configuration.ValidateOnSaveEnabled = false;
+            _db.Entry(t).State = EntityState.Modified;
             if (saved)
             {
-                db.Configuration.ValidateOnSaveEnabled = true;
-                await db.SaveChangesAsync();
+                _db.Configuration.ValidateOnSaveEnabled = true;
+                await _db.SaveChangesAsync();
             }
         }
         public IQueryable<T> GetAll()
         {
-            return db.Set<T>().Where(m => !m.IsRemoved).AsNoTracking();
+            return _db.Set<T>().Where(m => !m.IsRemoved).AsNoTracking();
         }
         public IQueryable<T> GetAllByPage(int pageSize = 10, int pageIndex = 0)
         {
@@ -66,14 +66,14 @@ namespace SealSystem.DAL
         }
         public async Task RemoveAsync(int id, bool saved = true)
         {
-            db.Configuration.ValidateOnSaveEnabled = false;
+            _db.Configuration.ValidateOnSaveEnabled = false;
             var data = GetAll().First(m => m.Id == id); 
-            db.Entry(data).State = EntityState.Modified;
+            _db.Entry(data).State = EntityState.Modified;
             data.IsRemoved = true;
             if (saved)
             {
-                await db.SaveChangesAsync();
-                db.Configuration.ValidateOnSaveEnabled = true;
+                await _db.SaveChangesAsync();
+                _db.Configuration.ValidateOnSaveEnabled = true;
             }
         }
 
@@ -84,8 +84,8 @@ namespace SealSystem.DAL
 
         public async Task SaveAsync()
         {
-            await db.SaveChangesAsync();
-            db.Configuration.ValidateOnSaveEnabled = true;
+            await _db.SaveChangesAsync();
+            _db.Configuration.ValidateOnSaveEnabled = true;
         }
     }
 }

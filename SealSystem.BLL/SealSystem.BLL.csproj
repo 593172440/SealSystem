@@ -65,6 +65,10 @@
       <Project>{3355315d-c8e2-4191-8032-cd534719245b}</Project>
       <Name>SealSystem.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SealSystem.Dto\SealSystem.Dto.csproj">
+      <Project>{0fbafe61-431d-4145-bbfc-21546331d3ab}</Project>
+      <Name>SealSystem.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SealSystem.Models\SealSystem.Models.csproj">
       <Project>{e92cec8e-7faa-4c6f-9b53-d05e261ecc74}</Project>
       <Name>SealSystem.Models</Name>

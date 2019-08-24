@@ -44,6 +44,14 @@ namespace SealSystem.BLL
                 return await db.GetAll().ToListAsync();
             }
         }
+        public static async Task<List<Models.SealInforNew>> GetAllDetailed()
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                var sealInforNews = db._db.SealInforNews.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealUseUnitInfor);
+                return await sealInforNews.ToListAsync();
+            }
+        }
         /// <summary>
         /// 根据印章编码获取印章信息
         /// </summary>
@@ -73,11 +81,11 @@ namespace SealSystem.BLL
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>
         /// <returns></returns>
-        public static async Task EditAsync(string sealInforNum,Models.SealInforNew model)
+        public static async Task EditAsync(string sealInforNum, Models.SealInforNew model)
         {
             using (var db = new DAL.SealInforNewDAL())
             {
-                var sealInfo=await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
+                var sealInfo = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
                 sealInfo.Approval = model.Approval;
                 sealInfo.ApprovalTime = model.ApprovalTime;
                 sealInfo.Attention = model.Attention;
@@ -112,6 +120,49 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealInforNewDAL())
             {
                 await db.RemoveAsync(id);
+            }
+        }
+        /// <summary>
+        /// 根据id修改状态
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="sealState"></param>
+        /// <returns></returns>
+        public static async Task SetForSealState(int id, string sealState)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                var data = await db.GetOneAsync(id);
+                data.SealState = sealState;
+                await db.EditAsync(data);
+            }
+        }
+       
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <param name="pageSize">每页有多少条数据</param>
+        /// <param name="pageIndex">有多少页</param>
+        /// <returns></returns>
+        public static async Task<List<Models.SealInforNew>> GetAllPage(int pageSize, int pageIndex)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                return await db.GetAllByPage(pageSize, pageIndex).ToListAsync();
+            }
+        }
+        /// <summary>
+        /// 分页加排序
+        /// </summary>
+        /// <param name="pageSize">每页有多少条数据</param>
+        /// <param name="pageIndex">有多少页</param>
+        /// <param name="asc">排序</param>
+        /// <returns></returns>
+        public static async Task<List<Models.SealInforNew>> GetAllPage(int pageSize, int pageIndex, bool asc)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                return await db.GetAllBypageOrder(pageSize, pageIndex, asc).ToListAsync();
             }
         }
     }

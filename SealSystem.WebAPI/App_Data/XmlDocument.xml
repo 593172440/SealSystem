@@ -586,6 +586,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllDetailed">
+            <summary>
+            获取所有的印章信息(包括外键信息)
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetSealInforOne(System.String)">
             <summary>
             根据印章编码获取印章信息
@@ -613,6 +619,51 @@
             根据印章id伪删除印章信息
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForLuRu(System.Int32)">
+            <summary>
+            根据id修改状态为-->[已录入]
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForHeYan(System.Int32)">
+            <summary>
+            根据id修改状态为-->[待核验]
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForBeiAn(System.Int32)">
+            <summary>
+            根据id修改状态为-->[已备案]
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForCheXiao(System.Int32)">
+            <summary>
+            根据id修改状态为-->[已撤销](异步)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllPage(System.Int32,System.Int32)">
+            <summary>
+            分页
+            </summary>
+            <param name="pageSize">每页有多少条数据</param>
+            <param name="pageIndex">有多少页</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllPage(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            分页加排序
+            </summary>
+            <param name="pageSize">每页有多少条数据</param>
+            <param name="pageIndex">有多少页</param>
+            <param name="asc">排序,true:正序,falas:降序</param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealMakingUnitInforController">
