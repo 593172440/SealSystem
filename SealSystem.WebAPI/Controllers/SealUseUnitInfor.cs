@@ -21,7 +21,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("AddAsync")]
+        [Route("AddAsync"),HttpPost]
         public async Task AddAsync(Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -49,6 +49,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="unitNumber"></param>
         /// <param name="model"></param>
         /// <returns></returns>
+        [Route("EditForUnitNumber"),HttpPost]
         public async Task EditForUnitNumber(string unitNumber, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -76,6 +77,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
+        [Route("EditForId"),HttpPost]
         public async Task EditForId(int id, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -100,7 +102,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取印章使用单位全部信息
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll")]
+        [Route("GetAll"),HttpGet]
         public async Task<List<SealSystem.Models.SealUseUnitInfor>> GetAll()
         {
             return await BLL.SealUseUnitInforBLL.GetAll();
@@ -110,7 +112,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("RemoveForId")]
+        [Route("RemoveForId"),HttpGet]
         public async Task RemoveForId(int id)
         {
             await BLL.SealUseUnitInforBLL.RemoveForId(id);

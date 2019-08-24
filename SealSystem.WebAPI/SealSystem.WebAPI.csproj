@@ -154,6 +154,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\FileAndImageController.cs" />
+    <Compile Include="Controllers\SealApprovalUnitInforController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforController.cs" />
     <Compile Include="Controllers\SealUseUnitInfor.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Models\Auth\UserIdentity.cs" />
     <Compile Include="Models\FileAndImage\FileAndImageViewModel.cs" />
     <Compile Include="Models\ResponseData.cs" />
+    <Compile Include="Models\SealApprovalUnitInfor\SealApprovalUnitInforViewModel.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\SealMakingUnitInfor\SealMakingUnitInforViewModel.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforViewModel.cs" />

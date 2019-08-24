@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileAndImageBLL.cs" />
+    <Compile Include="SealApprovalUnitInforBLL.cs" />
     <Compile Include="SealCategoriesBLL.cs" />
     <Compile Include="SealInforNewBLL.cs" />
     <Compile Include="SealMakingUnitInforBLL.cs" />

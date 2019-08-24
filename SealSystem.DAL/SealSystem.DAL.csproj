@@ -51,6 +51,7 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="FileAndImageDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SealApprovalUnitInforDAL.cs" />
     <Compile Include="SealCategoriesDAL.cs" />
     <Compile Include="SealInforNewDAL.cs" />
     <Compile Include="SealMakingUnitInforDAL.cs" />
