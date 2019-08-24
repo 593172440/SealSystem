@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaDAL.cs" />
     <Compile Include="BaseDAL.cs" />
     <Compile Include="FileAndImageDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

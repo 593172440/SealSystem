@@ -165,9 +165,10 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("SetSealStateForLuRu"), HttpGet]
-        public async Task SetSealStateForLuRu(int id)
+        public async Task<IHttpActionResult> SetSealStateForLuRu(int id)
         {
             await BLL.SealInforNewBLL.SetForSealState(id, "已录入");
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
         /// 根据id修改状态为-->[待核验]
@@ -175,9 +176,10 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("SetSealStateForHeYan"), HttpGet]
-        public async Task SetSealStateForHeYan(int id)
+        public async Task<IHttpActionResult> SetSealStateForHeYan(int id)
         {
             await BLL.SealInforNewBLL.SetForSealState(id, "待核验");
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
         /// 根据id修改状态为-->[已备案]
@@ -185,9 +187,10 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("SetSealStateForBeiAn"), HttpGet]
-        public async Task SetSealStateForBeiAn(int id)
+        public async Task<IHttpActionResult> SetSealStateForBeiAn(int id)
         {
             await BLL.SealInforNewBLL.SetForSealState(id, "已备案");
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
         /// 根据id修改状态为-->[已撤销](异步)
