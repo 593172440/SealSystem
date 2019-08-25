@@ -25,7 +25,6 @@ namespace SealSystem.WebAPI.Controllers
         public async Task AddAsync(Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
-            data.Area_Id = model.Area_Id;
             data.EnglishName = model.EnglishName;
             data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
             data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -33,13 +32,12 @@ namespace SealSystem.WebAPI.Controllers
             data.IdNumbers = model.IdNumbers;
             data.LegelPerson = model.LegelPerson;
             data.Name = model.Name;
+            data.Note = model.Note;
             data.Phone = model.Phone;
-            data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-            data.SealUnitClass_Id = model.SealUnitClass_Id;
-            data.TheZipCode = model.TheZipCode;
+            data.TheUnitType = model.TheUnitType;
             data.UnitAddress = model.UnitAddress;
+            data.UnitClassification = model.UnitClassification;
             data.UnitNumber = model.UnitNumber;
-            data.VoiceQueryPassword = model.VoiceQueryPassword;
             await BLL.SealUseUnitInforBLL.AddAsync(data);
         }
 
@@ -53,7 +51,6 @@ namespace SealSystem.WebAPI.Controllers
         public async Task EditForUnitNumber(string unitNumber, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
-            data.Area_Id = model.Area_Id;
             data.EnglishName = model.EnglishName;
             data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
             data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -61,13 +58,12 @@ namespace SealSystem.WebAPI.Controllers
             data.IdNumbers = model.IdNumbers;
             data.LegelPerson = model.LegelPerson;
             data.Name = model.Name;
+            data.Note = model.Note;
             data.Phone = model.Phone;
-            data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-            data.SealUnitClass_Id = model.SealUnitClass_Id;
-            data.TheZipCode = model.TheZipCode;
+            data.TheUnitType = model.TheUnitType;
             data.UnitAddress = model.UnitAddress;
+            data.UnitClassification = model.UnitClassification;
             data.UnitNumber = model.UnitNumber;
-            data.VoiceQueryPassword = model.VoiceQueryPassword;
             await BLL.SealUseUnitInforBLL.EditForUnitNumber(unitNumber, data);
 
         }
@@ -81,7 +77,6 @@ namespace SealSystem.WebAPI.Controllers
         public async Task EditForId(int id, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
-            data.Area_Id = model.Area_Id;
             data.EnglishName = model.EnglishName;
             data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
             data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -89,13 +84,12 @@ namespace SealSystem.WebAPI.Controllers
             data.IdNumbers = model.IdNumbers;
             data.LegelPerson = model.LegelPerson;
             data.Name = model.Name;
+            data.Note = model.Note;
             data.Phone = model.Phone;
-            data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-            data.SealUnitClass_Id = model.SealUnitClass_Id;
-            data.TheZipCode = model.TheZipCode;
+            data.TheUnitType = model.TheUnitType;
             data.UnitAddress = model.UnitAddress;
+            data.UnitClassification = model.UnitClassification;
             data.UnitNumber = model.UnitNumber;
-            data.VoiceQueryPassword = model.VoiceQueryPassword;
             await BLL.SealUseUnitInforBLL.EditForId(id, data);
         }
         /// <summary>

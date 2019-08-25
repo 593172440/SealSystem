@@ -44,7 +44,7 @@ namespace SealSystem.WebAPI.Controllers
                     SealCategory_Id_Code = item.SealCategory_Id_Code,
                     SealContent = item.SealContent,
                     SealInforNum = item.SealInforNum,
-                    SealMakingUnitInfor_Id_MakingUnitCode = item.SealMakingUnitInfor_Id_MakingUnitCode,
+                    //SealMakingUnitInfor_Id_MakingUnitCode = item.SealMakingUnitInfor_Id_MakingUnitCode,
                     SealMaterial_Id_Code = item.SealMaterial_Id_Code,
                     SealShape = item.SealShape,
                     SealState = item.SealState,
@@ -58,11 +58,11 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取所有的印章信息(包括外键信息)
         /// </summary>
         /// <returns></returns>
-        [Route("GetAllDetailed"), HttpGet]
-        public async Task<List<SealSystem.Models.SealInforNew>> GetAllDetailed()
-        {
-            return await BLL.SealInforNewBLL.GetAllDetailed();
-        }
+        //[Route("GetAllDetailed"), HttpGet]
+        //public async Task<List<SealSystem.Models.SealInforNew>> GetAllDetailed()
+        //{
+        //    return await BLL.SealInforNewBLL.GetAllDetailed();
+        //}
         /// <summary>
         /// 根据印章编码获取印章信息
         /// </summary>
@@ -101,7 +101,7 @@ namespace SealSystem.WebAPI.Controllers
                 se.SealCategory_Id_Code = model.SealCategory_Id_Code;
                 se.SealContent = model.SealContent;
                 se.SealInforNum = model.SealInforNum;
-                se.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
+                //se.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
                 se.SealMaterial_Id_Code = model.SealMaterial_Id_Code;
                 se.SealShape = model.SealShape;
                 se.SealState = model.SealState;
@@ -140,7 +140,7 @@ namespace SealSystem.WebAPI.Controllers
             se.SealCategory_Id_Code = model.SealCategory_Id_Code;
             se.SealContent = model.SealContent;
             se.SealInforNum = model.SealInforNum;
-            se.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
+            //se.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
             se.SealMaterial_Id_Code = model.SealMaterial_Id_Code;
             se.SealShape = model.SealShape;
             se.SealState = model.SealState;

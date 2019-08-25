@@ -44,14 +44,14 @@ namespace SealSystem.BLL
                 return await db.GetAll().ToListAsync();
             }
         }
-        public static async Task<List<Models.SealInforNew>> GetAllDetailed()
-        {
-            using (var db = new DAL.SealInforNewDAL())
-            {
-                var sealInforNews = db._db.SealInforNews.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealUseUnitInfor);
-                return await sealInforNews.ToListAsync();
-            }
-        }
+        //public static async Task<List<Models.SealInforNew>> GetAllDetailed()
+        //{
+        //    using (var db = new DAL.SealInforNewDAL())
+        //    {
+        //        var sealInforNews = db._db.SealInforNews.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealUseUnitInfor);
+        //        return await sealInforNews.ToListAsync();
+        //    }
+        //}
         /// <summary>
         /// 根据印章编码获取印章信息
         /// </summary>
@@ -86,18 +86,11 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealInforNewDAL())
             {
                 var sealInfo = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
-                sealInfo.Approval = model.Approval;
-                sealInfo.ApprovalTime = model.ApprovalTime;
-                sealInfo.Attention = model.Attention;
-                sealInfo.AttentionIdCard = model.AttentionIdCard;
-                sealInfo.Contact = model.Contact;
                 sealInfo.EngravingLevel = model.EngravingLevel;
                 sealInfo.EngravingType = model.EngravingType;
                 sealInfo.ForeignLanguageContent = model.ForeignLanguageContent;
                 sealInfo.MakeWay = model.MakeWay;
-                sealInfo.Note = model.Note;
                 sealInfo.RegistrationCategory = model.RegistrationCategory;
-                sealInfo.SealApprovalUnitInfor_Id_ApprovalUnitCode = model.SealApprovalUnitInfor_Id_ApprovalUnitCode;
                 sealInfo.SealCategory_Id_Code = model.SealCategory_Id_Code;
                 sealInfo.SealContent = model.SealContent;
                 sealInfo.SealInforNum = model.SealInforNum;

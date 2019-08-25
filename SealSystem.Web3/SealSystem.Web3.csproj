@@ -129,12 +129,10 @@
     <Compile Include="Controllers\MenuTablesController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealCategoriesController.cs" />
-    <Compile Include="Controllers\SealInforNewsBeiAnController.cs" />
     <Compile Include="Controllers\SealInforNewsQueryController.cs" />
     <Compile Include="Controllers\SealInforNewsJiaoFuController.cs" />
     <Compile Include="Controllers\SealInforNewsMakingController.cs" />
     <Compile Include="Controllers\SealInforNewsController.cs" />
-    <Compile Include="Controllers\SealInforsController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUnitClassesController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
@@ -165,6 +163,28 @@
     <Content Include="Content\nprogress.css" />
     <Content Include="Content\responsive.bootstrap.min.css" />
     <Content Include="Content\scroller.bootstrap.min.css" />
+    <Content Include="Content\zoom\css\lightbox.css" />
+    <Content Include="Content\zoom\css\screen.css" />
+    <Content Include="Content\zoom\img\close.png" />
+    <Content Include="Content\zoom\img\demopage\image-1.jpg" />
+    <Content Include="Content\zoom\img\demopage\image-2.jpg" />
+    <Content Include="Content\zoom\img\demopage\image-3.jpg" />
+    <Content Include="Content\zoom\img\demopage\image-4.jpg" />
+    <Content Include="Content\zoom\img\demopage\image-5.jpg" />
+    <Content Include="Content\zoom\img\demopage\image-6.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-1.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-2.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-3.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-4.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-5.jpg" />
+    <Content Include="Content\zoom\img\demopage\thumb-6.jpg" />
+    <Content Include="Content\zoom\img\loading.gif" />
+    <Content Include="Content\zoom\img\next.png" />
+    <Content Include="Content\zoom\img\prev.png" />
+    <Content Include="Content\zoom\index.html" />
+    <Content Include="Content\zoom\js\jquery-1.10.2.min.js" />
+    <Content Include="Content\zoom\js\lightbox-2.6.min.js" />
+    <Content Include="Content\zoom\js\modernizr.custom.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -301,11 +321,6 @@
     <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
     <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
-    <Content Include="Views\SealInfors\Create.cshtml" />
-    <Content Include="Views\SealInfors\Delete.cshtml" />
-    <Content Include="Views\SealInfors\Details.cshtml" />
-    <Content Include="Views\SealInfors\Edit.cshtml" />
-    <Content Include="Views\SealInfors\Index.cshtml" />
     <Content Include="Views\Home\LoginIndex.cshtml" />
     <Content Include="Views\AnnouncementNotices\Create.cshtml" />
     <Content Include="Views\AnnouncementNotices\Delete.cshtml" />
@@ -347,11 +362,6 @@
     <Content Include="Views\SealInforNewsJiaoFu\Details.cshtml" />
     <Content Include="Views\SealInforNewsJiaoFu\Edit.cshtml" />
     <Content Include="Views\SealInforNewsJiaoFu\Index.cshtml" />
-    <Content Include="Views\SealInforNewsBeiAn\Create.cshtml" />
-    <Content Include="Views\SealInforNewsBeiAn\Delete.cshtml" />
-    <Content Include="Views\SealInforNewsBeiAn\Details.cshtml" />
-    <Content Include="Views\SealInforNewsBeiAn\Edit.cshtml" />
-    <Content Include="Views\SealInforNewsBeiAn\Index.cshtml" />
     <Content Include="Views\SealInforNewsQuery\Create.cshtml" />
     <Content Include="Views\SealInforNewsQuery\Delete.cshtml" />
     <Content Include="Views\SealInforNewsQuery\Details.cshtml" />
@@ -374,6 +384,7 @@
     <Content Include="Views\SealInforNews\Create - 复制.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\SealInforNews\Index - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

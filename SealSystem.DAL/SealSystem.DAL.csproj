@@ -56,7 +56,6 @@
     <Compile Include="SealCategoriesDAL.cs" />
     <Compile Include="SealInforNewDAL.cs" />
     <Compile Include="SealMakingUnitInforDAL.cs" />
-    <Compile Include="SealUnitClassDAL.cs" />
     <Compile Include="SealUseUnitInforDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="UserGroupDAL.cs" />

@@ -38,7 +38,7 @@ namespace SealSystem.Web3.Controllers
         public ActionResult Create()
         {
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code");
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name");
+            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name");
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name");
             return View();
         }
@@ -48,7 +48,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,EnterpriseType_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,SealUnitCategory_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace SealSystem.Web3.Controllers
             }
 
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
+            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
@@ -76,7 +76,7 @@ namespace SealSystem.Web3.Controllers
                 return HttpNotFound();
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
+            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
@@ -86,7 +86,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,EnterpriseType_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,SealUnitCategory_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.EnterpriseType_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
+            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
             ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }

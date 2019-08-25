@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con1")
+        public SSContext() : base("con2")
         {
             Database.SetInitializer<DbContext>(null);
         }
@@ -25,21 +25,17 @@
         public DbSet<SealApprovalUnitInfor> SealApprovalUnitInfors { get; set; }
        
         /// <summary>
-        /// 印章基本信息表(数据上下文)
-        /// </summary>
-        public DbSet<SealInfor> SealInfors { get; set; }
-        /// <summary>
         /// 印章制作单位信息表(数据上下文)
         /// </summary>
         public DbSet<SealMakingUnitInfor> SealMakingUnitInfors { get; set; }
         /// <summary>
-        /// 单位分类表(数据上下文)
-        /// </summary>
-        public DbSet<SealUnitClass> SealUnitClasses { get; set; }
-        /// <summary>
         /// 印章使用单位信息表(数据上下文)
         /// </summary>
         public DbSet<SealUseUnitInfor> UnitInfors { get; set; }
+        /// <summary>
+        /// 所有印章系统所使用的下拉列表名单
+        /// </summary>
+        public DbSet<SealSystemList> SealSystemLists { get; set; }
         /// <summary>
         /// 用户表(数据上下文)
         /// </summary>
@@ -75,14 +71,7 @@
         /// 印章类型表(登记类别)(数据上下文)
         /// </summary>
         public DbSet<SealCategory> SealCategorys { get; set; }
-        /// <summary>
-        /// 章面(体)材料(数据上下文)
-        /// </summary>
-        public DbSet<SealMaterial> SealMaterials { get; set; }
-        /// <summary>
-        /// 印章使用单位类型表(数据上下文)
-        /// </summary>
-        public DbSet<SealUnitCategory> SealUnitCategorys { get; set; }
+
         /// <summary>
         /// 新的印章基本信息
         /// </summary>
@@ -92,5 +81,11 @@
         /// 用户组表
         /// </summary>
         public DbSet<UserGroup> UserGroups { get; set; }
+
+        /// <summary>
+        /// 订单表
+        /// </summary>
+        public DbSet<SealTheDeliveryInformation> TheOrders { get; set; }
+
     }
 }

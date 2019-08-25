@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace SealSystem.BLL
 {
+    /// <summary>
+    /// 印章备案信息
+    /// </summary>
     public class SealApprovalUnitInforBLL
     {
         /// <summary>
-        /// 增加印章备案(审批)单位信息
+        /// 增加印章备案信息
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -33,11 +36,11 @@ namespace SealSystem.BLL
             {
                 var data = await db.GetAll().FirstAsync(m=>m.ApprovalUnitCode==approvalUnitCode);
                 data.ApprovalUnitCode = model.ApprovalUnitCode;
-                data.LegelPerson = model.LegelPerson;
-                data.Name = model.Name;
-                data.Phone = model.Phone;
-                data.TheZipCode = model.TheZipCode;
-                data.UnitAddress = model.UnitAddress;
+                data.Approval = model.Approval;
+                data.Attention = model.Attention;
+                data.AttentionIdCard = model.AttentionIdCard;
+                data.Contact = model.Contact;
+                data.Note = model.Note;
                 await db.EditAsync(data);
             }
         }
@@ -53,11 +56,11 @@ namespace SealSystem.BLL
             {
                 var data = await db.GetAll().FirstAsync(m => m.Id == id);
                 data.ApprovalUnitCode = model.ApprovalUnitCode;
-                data.LegelPerson = model.LegelPerson;
-                data.Name = model.Name;
-                data.Phone = model.Phone;
-                data.TheZipCode = model.TheZipCode;
-                data.UnitAddress = model.UnitAddress;
+                data.Approval = model.Approval;
+                data.Attention = model.Attention;
+                data.AttentionIdCard = model.AttentionIdCard;
+                data.Contact = model.Contact;
+                data.Note = model.Note;
                 await db.EditAsync(data);
             }
         }

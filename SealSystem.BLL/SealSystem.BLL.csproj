@@ -54,7 +54,6 @@
     <Compile Include="SealCategoriesBLL.cs" />
     <Compile Include="SealInforNewBLL.cs" />
     <Compile Include="SealMakingUnitInforBLL.cs" />
-    <Compile Include="SealUnitClassBLL.cs" />
     <Compile Include="SealUseUnitInforBLL.cs" />
     <Compile Include="UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -35,55 +35,12 @@
         <!--/顶部导航 -->
         <!-- page content -->
         <div class="right_col" role="main" style=null>
-
-            @*<div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>文件文档上传</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li>
-                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="#">Settings 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Settings 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="close-link"><i class="fa fa-close"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <p>注：此功能正在测试中(支持拖拽)</p>
-
-                                <form action="/FileAndImages/UpFileData" class="dropzone needsclick " id="demo-upload">
-                                    @Html.AntiForgeryToken()
-                                    <div class="dz-message needsclick">
-                                        拖拽进行上传
-                                    </div>
-
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
-
             <div id="rows" class="row">
 
                 <div id="rows1" class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>增加印章(未完成) <small>增加印章信息</small></h2>
+                            <h2>增加印章 <small>增加印章信息</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
                                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -114,9 +71,10 @@
                                             要搜索的单位名称： <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input onchange="danWeiName()" id="SealInforNum" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称检查是否存在" />
+                                            <input onchange="danWeiName()" id="SealInforNum" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称按回车键检查是否存在" />
                                         </div>
-                                        <div v-show="isShow">
+                                        <p></p>
+                                        <div v-show="isShow" class="col-md-7 col-sm-6 col-xs-12">
                                             <span>使用单位不存在，请完善企业信息</span>
                                             @Html.ActionLink("增加企业信息", "Create", "SealUseUnitInfors", null, new { @class = "btn btn-primary" })
                                         </div>
@@ -159,8 +117,7 @@
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章规格:<span class="required"></span></label>
                                                                     <!--<select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px"  v-on:change="selectedPng">-->
-                                                                    <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" onchange="selectedPng(this)">
-                                                                    </select>
+                                                                    <select name="SealSpecification" class="form-control" id="SealSpecification" style="width:196px" onchange="selectedPng(this)"></select>
                                                                     @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
@@ -202,7 +159,7 @@
                                                                         listType.Add(item.Name);
                                                                     }
                                                                     <select id="SealCategory_Id_Code" name="SealCategory_Id_Code" class="form-control" onchange="selectedType(this)" style="width:196px">
-                                                                        <option >请选择</option>
+                                                                        <option>请选择</option>
                                                                         @foreach (var item in listType.Distinct())
                                                                         {
                                                                             <option>@item</option>
@@ -349,6 +306,7 @@
                 </div>
 
             </div>
+            
 
         </div>
     </div>
@@ -608,14 +566,23 @@
                 traditional: true,
                 dataType: "json",
                 success: function (result) {
-                    console.log(result);
+                    myFunction();
                 },
-
-
                 error: function (err) {
+                    myFunction();
                     console.log("异常"+err);
                 }
             })
+        };
+        function myFunction() {
+            var x;
+            var r = confirm("提交成功");
+            if (r == true) {
+                window.location.href = "/SealInforNews/Index";
+            }
+            else {
+                window.location.href = "/SealInforNews/Index";
+            }
         }
     </script>
 

@@ -32,36 +32,83 @@
                   new SealCategory { Code = "04", Name = "合同专用章", SealSpecifications="其它",TestImagePath= "noimage.png" },
                   new SealCategory { Code = "99", Name = "其它", SealSpecifications= "其它", TestImagePath= "noimage.png" }
                   );
-				
-				//章面(体)材料
-			context.SealMaterials.AddOrUpdate(
-                new SealMaterial { Code = "01", Name = "有机玻璃" },
-                new SealMaterial { Code = "02", Name = "铜" },
-                new SealMaterial { Code = "03", Name = "钢" },
-                new SealMaterial { Code = "04", Name = "塑橡" },
-                new SealMaterial { Code = "05", Name = "牛角" },
-                new SealMaterial { Code = "99", Name = "其他章面材料" }
+				  //使用单位下拉列表集合
+				context.SealSystemLists.AddOrUpdate(
+				//--------------使用单位信息
+                new SealSystemList{Name = "单位分类", Types = "农,林,牧,渔业" },
+                new SealSystemList{Name = "单位分类", Types = "采掘业" },
+                new SealSystemList{Name = "单位分类", Types = "制造业" },
+                new SealSystemList{Name = "单位分类", Types = "建筑业" },
+                new SealSystemList{Name = "单位分类", Types = "电力,煤气及水的生产和供应业" },
+                new SealSystemList{Name = "单位分类", Types = "地质堪察业,水利管理业" },
+                new SealSystemList{Name = "单位分类", Types = "交通运输,仓储业" },
+                new SealSystemList{Name = "单位分类", Types = "邮电通信业" },
+                new SealSystemList{Name = "单位分类", Types = "批发和零售贸易" },
+                new SealSystemList{Name = "单位分类", Types = "餐饮娱乐业" },
+                new SealSystemList{Name = "单位分类", Types = "金融,保险业" },
+                new SealSystemList{Name = "单位分类", Types = "房地产业" },
+                new SealSystemList{Name = "单位分类", Types = "修配业" },
+                new SealSystemList{Name = "单位分类", Types = "卫生,体育和社会福利业" },
+                new SealSystemList{Name = "单位分类", Types = "计算机信息技术业" },
+                new SealSystemList{Name = "单位分类", Types = "广播电影,电视及广告业" },
+                new SealSystemList{Name = "单位分类", Types = "科学研究和综合技术服务业" },
+                new SealSystemList{Name = "单位分类", Types = "其它行业" },
+                new SealSystemList{Name = "单位类型", Types = "党政机关、人大、政协" },
+                new SealSystemList{Name = "单位类型", Types = "企业单位" },
+                new SealSystemList{Name = "单位类型", Types = "事业单位" },
+                new SealSystemList{Name = "单位类型", Types = "社会团体" },
+                new SealSystemList{Name = "单位类型", Types = "民营非企业机构" },
+                new SealSystemList{Name = "单位类型", Types = "其它" },
+                new SealSystemList{Name = "企业证件类型", Types = "统一社会信用代码" },
+                new SealSystemList{Name = "企业证件类型", Types = "营业执照号" },
+                new SealSystemList{Name = "企业证件类型", Types = "企业税号" },
+                new SealSystemList{Name = "企业证件类型", Types = "机构代码号" },
+                new SealSystemList{Name = "企业证件类型", Types = "联审统一编号" },
+                new SealSystemList{Name = "企业证件类型", Types = "其他批文文号" },
+				//-----------------印章信息
+                new SealSystemList{Name = "印章形状", Types = "圆形" },
+                new SealSystemList{Name = "印章形状", Types = "椭圆形" },
+                new SealSystemList{Name = "印章形状", Types = "长方形" },
+                new SealSystemList{Name = "印章形状", Types = "正方形" },
+                new SealSystemList{Name = "印章形状", Types = "菱形" },
+                new SealSystemList{Name = "印章形状", Types = "其他" },
+                new SealSystemList{Name = "章体材料", Types = "有机玻璃印" },
+                new SealSystemList{Name = "章体材料", Types = "铜印" },
+                new SealSystemList{Name = "章体材料", Types = "钢印" },
+                new SealSystemList{Name = "章体材料", Types = "红胶皮印" },
+                new SealSystemList{Name = "章体材料", Types = "牛角印" },
+                new SealSystemList{Name = "章体材料", Types = "光敏印" },
+                new SealSystemList{Name = "章体材料", Types = "回墨印" },
+                new SealSystemList{Name = "章体材料", Types = "铜壳光敏印" },
+                new SealSystemList{Name = "章体材料", Types = "含公安部专用安全芯片的铜章" },
+                new SealSystemList{Name = "章体材料", Types = "其它" },
+                new SealSystemList{Name = "制作等级", Types = "普通" },
+                new SealSystemList{Name = "制作等级", Types = "加急" },
+                new SealSystemList{Name = "制作等级", Types = "特急" },
+                new SealSystemList{Name = "刻制类型", Types = "新刻" },
+                new SealSystemList{Name = "刻制类型", Types = "换刻" },
+                new SealSystemList{Name = "刻制类型", Types = "遗失补刻" },
+                new SealSystemList{Name = "刻制类型", Types = "重刻" },
+                new SealSystemList{Name = "登记类别", Types = "企业登记章" },
+                new SealSystemList{Name = "备案类型", Types = "国家行政机关、事业单位" },
+                new SealSystemList{Name = "备案类型", Types = "驻津部队" },
+                new SealSystemList{Name = "备案类型", Types = "其他组织" },
+                new SealSystemList{Name = "备案类型", Types = "企业申请" },
+                new SealSystemList{Name = "备案类型", Types = "清算组申请" },
+                new SealSystemList{Name = "制作方式", Types = "光敏制作" },
+                new SealSystemList{Name = "制作方式", Types = "激光雕刻" },
+                new SealSystemList{Name = "制作方式", Types = "金属雕刻" },
+                new SealSystemList{Name = "印章状态", Types = "已录入" },
+                new SealSystemList{Name = "印章状态", Types = "待核验" },
+                new SealSystemList{Name = "印章状态", Types = "已备案" },
+                new SealSystemList{Name = "印章状态", Types = "已撤销" }
                 );
-				//印章使用单位类型
-			context.SealUnitCategorys.AddOrUpdate(
-                new SealUnitCategory { Code = "01", Name = "党政机关、人大、政协" },
-                new SealUnitCategory { Code = "02", Name = "企业单位" },
-                new SealUnitCategory { Code = "03", Name = "事业单位" },
-                new SealUnitCategory { Code = "04", Name = "社会团体" },
-                new SealUnitCategory { Code = "05", Name = "民办非企业单位" },
-                new SealUnitCategory { Code = "99", Name = "其他" }
-                );
+
 				//地区区域
 			context.Areas.AddOrUpdate(
                 new Area { Code = "120116", Name = "天津" }
                 );
-				 //单位分类
-            context.SealUnitClasses.AddOrUpdate(
-                new SealUnitClass {  Name = "农,林,牧,渔业" },
-                new SealUnitClass {  Name = "采掘业" },
-                new SealUnitClass {  Name = "制造业" },
-                new SealUnitClass {  Name = "其它" }
-                );
+				 
 				 //菜单表
             context.MenuTables.AddOrUpdate(
                 new MenuTable { CodeId = 100, Name = "信息登记", SuperiorCodeId = 0, MenuPath = "" },
@@ -125,3 +172,9 @@
 
 				//---------------------------//
 				印章状态:已录入,已承接,已制作,已备案,,已交付,已报废,已缴销,已挂失
+
+
+
+
+
+		

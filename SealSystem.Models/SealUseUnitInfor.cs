@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SealSystem.Models
 {
@@ -35,28 +29,17 @@ namespace SealSystem.Models
         [Display(Name = "单位名称(英文名)")]
         public string EnglishName { get; set; }
         /// <summary>
-        /// 单位类型(标准：GA 241.2)
-        /// </summary>
-        [ForeignKey(nameof(SealUnitCategory))]
-        public int SealUnitCategory_Id { get; set; }
-        public SealUnitCategory SealUnitCategory { get; set; }
-        /// <summary>
-        /// 语音查询密码
-        /// </summary>
-        [Display(Name = "语音查询密码")]
-        public string VoiceQueryPassword { get; set; }
-        /// <summary>
-        /// 法定代表人(负责人)
+        /// 企业法人
         /// </summary>
         [Required]
-        [Display(Name = "法定代表人(负责人)")]
+        [Display(Name = "企业法人")]
         public string LegelPerson { get; set; }
         /// <summary>
-        /// 法定代表人(负责人)身份证号
+        /// 身份证号
         /// </summary>
         [Required]
         [StringLength(18)]
-        [Display(Name = "法定代表人(负责人)身份证号")]
+        [Display(Name = "身份证号")]
         public string IdNumber { get; set; }
         /// <summary>
         /// 单位地址
@@ -70,36 +53,30 @@ namespace SealSystem.Models
         [Display(Name = "电话")]
         public string Phone { get; set; }
         /// <summary>
-        /// 邮政编码
-        /// </summary>
-        [Display(Name = "邮政编码")]
-        public string TheZipCode { get; set; }
-
-
-        //-----------------------------------------------------
-
-        /// <summary>
-        /// 单位分类
-        /// </summary>
-        [ForeignKey(nameof(SealUnitClass))]
-        public int SealUnitClass_Id { get; set; }
-        public SealUnitClass SealUnitClass { get; set; }
-        /// <summary>
-        /// 企业证件类型(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "企业证件类型(自定义下拉列表)")]
-        public string EnterpriseDocumentsType { get; set; }
-        /// <summary>
         /// 证件号
         /// </summary>
         [Display(Name = "证件号")]
         public string IdNumbers { get; set; }
         /// <summary>
-        /// 区域信息
+        /// 备注
         /// </summary>
-        [ForeignKey(nameof(Area))]
-        public int Area_Id { get; set; }
-        public Area Area { get; set; }
+        [Display(Name = "备注")]
+        public string Note { get; set; }
 
+        /// <summary>
+        /// 单位分类(在SealUseUnitInforList表中定义)
+        /// </summary>
+        [Display(Name = "单位分类")]
+        public string UnitClassification { get; set; }
+        /// <summary>
+        /// 企业证件类型(在SealUseUnitInforList表中定义)
+        /// </summary>
+        [Display(Name = "企业证件类型")]
+        public string EnterpriseDocumentsType { get; set; }
+        /// <summary>
+        /// 单位类型(在SealUseUnitInforList表中定义)
+        /// </summary>
+        [Display(Name = "单位类型")]
+        public string TheUnitType { get; set; }
     }
 }

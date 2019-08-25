@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 印章备案(审批)单位信息表
+    /// 印章备案信息表
     /// </summary>
     public class SealApprovalUnitInfor:BaseEntity
     {
@@ -18,32 +14,36 @@ namespace SealSystem.Models
         [Display(Name = "备案单位编码")]
         public string ApprovalUnitCode { get; set; }
         /// <summary>
-        /// 单位名称(汉字)
+        /// 备案单位名称
         /// </summary>
-        [Required]
-        [Display(Name = "单位名称(汉字)")]
         public string Name { get; set; }
         /// <summary>
-        /// 负责人
+        /// 经办人(申请人)
         /// </summary>
-        [Display(Name = "负责人")]
-        public string LegelPerson { get; set; }
+        [Display(Name = "经办人(申请人)")]
+        public string Attention { get; set; }
         /// <summary>
-        /// 单位地址
+        /// 经办人身份证
         /// </summary>
-        [Required]
-        [Display(Name = "单位地址")]
-        public string UnitAddress { get; set; }
+        [Display(Name = "经办人身份证")]
+        public string AttentionIdCard { get; set; }
         /// <summary>
-        /// 电话
+        /// 经办人联系方式
         /// </summary>
-        [Required]
-        [Display(Name = "电话")]
-        public string Phone { get; set; }
+        [Display(Name = "联系方式")]
+        public string Contact { get; set; }
         /// <summary>
-        /// 邮政编码
+        /// 备案人
         /// </summary>
-        [Display(Name = "邮政编码")]
-        public string TheZipCode { get; set; }
+        [Display(Name = "备案人")]
+        public string Approval { get; set; }
+        /// <summary>
+        /// 备案日期
+        /// </summary>
+        
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Note { get; set; }
     }
 }
