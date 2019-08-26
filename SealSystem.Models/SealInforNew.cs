@@ -39,20 +39,6 @@ namespace SealSystem.Models
         public string ForeignLanguageContent { get; set; }
 
         /// <summary>
-        /// 制章单位编码(标准：GA 241.1)
-        /// </summary>
-        [ForeignKey(nameof(SealMakingUnitInfor))]
-        public int SealMakingUnitInfor_Id_MakingUnitCode { get; set; }
-        public SealMakingUnitInfor SealMakingUnitInfor { get; set; }
-
-        /// <summary>
-        /// 备案单位编码(标准：GA 241.1)
-        /// </summary>
-        [ForeignKey(nameof(SealApprovalUnitInfor))]
-        public int SealApprovalUnitInfor_Id_ApprovalUnitCode { get; set; }
-        public SealApprovalUnitInfor SealApprovalUnitInfor { get; set; }
-
-        /// <summary>
         /// 章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
         /// </summary>
         public string SealMaterial { get; set; }

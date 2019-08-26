@@ -70,8 +70,7 @@ namespace SealSystem.Models.Migrations
                         SealCategory_Id_Code = c.Int(nullable: false),
                         SealContent = c.String(),
                         ForeignLanguageContent = c.String(),
-                        SealMakingUnitInfor_Id_MakingUnitCode = c.Int(nullable: false),
-                        SealMaterial_Id_Code = c.Int(nullable: false),
+                        SealMaterial = c.String(),
                         RegistrationCategory = c.String(),
                         SealShape = c.String(),
                         EngravingType = c.String(),
@@ -79,18 +78,15 @@ namespace SealSystem.Models.Migrations
                         SealState = c.String(),
                         MakeWay = c.String(),
                         TheProducer = c.String(),
+                        Note = c.String(),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.SealCategories", t => t.SealCategory_Id_Code)
-                .ForeignKey("dbo.SealMakingUnitInfors", t => t.SealMakingUnitInfor_Id_MakingUnitCode)
-                .ForeignKey("dbo.SealMaterials", t => t.SealMaterial_Id_Code)
                 .ForeignKey("dbo.SealUseUnitInfors", t => t.SealUseUnitInfor_Id_UnitNumber)
                 .Index(t => t.SealUseUnitInfor_Id_UnitNumber)
-                .Index(t => t.SealCategory_Id_Code)
-                .Index(t => t.SealMakingUnitInfor_Id_MakingUnitCode)
-                .Index(t => t.SealMaterial_Id_Code);
+                .Index(t => t.SealCategory_Id_Code);
             
             CreateTable(
                 "dbo.SealCategories",
@@ -105,6 +101,63 @@ namespace SealSystem.Models.Migrations
                         IsRemoved = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.SealUseUnitInfors",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UnitNumber = c.String(),
+                        Name = c.String(nullable: false),
+                        EthnicMinoritiesName = c.String(),
+                        EnglishName = c.String(),
+                        LegelPerson = c.String(nullable: false),
+                        IdNumber = c.String(nullable: false, maxLength: 18),
+                        UnitAddress = c.String(nullable: false),
+                        Phone = c.String(),
+                        IdNumbers = c.String(),
+                        Note = c.String(),
+                        UnitClassification = c.String(),
+                        EnterpriseDocumentsType = c.String(),
+                        TheUnitType = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.MenuTables",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CodeId = c.Int(nullable: false),
+                        Name = c.String(),
+                        SuperiorCodeId = c.Int(nullable: false),
+                        MenuPath = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.SealApprovalUnitInfors",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ApprovalUnitCode = c.String(),
+                        Name = c.String(),
+                        Attention = c.String(),
+                        AttentionIdCard = c.String(),
+                        Contact = c.String(),
+                        Approval = c.String(),
+                        Note = c.String(),
+                        SealInforNew_Id = c.Int(nullable: false),
+                        CreateTime = c.DateTime(nullable: false),
+                        IsRemoved = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.SealInforNews", t => t.SealInforNew_Id)
+                .Index(t => t.SealInforNew_Id);
             
             CreateTable(
                 "dbo.SealMakingUnitInfors",
@@ -131,95 +184,13 @@ namespace SealSystem.Models.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.SealMaterials",
+                "dbo.SealSystemLists",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
                         Code = c.String(),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.SealUseUnitInfors",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UnitNumber = c.String(),
-                        Name = c.String(nullable: false),
-                        EthnicMinoritiesName = c.String(),
-                        EnglishName = c.String(),
-                        SealUnitCategory_Id = c.Int(nullable: false),
-                        VoiceQueryPassword = c.String(),
-                        LegelPerson = c.String(nullable: false),
-                        IdNumber = c.String(nullable: false, maxLength: 18),
-                        UnitAddress = c.String(nullable: false),
-                        Phone = c.String(),
-                        TheZipCode = c.String(),
-                        SealUnitClass_Id = c.Int(nullable: false),
-                        EnterpriseDocumentsType = c.String(),
-                        IdNumbers = c.String(),
-                        Area_Id = c.Int(nullable: false),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Areas", t => t.Area_Id)
-                .ForeignKey("dbo.SealUnitCategories", t => t.SealUnitCategory_Id)
-                .ForeignKey("dbo.SealUnitClasses", t => t.SealUnitClass_Id)
-                .Index(t => t.SealUnitCategory_Id)
-                .Index(t => t.SealUnitClass_Id)
-                .Index(t => t.Area_Id);
-            
-            CreateTable(
-                "dbo.SealUnitCategories",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Code = c.String(),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.SealUnitClasses",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.MenuTables",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CodeId = c.Int(nullable: false),
                         Name = c.String(),
-                        SuperiorCodeId = c.Int(nullable: false),
-                        MenuPath = c.String(),
-                        CreateTime = c.DateTime(nullable: false),
-                        IsRemoved = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.SealApprovalUnitInfors",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ApprovalUnitCode = c.String(),
-                        Attention = c.String(),
-                        AttentionIdCard = c.String(),
-                        Contact = c.String(),
-                        Approval = c.String(),
+                        Types = c.String(),
                         Note = c.String(),
                         CreateTime = c.DateTime(nullable: false),
                         IsRemoved = c.Boolean(nullable: false),
@@ -300,23 +271,15 @@ namespace SealSystem.Models.Migrations
             DropForeignKey("dbo.UserPermissions", "UserGroup_Id", "dbo.UserGroups");
             DropForeignKey("dbo.UserPermissions", "Menu_Id", "dbo.MenuTables");
             DropForeignKey("dbo.SealTheDeliveryInformations", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
+            DropForeignKey("dbo.SealApprovalUnitInfors", "SealInforNew_Id", "dbo.SealInforNews");
             DropForeignKey("dbo.FileAndImages", "SealInforNew_Id", "dbo.SealInforNews");
             DropForeignKey("dbo.SealInforNews", "SealUseUnitInfor_Id_UnitNumber", "dbo.SealUseUnitInfors");
-            DropForeignKey("dbo.SealUseUnitInfors", "SealUnitClass_Id", "dbo.SealUnitClasses");
-            DropForeignKey("dbo.SealUseUnitInfors", "SealUnitCategory_Id", "dbo.SealUnitCategories");
-            DropForeignKey("dbo.SealUseUnitInfors", "Area_Id", "dbo.Areas");
-            DropForeignKey("dbo.SealInforNews", "SealMaterial_Id_Code", "dbo.SealMaterials");
-            DropForeignKey("dbo.SealInforNews", "SealMakingUnitInfor_Id_MakingUnitCode", "dbo.SealMakingUnitInfors");
             DropForeignKey("dbo.SealInforNews", "SealCategory_Id_Code", "dbo.SealCategories");
             DropIndex("dbo.Users", new[] { "UserGroup_Id" });
             DropIndex("dbo.UserPermissions", new[] { "Menu_Id" });
             DropIndex("dbo.UserPermissions", new[] { "UserGroup_Id" });
             DropIndex("dbo.SealTheDeliveryInformations", new[] { "SealMakingUnitInfor_Id_MakingUnitCode" });
-            DropIndex("dbo.SealUseUnitInfors", new[] { "Area_Id" });
-            DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitClass_Id" });
-            DropIndex("dbo.SealUseUnitInfors", new[] { "SealUnitCategory_Id" });
-            DropIndex("dbo.SealInforNews", new[] { "SealMaterial_Id_Code" });
-            DropIndex("dbo.SealInforNews", new[] { "SealMakingUnitInfor_Id_MakingUnitCode" });
+            DropIndex("dbo.SealApprovalUnitInfors", new[] { "SealInforNew_Id" });
             DropIndex("dbo.SealInforNews", new[] { "SealCategory_Id_Code" });
             DropIndex("dbo.SealInforNews", new[] { "SealUseUnitInfor_Id_UnitNumber" });
             DropIndex("dbo.FileAndImages", new[] { "SealInforNew_Id" });
@@ -324,13 +287,11 @@ namespace SealSystem.Models.Migrations
             DropTable("dbo.UserPermissions");
             DropTable("dbo.UserGroups");
             DropTable("dbo.SealTheDeliveryInformations");
+            DropTable("dbo.SealSystemLists");
+            DropTable("dbo.SealMakingUnitInfors");
             DropTable("dbo.SealApprovalUnitInfors");
             DropTable("dbo.MenuTables");
-            DropTable("dbo.SealUnitClasses");
-            DropTable("dbo.SealUnitCategories");
             DropTable("dbo.SealUseUnitInfors");
-            DropTable("dbo.SealMaterials");
-            DropTable("dbo.SealMakingUnitInfors");
             DropTable("dbo.SealCategories");
             DropTable("dbo.SealInforNews");
             DropTable("dbo.FileAndImages");

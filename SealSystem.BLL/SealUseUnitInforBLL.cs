@@ -12,33 +12,7 @@ namespace SealSystem.BLL
     /// </summary>
     public class SealUseUnitInforBLL
     {
-        
-        public async Task AddAsync(string unitNumber, string name, string ethnicMinoritiesName, string englishName,
-            int enterpriseType_Id, string voiceQueryPassword, string legelPerson, string idNumber, string unitAddress,
-            string phone, string theZipCode, int sealUnitClass_Id, string enterpriseDocumentsType, string idNumbers)
-        {
-            using (var db = new DAL.SealUseUnitInforDAL())
-            {
-                var data = new Models.SealUseUnitInfor()
-                {
-                    UnitNumber = unitNumber,
-                    Name = name,
-                    EthnicMinoritiesName = ethnicMinoritiesName,
-                    EnglishName = englishName,
-                    SealUnitCategory_Id = enterpriseType_Id,
-                    VoiceQueryPassword = voiceQueryPassword,
-                    LegelPerson = legelPerson,
-                    IdNumber = idNumber,
-                    UnitAddress = unitAddress,
-                    Phone = phone,
-                    TheZipCode = theZipCode,
-                    SealUnitClass_Id = sealUnitClass_Id,
-                    EnterpriseDocumentsType = enterpriseDocumentsType,
-                    IdNumbers = idNumbers
-                };
-                await db.AddAsync(data);
-            }
-        }
+
         /// <summary>
         /// 增加印章使用单位信息
         /// </summary>
@@ -49,7 +23,6 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealUseUnitInforDAL())
             {
                 Models.SealUseUnitInfor data = new Models.SealUseUnitInfor();
-                data.Area_Id = model.Area_Id;
                 data.EnglishName = model.EnglishName;
                 data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
                 data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -57,13 +30,12 @@ namespace SealSystem.BLL
                 data.IdNumbers = model.IdNumbers;
                 data.LegelPerson = model.LegelPerson;
                 data.Name = model.Name;
+                data.Note = model.Note;
                 data.Phone = model.Phone;
-                data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-                data.SealUnitClass_Id = model.SealUnitClass_Id;
-                data.TheZipCode = model.TheZipCode;
+                data.TheUnitType = model.TheUnitType;
                 data.UnitAddress = model.UnitAddress;
+                data.UnitClassification = model.UnitClassification;
                 data.UnitNumber = model.UnitNumber;
-                data.VoiceQueryPassword = model.VoiceQueryPassword;
                 await db.AddAsync(data);
             }
         }
@@ -77,7 +49,6 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealUseUnitInforDAL())
             {
                 var data = await db.GetAll().FirstAsync(m => m.UnitNumber == unitNumber);
-                data.Area_Id = model.Area_Id;
                 data.EnglishName = model.EnglishName;
                 data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
                 data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -85,13 +56,12 @@ namespace SealSystem.BLL
                 data.IdNumbers = model.IdNumbers;
                 data.LegelPerson = model.LegelPerson;
                 data.Name = model.Name;
+                data.Note = model.Note;
                 data.Phone = model.Phone;
-                data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-                data.SealUnitClass_Id = model.SealUnitClass_Id;
-                data.TheZipCode = model.TheZipCode;
+                data.TheUnitType = model.TheUnitType;
                 data.UnitAddress = model.UnitAddress;
+                data.UnitClassification = model.UnitClassification;
                 data.UnitNumber = model.UnitNumber;
-                data.VoiceQueryPassword = model.VoiceQueryPassword;
                 await db.EditAsync(data);
             }
         }
@@ -105,7 +75,6 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealUseUnitInforDAL())
             {
                 var data = await db.GetAll().FirstAsync(m => m.Id == id);
-                data.Area_Id = model.Area_Id;
                 data.EnglishName = model.EnglishName;
                 data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
                 data.EthnicMinoritiesName = model.EthnicMinoritiesName;
@@ -113,13 +82,12 @@ namespace SealSystem.BLL
                 data.IdNumbers = model.IdNumbers;
                 data.LegelPerson = model.LegelPerson;
                 data.Name = model.Name;
+                data.Note = model.Note;
                 data.Phone = model.Phone;
-                data.SealUnitCategory_Id = model.SealUnitCategory_Id;
-                data.SealUnitClass_Id = model.SealUnitClass_Id;
-                data.TheZipCode = model.TheZipCode;
+                data.TheUnitType = model.TheUnitType;
                 data.UnitAddress = model.UnitAddress;
+                data.UnitClassification = model.UnitClassification;
                 data.UnitNumber = model.UnitNumber;
-                data.VoiceQueryPassword = model.VoiceQueryPassword;
                 await db.EditAsync(data);
             }
         }

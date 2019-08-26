@@ -95,7 +95,6 @@ namespace SealSystem.BLL
                 sealInfo.SealContent = model.SealContent;
                 sealInfo.SealInforNum = model.SealInforNum;
                 sealInfo.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
-                sealInfo.SealMaterial_Id_Code = model.SealMaterial_Id_Code;
                 sealInfo.SealShape = model.SealShape;
                 sealInfo.SealState = model.SealState;
                 sealInfo.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;

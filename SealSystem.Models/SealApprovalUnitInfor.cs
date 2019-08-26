@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SealSystem.Models
 {
@@ -18,17 +19,17 @@ namespace SealSystem.Models
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// 经办人(申请人)
+        /// 经办人
         /// </summary>
-        [Display(Name = "经办人(申请人)")]
+        [Display(Name = "经办人")]
         public string Attention { get; set; }
         /// <summary>
-        /// 经办人身份证
+        /// 身份证
         /// </summary>
-        [Display(Name = "经办人身份证")]
+        [Display(Name = "身份证")]
         public string AttentionIdCard { get; set; }
         /// <summary>
-        /// 经办人联系方式
+        /// 联系方式
         /// </summary>
         [Display(Name = "联系方式")]
         public string Contact { get; set; }
@@ -37,13 +38,16 @@ namespace SealSystem.Models
         /// </summary>
         [Display(Name = "备案人")]
         public string Approval { get; set; }
-        /// <summary>
-        /// 备案日期
-        /// </summary>
         
         /// <summary>
         /// 备注
         /// </summary>
         public string Note { get; set; }
+        /// <summary>
+        /// 印章信息Id(外键)
+        /// </summary>
+        [ForeignKey(nameof(SealInforNew))]
+        public int SealInforNew_Id { get; set; }
+        public SealInforNew SealInforNew { get; set; }
     }
 }
