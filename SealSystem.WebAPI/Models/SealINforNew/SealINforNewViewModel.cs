@@ -19,9 +19,15 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         [Display(Name = "印章编码")]
         public string SealInforNum { get; set; }
         /// <summary>
-        /// 印章类型代码(标准：GA 241.2)(SealCategory外键)
+        /// 使用单位编码(标准：GA 241.1)
+        /// </summary>
+        public int SealUseUnitInfor_Id_UnitNumber { get; set; }
+
+        /// <summary>
+        /// 印章类型代码(标准：GA 241.2)
         /// </summary>
         public int SealCategory_Id_Code { get; set; }
+
         /// <summary>
         /// 印章内容(默认为使用单位名称)
         /// </summary>
@@ -30,87 +36,39 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// 外文内容
         /// </summary>
         public string ForeignLanguageContent { get; set; }
-        /// <summary>
-        /// 使用单位编码(标准：GA 241.1)(SealUseUnitInfor外键)
-        /// </summary>
-        [Required]
-        public int SealUseUnitInfor_Id_UnitNumber { get; set; }
-        /// <summary>
-        /// 刻制类型(自定义下拉列表)
-        /// </summary>
-        [Display(Name = "刻制类型")]
-        public string EngravingType { get; set; }
-        /// <summary>
-        /// 制章单位编码(标准：GA 241.1)(SealMakingUnitInfor外键)
-        /// </summary>
-        [Required]
-        public int SealMakingUnitInfor_Id_MakingUnitCode { get; set; }
-        /// <summary>
-        /// 章面材料代码(标准：GA 241.2)(SealMaterial外键)
-        /// </summary>
-        [Required]
-        public int SealMaterial_Id_Code { get; set; }
 
+        /// <summary>
+        /// 章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+        /// </summary>
+        public string SealMaterial { get; set; }
         /// <summary>
         /// 登记类别
         /// </summary>
         [Display(Name = "登记类别")]
         public string RegistrationCategory { get; set; }
         /// <summary>
-        /// 印章形状(自定义下拉列表)
+        /// 印章形状(在SealUseUnitInforList表中定义)
         /// </summary>
         [Display(Name = "印章形状")]
         public string SealShape { get; set; }
-
         /// <summary>
-        /// 制作等级(自定义下拉列表)
+        /// 刻制类型(在SealUseUnitInforList表中定义)
+        /// </summary>
+        [Display(Name = "刻制类型")]
+        public string EngravingType { get; set; }
+        /// <summary>
+        /// 制作等级(在SealUseUnitInforList表中定义)
         /// </summary>
         [Display(Name = "制作等级")]
         public string EngravingLevel { get; set; }
         /// <summary>
-        /// 印章状态(标准：GA 241.2)
+        /// 印章状态(标准：GA 241.2)(在SealUseUnitInforList表中定义)
         /// </summary>
         public string SealState { get; set; }
 
         //-------------------------------------//
-
         /// <summary>
-        /// 经办人(申请人)
-        /// </summary>
-        [Display(Name = "经办人(申请人)")]
-        public string Attention { get; set; }
-        /// <summary>
-        /// 经办人身份证
-        /// </summary>
-        [Display(Name = "经办人身份证")]
-        public string AttentionIdCard { get; set; }
-        /// <summary>
-        /// 经办人联系方式
-        /// </summary>
-        [Display(Name = "联系方式")]
-        public string Contact { get; set; }
-        /// <summary>
-        /// 备案人
-        /// </summary>
-        [Display(Name = "备案人")]
-        public string Approval { get; set; }
-        /// <summary>
-        /// 备案日期
-        /// </summary>
-        [Display(Name = "备案日期")]
-        public DateTime? ApprovalTime { get; set; }
-        /// <summary>
-        /// 备案单位编码(标准：GA 241.1)(SealApprovalUnitInfor外键)
-        /// </summary>
-        [Required]
-        public int SealApprovalUnitInfor_Id_ApprovalUnitCode { get; set; }
-        /// <summary>
-        /// 备注
-        /// </summary>
-        public string Note { get; set; }
-
-        /// <summary>
-        /// 制作方式(自定义下拉列表)
+        /// 制作方式(在SealUseUnitInforList表中定义)
         /// </summary>
         public string MakeWay { get; set; }
 
@@ -118,6 +76,9 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// 制作人(一般为制章单位人或单位名称)
         /// </summary>
         public string TheProducer { get; set; }
-
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Note { get; set; }
     }
 }

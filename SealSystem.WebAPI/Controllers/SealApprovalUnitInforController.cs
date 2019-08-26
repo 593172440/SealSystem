@@ -36,12 +36,14 @@ namespace SealSystem.WebAPI.Controllers
         public async Task EditForApprovalUnitCodeAsync(string approvalUnitCode, Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel model)
         {
             var data = new SealSystem.Models.SealApprovalUnitInfor();
+            data.Approval = model.Approval;
             data.ApprovalUnitCode = model.ApprovalUnitCode;
-            data.LegelPerson = model.LegelPerson;
+            data.Attention = model.Attention;
+            data.AttentionIdCard = model.AttentionIdCard;
+            data.Contact = model.Contact;
             data.Name = model.Name;
-            data.Phone = model.Phone;
-            data.TheZipCode = model.TheZipCode;
-            data.UnitAddress = model.UnitAddress;
+            data.Note = model.Note;
+            data.SealInforNew_Id = model.SealInforNew_Id;
             await BLL.SealApprovalUnitInforBLL.EditForApprovalUnitCodeAsync(approvalUnitCode, data);
         }
         /// <summary>
@@ -54,12 +56,14 @@ namespace SealSystem.WebAPI.Controllers
         public async Task EditForIdAsync(int id, Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel model)
         {
             var data = new SealSystem.Models.SealApprovalUnitInfor();
+            data.Approval = model.Approval;
             data.ApprovalUnitCode = model.ApprovalUnitCode;
-            data.LegelPerson = model.LegelPerson;
+            data.Attention = model.Attention;
+            data.AttentionIdCard = model.AttentionIdCard;
+            data.Contact = model.Contact;
             data.Name = model.Name;
-            data.Phone = model.Phone;
-            data.TheZipCode = model.TheZipCode;
-            data.UnitAddress = model.UnitAddress;
+            data.Note = model.Note;
+            data.SealInforNew_Id = model.SealInforNew_Id;
             await BLL.SealApprovalUnitInforBLL.EditForIdAsync(id, data);
         }
         /// <summary>

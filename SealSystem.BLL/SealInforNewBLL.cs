@@ -85,21 +85,22 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.SealInforNewDAL())
             {
-                var sealInfo = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
-                sealInfo.EngravingLevel = model.EngravingLevel;
-                sealInfo.EngravingType = model.EngravingType;
-                sealInfo.ForeignLanguageContent = model.ForeignLanguageContent;
-                sealInfo.MakeWay = model.MakeWay;
-                sealInfo.RegistrationCategory = model.RegistrationCategory;
-                sealInfo.SealCategory_Id_Code = model.SealCategory_Id_Code;
-                sealInfo.SealContent = model.SealContent;
-                sealInfo.SealInforNum = model.SealInforNum;
-                sealInfo.SealMakingUnitInfor_Id_MakingUnitCode = model.SealMakingUnitInfor_Id_MakingUnitCode;
-                sealInfo.SealShape = model.SealShape;
-                sealInfo.SealState = model.SealState;
-                sealInfo.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;
-                sealInfo.TheProducer = model.TheProducer;
-                await db.EditAsync(sealInfo);
+                var data = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
+                data.EngravingLevel = model.EngravingLevel;
+                data.EngravingType = model.EngravingType;
+                data.ForeignLanguageContent = model.ForeignLanguageContent;
+                data.MakeWay = model.MakeWay;
+                data.Note = model.Note;
+                data.RegistrationCategory = model.RegistrationCategory;
+                data.SealCategory_Id_Code = model.SealCategory_Id_Code;
+                data.SealContent = model.SealContent;
+                data.SealInforNum = model.SealInforNum;
+                data.SealMaterial = model.SealMaterial;
+                data.SealShape = model.SealShape;
+                data.SealState = model.SealState;
+                data.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;
+                data.TheProducer = model.TheProducer;
+                await db.EditAsync(data);
             }
         }
         /// <summary>
