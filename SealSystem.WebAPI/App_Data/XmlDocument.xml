@@ -746,6 +746,18 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:SealSystem.WebAPI.Controllers.SealSystemListController">
+            <summary>
+            所有印章系统所使用的下拉列表名单
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.Add(SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel)">
+            <summary>
+            增加一条新的下拉列表记录
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealUseUnitInforController">
             <summary>
             印章使用单位信息
@@ -1058,6 +1070,31 @@
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel">
+            <summary>
+            所有印章系统所使用的下拉列表名单
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Types">
+            <summary>
+            下拉列表值
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Note">
             <summary>
             备注
             </summary>
