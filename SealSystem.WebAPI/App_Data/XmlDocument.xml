@@ -632,12 +632,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllDetailed">
-            <summary>
-            获取所有的印章信息(包括外键信息)
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetSealInforOne(System.String)">
             <summary>
             根据印章编码获取印章信息
@@ -885,27 +879,37 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Name">
             <summary>
-            单位名称(汉字)
+            备案单位名称
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.LegelPerson">
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Attention">
             <summary>
-            负责人
+            经办人
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.UnitAddress">
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.AttentionIdCard">
             <summary>
-            单位地址
+            身份证
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Phone">
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Contact">
             <summary>
-            电话
+            联系方式
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.TheZipCode">
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Approval">
             <summary>
-            邮政编码
+            备案人
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Note">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.SealInforNew_Id">
+            <summary>
+            印章信息Id(外键)
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel">
@@ -918,9 +922,14 @@
             印章编码(标准：GA 241.1)
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealUseUnitInfor_Id_UnitNumber">
+            <summary>
+            使用单位编码(标准：GA 241.1)
+            </summary>
+        </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealCategory_Id_Code">
             <summary>
-            印章类型代码(标准：GA 241.2)(SealCategory外键)
+            印章类型代码(标准：GA 241.2)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealContent">
@@ -933,24 +942,9 @@
             外文内容
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealUseUnitInfor_Id_UnitNumber">
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMaterial">
             <summary>
-            使用单位编码(标准：GA 241.1)(SealUseUnitInfor外键)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.EngravingType">
-            <summary>
-            刻制类型(自定义下拉列表)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMakingUnitInfor_Id_MakingUnitCode">
-            <summary>
-            制章单位编码(标准：GA 241.1)(SealMakingUnitInfor外键)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMaterial_Id_Code">
-            <summary>
-            章面材料代码(标准：GA 241.2)(SealMaterial外键)
+            章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.RegistrationCategory">
@@ -960,62 +954,37 @@
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealShape">
             <summary>
-            印章形状(自定义下拉列表)
+            印章形状(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.EngravingType">
+            <summary>
+            刻制类型(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.EngravingLevel">
             <summary>
-            制作等级(自定义下拉列表)
+            制作等级(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealState">
             <summary>
-            印章状态(标准：GA 241.2)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Attention">
-            <summary>
-            经办人(申请人)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.AttentionIdCard">
-            <summary>
-            经办人身份证
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Contact">
-            <summary>
-            经办人联系方式
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Approval">
-            <summary>
-            备案人
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.ApprovalTime">
-            <summary>
-            备案日期
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealApprovalUnitInfor_Id_ApprovalUnitCode">
-            <summary>
-            备案单位编码(标准：GA 241.1)(SealApprovalUnitInfor外键)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Note">
-            <summary>
-            备注
+            印章状态(标准：GA 241.2)(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.MakeWay">
             <summary>
-            制作方式(自定义下拉列表)
+            制作方式(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.TheProducer">
             <summary>
             制作人(一般为制章单位人或单位名称)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Note">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel">
@@ -1118,24 +1087,14 @@
             单位名称(英文名)
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.SealUnitCategory_Id">
-            <summary>
-            单位类型(标准：GA 241.2)(外键)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.VoiceQueryPassword">
-            <summary>
-            语音查询密码
-            </summary>
-        </member>
         <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.LegelPerson">
             <summary>
-            法定代表人(负责人)
+            企业法人
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.IdNumber">
             <summary>
-            法定代表人(负责人)身份证号
+            身份证号
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.UnitAddress">
@@ -1148,29 +1107,29 @@
             电话
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.TheZipCode">
-            <summary>
-            邮政编码
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.SealUnitClass_Id">
-            <summary>
-            单位分类(外键)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.EnterpriseDocumentsType">
-            <summary>
-            企业证件类型(自定义下拉列表)
-            </summary>
-        </member>
         <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.IdNumbers">
             <summary>
             证件号
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.Area_Id">
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.Note">
             <summary>
-            区域信息(外键)
+            备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.UnitClassification">
+            <summary>
+            单位分类(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.EnterpriseDocumentsType">
+            <summary>
+            企业证件类型(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.TheUnitType">
+            <summary>
+            单位类型(在SealUseUnitInforList表中定义)
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">
