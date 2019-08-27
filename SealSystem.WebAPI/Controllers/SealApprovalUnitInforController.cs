@@ -21,7 +21,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("AddAsync"), HttpPost]
+        [Route("add"), HttpPost]
         public async Task AddAsync(SealSystem.Models.SealApprovalUnitInfor model)
         {
             await BLL.SealApprovalUnitInforBLL.AddAsync(model);
@@ -32,7 +32,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="approvalUnitCode"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("EditForApprovalUnitCodeAsync"),HttpPost]
+        [Route("editForApprovalUnitCode"),HttpPost]
         public async Task EditForApprovalUnitCodeAsync(string approvalUnitCode, Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel model)
         {
             var data = new SealSystem.Models.SealApprovalUnitInfor();
@@ -52,7 +52,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("EditForIdAsync"),HttpPost]
+        [Route("editForId"),HttpPost]
         public async Task EditForIdAsync(int id, Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel model)
         {
             var data = new SealSystem.Models.SealApprovalUnitInfor();
@@ -70,7 +70,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取印章备案(审批)单位信息所有数据
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll"),HttpGet]
+        [Route("all"),HttpGet]
         public async Task<List<SealSystem.Models.SealApprovalUnitInfor>> GetAll()
         {
             return await BLL.SealApprovalUnitInforBLL.GetAll();

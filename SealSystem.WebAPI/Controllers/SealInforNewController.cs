@@ -20,7 +20,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取所有的印章信息
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll")]
+        [Route("all")]
         public async Task<List<Models.SealINforNew.SealINforNewViewModel>> GetAll()
         {
             List<SealSystem.Models.SealInforNew> data = await BLL.SealInforNewBLL.GetAll();
@@ -53,7 +53,7 @@ namespace SealSystem.WebAPI.Controllers
     /// </summary>
     /// <param name="sealInforNum">印章编码</param>
     /// <returns></returns>
-    [Route("GetSealInforOne")]
+    [Route("sealInForOne"),HttpGet]
     public async Task<SealSystem.Models.SealInforNew> GetSealInforOne(string sealInforNum)
     {
         return await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);
@@ -64,7 +64,7 @@ namespace SealSystem.WebAPI.Controllers
     /// <param name="model"></param>
     /// <returns></returns>
     [HttpPost]
-    [Route("AddAsync")]
+    [Route("add")]
     public async Task AddAsync(Models.SealINforNew.SealINforNewViewModel model)
     {
         if (ModelState.IsValid)
@@ -99,7 +99,7 @@ namespace SealSystem.WebAPI.Controllers
     /// <param name="model"></param>
     /// <returns></returns>
     [HttpPost]
-    [Route("EditAsync")]
+    [Route("editForSealInforNum")]
     public async Task EditAsync(string sealInforNum, Models.SealINforNew.SealINforNewViewModel model)
     {
         SealSystem.Models.SealInforNew data = new SealSystem.Models.SealInforNew();
@@ -124,7 +124,7 @@ namespace SealSystem.WebAPI.Controllers
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [Route("DeletedAsync")]
+    [Route("delete")]
     [HttpGet]
     public async Task DeletedAsync(int id)
     {
@@ -146,7 +146,7 @@ namespace SealSystem.WebAPI.Controllers
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [Route("SetSealStateForHeYan"), HttpGet]
+    [Route("setForHeYan"), HttpGet]
     public async Task<IHttpActionResult> SetSealStateForHeYan(int id)
     {
         await BLL.SealInforNewBLL.SetForSealState(id, "待核验");
@@ -157,7 +157,7 @@ namespace SealSystem.WebAPI.Controllers
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [Route("SetSealStateForBeiAn"), HttpGet]
+    [Route("setForBeiAn"), HttpGet]
     public async Task<IHttpActionResult> SetSealStateForBeiAn(int id)
     {
         await BLL.SealInforNewBLL.SetForSealState(id, "已备案");
@@ -168,7 +168,7 @@ namespace SealSystem.WebAPI.Controllers
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [Route("SetSealStateForCheXiao"), HttpGet]
+    [Route("setForCheXiao"), HttpGet]
     public async Task<IHttpActionResult> SetSealStateForCheXiao(int id)
     {
         await BLL.SealInforNewBLL.SetForSealState(id, "已撤销");
@@ -181,7 +181,7 @@ namespace SealSystem.WebAPI.Controllers
     /// <param name="pageSize">每页有多少条数据</param>
     /// <param name="pageIndex">有多少页</param>
     /// <returns></returns>
-    [Route("GetAllPage"), HttpGet]
+    [Route("allPage"), HttpGet]
     public async Task<List<SealSystem.Models.SealInforNew>> GetAllPage(int pageSize, int pageIndex)
     {
         return await BLL.SealInforNewBLL.GetAllPage(pageSize, pageIndex);
@@ -193,7 +193,7 @@ namespace SealSystem.WebAPI.Controllers
     /// <param name="pageIndex">有多少页</param>
     /// <param name="asc">排序,true:正序,falas:降序</param>
     /// <returns></returns>
-    [Route("GetAllPage"), HttpGet]
+    [Route("allPageForAsc"), HttpGet]
     public async Task<List<SealSystem.Models.SealInforNew>> GetAllPage(int pageSize, int pageIndex, bool asc)
     {
         return await BLL.SealInforNewBLL.GetAllPage(pageSize, pageIndex, asc);

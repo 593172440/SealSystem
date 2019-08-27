@@ -21,7 +21,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("AddAsync"),HttpPost]
+        [Route("add"),HttpPost]
         public async Task AddAsync(Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -47,7 +47,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="unitNumber"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("EditForUnitNumber"),HttpPost]
+        [Route("editForNnitNumber"),HttpPost]
         public async Task EditForUnitNumber(string unitNumber, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -73,7 +73,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("EditForId"),HttpPost]
+        [Route("editForId"),HttpPost]
         public async Task EditForId(int id, Models.SealUseUnitInfor.SealUseUnitInforViewModel model)
         {
             SealSystem.Models.SealUseUnitInfor data = new SealSystem.Models.SealUseUnitInfor();
@@ -96,7 +96,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取印章使用单位全部信息
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll"),HttpGet]
+        [Route("all"),HttpGet]
         public async Task<List<SealSystem.Models.SealUseUnitInfor>> GetAll()
         {
             return await BLL.SealUseUnitInforBLL.GetAll();
@@ -106,7 +106,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("RemoveForId"),HttpGet]
+        [Route("deleteForId"),HttpGet]
         public async Task RemoveForId(int id)
         {
             await BLL.SealUseUnitInforBLL.RemoveForId(id);

@@ -1114,6 +1114,11 @@
             所有印章系统所使用的下拉列表名单
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Id">
+            <summary>
+            id
+            </summary>
+        </member>
         <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Code">
             <summary>
             编码

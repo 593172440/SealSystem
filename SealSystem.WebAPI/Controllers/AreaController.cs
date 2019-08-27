@@ -22,7 +22,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="code"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        [Route("Add"),HttpGet]
+        [Route("add"),HttpGet]
         public async Task<IHttpActionResult> Add(string code, string name)
         {
             await BLL.AreaBLL.Add(code, name);
@@ -33,7 +33,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("Delete"), HttpGet]
+        [Route("delete"), HttpGet]
         public async Task<IHttpActionResult> Delete(int id)
         {
             await BLL.AreaBLL.Delete(id);
@@ -45,7 +45,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("SetArea"),HttpPost]
+        [Route("editForId"),HttpPost]
         public async Task<IHttpActionResult> SetArea(int id, Models.Area.AreaViewModel model)
         {
             await BLL.AreaBLL.SetArea(id, new SealSystem.Models.Area()
@@ -59,7 +59,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取所有数据
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll"),HttpGet]
+        [Route("all"),HttpGet]
         public async Task<List<Models.Area.AreaViewModel>> GetAll()
         {
             List<SealSystem.Models.Area> data = await BLL.AreaBLL.GetAll();
@@ -79,7 +79,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 根据区域代码查找相应的数据
         /// </summary>
         /// <returns></returns>
-        [Route("GetAllForCode"),HttpGet]
+        [Route("GetForCode"),HttpGet]
         public async Task<Models.Area.AreaViewModel> GetAllForCode(string code)
         {
             var data=await BLL.AreaBLL.GetAllForCode(code);
@@ -93,7 +93,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 根据Id查找相应的数据
         /// </summary>
         /// <returns></returns>
-        [Route("GetAllForId"),HttpGet]
+        [Route("GetForId"),HttpGet]
         public async Task<Models.Area.AreaViewModel> GetAllForId(int id)
         {
             var data = await BLL.AreaBLL.GetAllForId(id);

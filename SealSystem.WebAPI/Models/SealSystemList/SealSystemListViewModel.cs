@@ -10,6 +10,9 @@ namespace SealSystem.WebAPI.Models.SealSystemList
     /// </summary>
     public class SealSystemListViewModel
     {
+        /// <summary>
+        /// id
+        /// </summary>
         public int Id { get; set; }
         /// <summary>
         /// 编码
