@@ -22,21 +22,7 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.SealUseUnitInforDAL())
             {
-                Models.SealUseUnitInfor data = new Models.SealUseUnitInfor();
-                data.EnglishName = model.EnglishName;
-                data.EnterpriseDocumentsType = model.EnterpriseDocumentsType;
-                data.EthnicMinoritiesName = model.EthnicMinoritiesName;
-                data.IdNumber = model.IdNumber;
-                data.IdNumbers = model.IdNumbers;
-                data.LegelPerson = model.LegelPerson;
-                data.Name = model.Name;
-                data.Note = model.Note;
-                data.Phone = model.Phone;
-                data.TheUnitType = model.TheUnitType;
-                data.UnitAddress = model.UnitAddress;
-                data.UnitClassification = model.UnitClassification;
-                data.UnitNumber = model.UnitNumber;
-                await db.AddAsync(data);
+                await db.AddAsync(model);
             }
         }
         /// <summary>
@@ -100,6 +86,18 @@ namespace SealSystem.BLL
             using (var db = new DAL.SealUseUnitInforDAL())
             {
                 return await db.GetAll().ToListAsync();
+            }
+        }
+        /// <summary>
+        /// 根据单位名称获取单位信息
+        /// </summary>
+        /// <param name="name">单位名称</param>
+        /// <returns></returns>
+        public static async Task<Models.SealUseUnitInfor> GetOneForName(string name)
+        {
+            using (var db = new DAL.SealUseUnitInforDAL())
+            {
+                return await db.GetAll().FirstAsync(m => m.Name == name);
             }
         }
         /// <summary>

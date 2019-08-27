@@ -1,13 +1,16 @@
-﻿using SealSystem.Models;
-using SealSystem.Web3.Filter;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using SealSystem.Models;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
     public class SealUseUnitInforsController : Controller
     {
         private SSContext db = new SSContext();
@@ -15,8 +18,7 @@ namespace SealSystem.Web3.Controllers
         // GET: SealUseUnitInfors
         public async Task<ActionResult> Index()
         {
-            var unitInfors = db.UnitInfors.Include(s => s.Area).Include(s => s.SealUnitCategory).Include(s => s.SealUnitClass);
-            return View(await unitInfors.ToListAsync());
+            return View(await db.UnitInfors.ToListAsync());
         }
 
         // GET: SealUseUnitInfors/Details/5
@@ -37,9 +39,6 @@ namespace SealSystem.Web3.Controllers
         // GET: SealUseUnitInfors/Create
         public ActionResult Create()
         {
-            ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code");
-            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name");
-            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name");
             return View();
         }
 
@@ -48,7 +47,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,SealUnitCategory_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,LegelPerson,IdNumber,UnitAddress,Phone,IdNumbers,Note,UnitClassification,EnterpriseDocumentsType,TheUnitType,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -57,9 +56,6 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 
@@ -75,9 +71,6 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 
@@ -86,7 +79,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,SealUnitCategory_Id,VoiceQueryPassword,LegelPerson,IdNumber,UnitAddress,Phone,TheZipCode,SealUnitClass_Id,EnterpriseDocumentsType,IdNumbers,Area_Id,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UnitNumber,Name,EthnicMinoritiesName,EnglishName,LegelPerson,IdNumber,UnitAddress,Phone,IdNumbers,Note,UnitClassification,EnterpriseDocumentsType,TheUnitType,CreateTime,IsRemoved")] SealUseUnitInfor sealUseUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -94,9 +87,6 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.Area_Id = new SelectList(db.Areas, "Id", "Code", sealUseUnitInfor.Area_Id);
-            ViewBag.SealUnitCategory_Id = new SelectList(db.SealUnitCategorys, "Id", "Name", sealUseUnitInfor.SealUnitCategory_Id);
-            ViewBag.SealUnitClass_Id = new SelectList(db.SealUnitClasses, "Id", "Name", sealUseUnitInfor.SealUnitClass_Id);
             return View(sealUseUnitInfor);
         }
 

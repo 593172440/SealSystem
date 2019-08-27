@@ -64,10 +64,10 @@
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealInforNew.cs" />
     <Compile Include="SealMakingUnitInfor.cs" />
-    <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SealCategory.cs" />
     <Compile Include="SealSystemList.cs" />
+    <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="SSContext.cs" />
     <Compile Include="SealTheDeliveryInformation.cs" />
     <Compile Include="User.cs" />

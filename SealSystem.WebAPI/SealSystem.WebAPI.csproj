@@ -175,6 +175,7 @@
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\SealMakingUnitInfor\SealMakingUnitInforViewModel.cs" />
     <Compile Include="Models\SealSystemList\SealSystemListViewModel.cs" />
+    <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforForAdd.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforViewModel.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Models\User\UserGroupViewModel.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,12 +9,9 @@ namespace SealSystem.WebAPI.Models.SealUseUnitInfor
     /// <summary>
     /// 印章使用单位信息
     /// </summary>
-    public class SealUseUnitInforViewModel
+    public class SealUseUnitInforForAdd
     {
-        /// <summary>
-        /// id
-        /// </summary>
-        public int Id { get; set; }
+      
         /// <summary>
         /// 单位编号(标准：GA 241.1)
         /// </summary>
@@ -87,9 +83,5 @@ namespace SealSystem.WebAPI.Models.SealUseUnitInfor
         /// </summary>
         [Display(Name = "单位类型")]
         public string TheUnitType { get; set; }
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime CreateTime { get; set; }
     }
 }

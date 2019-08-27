@@ -1,6 +1,10 @@
-﻿@model SealSystem.Models.SealInforNew
-
-@*
+﻿@*<div class="form-group">
+        @Html.LabelFor(model => model.ForeignLanguageContent, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ForeignLanguageContent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ForeignLanguageContent, "", new { @class = "text-danger" })
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.MakeWay, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -8,15 +12,16 @@
             @Html.ValidationMessageFor(model => model.MakeWay, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.TheProducer, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.TheProducer, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.TheProducer, "", new { @class = "text-danger" })
         </div>
-    </div>
-    @*@
+    </div>*@
+
+
+@model SealSystem.Models.SealInforNew
 @{
     string abc = "";
 }
@@ -172,8 +177,8 @@
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章材料:</label>
-                                                                    @Html.DropDownList("SealMaterial_Id_Code", null, htmlAttributes: new { @class = "form-control", style = "width:196px" })
-                                                                    @Html.ValidationMessageFor(model => model.SealMaterial_Id_Code, "", new { @class = "text-danger" })
+                                                                    @Html.EditorFor(model => model.SealMaterial, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.SealMaterial, "", new { @class = "text-danger" })
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章形状:</label>
@@ -232,60 +237,7 @@
                                                 @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                备案单位 <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                @Html.DropDownList("SealApprovalUnitInfor_Id_ApprovalUnitCode", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.SealApprovalUnitInfor_Id_ApprovalUnitCode, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                制作单位 <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                @Html.DropDownList("SealMakingUnitInfor_Id_MakingUnitCode", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.SealMakingUnitInfor_Id_MakingUnitCode, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                经办人 <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="Attention" name="Attention" v-model="Attention" class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                身份证 <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="AttentionIdCard" name="AttentionIdCard" v-model="AttentionIdCard" class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                备案人 <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="Approval" name="Approval" v-model="Approval" class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                备案日期 <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="ApprovalTime" name="ApprovalTime" value="@DateTime.Now" class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.ApprovalTime, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
+                                      
                                         <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                             <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
                                                 外文内容 <span class="required"></span>
@@ -306,7 +258,7 @@
                 </div>
 
             </div>
-            
+
 
         </div>
     </div>
@@ -318,7 +270,7 @@
     <script>
         function danWeiName() {//要搜索的单位名称
             console.log($("#SealInforNum").val());
-            
+
             $("#SealUseUnitInfor_Id_UnitNumber").val($("#SealInforNum").val());
             $.ajax({
                 type: "POST",
@@ -403,7 +355,7 @@
                 Attention: "",//经办人
                 AttentionIdCard: "",//身份证
                 Approval: "",//备案人
-                ForeignLanguageContent:""//外文内容
+                ForeignLanguageContent: ""//外文内容
             },
             computed: {
                 SealContent: function () {  //印章内容
@@ -412,12 +364,12 @@
             },
             methods: {
                 danWeiName: function () {
-                    
+
 
                 },
                 selectedType: function () {
 
-                    
+
                 },
                 selectedPng: function (data) {
                     console.log(data.path[0].value);
@@ -439,64 +391,7 @@
 
     </script>
 
-    @*<script>
-            Dropzone.autoDiscover = false;
-            var myDropzone = new Dropzone("#demo-upload", {
-                maxFiles: 20,// 一次性上传的文件数量上限
-                maxFilesize: 2, // 文件大小，单位：MB
-                acceptedFiles: ".jpg,.gif,.png,.jpeg,.txt,.zip,.rar,.doc,.docx,.xlsx,.xls", // 上传的类型
-                addRemoveLinks: true,
-                parallelUploads: 2,// 一次上传的文件数量
-                //previewsContainer:"#preview", // 上传图片的预览窗口
-                //dictDefaultMessage: '拖动文件至此或者点击上传',
-                dictMaxFilesExceeded: "您最多只能上传20个文件！",
-                dictResponseError: '文件上传失败!',
-                dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg,*.txt,*.rar,*.zip,*.doc,*.docx,*.xlsx,*.xls。",
-                dictFallbackMessage: "浏览器不受支持",
-                dictFileTooBig: "文件过大上传文件最大支持.",
-                //dictRemoveLinks: "删除",
-                dictCancelUpload: "取消",
-                dictRemoveFile: "删除",
-                init: function () {
-                    this.on("addedfile", function (file) {
-                        // 上传文件时触发的事件
-                        console.log("上传文件时触发的事件");
-                    });
-                    this.on("success", function (file, data) {
-                        // 上传成功触发的事件
-                        console.log("上传成功触发的事件"),
 
-                            btn_generate()
-
-                        //$.ajax({
-                        //    type: "POST",
-                        //    url: "/FileAndImages/ASJXUpFile",
-                        //    data: {
-                        //        Name: '123',
-                        //        NamePath: '123',
-                        //        SealInforNew_SealInforNum: '123'
-                        //    },
-                        //    success: function (result) {
-                        //        console.log(result);
-                        //    },
-                        //    error: function () {
-                        //        console.log("异常");
-                        //    }
-                        //});
-                    });
-                    this.on("error", function (file, data) {
-                        // 上传失败触发的事件
-                        console.log("上传失败触发的事件");
-                    });
-                    this.on("removedfile", function (file) {
-                        // 删除文件时触发的方法
-                        console.log("删除文件时触发的方法");
-                    });
-                }
-            });
-
-
-        </script>*@
     <script type="text/javascript">
         function btnGenerate() {
             $("#main_row").append($("#demo_row").prop("outerHTML"))
@@ -510,7 +405,7 @@
             console.log(form_object.serialize());
         }
         function btnSubmitAll() {
-            if ($("#SealCategory_Id_Code option:selected").val()== "请选择") {
+            if ($("#SealCategory_Id_Code option:selected").val() == "请选择") {
                 return alert("请选择印章类型")
             }
             if (app.Attention == "") {
@@ -545,7 +440,7 @@
                 SealUseUnitInfor_Id_UnitNumber: $("#SealUseUnitInfor_Id_UnitNumber").val(),//使用单位//这里获取到是使用单位,需要后台转换为id属性
                 SealState: app.SealState,//印章状态
                 SealApprovalUnitInfor_Id_ApprovalUnitCode: $("#SealApprovalUnitInfor_Id_ApprovalUnitCode option:selected").val(),//备案单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
-                SealMakingUnitInfor_Id_MakingUnitCode:$("#SealMakingUnitInfor_Id_MakingUnitCode option:selected").val(),//制作单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
+                SealMakingUnitInfor_Id_MakingUnitCode: $("#SealMakingUnitInfor_Id_MakingUnitCode option:selected").val(),//制作单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
                 ApprovalTime: $("#ApprovalTime").val(),//备案日期
                 Attention: $("#Attention").val(),//经办人
                 AttentionIdCard: $("#AttentionIdCard").val(),//身份证
@@ -570,7 +465,7 @@
                 },
                 error: function (err) {
                     myFunction();
-                    console.log("异常"+err);
+                    console.log("异常" + err);
                 }
             })
         };
