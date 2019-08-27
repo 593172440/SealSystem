@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 namespace SealSystem.WebAPI.Controllers
 {
     /// <summary>
-    /// 印章使用单位信息
+    /// 印章使用单位信息(Postman测试通过)
     /// </summary>
     [EnableCors(origins: "*", methods: "*", headers: "*")]
     [RoutePrefix("api/SealUseUnitInfor")]

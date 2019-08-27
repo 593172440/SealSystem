@@ -795,7 +795,7 @@
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealUseUnitInforController">
             <summary>
-            印章使用单位信息
+            印章使用单位信息(Postman测试通过)
             </summary>
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealUseUnitInforController.AddAsync(SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforForAdd)">
@@ -1144,6 +1144,11 @@
         <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Note">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.CreateTime">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforForAdd">
