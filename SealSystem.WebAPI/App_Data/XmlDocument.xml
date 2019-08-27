@@ -748,14 +748,49 @@
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealSystemListController">
             <summary>
-            所有印章系统所使用的下拉列表名单
+            所有印章系统所使用的下拉列表名单(Postman测试通过)
             </summary>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.Add(SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel)">
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.AddAsync(SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel)">
             <summary>
             增加一条新的下拉列表记录
             </summary>
             <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.EditAsync(System.Int32,SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel)">
+            <summary>
+            根据id修改相应的数据
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.DeleteAsync(System.Int32)">
+            <summary>
+            根据id删除相应的数据(伪删除)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.GetAllAsync">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.GetOneForIdAsync(System.Int32)">
+            <summary>
+            根据id获取相应的数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealSystemListController.GetForNameAsync(System.String)">
+            <summary>
+            根据name获取下拉列表数据
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealUseUnitInforController">
@@ -1084,6 +1119,11 @@
         <member name="T:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel">
             <summary>
             所有印章系统所使用的下拉列表名单
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Id">
+            <summary>
+            id
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealSystemList.SealSystemListViewModel.Code">

@@ -21,7 +21,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("AddAsync")]
+        [Route("add")]
         public async Task AddAsync(Models.FileAndImage.FileAndImageViewModel model)
         {
             await BLL.FileAndImageBLL.AddAsync(model.Name, model.NamePath, model.SealInforNew_Id, model.Note);
@@ -30,7 +30,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取所有的文件/图像数据
         /// </summary>
         /// <returns></returns>
-        [Route("GetAll")]
+        [Route("all")]
         public async Task<List<SealSystem.Models.FileAndImage>> GetAll()
         {
             return await BLL.FileAndImageBLL.GetAll();
@@ -40,7 +40,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("GetFileAndImageOneForId")]
+        [Route("GetForId")]
         public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForId(int id)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForId(id);
@@ -50,7 +50,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [Route("GetFileAndImageOneForName")]
+        [Route("GetForName"),HttpGet]
         public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForName(string name)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForName(name);
@@ -60,7 +60,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
-        [Route("GetFileAndImageOneForSealInforNew_Id")]
+        [Route("GetForSealInforNew_Id"),HttpGet]
         public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(int sealInforNew_Id)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
@@ -70,6 +70,7 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="id">id</param>
         /// <returns></returns>
+        [Route("delete"),HttpGet]
         public async Task RemoveAsync(int id)
         {
             await BLL.FileAndImageBLL.RemoveAsync(id);

@@ -11,6 +11,10 @@ namespace SealSystem.WebAPI.Models.SealSystemList
     public class SealSystemListViewModel
     {
         /// <summary>
+        /// id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// 编码
         /// </summary>
         public string Code { get; set; }
@@ -26,5 +30,9 @@ namespace SealSystem.WebAPI.Models.SealSystemList
         /// 备注
         /// </summary>
         public string Note { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { get; set; }
     }
 }
