@@ -532,6 +532,13 @@
             印章文件和印章图像存储
             </summary>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UpFileData">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.AddAsync(SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel)">
             <summary>
             添加文件/图像

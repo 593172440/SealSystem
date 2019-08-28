@@ -215,7 +215,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="upLoads\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SealSystem.BLL\SealSystem.BLL.csproj">
       <Project>{6421602f-c11d-4bc5-ad47-b3bc3b38b1dd}</Project>

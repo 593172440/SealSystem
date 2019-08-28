@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -16,6 +19,56 @@ namespace SealSystem.WebAPI.Controllers
     [RoutePrefix("api/FileAndImage")]
     public class FileAndImageController : ApiController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        [Route("updata"),HttpPost]
+        public IHttpActionResult UpFileData()//HttpPostedFileBase
+        {
+            List<string> savedFilePath = new List<string>();
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+            var substringBin = AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin");
+            var path = AppDomain.CurrentDomain.BaseDirectory.Substring(0, substringBin);
+            string rootPath = path + "upload";
+            var provider = new MultipartFileStreamProvider(rootPath);
+            var task = Request.Content.ReadAsMultipartAsync(provider).
+                ContinueWith<HttpResponseMessage>(t =>
+                {
+                    if (t.IsCanceled || t.IsFaulted)
+                    {
+                        Request.CreateErrorResponse(HttpStatusCode.InternalServerError, t.Exception);
+                    }
+                    foreach (MultipartFileData item in provider.FileData)
+                    {
+                        try
+                        {
+                            string name = item.Headers.ContentDisposition.FileName.Replace("\"", "");
+                            string newFileName = Guid.NewGuid().ToString("N") + Path.GetExtension(name);
+                            File.Move(item.LocalFileName, Path.Combine(rootPath, newFileName));
+                            //Request.RequestUri.PathAndQury为需要去掉域名的后面地址
+                            //如上述请求为http://localhost:80824/api/upload/post，这就为api/upload/post
+                            //Request.RequestUri.AbsoluteUri则为http://localhost:8084/api/upload/post
+                            Uri baseuri = new Uri(Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, string.Empty));
+                            string fileRelativePath = rootPath + "\\" + newFileName;
+                            Uri fileFullPath = new Uri(baseuri, fileRelativePath);
+                            savedFilePath.Add(fileFullPath.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            string message = ex.Message;
+                        }
+                    }
+                    return Request.CreateResponse(HttpStatusCode.Created, JsonConvert.SerializeObject(savedFilePath));
+                });
+            
+return Ok(new Models.ResponseData() { code = 200, Data = task });
+
+        }
         /// <summary>
         /// 添加文件/图像
         /// </summary>
