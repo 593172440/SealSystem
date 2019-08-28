@@ -841,6 +841,32 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:SealSystem.WebAPI.Controllers.TheOrderController">
+            <summary>
+            订单表(第二步:添加印章信息上面部分)(Postman测试通过)
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.Add(SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd)">
+            <summary>
+            增加一条订单信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.Edit(System.Int32,SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd)">
+            <summary>
+            根据Id修改订单信息
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.GetAll">
+            <summary>
+            获取订单的全部信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户
@@ -1297,6 +1323,66 @@
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealUseUnitInfor.SealUseUnitInforViewModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd">
+            <summary>
+            订单信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.TheRegistrationArea">
+            <summary>
+            登记区域
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.SealMakingUnitInfor_Name">
+            <summary>
+            制章单位名称
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.ForTheRecordType">
+            <summary>
+            备案类型(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.SealInforNum">
+            <summary>
+            印章编码
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL">
+            <summary>
+            订单信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.TheRegistrationArea">
+            <summary>
+            登记区域
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.SealMakingUnitInfor_Name">
+            <summary>
+            制章单位名称
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.ForTheRecordType">
+            <summary>
+            备案类型(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.SealInforNum">
+            <summary>
+            印章编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.CreateTime">
             <summary>
             创建时间
             </summary>

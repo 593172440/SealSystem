@@ -56,6 +56,7 @@
     <Compile Include="SealMakingUnitInforBLL.cs" />
     <Compile Include="SealSystemListBLL.cs" />
     <Compile Include="SealUseUnitInforBLL.cs" />
+    <Compile Include="TheOrderBLL.cs" />
     <Compile Include="UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserGroupBLL.cs" />

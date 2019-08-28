@@ -58,6 +58,7 @@
     <Compile Include="SealMakingUnitInforDAL.cs" />
     <Compile Include="SealSystemListDAL.cs" />
     <Compile Include="SealUseUnitInforDAL.cs" />
+    <Compile Include="TheOrderDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="UserGroupDAL.cs" />
     <Compile Include="UserPermissionsDAL.cs" />

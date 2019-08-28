@@ -64,15 +64,27 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
-        /// 根据制作单位编码获取相应的数据
+        /// 根据制章单位编码获取相应的数据
         /// </summary>
-        /// <param name="makingUnitCode"></param>
+        /// <param name="makingUnitCode">单位编码</param>
         /// <returns></returns>
         public static async Task<Models.SealMakingUnitInfor> GetOneForMakingUnitCode(string makingUnitCode)
         {
             using (var db = new DAL.SealMakingUnitInforDAL())
             {
                 return await db.GetAll().FirstAsync(m => m.MakingUnitCode == makingUnitCode);
+            }
+        }
+        /// <summary>
+        /// 根据制章单位名称获取相应的数据
+        /// </summary>
+        /// <param name="name">单位名称</param>
+        /// <returns></returns>
+        public static async Task<List<Models.SealMakingUnitInfor>> GetAllForName(string name)
+        {
+            using (var db = new DAL.SealMakingUnitInforDAL())
+            {
+                return await db.GetAll().Where(m => m.Name == name).ToListAsync();
             }
         }
         /// <summary>

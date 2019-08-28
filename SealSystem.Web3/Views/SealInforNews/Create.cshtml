@@ -116,7 +116,7 @@
                                                             <div class="left col-md-4">
                                                                 <div class="form-inline row" style="margin-bottom:5px">
                                                                     <label>印章编号:</label>
-                                                                    <input type="text" name="SealInforNum" value="@ViewBag.SealId" class="form-control" />
+                                                                    <input type="text" name="SealInforNum" value="************" class="form-control" />
                                                                     @Html.ValidationMessageFor(model => model.SealInforNum, "", new { @class = "text-danger" })
                                                                 </div>
                                                                 <div class="form-inline row" style="margin-bottom:5px">
@@ -218,38 +218,6 @@
 
 
                                         </div>
-
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                使用单位 <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="SealUseUnitInfor_Id_UnitNumber" name="SealUseUnitInfor_Id_UnitNumber" class="form-control" readonly="readonly" />
-                                                @Html.ValidationMessageFor(model => model.SealUseUnitInfor_Id_UnitNumber, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                印章状态 <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" name="SealState" v-model="SealState" readonly class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.SealState, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                      
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
-                                                外文内容 <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                <input type="text" id="ForeignLanguageContent" name="ForeignLanguageContent" v-model="ForeignLanguageContent" class="form-control" />
-                                                @Html.ValidationMessageFor(model => model.ForeignLanguageContent, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-
-
-
                                     </div>
                                 </div>
                             }
@@ -290,7 +258,8 @@
                     }
                 },
                 error: function () {
-                    console.log("异常");
+                    app.isShow = true;
+                    app.set1 = false;
                 }
             });
         };

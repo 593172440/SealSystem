@@ -160,6 +160,7 @@
     <Compile Include="Controllers\SealMakingUnitInforController.cs" />
     <Compile Include="Controllers\SealSystemListController.cs" />
     <Compile Include="Controllers\SealUseUnitInfor.cs" />
+    <Compile Include="Controllers\TheOrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="Filters\MyAuthAttribute.cs" />
@@ -177,6 +178,8 @@
     <Compile Include="Models\SealSystemList\SealSystemListViewModel.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforForAdd.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforViewModel.cs" />
+    <Compile Include="Models\TheOrder\TheOrderForAdd.cs" />
+    <Compile Include="Models\TheOrder\TheOrderForALL.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Models\User\UserGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

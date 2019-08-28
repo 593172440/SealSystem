@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201908260535593_001.Designer.cs">
       <DependentUpon>201908260535593_001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908281413385_002.cs" />
+    <Compile Include="Migrations\201908281413385_002.Designer.cs">
+      <DependentUpon>201908281413385_002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
     <Compile Include="SealInforNew.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="SealUseUnitInfor.cs" />
     <Compile Include="SSContext.cs" />
     <Compile Include="SealTheDeliveryInformation.cs" />
+    <Compile Include="TheOrder.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserGroup.cs" />
     <Compile Include="UserPermissions.cs" />
@@ -84,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908260535593_001.resx">
       <DependentUpon>201908260535593_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281413385_002.resx">
+      <DependentUpon>201908281413385_002.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
