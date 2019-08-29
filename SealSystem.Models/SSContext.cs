@@ -10,7 +10,7 @@
         //con1是112.112.112.18；con2是本地
         public SSContext() : base("con2")
         {
-            Database.SetInitializer<DbContext>(null);
+            Database.SetInitializer<SSContext>(null);
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
