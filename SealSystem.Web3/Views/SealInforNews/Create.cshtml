@@ -377,15 +377,6 @@
             if ($("#SealCategory_Id_Code option:selected").val() == "请选择") {
                 return alert("请选择印章类型")
             }
-            if (app.Attention == "") {
-                return alert("经办人不能为空");
-            }
-            if (app.Approval == "") {
-                return alert("备案人不能为空");
-            }
-            if (app.AttentionIdCard == "") {
-                return alert("身份证不能为空");
-            }
             all_result = []
             var form_index = 0;
             $(".form_cls").each(function () {
