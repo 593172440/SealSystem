@@ -69,10 +69,10 @@
                                         <tr>
                                             <th>备案编码</th>
                                             <th>单位名称</th>
-                                            <th>负责人</th>
-                                            <th>单位地址</th>
-                                            <th>电话</th>
-                                            <th>邮政编码</th>
+                                            <th>经办人</th>
+                                            <th>身份证</th>
+                                            <th>联系方式</th>
+                                            <th>备注</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -89,13 +89,16 @@
                                                     @Html.DisplayFor(modelItem => item.Name)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.LegelPerson)
+                                                    @Html.DisplayFor(modelItem => item.Attention)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.Phone)
+                                                    @Html.DisplayFor(modelItem => item.AttentionIdCard)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.TheZipCode)
+                                                    @Html.DisplayFor(modelItem => item.Contact)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Note)
                                                 </td>
 
                                                 <td>

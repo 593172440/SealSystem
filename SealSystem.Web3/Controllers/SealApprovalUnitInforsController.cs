@@ -1,13 +1,16 @@
-﻿using SealSystem.Models;
-using SealSystem.Web3.Filter;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using SealSystem.Models;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
     public class SealApprovalUnitInforsController : Controller
     {
         private SSContext db = new SSContext();
@@ -15,7 +18,8 @@ namespace SealSystem.Web3.Controllers
         // GET: SealApprovalUnitInfors
         public async Task<ActionResult> Index()
         {
-            return View(await db.SealApprovalUnitInfors.ToListAsync());
+            var sealApprovalUnitInfors = db.SealApprovalUnitInfors.Include(s => s.SealInforNew);
+            return View(await sealApprovalUnitInfors.ToListAsync());
         }
 
         // GET: SealApprovalUnitInfors/Details/5
@@ -36,6 +40,7 @@ namespace SealSystem.Web3.Controllers
         // GET: SealApprovalUnitInfors/Create
         public ActionResult Create()
         {
+            ViewBag.SealInforNew_Id = new SelectList(db.SealInforNews, "Id", "SealInforNum");
             return View();
         }
 
@@ -44,7 +49,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,ApprovalUnitCode,Name,LegelPerson,UnitAddress,Phone,TheZipCode,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ApprovalUnitCode,Name,Attention,AttentionIdCard,Contact,Approval,Note,SealInforNew_Id,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -53,6 +58,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.SealInforNew_Id = new SelectList(db.SealInforNews, "Id", "SealInforNum", sealApprovalUnitInfor.SealInforNew_Id);
             return View(sealApprovalUnitInfor);
         }
 
@@ -68,6 +74,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SealInforNew_Id = new SelectList(db.SealInforNews, "Id", "SealInforNum", sealApprovalUnitInfor.SealInforNew_Id);
             return View(sealApprovalUnitInfor);
         }
 
@@ -76,7 +83,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,ApprovalUnitCode,Name,LegelPerson,UnitAddress,Phone,TheZipCode,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,ApprovalUnitCode,Name,Attention,AttentionIdCard,Contact,Approval,Note,SealInforNew_Id,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor)
         {
             if (ModelState.IsValid)
             {
@@ -84,6 +91,7 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.SealInforNew_Id = new SelectList(db.SealInforNews, "Id", "SealInforNum", sealApprovalUnitInfor.SealInforNew_Id);
             return View(sealApprovalUnitInfor);
         }
 

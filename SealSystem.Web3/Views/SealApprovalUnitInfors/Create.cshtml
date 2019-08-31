@@ -68,38 +68,56 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                负责人 <span class="required">*</span>
+                                                经办人 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.LegelPerson, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
-                                                @Html.ValidationMessageFor(model => model.LegelPerson, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                单位地址 <span class="required">*</span>
+                                                身份证 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.UnitAddress, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
-                                                @Html.ValidationMessageFor(model => model.UnitAddress, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.AttentionIdCard, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.AttentionIdCard, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                电话 <span class="required">*</span>
+                                                联系方式 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
-                                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                邮政编码 <span class="required"></span>
+                                                备案人 <span class="required">*</span>
                                             </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                @Html.EditorFor(model => model.TheZipCode, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
-                                                @Html.ValidationMessageFor(model => model.TheZipCode, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Approval, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Approval, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                印章信息 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.DropDownList("SealInforNew_Id", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12", id = "first-name", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.SealInforNew_Id, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                备注 <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", id = "first-name" } })
+                                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
 

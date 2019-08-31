@@ -76,7 +76,7 @@
                                             要搜索的单位名称： <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input onchange="danWeiName()" id="SealUseUnitInfor_Id_UnitNumber" type="text" name="SealUseUnitInfor_Id_UnitNumber" value="" class="form-control" placeholder="请输入单位名称按回车键检查是否存在" />
+                                            <input onchange="danWeiName()" id="SealUseUnitInfor_Id_UnitNumber" v-model="danWeiNameModel" type="text" name="SealUseUnitInfor_Id_UnitNumber" value="" class="form-control" placeholder="请输入单位名称按回车键检查是否存在" />
                                         </div>
                                         <p></p>
                                         <div v-show="isShow" class="col-md-7 col-sm-6 col-xs-12">
@@ -281,7 +281,7 @@
             //$("#SealContent").val($("#SealInforNum").val() + $(e).find("option:selected").val());//印章显示内容
             console.log($(e).parent().parent().parent().find("#SealContent")[0]);
             $($(e).parent().parent().parent().find("#SealContent")[0]).val(
-                $("#SealInforNum").val() + $($(e).parent().parent().parent().find("#SealCategory_Id_Code")[0]).find("option:selected").val()
+                $("#SealUseUnitInfor_Id_UnitNumber").val() + $($(e).parent().parent().parent().find("#SealCategory_Id_Code")[0]).find("option:selected").val()
             );
             //console.log($($(e).parent().parent().parent().find("#SealCategory_Id_Code")[0]).find("option:selected").val())
             $.ajax({

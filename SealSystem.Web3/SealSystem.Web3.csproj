@@ -301,11 +301,6 @@
     <Content Include="Views\SealMakingUnitInfors\Details.cshtml" />
     <Content Include="Views\SealMakingUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealMakingUnitInfors\Index.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Create.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Delete.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
     <Content Include="Views\Home\LoginIndex.cshtml" />
     <Content Include="Views\AnnouncementNotices\Create.cshtml" />
     <Content Include="Views\AnnouncementNotices\Delete.cshtml" />
@@ -357,6 +352,11 @@
     <Content Include="Views\SealUseUnitInfors\Details.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Create.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Delete.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
+    <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
