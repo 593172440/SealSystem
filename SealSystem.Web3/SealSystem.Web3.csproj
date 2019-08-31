@@ -132,7 +132,6 @@
     <Compile Include="Controllers\SealInforNewsController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserPermissionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Filter\LoginFilterAttribute.cs" />
@@ -347,7 +346,6 @@
     <Content Include="Views\SealCategories\Details.cshtml" />
     <Content Include="Views\SealCategories\Edit.cshtml" />
     <Content Include="Views\SealCategories\Index.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\SealInforNews\Create.cshtml" />
     <Content Include="Views\SealInforNews\Delete.cshtml" />
