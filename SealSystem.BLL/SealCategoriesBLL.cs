@@ -17,7 +17,7 @@ namespace SealSystem.BLL
         /// <param name="name"></param>
         /// <param name="sealSpecifications"></param>
         /// <returns></returns>
-        public int GetSelected(string name,string sealSpecifications)
+        public static int GetSelected(string name,string sealSpecifications)
         {
             using (var db = new DAL.SealCategoriesDAL())
             {

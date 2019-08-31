@@ -76,7 +76,7 @@
                                             要搜索的单位名称： <span class="required">*</span>
                                         </label>
                                         <div class="col-md-7 col-sm-6 col-xs-12">
-                                            <input onchange="danWeiName()" id="SealInforNum" type="text" name="SealInforNum" value="" class="form-control" placeholder="请输入单位名称按回车键检查是否存在" />
+                                            <input onchange="danWeiName()" id="SealUseUnitInfor_Id_UnitNumber" type="text" name="SealUseUnitInfor_Id_UnitNumber" value="" class="form-control" placeholder="请输入单位名称按回车键检查是否存在" />
                                         </div>
                                         <p></p>
                                         <div v-show="isShow" class="col-md-7 col-sm-6 col-xs-12">
@@ -96,6 +96,19 @@
                                                 <input type="button" value="全部提交" onclick="btnSubmitAll()" class="btn btn-success" style="width:240px" />
                                                 <button class="btn btn-primary" type="reset">重写</button>
                                             </div>
+                                        </div>
+
+                                        <div class="form-inline row" style="margin-bottom:5px">
+                                            <label>登记区域:</label>
+                                            <input type="text" id="TheRegistrationArea" name="TheRegistrationArea" class="form-control" />
+                                        </div>
+                                        <div class="form-inline row" style="margin-bottom:5px">
+                                            <label>制章单位:</label>
+                                            <input type="text" id="SealMakingUnitInfor_Name" name="SealMakingUnitInfor_Name" class="form-control" />
+                                        </div>
+                                        <div class="form-inline row" style="margin-bottom:5px">
+                                            <label>备案类型:</label>
+                                            <input type="text" id="ForTheRecordType" name="ForTheRecordType" class="form-control" />
                                         </div>
 
                                         <div id="main_row" class="col-md-12 col-sm-12 col-xs-12 profile_details">
@@ -237,14 +250,14 @@
     <script src="~/Scripts/axios.min.js"></script>
     <script>
         function danWeiName() {//要搜索的单位名称
-            console.log($("#SealInforNum").val());
+            console.log($("#SealUseUnitInfor_Id_UnitNumber").val());
 
-            $("#SealUseUnitInfor_Id_UnitNumber").val($("#SealInforNum").val());
+            $("#SealUseUnitInfor_Id_UnitNumber").val($("#SealUseUnitInfor_Id_UnitNumber").val());
             $.ajax({
                 type: "POST",
                 url: "/SealInforNews/SealUserUnitInforList",
                 data: {
-                    Name: $("#SealInforNum").val()
+                    Name: $("#SealUseUnitInfor_Id_UnitNumber").val()
                 },
                 success: function (result) {
                     if (result != "0") {
@@ -395,21 +408,16 @@
                 all_result.push(temp_dict);
                 form_index += 1;
             })
-
             var arss = {
                 SealUseUnitInfor_Id_UnitNumber: $("#SealUseUnitInfor_Id_UnitNumber").val(),//使用单位//这里获取到是使用单位,需要后台转换为id属性
-                SealState: app.SealState,//印章状态
-                SealApprovalUnitInfor_Id_ApprovalUnitCode: $("#SealApprovalUnitInfor_Id_ApprovalUnitCode option:selected").val(),//备案单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
-                SealMakingUnitInfor_Id_MakingUnitCode: $("#SealMakingUnitInfor_Id_MakingUnitCode option:selected").val(),//制作单位//这里获取到的是下拉列表中的vlue值(1/2),不需要转换,直接插入数据及可
-                ApprovalTime: $("#ApprovalTime").val(),//备案日期
-                Attention: $("#Attention").val(),//经办人
-                AttentionIdCard: $("#AttentionIdCard").val(),//身份证
-                Approval: $("#Approval").val(),//备案人
-                ForeignLanguageContent: $("#ForeignLanguageContent").val()//外文内容
+                TheRegistrationArea: $("#TheRegistrationArea").val(),//登记区域
+                SealMakingUnitInfor_Name: $("#SealMakingUnitInfor_Name").val(),//制章单位名称
+                ForTheRecordType: $("#ForTheRecordType").val(),//备案类型
             }
+            
             console.log(JSON.stringify(all_result));
-
             console.log(arss);
+            
 
             $.ajax({
                 type: "post",

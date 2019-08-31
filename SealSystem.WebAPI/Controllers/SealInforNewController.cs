@@ -69,7 +69,6 @@ namespace SealSystem.WebAPI.Controllers
     {
         if (ModelState.IsValid)
         {
-            BLL.SealInforNewBLL db = new BLL.SealInforNewBLL();
             SealSystem.Models.SealInforNew data = new SealSystem.Models.SealInforNew();
             data.EngravingLevel = model.EngravingLevel;
             data.EngravingType = model.EngravingType;
@@ -85,7 +84,7 @@ namespace SealSystem.WebAPI.Controllers
             data.SealState = model.SealState;
             data.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;
             data.TheProducer = model.TheProducer;
-            await db.AddAsync(data);
+            await BLL.SealInforNewBLL.AddAsync(data);
         }
         else
         {

@@ -69,7 +69,7 @@ namespace SealSystem.BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task AddAsync(Models.SealInforNew model)
+        public static async Task AddAsync(Models.SealInforNew model)
         {
             using (var db = new DAL.SealInforNewDAL())
             {

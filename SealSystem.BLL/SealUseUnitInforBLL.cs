@@ -101,6 +101,15 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
+        /// 根据单位名称获取单位的id信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static async Task<int> GetOneForId(string name)
+        {
+            return (await GetOneForName(name)).Id;
+        }
+        /// <summary>
         /// 根据id删除相应的数据
         /// </summary>
         /// <param name="id"></param>
