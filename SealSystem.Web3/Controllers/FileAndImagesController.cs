@@ -12,7 +12,7 @@ using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
-    [LoginFilter]
+    //[LoginFilter]
     public class FileAndImagesController : Controller
     {
         private SSContext db = new SSContext();
@@ -127,23 +127,23 @@ namespace SealSystem.Web3.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult UpFileData(HttpPostedFileBase file)
         {
-
-            if (ModelState.IsValid)
-            {
+            string filePath="";
+            //if (ModelState.IsValid)
+            //{
                 string[] imageTypes = { "image/jpeg", "image/png" };
                 if (imageTypes.Any(m => m == file.ContentType))
                 {
-                    string filePath = $"/upLoads/{DateTime.Now.ToString("yyyyMMddhhmmss")}_{file.FileName}";
+                    filePath = $"/upLoads/{DateTime.Now.ToString("yyyyMMddhhmmss")}_{file.FileName}";
                     file.SaveAs(Request.MapPath("~" + filePath));
                     //return Content(filePath);
                 }
                 //return new HttpStatusCodeResult(500, "格式不正确");
-                return Content("格式不正确");
-            }
-            return View();
+                //return Content("格式不正确");
+            //}
+            return Json(filePath);
         }
         public string ASJXUpFile(string name, string namePath, string SealInforNew_Id, string note)
         {
