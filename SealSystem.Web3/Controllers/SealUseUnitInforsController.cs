@@ -18,7 +18,7 @@ namespace SealSystem.Web3.Controllers
         // GET: SealUseUnitInfors
         public async Task<ActionResult> Index()
         {
-            return View(await db.UnitInfors.ToListAsync());
+            return View(await db.SealUseUnitInfors.ToListAsync());
         }
 
         // GET: SealUseUnitInfors/Details/5
@@ -28,7 +28,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUseUnitInfor sealUseUnitInfor = await db.UnitInfors.FindAsync(id);
+            SealUseUnitInfor sealUseUnitInfor = await db.SealUseUnitInfors.FindAsync(id);
             if (sealUseUnitInfor == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace SealSystem.Web3.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UnitInfors.Add(sealUseUnitInfor);
+                db.SealUseUnitInfors.Add(sealUseUnitInfor);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUseUnitInfor sealUseUnitInfor = await db.UnitInfors.FindAsync(id);
+            SealUseUnitInfor sealUseUnitInfor = await db.SealUseUnitInfors.FindAsync(id);
             if (sealUseUnitInfor == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealUseUnitInfor sealUseUnitInfor = await db.UnitInfors.FindAsync(id);
+            SealUseUnitInfor sealUseUnitInfor = await db.SealUseUnitInfors.FindAsync(id);
             if (sealUseUnitInfor == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace SealSystem.Web3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SealUseUnitInfor sealUseUnitInfor = await db.UnitInfors.FindAsync(id);
-            db.UnitInfors.Remove(sealUseUnitInfor);
+            SealUseUnitInfor sealUseUnitInfor = await db.SealUseUnitInfors.FindAsync(id);
+            db.SealUseUnitInfors.Remove(sealUseUnitInfor);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

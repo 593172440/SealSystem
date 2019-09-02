@@ -1,4 +1,7 @@
-﻿			
+﻿			//使用单位信息
+            context.SealUseUnitInfors.AddOrUpdate(
+                new SealUseUnitInfor { EnterpriseDocumentsType = "企业证件类型", IdNumber = "120333345678443221", IdNumbers = "123123123123", LegelPerson = "企业法人", Name = "使用单位信息名称", Note = "备注", Phone = "1383190000", TheUnitType = "单位类型", UnitAddress = "单位地址", UnitClassification = "单位分类", UnitNumber = "1320222123123123" }
+                );
 			//印章备案信息
             context.SealApprovalUnitInfors.AddOrUpdate(
                 new SealApprovalUnitInfor { Approval = "备案人小明", ApprovalUnitCode = "120600555489", Attention = "小刚", AttentionIdCard = "130589456213025415", Contact = "13051895555", Name = "这里是备案单位详细信息" }
@@ -175,13 +178,13 @@
             context.Users.AddOrUpdate(
                 new User { UserName = "admin", UserPwd = "admin", EntityName = "管理员", UserGroup_Id = 1 }
                 );
+				//印章信息测试数据
+				context.SealInforNews.AddOrUpdate(
+                new SealInforNew { EngravingLevel = "一级", EngravingType = "圆形", ForeignLanguageContent = "测试外文内容", MakeWay = "制作方式", RegistrationCategory = "登记类别", Note = "备注", SealApprovalUnitInfor_Id = 1, SealCategory_Id_Code = 1, SealContent = "印章内容", SealInforNum = "1206123456789", SealMakingUnitInfor_Id = 1, SealMaterial = "章体材料", SealShape = "印章形状", SealState = "印章状态", SealUseUnitInfor_Id_UnitNumber = 1, TheProducer = "制作人" }
+                );
 
 
-
-
-				//---------------------------//
-				印章状态:已录入,已承接,已制作,已备案,,已交付,已报废,已缴销,已挂失
-
+				
 
 
 

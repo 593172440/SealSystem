@@ -16,7 +16,7 @@ namespace SealSystem.Models
         [Display(Name = "印章编码")]
         public string SealInforNum { get; set; }
         /// <summary>
-        /// 使用单位编码(标准：GA 241.1)
+        /// 使用单位编码(标准：GA 241.1)(外键)
         /// </summary>
         [ForeignKey(nameof(SealUseUnitInfor))]
         public int SealUseUnitInfor_Id_UnitNumber { get; set; }
@@ -32,7 +32,7 @@ namespace SealSystem.Models
         public int SealMakingUnitInfor_Id { get; set; }
 
         /// <summary>
-        /// 印章类型代码(标准：GA 241.2)
+        /// 印章类型代码(标准：GA 241.2)(外键)
         /// </summary>
         [ForeignKey(nameof(SealCategory))]
         public int SealCategory_Id_Code { get; set; }

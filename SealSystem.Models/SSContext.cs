@@ -31,7 +31,7 @@
         /// <summary>
         /// 印章使用单位信息表(数据上下文)
         /// </summary>
-        public DbSet<SealUseUnitInfor> UnitInfors { get; set; }
+        public DbSet<SealUseUnitInfor> SealUseUnitInfors { get; set; }
         /// <summary>
         /// 所有印章系统所使用的下拉列表名单
         /// </summary>
