@@ -1014,6 +1014,16 @@
             印章类型代码(标准：GA 241.2)
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealApprovalUnitInfor_Id">
+            <summary>
+            备案信息Id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMakingUnitInfor_Id">
+            <summary>
+            印章制作单位Id
+            </summary>
+        </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealContent">
             <summary>
             印章内容(默认为使用单位名称)

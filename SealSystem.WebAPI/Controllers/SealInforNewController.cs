@@ -43,6 +43,8 @@ namespace SealSystem.WebAPI.Controllers
                 SealState = item.SealState,
                 SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
                 TheProducer = item.TheProducer,
+                SealApprovalUnitInfor_Id=item.SealApprovalUnitInfor_Id,
+                SealMakingUnitInfor_Id=item.SealMakingUnitInfor_Id
             });
         }
             return dataViewModel;

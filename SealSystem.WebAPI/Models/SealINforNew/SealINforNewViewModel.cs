@@ -27,6 +27,14 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// 印章类型代码(标准：GA 241.2)
         /// </summary>
         public int SealCategory_Id_Code { get; set; }
+        /// <summary>
+        /// 备案信息Id
+        /// </summary>
+        public int SealApprovalUnitInfor_Id { get; set; }
+        /// <summary>
+        /// 印章制作单位Id
+        /// </summary>
+        public int SealMakingUnitInfor_Id { get; set; }
 
         /// <summary>
         /// 印章内容(默认为使用单位名称)
