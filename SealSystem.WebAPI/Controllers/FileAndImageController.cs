@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -22,53 +20,72 @@ namespace SealSystem.WebAPI.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="file"></param>
         /// <returns></returns>
         [Route("updata"),HttpPost]
-        public IHttpActionResult UpFileData()//HttpPostedFileBase
+        public async Task<string> UploadFileStream()
         {
-            List<string> savedFilePath = new List<string>();
-            if (!Request.Content.IsMimeMultipartContent())
+            string returns = string.Empty;
+            string fileType = DateTime.Now.ToString("yyyyMMdd");//要创建的子文件夹的名字
+            var uploadPath = "~/upLoads";
+            string filePath = System.Web.HttpContext.Current.Server.MapPath(uploadPath + "/" + fileType + "/");//绝对路径
+            //string filePath = uploadPath + "\\" + fileType + "\\";  //E:\Fileup  居家
+            if (Directory.Exists(filePath) == false)
             {
-                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+                Directory.CreateDirectory(filePath);
             }
-            var substringBin = AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin");
-            var path = AppDomain.CurrentDomain.BaseDirectory.Substring(0, substringBin);
-            string rootPath = path + "upload";
-            var provider = new MultipartFileStreamProvider(rootPath);
-            var task = Request.Content.ReadAsMultipartAsync(provider).
-                ContinueWith<HttpResponseMessage>(t =>
-                {
-                    if (t.IsCanceled || t.IsFaulted)
-                    {
-                        Request.CreateErrorResponse(HttpStatusCode.InternalServerError, t.Exception);
-                    }
-                    foreach (MultipartFileData item in provider.FileData)
-                    {
-                        try
-                        {
-                            string name = item.Headers.ContentDisposition.FileName.Replace("\"", "");
-                            string newFileName = Guid.NewGuid().ToString("N") + Path.GetExtension(name);
-                            File.Move(item.LocalFileName, Path.Combine(rootPath, newFileName));
-                            //Request.RequestUri.PathAndQury为需要去掉域名的后面地址
-                            //如上述请求为http://localhost:80824/api/upload/post，这就为api/upload/post
-                            //Request.RequestUri.AbsoluteUri则为http://localhost:8084/api/upload/post
-                            Uri baseuri = new Uri(Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, string.Empty));
-                            string fileRelativePath = rootPath + "\\" + newFileName;
-                            Uri fileFullPath = new Uri(baseuri, fileRelativePath);
-                            savedFilePath.Add(fileFullPath.ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            string message = ex.Message;
-                        }
-                    }
-                    return Request.CreateResponse(HttpStatusCode.Created, JsonConvert.SerializeObject(savedFilePath));
-                });
-            
-return Ok(new Models.ResponseData() { code = 200, Data = task });
 
+            try
+            {
+                var provider = new ReNameMultipartFormDataStreamProvider(filePath);
+
+                await Request.Content.ReadAsMultipartAsync(provider).ContinueWith(o =>
+                {
+
+                    foreach (var file in provider.FileData)
+                    {
+                        string orfilename = file.Headers.ContentDisposition.FileName.TrimStart('"').TrimEnd('"');//待上传的文件名
+                        FileInfo fileinfo = new FileInfo(file.LocalFileName);
+                        //判断开始
+                        int maxSize = 10000000;
+                        string oldName = orfilename;//选择的文件的名称
+                        if (fileinfo.Length <= 0)
+                        {
+                            //文件大小判断 未选择上传的图片 大小为零
+                        }
+                        else if (fileinfo.Length > maxSize)
+                        {
+                            //文件大小判断 上传文件是否超限制
+                        }
+                        else
+                        {
+                            //
+                            string fileExt = orfilename.Substring(orfilename.LastIndexOf('.'));
+                            string Extension = fileExt;
+                            string CreateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                            //定义允许上传的文件扩展名 
+                            String fileTypes = "gif,jpg,jpeg,png,bmp";
+                            if (String.IsNullOrEmpty(fileExt) || Array.IndexOf(fileTypes.Split(','), fileExt.Substring(1).ToLower()) == -1)
+                            {
+
+                                returns = "上传的文件格式不是图片";
+                            }
+                            else
+                            {
+                                returns = string.Format(@"/Uploads/{0}/{1}", fileType, System.IO.Path.GetFileName(file.LocalFileName));
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                returns = ex.ToString();
+            }
+            return returns;
         }
+
+
         /// <summary>
         /// 添加文件/图像
         /// </summary>
@@ -79,6 +96,7 @@ return Ok(new Models.ResponseData() { code = 200, Data = task });
         {
             await BLL.FileAndImageBLL.AddAsync(model.Name, model.NamePath, model.SealInforNew_Id, model.Note);
         }
+
         /// <summary>
         /// 获取所有的文件/图像数据
         /// </summary>
@@ -129,5 +147,27 @@ return Ok(new Models.ResponseData() { code = 200, Data = task });
             await BLL.FileAndImageBLL.RemoveAsync(id);
         }
     }
+    /// <summary>
+    /// 重命名上传的文件
+    /// </summary>
+    public class ReNameMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
+    {
+        public ReNameMultipartFormDataStreamProvider(string root)
+            : base(root)
+        { }
 
+        public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
+        {
+
+            string extension = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName) ? Path.GetExtension(GetValidFileName(headers.ContentDisposition.FileName)) : "";
+            return Guid.NewGuid().ToString().Replace("-", "") + extension;
+        }
+
+        private string GetValidFileName(string filePath)
+        {
+            char[] invalids = System.IO.Path.GetInvalidFileNameChars();
+            return String.Join("_", filePath.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
+        }
+
+    }
 }

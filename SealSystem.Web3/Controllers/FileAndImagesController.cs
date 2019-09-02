@@ -126,6 +126,11 @@ namespace SealSystem.Web3.Controllers
             }
             base.Dispose(disposing);
         }
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult UpFileData(HttpPostedFileBase file)

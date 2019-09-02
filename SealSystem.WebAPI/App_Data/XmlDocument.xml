@@ -532,11 +532,10 @@
             印章文件和印章图像存储
             </summary>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UpFileData">
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UploadFileStream">
             <summary>
             
             </summary>
-            <param name="file"></param>
             <returns></returns>
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.AddAsync(SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel)">
@@ -579,6 +578,11 @@
             </summary>
             <param name="id">id</param>
             <returns></returns>
+        </member>
+        <member name="T:SealSystem.WebAPI.Controllers.ReNameMultipartFormDataStreamProvider">
+            <summary>
+            重命名上传的文件
+            </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController">
             <summary>
