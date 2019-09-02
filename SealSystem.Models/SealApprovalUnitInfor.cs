@@ -43,11 +43,5 @@ namespace SealSystem.Models
         /// 备注
         /// </summary>
         public string Note { get; set; }
-        /// <summary>
-        /// 印章信息Id(外键)
-        /// </summary>
-        [ForeignKey(nameof(SealInforNew))]
-        public int SealInforNew_Id { get; set; }
-        public SealInforNew SealInforNew { get; set; }
     }
 }

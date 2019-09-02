@@ -43,7 +43,6 @@ namespace SealSystem.WebAPI.Controllers
             data.Contact = model.Contact;
             data.Name = model.Name;
             data.Note = model.Note;
-            data.SealInforNew_Id = model.SealInforNew_Id;
             await BLL.SealApprovalUnitInforBLL.EditForApprovalUnitCodeAsync(approvalUnitCode, data);
         }
         /// <summary>
@@ -63,7 +62,6 @@ namespace SealSystem.WebAPI.Controllers
             data.Contact = model.Contact;
             data.Name = model.Name;
             data.Note = model.Note;
-            data.SealInforNew_Id = model.SealInforNew_Id;
             await BLL.SealApprovalUnitInforBLL.EditForIdAsync(id, data);
         }
         /// <summary>

@@ -23,6 +23,15 @@ namespace SealSystem.Models
         public SealUseUnitInfor SealUseUnitInfor { get; set; }
 
         /// <summary>
+        /// 备案信息Id
+        /// </summary>
+        public int SealApprovalUnitInfor_Id { get; set; }
+        /// <summary>
+        /// 印章制作单位Id
+        /// </summary>
+        public int SealMakingUnitInfor_Id { get; set; }
+
+        /// <summary>
         /// 印章类型代码(标准：GA 241.2)
         /// </summary>
         [ForeignKey(nameof(SealCategory))]

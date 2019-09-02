@@ -1,4 +1,13 @@
-﻿			//印章类型代码表初始化
+﻿			
+			//印章备案信息
+            context.SealApprovalUnitInfors.AddOrUpdate(
+                new SealApprovalUnitInfor { Approval = "备案人小明", ApprovalUnitCode = "120600555489", Attention = "小刚", AttentionIdCard = "130589456213025415", Contact = "13051895555", Name = "这里是备案单位详细信息" }
+                );
+			//印章制作单位信息表
+            context.SealMakingUnitInfors.AddOrUpdate(
+                new SealMakingUnitInfor { BusinessLicense = "营业执照没有", BusinessState = "正在营业", Contact = "小明", ContanctPhone = "13524500012", IdNumber = "180152001215154212", LegelPerson = "小强", MakingUnitCode = "120600123456789", Name = "北京制章单位", Phone = "13831955555", UnitAddress = "北京市西山沟1号" }
+            );
+			//印章类型代码表初始化
             context.SealCategorys.AddOrUpdate(
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40公章",TestImagePath= "40DWZY.png" },
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="42公章",TestImagePath= "42DWZY.png" },

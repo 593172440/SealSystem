@@ -41,9 +41,5 @@ namespace SealSystem.WebAPI.Models.SealApprovalUnitInfor
         /// 备注
         /// </summary>
         public string Note { get; set; }
-        /// <summary>
-        /// 印章信息Id(外键)
-        /// </summary>
-        public int SealInforNew_Id { get; set; }
     }
 }
