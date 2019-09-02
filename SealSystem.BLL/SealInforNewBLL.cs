@@ -100,6 +100,8 @@ namespace SealSystem.BLL
                 data.SealState = model.SealState;
                 data.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;
                 data.TheProducer = model.TheProducer;
+                data.SealApprovalUnitInfor_Id = model.SealApprovalUnitInfor_Id;
+                data.SealMakingUnitInfor_Id = model.SealMakingUnitInfor_Id;
                 await db.EditAsync(data);
             }
         }

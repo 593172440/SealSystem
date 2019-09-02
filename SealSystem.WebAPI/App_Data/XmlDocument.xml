@@ -1079,6 +1079,16 @@
             备注
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel">
             <summary>
             印章制作单位信息表

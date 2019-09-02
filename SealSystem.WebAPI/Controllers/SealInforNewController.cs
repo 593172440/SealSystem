@@ -29,22 +29,24 @@ namespace SealSystem.WebAPI.Controllers
             {
                 dataViewModel.Add(new Models.SealINforNew.SealINforNewViewModel()
                 {
-                EngravingLevel = item.EngravingLevel,
-                EngravingType = item.EngravingType,
-                ForeignLanguageContent = item.ForeignLanguageContent,
-                MakeWay = item.MakeWay,
-                Note = item.Note,
-                RegistrationCategory = item.RegistrationCategory,
-                SealCategory_Id_Code = item.SealCategory_Id_Code,
-                SealContent = item.SealContent,
-                SealInforNum = item.SealInforNum,
-                SealMaterial = item.SealMaterial,
-                SealShape = item.SealShape,
-                SealState = item.SealState,
-                SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
-                TheProducer = item.TheProducer,
-                SealApprovalUnitInfor_Id=item.SealApprovalUnitInfor_Id,
-                SealMakingUnitInfor_Id=item.SealMakingUnitInfor_Id
+                    EngravingLevel = item.EngravingLevel,
+                    EngravingType = item.EngravingType,
+                    ForeignLanguageContent = item.ForeignLanguageContent,
+                    MakeWay = item.MakeWay,
+                    Note = item.Note,
+                    RegistrationCategory = item.RegistrationCategory,
+                    SealCategory_Id_Code = item.SealCategory_Id_Code,
+                    SealContent = item.SealContent,
+                    SealInforNum = item.SealInforNum,
+                    SealMaterial = item.SealMaterial,
+                    SealShape = item.SealShape,
+                    SealState = item.SealState,
+                    SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
+                    TheProducer = item.TheProducer,
+                    SealApprovalUnitInfor_Id = item.SealApprovalUnitInfor_Id,
+                    SealMakingUnitInfor_Id = item.SealMakingUnitInfor_Id,
+                    Id = item.Id,
+                    CreateTime = item.CreateTime
             });
         }
             return dataViewModel;

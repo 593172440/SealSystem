@@ -88,5 +88,13 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// 备注
         /// </summary>
         public string Note { get; set; }
+        /// <summary>
+        /// id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { get; set; }
     }
 }
