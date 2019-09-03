@@ -19,7 +19,8 @@ namespace SealSystem.WebAPI.Models.FileAndImage
         /// <summary>
         /// 是哪个印章里面的相关文件编码(印章信息外键)
         /// </summary>
-        public int SealInforNew_Id { get; set; }
+        [Required]
+        public string SealInforNew_SealInforNum { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

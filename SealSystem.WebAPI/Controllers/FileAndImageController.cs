@@ -18,12 +18,15 @@ namespace SealSystem.WebAPI.Controllers
     public class FileAndImageController : ApiController
     {
         /// <summary>
-        /// 
+        /// 添加一张图片或文件
         /// </summary>
+        /// <param name="sealInforNum">印章编码</param>
+        /// <param name="note">备注</param>
         /// <returns></returns>
         [Route("updata"),HttpPost]
-        public async Task<string> UploadFileStream()
+        public async Task<string> UploadFileStream(string sealInforNum, string note)
         {
+            string orfilename = "";//上传的文件名称
             string returns = string.Empty;
             string fileType = DateTime.Now.ToString("yyyyMMdd");//要创建的子文件夹的名字
             var uploadPath = "~/upLoads";
@@ -43,7 +46,7 @@ namespace SealSystem.WebAPI.Controllers
 
                     foreach (var file in provider.FileData)
                     {
-                        string orfilename = file.Headers.ContentDisposition.FileName.TrimStart('"').TrimEnd('"');//待上传的文件名
+                        orfilename = file.Headers.ContentDisposition.FileName.TrimStart('"').TrimEnd('"');//待上传的文件名
                         FileInfo fileinfo = new FileInfo(file.LocalFileName);
                         //判断开始
                         int maxSize = 10000000;
@@ -82,20 +85,22 @@ namespace SealSystem.WebAPI.Controllers
             {
                 returns = ex.ToString();
             }
+            //var id= BLL.SealInforNewBLL.GetSealInforOne(sealInforNum).Id;
+            await BLL.FileAndImageBLL.AddAsync(orfilename, returns, sealInforNum, note);
             return returns;
         }
 
 
-        /// <summary>
-        /// 添加文件/图像
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [Route("add")]
-        public async Task AddAsync(Models.FileAndImage.FileAndImageViewModel model)
-        {
-            await BLL.FileAndImageBLL.AddAsync(model.Name, model.NamePath, model.SealInforNew_Id, model.Note);
-        }
+        ///// <summary>
+        ///// 添加文件/图像
+        ///// </summary>
+        ///// <param name="model"></param>
+        ///// <returns></returns>
+        //[Route("add")]
+        //public async Task AddAsync(Models.FileAndImage.FileAndImageViewModel model)
+        //{
+        //    await BLL.FileAndImageBLL.AddAsync(model.Name, model.NamePath, model.SealInforNew_Id, model.Note);
+        //}
 
         /// <summary>
         /// 获取所有的文件/图像数据
@@ -132,7 +137,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
         [Route("GetForSealInforNew_Id"),HttpGet]
-        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(int sealInforNew_Id)
+        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
         }

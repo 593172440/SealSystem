@@ -17,7 +17,7 @@ namespace SealSystem.BLL
         /// <param name="sealInforNew_Id">是哪个印章里面的相关文件编码</param>
         /// <param name="note">备注</param>
         /// <returns></returns>
-        public static async Task AddAsync(string name, string namePath, int sealInforNew_Id, string note)
+        public static async Task AddAsync(string name, string namePath, string sealInforNew_SealInforNum, string note)
         {
             using (var db = new DAL.FileAndImageDAL())
             {
@@ -25,7 +25,7 @@ namespace SealSystem.BLL
                 {
                     Name = name,
                     NamePath = namePath,
-                    SealInforNew_Id = sealInforNew_Id,
+                    SealInforNew_SealInforNum = sealInforNew_SealInforNum,
                     Note = note
                 });
             }
@@ -70,11 +70,11 @@ namespace SealSystem.BLL
         /// </summary>
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
-        public static async Task<List<Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(int sealInforNew_Id)
+        public static async Task<List<Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_SealInforNum)
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-                return await db.GetAll().Where(m => m.SealInforNew_Id == sealInforNew_Id).ToListAsync();
+                return await db.GetAll().Where(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum).ToListAsync();
             }
         }
         /// <summary>

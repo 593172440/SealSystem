@@ -532,17 +532,12 @@
             印章文件和印章图像存储
             </summary>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UploadFileStream">
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UploadFileStream(System.String,System.String)">
             <summary>
-            
+            添加一张图片或文件
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.AddAsync(SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel)">
-            <summary>
-            添加文件/图像
-            </summary>
-            <param name="model"></param>
+            <param name="sealInforNum">印章编码</param>
+            <param name="note">备注</param>
             <returns></returns>
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetAll">
@@ -565,7 +560,7 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.Int32)">
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
             <summary>
             根据印章编号获取相应的数据
             </summary>
@@ -943,7 +938,7 @@
             文件路径
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.SealInforNew_Id">
+        <member name="P:SealSystem.WebAPI.Models.FileAndImage.FileAndImageViewModel.SealInforNew_SealInforNum">
             <summary>
             是哪个印章里面的相关文件编码(印章信息外键)
             </summary>
