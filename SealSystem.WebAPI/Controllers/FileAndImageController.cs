@@ -87,7 +87,7 @@ namespace SealSystem.WebAPI.Controllers
             }
             //var id= BLL.SealInforNewBLL.GetSealInforOne(sealInforNum).Id;
             await BLL.FileAndImageBLL.AddAsync(orfilename, returns, sealInforNum, note);
-            return returns;
+            return returns+"印章编码"+ sealInforNum;
         }
 
 

@@ -638,6 +638,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllDetailed">
+            <summary>
+            获取所有数据,包括外键信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetSealInforOne(System.String)">
             <summary>
             根据印章编码获取印章信息

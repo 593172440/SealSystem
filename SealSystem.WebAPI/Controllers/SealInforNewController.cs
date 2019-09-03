@@ -20,7 +20,7 @@ namespace SealSystem.WebAPI.Controllers
         /// 获取所有的印章信息
         /// </summary>
         /// <returns></returns>
-        [Route("all")]
+        [Route("all"),HttpGet]
         public async Task<List<Models.SealINforNew.SealINforNewViewModel>> GetAll()
         {
             List<SealSystem.Models.SealInforNew> data = await BLL.SealInforNewBLL.GetAll();
@@ -51,13 +51,21 @@ namespace SealSystem.WebAPI.Controllers
         }
             return dataViewModel;
         }
-  
-    /// <summary>
-    /// 根据印章编码获取印章信息
-    /// </summary>
-    /// <param name="sealInforNum">印章编码</param>
-    /// <returns></returns>
-    [Route("sealInForOne"),HttpGet]
+        /// <summary>
+        /// 获取所有数据,包括外键信息
+        /// </summary>
+        /// <returns></returns>
+        [Route("allDetailed"),HttpGet]
+        public async Task<List<SealSystem.Models.SealInforNew>> GetAllDetailed()
+        {
+            return await BLL.SealInforNewBLL.GetAllDetailed();
+        }
+        /// <summary>
+        /// 根据印章编码获取印章信息
+        /// </summary>
+        /// <param name="sealInforNum">印章编码</param>
+        /// <returns></returns>
+        [Route("sealInForOne"),HttpGet]
     public async Task<SealSystem.Models.SealInforNew> GetSealInforOne(string sealInforNum)
     {
         return await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);

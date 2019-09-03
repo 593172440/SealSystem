@@ -44,14 +44,18 @@ namespace SealSystem.BLL
                 return await db.GetAll().ToListAsync();
             }
         }
-        //public static async Task<List<Models.SealInforNew>> GetAllDetailed()
-        //{
-        //    using (var db = new DAL.SealInforNewDAL())
-        //    {
-        //        var sealInforNews = db._db.SealInforNews.Include(s => s.SealApprovalUnitInfor).Include(s => s.SealCategory).Include(s => s.SealMakingUnitInfor).Include(s => s.SealMaterial).Include(s => s.SealUseUnitInfor);
-        //        return await sealInforNews.ToListAsync();
-        //    }
-        //}
+        /// <summary>
+        /// 获取所有数据,包括外键信息
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<Models.SealInforNew>> GetAllDetailed()
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                var sealInforNews = db._db.SealInforNews.Include(s => s.SealCategory).Include(s => s.SealUseUnitInfor);
+                return await sealInforNews.ToListAsync();
+            }
+        }
         /// <summary>
         /// 根据印章编码获取印章信息
         /// </summary>

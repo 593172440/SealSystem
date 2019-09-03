@@ -30,8 +30,9 @@
                             <div class="x_title">
                                 @*@ViewBag.add*@
                                 <h2>
-                                    <span class='glyphicon glyphicon-plus'></span>@Html.ActionLink("增加印章", "Create")</h2>
-                                    <div class="clearfix"></div>
+                                    <span class='glyphicon glyphicon-plus'></span>@Html.ActionLink("增加印章", "Create")
+                                </h2>
+                                <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
                                 <table id="datatable-seal" class="table table-striped table-bordered"></table>
@@ -43,7 +44,8 @@
         </div>
 
         <!-- 上传模块 -->
-        <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="uploadLabel" aria-hidden="true">
+        <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="uploadLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -55,23 +57,15 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        在这里放上传模块插件
-                        <form action="form_upload.html" class="dropzone"></form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            关闭
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            提交更改
-                        </button>
+                        <input id="input-card1" type="file" name="file">
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
 
         <!-- 审核模块 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -117,7 +111,8 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">刻制类型</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" name="EngravingType" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                                    <input type="text" name="EngravingType" class="form-control" readonly="readonly"
+                                           placeholder="Read-Only Input">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -144,31 +139,52 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
-        <!-- /page content -->
         @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
     </div>
 </div>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
 <script type="text/javascript">
-    //const BASE_URL = "http://222.223.125.68:8002/api/";
-    const BASE_URL = "http://localhost:8002/api/";
+    const BASE_URL = "http://localhost:8003/api/";
     var table_instance = "";
+
+    function init_upload(SealInforNum) {
+        $("#input-card1").fileinput({
+            language: 'zh',
+            uploadAsync: 'false',
+            uploadUrl: BASE_URL + "FileAndImage/updata?sealInforNum=" + SealInforNum + "&note=aa",
+            // uploadExtraData:function(){ //如果想添加额外的参数，在这里设置
+            //     var obj = {};
+            //     obj.sealInforNum = sealId;
+            //     return obj;
+            // },
+        }).on("fileuploaded", function (event, data, previewId, index) {
+            result = data.response;
+            console.log(result);
+        }).on('fileerror', function (event, data, msg) {
+            console.log("error");
+        });
+    }
+
+    // 更新table
     function update_table() {
         console.log("here");
         // $("#datatable-seal").dataTable().fnDraw(false);
         table_instance.ajax.reload();
     }
+
+    //初始化table
     function init_table() {
         //object可以如下初始化表格
         table_instance = $('#datatable-seal').DataTable({
             ajax: {
-                url: BASE_URL + 'SealInforNew/all',
+                url: BASE_URL + 'SealInforNew/allDetailed',
                 dataSrc: ''
             },
             //使用对象数组，一定要配置columns，告诉 DataTables 每列对应的属性
             //data 这里是固定不变的，name，position，salary，office 为你数据里对应的属性
             columns: [
-                //{ title: '备案日期 ', data: 'ApprovalTime' },
+                { title: '申请日期 ', data: 'CreateTime' },
                 { title: '印章编号', data: 'SealInforNum' },
                 { title: '印章状态', data: 'SealState' },
                 { title: '印章内容', data: 'SealContent' },
@@ -205,8 +221,9 @@
         $('#datatable-seal tbody').on('click', 'a#upload', function () {
             var data = $('#datatable-seal').DataTable().row($(this).parents('tr')).data();
             $('#modalUpload').modal('show')
+            init_upload(data.SealInforNum)
             console.log("上传证件：", data);
-            console.log("上传证件对应的印章id：", data.Id);
+            console.log("上传证件对应的印章id：", data.SealInforNum);
         });
 
         // 进行审核
@@ -278,5 +295,6 @@
     }
     $(function () {
         init_table();
+        //init_upload();
     })
 </script>
