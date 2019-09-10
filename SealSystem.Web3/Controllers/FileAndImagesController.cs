@@ -12,7 +12,7 @@ using SealSystem.Web3.Filter;
 
 namespace SealSystem.Web3.Controllers
 {
-    //[LoginFilter]
+    [LoginFilter]
     public class FileAndImagesController : Controller
     {
         private SSContext db = new SSContext();

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using SealSystem.Models;
+using SealSystem.Web3.Filter;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using SealSystem.Models;
 
 namespace SealSystem.Web3.Controllers
 {
+    [LoginFilter]
     public class SealApprovalUnitInforsController : Controller
     {
         private SSContext db = new SSContext();
