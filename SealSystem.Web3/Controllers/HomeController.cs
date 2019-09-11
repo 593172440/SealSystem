@@ -107,7 +107,7 @@ namespace SealSystem.Web3.Controllers
                 BLL.UserBLL user = new BLL.UserBLL();
                 if (await BLL.UserBLL.Login(userName, userPwd))
                 {
-                    var dbData = await user.GetUserOne(userPwd);
+                    var dbData = await user.GetUserOne(userName);
                     //跳转
                     //判断是用Session还是用cookie
                     Session["loginName"] = userName;
