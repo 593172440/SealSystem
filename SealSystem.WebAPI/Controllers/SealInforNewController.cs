@@ -76,37 +76,37 @@ namespace SealSystem.WebAPI.Controllers
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>
         /// <returns></returns>
-        [Route("sealInForOneFileUrl"), HttpGet]
-        public async Task<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl> GetSealInforOneFileUrl(string sealInforNum)
-        {
-            var data = await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);
-            var model = new Models.SealINforNew.SealINforNewViewModelAllAndFileUrl()
-            {
-                CreateTime = data.CreateTime,
-                EngravingLevel = data.EngravingLevel,
-                EngravingType = data.EngravingType,
-                ForeignLanguageContent = data.ForeignLanguageContent,
-                Id = data.Id,
-                MakeWay = data.MakeWay,
-                Note = data.Note,
-                RegistrationCategory = data.RegistrationCategory,
-                SealApprovalUnitInfor_Id = data.SealApprovalUnitInfor_Id,
-                SealCategory_Id_Code = data.SealCategory_Id_Code,
-                SealContent = data.SealContent,
-                SealInforNum = data.SealInforNum,
-                SealMakingUnitInfor_Id = data.SealMakingUnitInfor_Id,
-                SealMaterial = data.SealMaterial,
-                SealShape = data.SealShape,
-                SealState = data.SealState,
-                SealUseUnitInfor_Id_UnitNumber = data.SealUseUnitInfor_Id_UnitNumber,
-                TheOrders_TheOrderCode = data.TheOrders_TheOrderCode,
-                TheProducer = data.TheProducer,
-                FileUrl = (await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(data.SealInforNum)).NamePath
-            };
-            return model;
+        //[Route("sealInForOneFileUrl"), HttpGet]
+        //public async Task<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl> GetSealInforOneFileUrl(string sealInforNum)
+        //{
+        //    var data = await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);
+        //    var model = new Models.SealINforNew.SealINforNewViewModelAllAndFileUrl()
+        //    {
+        //        CreateTime = data.CreateTime,
+        //        EngravingLevel = data.EngravingLevel,
+        //        EngravingType = data.EngravingType,
+        //        ForeignLanguageContent = data.ForeignLanguageContent,
+        //        Id = data.Id,
+        //        MakeWay = data.MakeWay,
+        //        Note = data.Note,
+        //        RegistrationCategory = data.RegistrationCategory,
+        //        SealApprovalUnitInfor_Id = data.SealApprovalUnitInfor_Id,
+        //        SealCategory_Id_Code = data.SealCategory_Id_Code,
+        //        SealContent = data.SealContent,
+        //        SealInforNum = data.SealInforNum,
+        //        SealMakingUnitInfor_Id = data.SealMakingUnitInfor_Id,
+        //        SealMaterial = data.SealMaterial,
+        //        SealShape = data.SealShape,
+        //        SealState = data.SealState,
+        //        SealUseUnitInfor_Id_UnitNumber = data.SealUseUnitInfor_Id_UnitNumber,
+        //        TheOrders_TheOrderCode = data.TheOrders_TheOrderCode,
+        //        TheProducer = data.TheProducer,
+        //        FileUrl = (await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(data.SealInforNum)).NamePath
+        //    };
+        //    return model;
 
 
-        }
+        //}
         /// <summary>
         /// 根据订单号获取所有印章信息(posman测试通过)
         /// </summary>
@@ -156,6 +156,7 @@ namespace SealSystem.WebAPI.Controllers
         //    var model = new List<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl>();
         //    foreach (SealSystem.Models.SealInforNew item in data)
         //    {
+        //        string url = await BLL.FileAndImageBLL.GetFileUrl(item.SealInforNum);
         //        try
         //        {
         //            model.Add(new Models.SealINforNew.SealINforNewViewModelAllAndFileUrl()
@@ -179,7 +180,7 @@ namespace SealSystem.WebAPI.Controllers
         //                SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
         //                TheOrders_TheOrderCode = item.TheOrders_TheOrderCode,
         //                TheProducer = item.TheProducer,
-        //                FileUrl = (await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(item.SealInforNum)).NamePath
+        //                FileUrl = url
         //            });
         //        }
         //        catch (Exception ex)

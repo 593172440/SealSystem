@@ -560,13 +560,6 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
-            <summary>
-            根据印章编号获取相应的数据
-            </summary>
-            <param name="sealInforNew_Id"></param>
-            <returns></returns>
-        </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.RemoveAsync(System.Int32)">
             <summary>
             根据id删除相应的数据
@@ -651,23 +644,9 @@
             <param name="sealInforNum">印章编码</param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetSealInforOneFileUrl(System.String)">
-            <summary>
-            根据印章编码获取印章信息带文件/图像地址(posman测试通过)
-            </summary>
-            <param name="sealInforNum">印章编码</param>
-            <returns></returns>
-        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllForTheOrders_TheOrderCode(System.String)">
             <summary>
             根据订单号获取所有印章信息(posman测试通过)
-            </summary>
-            <param name="theOrders_TheOrderCode">订单号</param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllForTheOrders_TheOrderCodeFileUrl(System.String)">
-            <summary>
-            根据订单号获取所有印章信息带文件/图像地址???这个有问题
             </summary>
             <param name="theOrders_TheOrderCode">订单号</param>
             <returns></returns>

@@ -78,6 +78,18 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
+        /// 根据印章编号获取相应的文件/图像路径 
+        /// </summary>
+        /// <param name="sealInforNew_SealInforNum"></param>
+        /// <returns></returns>
+        public static async Task<string> GetFileUrl(string sealInforNew_SealInforNum)
+        {
+            using (var db = new DAL.FileAndImageDAL())
+            {
+                return (await db.GetAll().Where(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum).ToListAsync())[0].NamePath;
+            }
+        }
+        /// <summary>
         /// 根据id删除相应的数据
         /// </summary>
         /// <param name="id"></param>

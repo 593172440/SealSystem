@@ -148,7 +148,7 @@ namespace SealSystem.BLL
                 await db.EditAsync(data);
             }
         }
-       
+
         /// <summary>
         /// 分页
         /// </summary>

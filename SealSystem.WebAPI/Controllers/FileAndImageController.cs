@@ -131,16 +131,7 @@ namespace SealSystem.WebAPI.Controllers
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForName(name);
         }
-        /// <summary>
-        /// 根据印章编号获取相应的数据
-        /// </summary>
-        /// <param name="sealInforNew_Id"></param>
-        /// <returns></returns>
-        [Route("GetForSealInforNew_Id"),HttpGet]
-        public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
-        {
-            return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
-        }
+        
         /// <summary>
         /// 根据id删除相应的数据
         /// </summary>
