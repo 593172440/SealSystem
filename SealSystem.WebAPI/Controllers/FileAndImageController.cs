@@ -137,7 +137,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
         [Route("GetForSealInforNew_Id"),HttpGet]
-        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
+        public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
         }

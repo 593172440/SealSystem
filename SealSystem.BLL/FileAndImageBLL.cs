@@ -70,11 +70,11 @@ namespace SealSystem.BLL
         /// </summary>
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
-        public static async Task<List<Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_SealInforNum)
+        public static async Task<Models.FileAndImage> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_SealInforNum)
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-                return await db.GetAll().Where(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum).ToListAsync();
+                return await db.GetAll().FirstAsync(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum);
             }
         }
         /// <summary>

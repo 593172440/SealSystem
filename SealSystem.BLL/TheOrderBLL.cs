@@ -36,7 +36,6 @@ namespace SealSystem.BLL
             {
                 var data =await db.GetAll().FirstAsync(m => m.Id == id);
                 data.ForTheRecordType = model.ForTheRecordType;
-                data.SealInforNum = model.SealInforNum;
                 data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
                 data.TheRegistrationArea = model.TheRegistrationArea;
                 await db.EditAsync(data);
@@ -53,7 +52,17 @@ namespace SealSystem.BLL
                 return await db.GetAll().ToListAsync();
             }
         }
-        
-
+        /// <summary>
+        /// 根据订单号获取订单信息
+        /// </summary>
+        /// <param name="TheOrderCode"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.TheOrder>> GetForTheOrderCode(string theOrderCode)
+        {
+            using (var db = new DAL.TheOrderDAL())
+            {
+                return await db.GetAll().Where(m => m.TheOrderCode == theOrderCode).ToListAsync();
+            }
+        }
     }
 }

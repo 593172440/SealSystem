@@ -81,6 +81,18 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
+        /// 根据订单号获取所有订单信息
+        /// </summary>
+        /// <param name="theOrders_TheOrderCode"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.SealInforNew>> GetAllForTheOrders_TheOrderCode(string theOrders_TheOrderCode)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                return await db.GetAll().Where(m => m.TheOrders_TheOrderCode == theOrders_TheOrderCode).ToListAsync();
+            }
+        }
+        /// <summary>
         /// 根据印章编码修改印章信息数据
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>

@@ -206,7 +206,7 @@ namespace SealSystem.Web3.Controllers
                     await BLL.SealInforNewBLL.AddAsync(list);//增加一条印章信息
                                                              //订单信息
                     listss.ForTheRecordType = s2.ForTheRecordType;
-                    listss.SealInforNum = item.SealInforNum;
+                    //listss.SealInforNum = item.SealInforNum;
                     listss.SealMakingUnitInfor_Name = s2.SealMakingUnitInfor_Name;
                     listss.TheRegistrationArea = s2.TheRegistrationArea;
                     await BLL.TheOrderBLL.Add(listss);

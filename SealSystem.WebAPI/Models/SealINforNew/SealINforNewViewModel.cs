@@ -22,7 +22,10 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// 使用单位编码(标准：GA 241.1)
         /// </summary>
         public int SealUseUnitInfor_Id_UnitNumber { get; set; }
-
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string TheOrders_TheOrderCode { get; set; }
         /// <summary>
         /// 印章类型代码(标准：GA 241.2)
         /// </summary>

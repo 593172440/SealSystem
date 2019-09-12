@@ -12,6 +12,10 @@ namespace SealSystem.Models
     public class TheOrder:BaseEntity
     {
         /// <summary>
+        /// 订单号
+        /// </summary>
+        public string TheOrderCode { get; set; }
+        /// <summary>
         /// 登记区域
         /// </summary>
         public string TheRegistrationArea { get; set; }
@@ -23,9 +27,5 @@ namespace SealSystem.Models
         /// 备案类型(在SealUseUnitInforList表中定义)
         /// </summary>
         public string ForTheRecordType { get; set; }
-        /// <summary>
-        /// 印章编码
-        /// </summary>
-        public string SealInforNum { get; set; }
     }
 }

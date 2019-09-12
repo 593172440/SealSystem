@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
-namespace SealSystem.Models
+namespace SealSystem.WebAPI.Models.SealINforNew
 {
     /// <summary>
-    /// 印章基本信息
+    /// 印章信息
     /// </summary>
-    public class SealInforNew : BaseEntity
+    public class SealINforNewViewModelAll
     {
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string TheOrders_TheOrderCode { get; set; }
         /// <summary>
         /// 印章编码(标准：GA 241.1)
         /// </summary>
@@ -16,15 +23,14 @@ namespace SealSystem.Models
         [Display(Name = "印章编码")]
         public string SealInforNum { get; set; }
         /// <summary>
-        /// 使用单位编码(标准：GA 241.1)(外键)
+        /// 使用单位编码(标准：GA 241.1)
         /// </summary>
-        [ForeignKey(nameof(SealUseUnitInfor))]
         public int SealUseUnitInfor_Id_UnitNumber { get; set; }
-        public SealUseUnitInfor SealUseUnitInfor { get; set; }
+
         /// <summary>
-        /// 订单号
+        /// 印章类型代码(标准：GA 241.2)
         /// </summary>
-        public string TheOrders_TheOrderCode { get; set; }
+        public int SealCategory_Id_Code { get; set; }
         /// <summary>
         /// 备案信息Id
         /// </summary>
@@ -33,13 +39,6 @@ namespace SealSystem.Models
         /// 印章制作单位Id
         /// </summary>
         public int SealMakingUnitInfor_Id { get; set; }
-
-        /// <summary>
-        /// 印章类型代码(标准：GA 241.2)(外键)
-        /// </summary>
-        [ForeignKey(nameof(SealCategory))]
-        public int SealCategory_Id_Code { get; set; }
-        public SealCategory SealCategory { get; set; }
 
         /// <summary>
         /// 印章内容(默认为使用单位名称)
@@ -93,6 +92,13 @@ namespace SealSystem.Models
         /// 备注
         /// </summary>
         public string Note { get; set; }
-
+        /// <summary>
+        /// id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { get; set; }
     }
 }

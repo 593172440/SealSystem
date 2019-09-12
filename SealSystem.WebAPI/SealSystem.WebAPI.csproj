@@ -173,6 +173,8 @@
     <Compile Include="Models\FileAndImage\FileAndImageViewModel.cs" />
     <Compile Include="Models\ResponseData.cs" />
     <Compile Include="Models\SealApprovalUnitInfor\SealApprovalUnitInforViewModel.cs" />
+    <Compile Include="Models\SealINforNew\SealINforNewViewModelAllAndFileUrl.cs" />
+    <Compile Include="Models\SealINforNew\SealINforNewViewModelAll.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\SealMakingUnitInfor\SealMakingUnitInforViewModel.cs" />
     <Compile Include="Models\SealSystemList\SealSystemListViewModel.cs" />

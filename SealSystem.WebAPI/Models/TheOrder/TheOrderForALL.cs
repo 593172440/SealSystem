@@ -15,6 +15,10 @@ namespace SealSystem.WebAPI.Models.TheOrder
         /// </summary>
         public int Id { get; set; }
         /// <summary>
+        /// 订单号
+        /// </summary>
+        public string TheOrderCode { get; set; }
+        /// <summary>
         /// 登记区域
         /// </summary>
         public string TheRegistrationArea { get; set; }

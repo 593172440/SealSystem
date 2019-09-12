@@ -651,14 +651,35 @@
             <param name="sealInforNum">印章编码</param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.AddAsync(SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel)">
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetSealInforOneFileUrl(System.String)">
+            <summary>
+            根据印章编码获取印章信息带文件/图像地址(posman测试通过)
+            </summary>
+            <param name="sealInforNum">印章编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllForTheOrders_TheOrderCode(System.String)">
+            <summary>
+            根据订单号获取所有印章信息(posman测试通过)
+            </summary>
+            <param name="theOrders_TheOrderCode">订单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllForTheOrders_TheOrderCodeFileUrl(System.String)">
+            <summary>
+            根据订单号获取所有印章信息带文件/图像地址(posman测试通过)
+            </summary>
+            <param name="theOrders_TheOrderCode">订单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.AddAsync(SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll)">
             <summary>
             增加一条印章信息数据
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.EditAsync(System.String,SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel)">
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.EditAsync(System.String,SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll)">
             <summary>
             根据印章编码修改印章信息
             </summary>
@@ -879,6 +900,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.GetForTheOrderCode(System.String)">
+            <summary>
+            根据订单号获取订单信息
+            </summary>
+            <param name="theOrderCode"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户
@@ -999,6 +1027,206 @@
             备注
             </summary>
         </member>
+        <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl">
+            <summary>
+            印章信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.TheOrders_TheOrderCode">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealInforNum">
+            <summary>
+            印章编码(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealUseUnitInfor_Id_UnitNumber">
+            <summary>
+            使用单位编码(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealCategory_Id_Code">
+            <summary>
+            印章类型代码(标准：GA 241.2)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealApprovalUnitInfor_Id">
+            <summary>
+            备案信息Id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealMakingUnitInfor_Id">
+            <summary>
+            印章制作单位Id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealContent">
+            <summary>
+            印章内容(默认为使用单位名称)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.ForeignLanguageContent">
+            <summary>
+            外文内容
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealMaterial">
+            <summary>
+            章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.RegistrationCategory">
+            <summary>
+            登记类别
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealShape">
+            <summary>
+            印章形状(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.EngravingType">
+            <summary>
+            刻制类型(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.EngravingLevel">
+            <summary>
+            制作等级(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealState">
+            <summary>
+            印章状态(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.MakeWay">
+            <summary>
+            制作方式(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.TheProducer">
+            <summary>
+            制作人(一般为制章单位人或单位名称)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.Note">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll">
+            <summary>
+            印章信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.TheOrders_TheOrderCode">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealInforNum">
+            <summary>
+            印章编码(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealUseUnitInfor_Id_UnitNumber">
+            <summary>
+            使用单位编码(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealCategory_Id_Code">
+            <summary>
+            印章类型代码(标准：GA 241.2)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealApprovalUnitInfor_Id">
+            <summary>
+            备案信息Id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealMakingUnitInfor_Id">
+            <summary>
+            印章制作单位Id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealContent">
+            <summary>
+            印章内容(默认为使用单位名称)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.ForeignLanguageContent">
+            <summary>
+            外文内容
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealMaterial">
+            <summary>
+            章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.RegistrationCategory">
+            <summary>
+            登记类别
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealShape">
+            <summary>
+            印章形状(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.EngravingType">
+            <summary>
+            刻制类型(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.EngravingLevel">
+            <summary>
+            制作等级(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealState">
+            <summary>
+            印章状态(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.MakeWay">
+            <summary>
+            制作方式(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.TheProducer">
+            <summary>
+            制作人(一般为制章单位人或单位名称)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.Note">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel">
             <summary>
             印章信息
@@ -1012,6 +1240,11 @@
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealUseUnitInfor_Id_UnitNumber">
             <summary>
             使用单位编码(标准：GA 241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.TheOrders_TheOrderCode">
+            <summary>
+            订单号
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealCategory_Id_Code">
@@ -1359,6 +1592,11 @@
             订单信息
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.TheOrderCode">
+            <summary>
+            订单号
+            </summary>
+        </member>
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.TheRegistrationArea">
             <summary>
             登记区域
@@ -1387,6 +1625,11 @@
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.Id">
             <summary>
             id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.TheOrderCode">
+            <summary>
+            订单号
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.TheRegistrationArea">
