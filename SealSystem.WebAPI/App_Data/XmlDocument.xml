@@ -667,7 +667,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetAllForTheOrders_TheOrderCodeFileUrl(System.String)">
             <summary>
-            根据订单号获取所有印章信息带文件/图像地址(posman测试通过)
+            根据订单号获取所有印章信息带文件/图像地址???这个有问题
             </summary>
             <param name="theOrders_TheOrderCode">订单号</param>
             <returns></returns>
