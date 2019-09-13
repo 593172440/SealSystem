@@ -36,7 +36,7 @@ namespace SealSystem.WebAPI.Controllers
             }
             else
             {
-                return Ok(new Models.ResponseData() { code = 200, ErrorMessage="增加失败" });
+                return Ok(new Models.ResponseData() { code = 200, ErrorMessage = "增加失败" });
             }
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route("edit"),HttpPost]
+        [Route("edit"), HttpPost]
         public async Task<IHttpActionResult> Edit(int id, Models.TheOrder.TheOrderForAdd model)
         {
             var data = new SealSystem.Models.TheOrder();
@@ -64,14 +64,14 @@ namespace SealSystem.WebAPI.Controllers
         [Route("all"), HttpGet]
         public async Task<List<Models.TheOrder.TheOrderForALL>> GetAll()
         {
-            var data=await BLL.TheOrderBLL.GetAll();
+            var data = await BLL.TheOrderBLL.GetAll();
             List<Models.TheOrder.TheOrderForALL> model = new List<Models.TheOrder.TheOrderForALL>();
             foreach (SealSystem.Models.TheOrder item in data)
             {
                 model.Add(new Models.TheOrder.TheOrderForALL()
                 {
                     Id = item.Id,
-                    TheOrderCode=item.TheOrderCode,
+                    TheOrderCode = item.TheOrderCode,
                     CreateTime = item.CreateTime,
                     ForTheRecordType = item.ForTheRecordType,
                     SealMakingUnitInfor_Name = item.SealMakingUnitInfor_Name,
@@ -86,22 +86,18 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="theOrderCode"></param>
         /// <returns></returns>
         [Route("GetForTheOrderCode"), HttpGet]
-        public async Task<List<Models.TheOrder.TheOrderForALL>> GetForTheOrderCode(string theOrderCode)
+        public async Task<Models.TheOrder.TheOrderForALL> GetForTheOrderCode(string theOrderCode)
         {
             var data = await BLL.TheOrderBLL.GetForTheOrderCode(theOrderCode);
-            var model = new List<Models.TheOrder.TheOrderForALL>();
-            foreach (SealSystem.Models.TheOrder item in data)
+            var model = new Models.TheOrder.TheOrderForALL()
             {
-                model.Add(new Models.TheOrder.TheOrderForALL()
-                {
-                    ForTheRecordType = item.ForTheRecordType,
-                    Id = item.Id,
-                    CreateTime = item.CreateTime,
-                    SealMakingUnitInfor_Name = item.SealMakingUnitInfor_Name,
-                    TheOrderCode = item.TheOrderCode,
-                    TheRegistrationArea = item.TheRegistrationArea
-                });
-            }
+                ForTheRecordType = data.ForTheRecordType,
+                Id = data.Id,
+                CreateTime = data.CreateTime,
+                SealMakingUnitInfor_Name = data.SealMakingUnitInfor_Name,
+                TheOrderCode = data.TheOrderCode,
+                TheRegistrationArea = data.TheRegistrationArea
+            };
             return model;
         }
     }

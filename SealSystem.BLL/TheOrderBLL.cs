@@ -57,11 +57,11 @@ namespace SealSystem.BLL
         /// </summary>
         /// <param name="TheOrderCode"></param>
         /// <returns></returns>
-        public static async Task<List<Models.TheOrder>> GetForTheOrderCode(string theOrderCode)
+        public static async Task<Models.TheOrder> GetForTheOrderCode(string theOrderCode)
         {
             using (var db = new DAL.TheOrderDAL())
             {
-                return await db.GetAll().Where(m => m.TheOrderCode == theOrderCode).ToListAsync();
+                return await db.GetAll().FirstAsync(m => m.TheOrderCode == theOrderCode);
             }
         }
     }

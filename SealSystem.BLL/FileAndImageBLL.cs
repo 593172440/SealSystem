@@ -86,7 +86,7 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-                return (await db.GetAll().Where(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum).ToListAsync())[0].NamePath;
+                return (await db.GetAll().FirstAsync(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum)).NamePath;
             }
         }
         /// <summary>

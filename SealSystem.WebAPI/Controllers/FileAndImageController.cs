@@ -89,8 +89,26 @@ namespace SealSystem.WebAPI.Controllers
             await BLL.FileAndImageBLL.AddAsync(orfilename, returns, sealInforNum, note);
             return returns+"印章编码"+ sealInforNum;
         }
-
-
+        /// <summary>
+        /// 根据印章编号获取相应的数据
+        /// </summary>
+        /// <param name="sealInforNew_Id"></param>
+        /// <returns></returns>
+        [Route("GetForSealInforNew_Id"), HttpGet]
+        public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
+        {
+            return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
+        }
+        /// <summary>
+        /// 根据印章编码获取相应的文件/图像路径(postman测试通过)
+        /// </summary>
+        /// <param name="sealInforNew_SealInforNum">印章编码</param>
+        /// <returns></returns>
+        [Route("filePath"),HttpGet]
+        public async Task<string> GetFileUrl(string sealInforNew_SealInforNum)
+        {
+            return await BLL.FileAndImageBLL.GetFileUrl(sealInforNew_SealInforNum);
+        }
         ///// <summary>
         ///// 添加文件/图像
         ///// </summary>

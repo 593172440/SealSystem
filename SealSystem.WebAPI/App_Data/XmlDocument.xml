@@ -540,6 +540,20 @@
             <param name="note">备注</param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
+            <summary>
+            根据印章编号获取相应的数据
+            </summary>
+            <param name="sealInforNew_Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileUrl(System.String)">
+            <summary>
+            根据印章编码获取相应的文件/图像路径(postman测试通过)
+            </summary>
+            <param name="sealInforNew_SealInforNum">印章编码</param>
+            <returns></returns>
+        </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetAll">
             <summary>
             获取所有的文件/图像数据
