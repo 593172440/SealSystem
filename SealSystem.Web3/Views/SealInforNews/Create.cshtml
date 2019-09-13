@@ -429,7 +429,7 @@
                 traditional: true,
                 dataType: "json",
                 success: function (result) {
-                    myFunction();
+                    myFunction(result);
                 },
                 error: function (err) {
                     myFunction();
@@ -437,14 +437,14 @@
                 }
             })
         };
-        function myFunction() {
+        function myFunction(data) {
             var x;
             var r = confirm("提交成功");
             if (r == true) {
-                window.location.href = "/SealInforNews/Index";
+                window.location.href = "/SealApprovalUnitInfors/Create/" + data;
             }
             else {
-                window.location.href = "/SealInforNews/Index";
+                window.location.href = "/SealApprovalUnitInfors/Create/" + data;
             }
         }
     </script>

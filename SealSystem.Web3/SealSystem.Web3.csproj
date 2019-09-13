@@ -130,6 +130,7 @@
     <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealCategoriesController.cs" />
     <Compile Include="Controllers\SealInforNewsController.cs" />
+    <Compile Include="Controllers\SealInforNewsJiaoFuController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
     <Compile Include="Controllers\UserPermissionsController.cs" />
@@ -448,6 +449,7 @@
     <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
     <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
+    <Content Include="Views\SealInforNewsJiaoFu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

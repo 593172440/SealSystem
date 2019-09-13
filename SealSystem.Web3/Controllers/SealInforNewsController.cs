@@ -180,13 +180,14 @@ namespace SealSystem.Web3.Controllers
         /// <param name="seal">印章信息表</param>
         /// <param name="ars">TheOrder订单表</param>
         /// <returns></returns>
-        public async Task CreateSealList(string seal, string ars)
+        public async Task<int> CreateSealList(string seal, string ars)
         {
+            string guid= Guid.NewGuid().ToString();
             List<Models.SealInforNew1> s1 = JsonConvert.DeserializeObject<List<Models.SealInforNew1>>(seal);
             Models.SealInforNew2 s2 = JsonConvert.DeserializeObject<Models.SealInforNew2>(ars);
 
             SealSystem.Models.SealInforNew list = new SealInforNew();
-            SealSystem.Models.TheOrder listss = new TheOrder();
+            SealSystem.Models.TheOrder listss = new TheOrder();//订单
             foreach (Models.SealInforNew1 item in s1)
             {
                 try
@@ -201,15 +202,12 @@ namespace SealSystem.Web3.Controllers
                     list.SealMaterial = item.SealMaterial;
                     list.SealShape = item.SealShape;
                     list.SealState = "已录入";
+                    list.TheOrders_TheOrderCode = guid;
                     list.SealUseUnitInfor_Id_UnitNumber = await BLL.SealUseUnitInforBLL.GetOneForId(s2.SealUseUnitInfor_Id_UnitNumber);
 
                     await BLL.SealInforNewBLL.AddAsync(list);//增加一条印章信息
-                                                             //订单信息
-                    listss.ForTheRecordType = s2.ForTheRecordType;
-                    //listss.SealInforNum = item.SealInforNum;
-                    listss.SealMakingUnitInfor_Name = s2.SealMakingUnitInfor_Name;
-                    listss.TheRegistrationArea = s2.TheRegistrationArea;
-                    await BLL.TheOrderBLL.Add(listss);
+                    
+                    
                 }
                 catch (Exception ex)
                 {
@@ -218,6 +216,14 @@ namespace SealSystem.Web3.Controllers
                 }
 
             }
+            //添加订单信息
+            listss.ForTheRecordType = s2.ForTheRecordType;
+            //listss.SealInforNum = item.SealInforNum;
+            listss.SealMakingUnitInfor_Name = s2.SealMakingUnitInfor_Name;
+            listss.TheRegistrationArea = s2.TheRegistrationArea;
+            listss.TheOrderCode = guid;
+            await BLL.TheOrderBLL.Add(listss);
+            return listss.Id;
         }
     }
 }
