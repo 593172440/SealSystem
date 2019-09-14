@@ -67,7 +67,7 @@ namespace SealSystem.WebAPI.Controllers
                             string CreateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
 
                             //定义允许上传的文件扩展名 
-                            String fileTypes = "gif,jpg,jpeg,png,bmp";
+                            String fileTypes = "gif,jpg,jpeg,png,bmp,doc,docx,txt";
                             if (String.IsNullOrEmpty(fileExt) || Array.IndexOf(fileTypes.Split(','), fileExt.Substring(1).ToLower()) == -1)
                             {
 
@@ -90,12 +90,12 @@ namespace SealSystem.WebAPI.Controllers
             return returns;
         }
         /// <summary>
-        /// 根据印章编号获取相应的数据
+        /// 根据印章编号获取所有的文件和印章图像信息(postman测试通过)
         /// </summary>
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
         [Route("GetForSealInforNew_Id"), HttpGet]
-        public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
+        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
         {
             return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
         }
@@ -105,7 +105,7 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="sealInforNew_SealInforNum">印章编码</param>
         /// <returns></returns>
         [Route("filePath"),HttpGet]
-        public async Task<string> GetFileUrl(string sealInforNew_SealInforNum)
+        public async Task<List<string>> GetFileUrl(string sealInforNew_SealInforNum)
         {
             return await BLL.FileAndImageBLL.GetFileUrl(sealInforNew_SealInforNum);
         }

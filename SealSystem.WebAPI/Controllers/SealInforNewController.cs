@@ -337,5 +337,37 @@ namespace SealSystem.WebAPI.Controllers
         {
             return await BLL.SealInforNewBLL.GetAllPage(pageSize, pageIndex, asc);
         }
+        /// <summary>
+        /// 根据订单号修改所有的备案信息_id
+        /// </summary>
+        /// <param name="theOrders_TheOrderCode">订单号</param>
+        /// <param name="id">备案信息id</param>
+        /// <returns></returns>
+        [Route("setForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id"), HttpGet]
+        public async Task<IHttpActionResult> SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(string theOrders_TheOrderCode,int id)
+        {
+            await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrders_TheOrderCode,id);
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
+        }
+        /// <summary>
+        /// 根据id获取测试/正式印章图片(postman测试通过)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("testImagePathForId"), HttpGet]
+        public async Task<string> GetTestImagePathForId(int id)
+        {
+            return "/images/SealImages/"+await BLL.SealInforNewBLL.GetTestImagePathForId(id);
+        }
+        /// <summary>
+        /// 根据印章编码获取测试/正式印章图片(postman测试通过)
+        /// </summary>
+        /// <param name="sealInforNum"></param>
+        /// <returns></returns>
+        [Route("testImagePathForSealInforNum"), HttpGet]
+        public async Task<string> GetTestImagePathForSealInforNum(string sealInforNum)
+        {
+            return "/images/SealImages/" + await BLL.SealInforNewBLL.GetTestImagePathForSealInforNum(sealInforNum);
+        }
     }
 }

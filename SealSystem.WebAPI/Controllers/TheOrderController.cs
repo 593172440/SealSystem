@@ -100,5 +100,15 @@ namespace SealSystem.WebAPI.Controllers
             };
             return model;
         }
+        /// <summary>
+        /// 根据id获取订单号
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
+        [Route("getForIdForTheOrderCode"), HttpGet]
+        public async Task<string> GetForIdForTheOrderCode(int id)
+        {
+            return await BLL.TheOrderBLL.GetForIdForTheOrderCode(id);
+        }
     }
 }

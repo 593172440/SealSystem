@@ -30,11 +30,11 @@ namespace SealSystem.BLL
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static async Task Edit(int id,Models.TheOrder model)
+        public static async Task Edit(int id, Models.TheOrder model)
         {
             using (var db = new DAL.TheOrderDAL())
             {
-                var data =await db.GetAll().FirstAsync(m => m.Id == id);
+                var data = await db.GetAll().FirstAsync(m => m.Id == id);
                 data.ForTheRecordType = model.ForTheRecordType;
                 data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
                 data.TheRegistrationArea = model.TheRegistrationArea;
@@ -62,6 +62,18 @@ namespace SealSystem.BLL
             using (var db = new DAL.TheOrderDAL())
             {
                 return await db.GetAll().FirstAsync(m => m.TheOrderCode == theOrderCode);
+            }
+        }
+        /// <summary>
+        /// 根据id获取订单号
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task<string> GetForIdForTheOrderCode(int id)
+        {
+            using (var db = new DAL.TheOrderDAL())
+            {
+                return (await db.GetOneAsync(id)).TheOrderCode;
             }
         }
     }

@@ -130,6 +130,36 @@
                                     <img src="~/images/img.jpg" alt="...">
                                 </a>
                             </div>
+                            @* 审批文件列表 *@
+                            <style>
+                                .product_file li {
+                                    list-style-type: square;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    height: 15px;
+                                    line-height: 30px;
+                                }
+
+                                    .product_file li a {
+                                        color: black;
+                                        cursor: hand;
+                                        font-size: 16px;
+                                        text-decoration: none;
+                                        border: 1px solid #F1F1F1;
+                                        margin: 0px;
+                                        padding-left: 1px;
+                                        padding-right: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px;
+                                        position: relative;
+                                        top: 0px;
+                                        left: -1px;
+                                    }
+                            </style>
+                            <div class="ln_solid"></div>
+                            <div class="product_file">
+                                <ul id="files"></ul>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -219,12 +249,30 @@
 
         // 上传证件
         $('#datatable-seal tbody').on('click', 'a#upload', function () {
+            $(".fileinput-remove-button").click();
             var data = $('#datatable-seal').DataTable().row($(this).parents('tr')).data();
             $('#modalUpload').modal('show')
             init_upload(data.SealInforNum)
             console.log("上传证件：", data);
             console.log("上传证件对应的印章id：", data.SealInforNum);
         });
+
+        //判别路径后缀是不是图片格式
+        function checkPic(filename) {
+            var flag = false; //状态
+            var arr = ["jpg", "png", "gif"];
+            //取出上传文件的扩展名
+            var index = filename.lastIndexOf(".");
+            var ext = filename.substr(index + 1);
+            //循环比较
+            for (var i = 0; i < arr.length; i++) {
+                if (ext == arr[i]) {
+                    flag = true; //一旦找到合适的，立即退出循环
+                    break;
+                }
+            }
+            return flag
+        }
 
         // 进行审核
         $('#datatable-seal tbody').on('click', 'a#check', function () {
@@ -236,6 +284,33 @@
             $("#form_infor input[name='ForeignLanguageContent']").val(data.ForeignLanguageContent);
             $("#form_infor input[name='EngravingType']").val(data.EngravingType);
             $("#form_infor input[name='SealInforId']").val(data.Id);
+            $(".product_gallery").html("");
+            $("#files").html("")
+
+            
+
+            $.ajax({
+                url: BASE_URL + "FileAndImage/filePath?sealInforNew_SealInforNum=" + data.SealInforNum,
+                success: function (data) {
+                    //const BASE = "http://222.223.125.68:8002"
+                    const BASE = "http://localhost:8003"
+                    console.log("审核", data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (checkPic(data[i])) {
+                            var temp = ''
+                            temp += '<a class="example-image-link" href="' + BASE + data[i] + '" data-lightbox="example-1" title="test1">'
+                            temp += '<img src="' + BASE + data[i] + '" alt="..."></a>'
+                            $(".product_gallery").append(temp)
+                        } else {
+                            var temp = ''
+                            var index = data[i].lastIndexOf("/");
+                            var file_name = data[i].substr(index + 1);
+                            temp += '<li><a  href="' + BASE + data[i] + '" >' + file_name+'</a></li>'
+                            $("#files").append(temp)
+                        }
+                    }
+                }
+            })
             console.log("查看修改：", data);
         });
         /**

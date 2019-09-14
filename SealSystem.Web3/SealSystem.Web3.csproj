@@ -450,6 +450,7 @@
     <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
     <Content Include="Views\SealInforNewsJiaoFu\Index.cshtml" />
+    <Content Include="Views\SealInforNewsJiaoFu\JiaoFu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

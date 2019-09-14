@@ -121,6 +121,26 @@
     <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\img.jpg" />
+    <Content Include="images\SealImages\35CWZ.png" />
+    <Content Include="images\SealImages\35GTCWZ.png" />
+    <Content Include="images\SealImages\38GTZY.png" />
+    <Content Include="images\SealImages\38HT.png" />
+    <Content Include="images\SealImages\38ZYWHT.png" />
+    <Content Include="images\SealImages\40DHZY.png" />
+    <Content Include="images\SealImages\40DWZY.png" />
+    <Content Include="images\SealImages\40GHZY.png" />
+    <Content Include="images\SealImages\40x30FPZ.png" />
+    <Content Include="images\SealImages\40ZYGZ.png" />
+    <Content Include="images\SealImages\42DHZY.png" />
+    <Content Include="images\SealImages\42DWZY.png" />
+    <Content Include="images\SealImages\42GHZY.png" />
+    <Content Include="images\SealImages\45-30ZYGZ.png" />
+    <Content Include="images\SealImages\50-35ZYGZ.png" />
+    <Content Include="images\SealImages\50DHT.png" />
+    <Content Include="images\SealImages\58DHT.png" />
+    <Content Include="images\SealImages\noimage.png" />
+    <Content Include="images\user.png" />
     <Content Include="upLoads\ReadMe.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -159,6 +179,7 @@
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\FileAndImageController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforController.cs" />
+    <Compile Include="Controllers\SealCategoryController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />
     <Compile Include="Controllers\SealMakingUnitInforController.cs" />
     <Compile Include="Controllers\SealSystemListController.cs" />

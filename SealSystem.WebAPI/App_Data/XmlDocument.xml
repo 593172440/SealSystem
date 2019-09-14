@@ -542,7 +542,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
             <summary>
-            根据印章编号获取相应的数据
+            根据印章编号获取所有的文件和印章图像信息(postman测试通过)
             </summary>
             <param name="sealInforNew_Id"></param>
             <returns></returns>
@@ -632,6 +632,18 @@
             根据备案单位编码获取相应的数据
             </summary>
             <param name="approvalUnitCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SealSystem.WebAPI.Controllers.SealCategoryController">
+            <summary>
+            印章类型规格表(印章类型,印章规格,测试印章图片地址)
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealCategoryController.GetTestImagePathForId(System.Int32)">
+            <summary>
+            根据id获取测试印章图片地址
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealInforNewController">
@@ -730,6 +742,28 @@
             <param name="pageSize">每页有多少条数据</param>
             <param name="pageIndex">有多少页</param>
             <param name="asc">排序,true:正序,falas:降序</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(System.String,System.Int32)">
+            <summary>
+            根据订单号修改所有的备案信息_id
+            </summary>
+            <param name="theOrders_TheOrderCode">订单号</param>
+            <param name="id">备案信息id</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetTestImagePathForId(System.Int32)">
+            <summary>
+            根据id获取测试/正式印章图片(postman测试通过)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetTestImagePathForSealInforNum(System.String)">
+            <summary>
+            根据印章编码获取测试/正式印章图片(postman测试通过)
+            </summary>
+            <param name="sealInforNum"></param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealMakingUnitInforController">
@@ -898,6 +932,13 @@
             根据订单号获取订单信息
             </summary>
             <param name="theOrderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.GetForIdForTheOrderCode(System.Int32)">
+            <summary>
+            根据id获取订单号
+            </summary>
+            <param name="id">id</param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">

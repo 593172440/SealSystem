@@ -138,13 +138,13 @@ namespace SealSystem.Web3.Controllers
             string filePath="";
             //if (ModelState.IsValid)
             //{
-                string[] imageTypes = { "image/jpeg", "image/png" };
-                if (imageTypes.Any(m => m == file.ContentType))
-                {
+                //string[] imageTypes = { "image/jpeg", "image/png" };
+                //if (imageTypes.Any(m => m == file.ContentType))
+                //{
                     filePath = $"/upLoads/{DateTime.Now.ToString("yyyyMMddhhmmss")}_{file.FileName}";
                     file.SaveAs(Request.MapPath("~" + filePath));
                     //return Content(filePath);
-                }
+                //}
                 //return new HttpStatusCodeResult(500, "格式不正确");
                 //return Content("格式不正确");
             //}

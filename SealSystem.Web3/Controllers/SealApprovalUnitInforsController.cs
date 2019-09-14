@@ -1,5 +1,6 @@
 ﻿using SealSystem.Models;
 using SealSystem.Web3.Filter;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Net;
 using System.Threading.Tasks;
@@ -43,15 +44,21 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,ApprovalUnitCode,Name,Attention,AttentionIdCard,Contact,Approval,Note,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ApprovalUnitCode,Name,Attention,AttentionIdCard,Contact,Approval,Note,CreateTime,IsRemoved")] SealApprovalUnitInfor sealApprovalUnitInfor, int? id)//id为订单的id,
         {
             if (ModelState.IsValid)
             {
-                db.SealApprovalUnitInfors.Add(sealApprovalUnitInfor);
+                var data = db.SealApprovalUnitInfors.Add(sealApprovalUnitInfor);
                 await db.SaveChangesAsync();
+                //1.先通过id获取订单信息中的订单号
+                //2.通过订单号获取所有的印章信息,并将备案单位id修改到印章信息的SealApprovalUnitInfor_Id字段中
+                if (id != null)
+                {
+                    string theOrderCode = await BLL.TheOrderBLL.GetForIdForTheOrderCode((int)id);
+                    await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrderCode, data.Id);
+                }
                 return RedirectToAction("Index");
             }
-
             return View(sealApprovalUnitInfor);
         }
 
