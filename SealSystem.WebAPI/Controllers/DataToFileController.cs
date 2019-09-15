@@ -16,7 +16,7 @@ namespace SealSystem.WebAPI.Controllers
     public class DataToFileController : ApiController
     {
         /// <summary>
-        /// 添加文件信息
+        /// 添加印章文件
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>
         /// <param name="note">备注</param>

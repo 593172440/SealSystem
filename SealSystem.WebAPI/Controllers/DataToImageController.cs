@@ -18,7 +18,7 @@ namespace SealSystem.WebAPI.Controllers
     public class DataToImageController : ApiController
     {
         /// <summary>
-        /// 添加图片信息
+        /// 添加印章图片
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>
         /// <param name="note">备注</param>

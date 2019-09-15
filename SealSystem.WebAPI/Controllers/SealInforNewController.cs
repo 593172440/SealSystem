@@ -376,5 +376,21 @@ namespace SealSystem.WebAPI.Controllers
         {
             return "/images/SealImages/" + await BLL.SealInforNewBLL.GetTestImagePathForSealInforNum(sealInforNum);
         }
+        /// <summary>
+        /// 修改:根据订单号修改印章交付信息,(postman测试通过)
+        /// </summary>
+        /// <param name="theOrders_TheOrderCode">订单号</param>
+        /// <param name="models"></param>
+        /// <returns></returns>
+        [Route("setForTheOrders_TheOrderCode"), HttpPost]
+        public async Task SetForTheOrders_TheOrderCode(string theOrders_TheOrderCode, Models.SealINforNew.SealINforNewViewModelJiaoFu models)
+        {
+            await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCode(theOrders_TheOrderCode, new SealSystem.Models.SealInforNew() {
+                SealMaterial = models.SealMaterial,
+                MakeWay=models.MakeWay,
+                Note=models.Note
+            });
+           
+        }
     }
 }
