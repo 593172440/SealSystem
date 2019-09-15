@@ -182,7 +182,7 @@
         $("#input-card1").fileinput({
             language: 'zh',
             uploadAsync: 'false',
-            uploadUrl: BASE_URL + "FileAndImage/updata?sealInforNum=" + SealInforNum + "&note=aa",
+            uploadUrl: BASE_URL + "DataFile/updata?sealInforNum=" + SealInforNum + "&note=aa",
             // uploadExtraData:function(){ //如果想添加额外的参数，在这里设置
             //     var obj = {};
             //     obj.sealInforNum = sealId;
@@ -290,7 +290,7 @@
             
 
             $.ajax({
-                url: BASE_URL + "FileAndImage/filePath?sealInforNew_SealInforNum=" + data.SealInforNum,
+                url: BASE_URL + "DataFile/filePath?sealInforNew_SealInforNum=" + data.SealInforNum,
                 success: function (data) {
                     //const BASE = "http://222.223.125.68:8002"
                     const BASE = "http://localhost:8003"

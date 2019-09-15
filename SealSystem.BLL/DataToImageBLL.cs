@@ -13,7 +13,7 @@ namespace SealSystem.BLL
     public class DataToImageBLL
     {
         /// <summary>
-        /// 添加印章图片
+        /// 添加印章图片(判断印章编码是否存在,存在更新,不存在添加)
         /// </summary>
         /// <param name="name">文件名称</param>
         /// <param name="namePath">文件路径</param>
@@ -24,13 +24,29 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-                await db.AddAsync(new Models.DataToImage()
+                var data = await db.GetAll().FirstOrDefaultAsync(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum);
+                if (data == null)//没有数据
                 {
-                    Name = name,
-                    NamePath = namePath,
-                    SealInforNew_SealInforNum = sealInforNew_SealInforNum,
-                    Note = note
-                });
+                    await db.AddAsync(new Models.DataToImage()
+                    {
+                        Name = name,
+                        NamePath = namePath,
+                        SealInforNew_SealInforNum = sealInforNew_SealInforNum,
+                        Note = note
+                    });
+                }
+                if(data!=null)
+                {
+                   var data2= await db.GetAll().FirstAsync(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum);
+                    data2.Name = name;
+                    data2.NamePath = namePath;
+                    data2.Note = note;
+                    await db.EditAsync(data2);
+                }
+
+
+
+
             }
         }
         /// <summary>
@@ -89,7 +105,6 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-                List<string> list = new List<string>();
                 var data = await db.GetAll().FirstAsync(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum);
                 return data.NamePath;
             }
@@ -103,7 +118,7 @@ namespace SealSystem.BLL
         {
             using (var db = new DAL.FileAndImageDAL())
             {
-               await db.RemoveAsync(id);
+                await db.RemoveAsync(id);
             }
         }
     }

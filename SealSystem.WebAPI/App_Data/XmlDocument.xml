@@ -822,7 +822,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForTheOrders_TheOrderCode(System.String,SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu)">
             <summary>
-            修改:根据印章编码修改印章信息,
+            修改:根据印章编码修改印章信息(postman测试通过)
             </summary>
             <param name="sealInforNum"></param>
             <param name="models"></param>

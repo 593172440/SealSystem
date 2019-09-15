@@ -63,9 +63,9 @@
                                     <tr>
                                         <td class="first_td">取章人信息：</td>
                                         <td class="second_td" colspan="6">
-                                            取章人姓名：*<input type="text" id="quzhangrenxingming" />
-                                            身份证号：*<input type="text" id="quzhangrenxingming" />
-                                            手机号码：*<input type="text" id="quzhangrenxingming" />
+                                            取章人姓名：*<input type="text" id="TakeSealName" />
+                                            身份证号：*<input type="text" id="IdCard" />
+                                            手机号码：*<input type="text" id="Phone" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -115,7 +115,6 @@
             },*/
         }).on("fileuploaded", function (event, data, previewId, index) {
             result = data.response;
-            console.log("result", result)
             $("#img_" + sealId).attr('src', BASE + result);
             console.log(result);
         }).on('fileerror', function (event, data, msg) {
@@ -142,23 +141,27 @@
     }
 
     //制作方式
-    function initMakeMethod() {
+    function initMakeMethod(data_seal) {
         $.ajax({
             url: BASE_URL + "SealSystemList/getForName?name=制作方式",
             success: function (data) {
-                console.log('制作方式', data);
                 $(".MakeMethod").each(function () {
                     for (var i = 0; i < data.length; i++) {
                         $(this).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
                     }
                 })
+                for (var i = 0; i < data_seal.length; i++) {
+                    console.log("daga", data_seal[i].Id)
+                    //$("#seal_"+data_seal[i].Id).find(".MakeMethod").find("option:contains('"+data_seal[i].MakeWay+"')").attr("selected",true);
+                    $("#seal_" + data_seal[i].Id).find(".MakeMethod").val(data_seal[i].MakeWay);
+                }
             }
         })
 
     }
 
     //章体材料
-    function initSealMaterial() {
+    function initSealMaterial(data_seal) {
         $.ajax({
             url: BASE_URL + "SealSystemList/getForName?name=章体材料",
             success: function (data) {
@@ -168,6 +171,12 @@
                         $(this).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
                     }
                 })
+                console.log("aaa", data_seal)
+                for (var i = 0; i < data_seal.length; i++) {
+                    console.log("seal_" + data_seal[i].Id);
+                    //$("#seal_"+data_seal[i].Id).find(".SealMaterial").find("option:contains('"+data_seal[i].SealMaterial+"')").attr("selected",true);
+                    $("#seal_" + data_seal[i].Id).find(".SealMaterial").val(data_seal[i].SealMaterial);
+                }
             }
         })
 
@@ -176,12 +185,21 @@
     function initImg(seal_num_array) {
         for (var i = 0; i < seal_num_array.length; i++) {
             $.ajax({
-                url: BASE_URL + "FileAndImage/GetForSealInforNew_Id?sealInforNew_Id=" + seal_num_array[i],
+                url: BASE_URL + "SealInforNew/testImagePathForSealInforNum?sealInforNum=" + seal_num_array[i],
                 async: false,
                 success: function (data) {
-                    console.log("aa",data)
-                    //console.log(seal_num_array[i], data.NamePath)
-                    $("#img_" + seal_num_array[i]).attr('src', BASE + data.NamePath);
+                    $("#img_" + seal_num_array[i]).attr('src', BASE + data);
+                    $.ajax({
+                        url: BASE_URL + "FileAndImage/filePath?sealInforNew_SealInforNum=" + seal_num_array[i],
+                        async: false,
+                        success: function (data1) {
+                            console.log("最终地址", data1);
+                            if (data1 != "") {
+                                $("#img_" + seal_num_array[i]).attr('src', BASE + data1);
+                            }
+
+                        }
+                    })
                 }
             })
         }
@@ -189,7 +207,7 @@
 
     //获取URL参数
     function GetRequest() {
-        var url = location.search; //获取url中"?"符后的字串   
+        var url = location.search; //获取url中"?"符后的字串
         var theRequest = new Object();
         if (url.indexOf("?") != -1) {
             var str = url.substr(1);
@@ -199,7 +217,7 @@
             }
         }
         return theRequest;
-    }   
+    }
 
     //获得所有的印章信息
     function getAllSeal() {
@@ -212,7 +230,7 @@
                 console.log('所有印章信息', data);
                 for (var i = 0; i < data.length; i++) {
                     temp_table = '<table class="table table-bordered" id="seal_' + data[i].Id + '">';
-                    temp_table += '<tr><td>印章编号:</td><td>' + data[i].SealInforNum + '</td><td>制作日期:</td><td>' + data[i].CreateTime + '</td><td>印章图像</td>';
+                    temp_table += '<tr><td>印章编号:</td><td class="sealNumber">' + data[i].SealInforNum + '</td><td>制作日期:</td><td>' + data[i].CreateTime + '</td><td>印章图像</td>';
                     temp_table += '<td><input type="checkbox" class="flat check1" /> 选择</td></tr>';
                     temp_table += '<tr><td>印章内容:</td><td colspan="3">' + data[i].SealContent + '</td>';
                     temp_table += '<td rowspan="4" colspan="2"><img src="#" style="width:120px;" id="img_' + data[i].SealInforNum + '"/> <a href="javascript:;" onclick="show_uplaod(' + data[i].SealInforNum + ')">上传印模</a></td></tr>';
@@ -220,15 +238,15 @@
                     temp_table += '<td>芯片编号：</td><td>1111111</td></tr>';
                     temp_table += '<tr><td>制作编号:</td><td><input class="zzbh" type="text"/></td>';
                     temp_table += '<td>章体材料：</td><td><select class="SealMaterial"></select></td></tr>';
-                    temp_table += '<tr><td>制作人:</td><td>' + data[i].TheProducer + '</td><td>备注：</td><td><textarea></textarea></td></tr>';
+                    temp_table += '<tr><td>制作人:</td><td>' + data[i].TheProducer + '</td><td>备注：</td><td><textarea class="Note">' + data[i].Note + '</textarea></td></tr>';
                     temp_table += '</table>';
                     $("#seal_infor").append(temp_table);
                     seal_infor_num_array.push(data[i].SealInforNum)
                 }
                 check_all();
                 initSealUseUnitInfor();
-                initMakeMethod();
-                initSealMaterial();
+                initMakeMethod(data);
+                initSealMaterial(data);
                 initImg(seal_infor_num_array);
             }
         })
@@ -254,13 +272,68 @@
 
     function goto_jiaofu() {
         $("#seal_infor table").each(function () {
+            var TakeSealName = $("#TakeSealName").val();
+            var IdCard = $("#IdCard").val();
+            var Phone = $("#Phone").val();
+            var Request = new Object();
+            Request = GetRequest();
+            $.ajax({
+                type: 'POST',
+                url: BASE_URL + 'TheOrder/setForTheOrderCode?theOrderCode=' + Request["orderId"],
+                data: {
+                    "TakeSealName": TakeSealName,
+                    "IdCard": IdCard,
+                    "Phone": Phone
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        alert("更新成功")
+                    }
+                }
+            })
+
+            //判别那些选中的
             if ($(this).find(".check1").prop('checked')) {
-                console.log($(this).find(".zzbh").val())
+                all_result = []
+                var SealMaterial = $(this).find(".SealMaterial").val()
+                var MakeWay = $(this).find(".MakeMethod").val()
+                var Note = $(this).find(".Note").val()
+                alert($(this).find(".sealNumber").html());
+                $.ajax({
+                    type: 'POST',
+                    url: BASE_URL + 'SealInforNew/setForTheOrders_TheOrderCode?sealInforNum=' + $(this).find(".sealNumber").html(),
+                    data: {
+                        "SealMaterial": SealMaterial,
+                        "MakeWay": MakeWay,
+                        "Note": Note
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            console.log("印章更新成功", data);
+                        }
+                    }
+                })
+            }
+        })
+    }
+
+    function getOrderInfor() {
+        var Request = new Object();
+        Request = GetRequest();
+        $.ajax({
+            url: BASE_URL + "TheOrder/GetForTheOrderCode?theOrderCode=" + Request["orderId"],
+            success: function (data) {
+                if (data != "") {
+                    $("#TakeSealName").val(data.TakeSealName);
+                    $("#IdCard").val(data.IdCard);
+                    $("#Phone").val(data.Phone);
+                }
             }
         })
     }
 
     $(function () {
+        getOrderInfor();
         getAllSeal();
     })
 </script>
