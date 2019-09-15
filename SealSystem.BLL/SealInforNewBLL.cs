@@ -234,7 +234,7 @@ namespace SealSystem.BLL
                 return await db.GetAllBypageOrder(pageSize, pageIndex, asc).ToListAsync();
             }
         }
-        //修改:根据订单号修改印章交付信息
+        //修改:根据订单号修改印章交付信息,
 
         public static async Task SetForTheOrders_TheOrderCode(string theOrders_TheOrderCode,List<Models.SealInforNew> models)
         {

@@ -177,7 +177,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AreaController.cs" />
-    <Compile Include="Controllers\FileAndImageController.cs" />
+    <Compile Include="Controllers\DataToFileController.cs" />
+    <Compile Include="Controllers\DataToImageController.cs" />
     <Compile Include="Controllers\SealApprovalUnitInforController.cs" />
     <Compile Include="Controllers\SealCategoryController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />

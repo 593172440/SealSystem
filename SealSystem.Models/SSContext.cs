@@ -47,7 +47,7 @@
         /// <summary>
         /// 文件上传表
         /// </summary>
-        public DbSet<DataFile> DataFiles { get; set; }
+        public DbSet<DataToFile> DataFiles { get; set; }
         /// <summary>
         /// 菜单表
         /// </summary>
@@ -63,7 +63,7 @@
         /// <summary>
         /// 文件和图像表
         /// </summary>
-        public System.Data.Entity.DbSet<SealSystem.Models.FileAndImage> FileAndImages { get; set; }
+        public System.Data.Entity.DbSet<SealSystem.Models.DataToImage> FileAndImages { get; set; }
 
         //------- 以下仅限数据库实例化 -----------------------
 

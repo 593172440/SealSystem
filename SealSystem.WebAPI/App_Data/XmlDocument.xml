@@ -527,54 +527,108 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:SealSystem.WebAPI.Controllers.FileAndImageController">
+        <member name="T:SealSystem.WebAPI.Controllers.DataToFileController">
             <summary>
-            印章文件和印章图像存储
+            印章文件信息
             </summary>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.UploadFileStream(System.String,System.String)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.UploadFileStream(System.String,System.String)">
             <summary>
-            添加一张图片或文件
+            添加文件信息
             </summary>
             <param name="sealInforNum">印章编码</param>
             <param name="note">备注</param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetFileAndImageOneForSealInforNew_Id(System.String)">
             <summary>
-            根据印章编号获取所有的文件和印章图像信息(postman测试通过)
+            根据印章编号获取所有的文件信息(postman测试通过)(一条印章信息里面包括许多条文件)
             </summary>
             <param name="sealInforNew_Id"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileUrl(System.String)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetFileUrl(System.String)">
             <summary>
-            根据印章编码获取相应的文件/图像路径(postman测试通过)
+            根据印章编码获取相应的文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
             </summary>
             <param name="sealInforNew_SealInforNum">印章编码</param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetAll">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetAll">
             <summary>
-            获取所有的文件/图像数据
+            获取所有的文件数据
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForId(System.Int32)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetFileAndImageOneForId(System.Int32)">
             <summary>
             根据id获取相应的数据
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.GetFileAndImageOneForName(System.String)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetFileAndImageOneForName(System.String)">
             <summary>
-            根据文件/图像名获取相应的数据
+            根据文件名获取相应的数据
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.FileAndImageController.RemoveAsync(System.Int32)">
+        <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.RemoveAsync(System.Int32)">
+            <summary>
+            根据id删除相应的数据
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="T:SealSystem.WebAPI.Controllers.DataToImageController">
+            <summary>
+            印章图片信息
+            </summary>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.UploadFileStream(System.String,System.String)">
+            <summary>
+            添加图片信息
+            </summary>
+            <param name="sealInforNum">印章编码</param>
+            <param name="note">备注</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.GetFileAndImageOneForSealInforNew_Id(System.String)">
+            <summary>
+            根据印章编号获取图片信息(postman测试通过)
+            </summary>
+            <param name="sealInforNew_Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.GetFileUrl(System.String)">
+            <summary>
+            根据印章编码获取相应的图片路径(postman测试通过)
+            </summary>
+            <param name="sealInforNew_SealInforNum">印章编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.GetAll">
+            <summary>
+            获取所有的图片数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.GetFileAndImageOneForId(System.Int32)">
+            <summary>
+            根据id获取相应的数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.GetFileAndImageOneForName(System.String)">
+            <summary>
+            根据图片名获取相应的数据
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.RemoveAsync(System.Int32)">
             <summary>
             根据id删除相应的数据
             </summary>
@@ -583,7 +637,7 @@
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.ReNameMultipartFormDataStreamProvider">
             <summary>
-            重命名上传的文件
+            重命名上传的图片
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController">
@@ -746,7 +800,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(System.String,System.Int32)">
             <summary>
-            根据订单号修改所有的备案信息_id
+            修改:根据订单号修改所有的备案信息_id
             </summary>
             <param name="theOrders_TheOrderCode">订单号</param>
             <param name="id">备案信息id</param>
@@ -943,7 +997,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.SetForTheOrderCode(System.String,SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu)">
             <summary>
-            根据订单号更新,取章人姓名/身份证号/手机号码
+            修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)
             </summary>
             <param name="theOrderCode">订单号</param>
             <param name="model">印章交付取章人信息</param>
@@ -1367,6 +1421,26 @@
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.CreateTime">
             <summary>
             创建时间
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu">
+            <summary>
+            印章交付需要更新印章信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu.SealMaterial">
+            <summary>
+            章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu.MakeWay">
+            <summary>
+            制作方式(在SealUseUnitInforList表中定义)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu.Note">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel">

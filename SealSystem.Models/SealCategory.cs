@@ -10,8 +10,6 @@ namespace SealSystem.Models
         /// <summary>
         /// 印章类型名称
         /// </summary>
-        [Required]
-        [StringLength(50)]
         public string Name { get; set; }
         /// <summary>
         /// 印章类型代码

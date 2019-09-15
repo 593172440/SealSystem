@@ -1,16 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SealSystem.Models
 {
     /// <summary>
-    /// 文件图像存储表
+    /// 上传文件管理表
     /// </summary>
-    public class FileAndImage:BaseEntity
+    public class DataToFile:BaseEntity
     {
         /// <summary>
-        /// 文件名称
+        /// 文件名
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 文件说明
+        /// </summary>
+        public string FileInstructions { get; set; }
         /// <summary>
         /// 文件路径
         /// </summary>
@@ -19,9 +27,7 @@ namespace SealSystem.Models
         /// 是哪个印章里面的相关文件编码
         /// </summary>
         public string SealInforNew_SealInforNum { get; set; }
-        /// <summary>
-        /// 备注
-        /// </summary>
+        //备注
         public string Note { get; set; }
     }
 }

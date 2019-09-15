@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace SealSystem.WebAPI.Controllers
 {
     /// <summary>
-    /// 印章文件和印章图像存储
+    /// 印章文件信息
     /// </summary>
     [EnableCors(origins: "*", methods: "*", headers: "*")]
-    [RoutePrefix("api/FileAndImage")]
-    public class FileAndImageController : ApiController
+    [RoutePrefix("api/DataFile")]
+    public class DataToFileController : ApiController
     {
         /// <summary>
-        /// 添加一张图片或文件
+        /// 添加文件信息
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>
         /// <param name="note">备注</param>
         /// <returns></returns>
-        [Route("updata"),HttpPost]
+        [Route("updata"), HttpPost]
         public async Task<string> UploadFileStream(string sealInforNum, string note)
         {
             string orfilename = "";//上传的文件名称
@@ -86,48 +84,37 @@ namespace SealSystem.WebAPI.Controllers
                 returns = ex.ToString();
             }
             //var id= BLL.SealInforNewBLL.GetSealInforOne(sealInforNum).Id;
-            await BLL.FileAndImageBLL.AddAsync(orfilename, returns, sealInforNum, note);
+            await BLL.DataToFileBLL.AddAsync(orfilename, returns, sealInforNum, note);
             return returns;
         }
         /// <summary>
-        /// 根据印章编号获取所有的文件和印章图像信息(postman测试通过)
+        /// 根据印章编号获取所有的文件信息(postman测试通过)(一条印章信息里面包括许多条文件)
         /// </summary>
         /// <param name="sealInforNew_Id"></param>
         /// <returns></returns>
         [Route("GetForSealInforNew_Id"), HttpGet]
-        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
+        public async Task<List<SealSystem.Models.DataToFile>> GetFileAndImageOneForSealInforNew_Id(string sealInforNew_Id)
         {
-            return await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
+            return await BLL.DataToFileBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
         }
         /// <summary>
-        /// 根据印章编码获取相应的文件/图像路径(postman测试通过)
+        /// 根据印章编码获取相应的文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
         /// </summary>
         /// <param name="sealInforNew_SealInforNum">印章编码</param>
         /// <returns></returns>
-        [Route("filePath"),HttpGet]
+        [Route("filePath"), HttpGet]
         public async Task<List<string>> GetFileUrl(string sealInforNew_SealInforNum)
         {
-            return await BLL.FileAndImageBLL.GetFileUrl(sealInforNew_SealInforNum);
+            return await BLL.DataToFileBLL.GetFileUrl(sealInforNew_SealInforNum);
         }
-        ///// <summary>
-        ///// 添加文件/图像
-        ///// </summary>
-        ///// <param name="model"></param>
-        ///// <returns></returns>
-        //[Route("add")]
-        //public async Task AddAsync(Models.FileAndImage.FileAndImageViewModel model)
-        //{
-        //    await BLL.FileAndImageBLL.AddAsync(model.Name, model.NamePath, model.SealInforNew_Id, model.Note);
-        //}
-
         /// <summary>
-        /// 获取所有的文件/图像数据
+        /// 获取所有的文件数据
         /// </summary>
         /// <returns></returns>
         [Route("all")]
-        public async Task<List<SealSystem.Models.FileAndImage>> GetAll()
+        public async Task<List<SealSystem.Models.DataToFile>> GetAll()
         {
-            return await BLL.FileAndImageBLL.GetAll();
+            return await BLL.DataToFileBLL.GetAll();
         }
         /// <summary>
         /// 根据id获取相应的数据
@@ -135,53 +122,31 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("GetForId")]
-        public async Task<SealSystem.Models.FileAndImage> GetFileAndImageOneForId(int id)
+        public async Task<SealSystem.Models.DataToFile> GetFileAndImageOneForId(int id)
         {
-            return await BLL.FileAndImageBLL.GetFileAndImageOneForId(id);
+            return await BLL.DataToFileBLL.GetFileAndImageOneForId(id);
         }
         /// <summary>
-        /// 根据文件/图像名获取相应的数据
+        /// 根据文件名获取相应的数据
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [Route("GetForName"),HttpGet]
-        public async Task<List<SealSystem.Models.FileAndImage>> GetFileAndImageOneForName(string name)
+        [Route("GetForName"), HttpGet]
+        public async Task<List<SealSystem.Models.DataToFile>> GetFileAndImageOneForName(string name)
         {
-            return await BLL.FileAndImageBLL.GetFileAndImageOneForName(name);
+            return await BLL.DataToFileBLL.GetFileAndImageOneForName(name);
         }
-        
+
         /// <summary>
         /// 根据id删除相应的数据
         /// </summary>
         /// <param name="id">id</param>
         /// <returns></returns>
-        [Route("delete"),HttpGet]
+        [Route("delete"), HttpGet]
         public async Task RemoveAsync(int id)
         {
-            await BLL.FileAndImageBLL.RemoveAsync(id);
+            await BLL.DataToFileBLL.RemoveAsync(id);
         }
-    }
-    /// <summary>
-    /// 重命名上传的文件
-    /// </summary>
-    public class ReNameMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
-    {
-        public ReNameMultipartFormDataStreamProvider(string root)
-            : base(root)
-        { }
-
-        public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
-        {
-
-            string extension = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName) ? Path.GetExtension(GetValidFileName(headers.ContentDisposition.FileName)) : "";
-            return Guid.NewGuid().ToString().Replace("-", "") + extension;
-        }
-
-        private string GetValidFileName(string filePath)
-        {
-            char[] invalids = System.IO.Path.GetInvalidFileNameChars();
-            return String.Join("_", filePath.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
-        }
-
     }
 }
+

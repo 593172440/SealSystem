@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SealSystem.DAL
 {
-    public class FileAndImageDAL:BaseDAL<Models.DataToImage>
+    public class DataFileDAL:BaseDAL<Models.DataToFile>
     {
-
     }
 }

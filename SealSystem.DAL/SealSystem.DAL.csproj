@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AreaDAL.cs" />
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="DataFileDAL.cs" />
     <Compile Include="FileAndImageDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SealApprovalUnitInforDAL.cs" />

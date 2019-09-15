@@ -53,8 +53,8 @@
     <Compile Include="AnnouncementNotice.cs" />
     <Compile Include="Area.cs" />
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="DataFile.cs" />
-    <Compile Include="FileAndImage.cs" />
+    <Compile Include="DataToFile.cs" />
+    <Compile Include="DataToImage.cs" />
     <Compile Include="MenuTable.cs" />
     <Compile Include="Migrations\201908260535593_001.cs" />
     <Compile Include="Migrations\201908260535593_001.Designer.cs">
@@ -87,6 +87,18 @@
     <Compile Include="Migrations\201909150246068_008.cs" />
     <Compile Include="Migrations\201909150246068_008.Designer.cs">
       <DependentUpon>201909150246068_008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909150830515_009.cs" />
+    <Compile Include="Migrations\201909150830515_009.Designer.cs">
+      <DependentUpon>201909150830515_009.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909150900598_0010.cs" />
+    <Compile Include="Migrations\201909150900598_0010.Designer.cs">
+      <DependentUpon>201909150900598_0010.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909150916560_0011.cs" />
+    <Compile Include="Migrations\201909150916560_0011.Designer.cs">
+      <DependentUpon>201909150916560_0011.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealApprovalUnitInfor.cs" />
@@ -133,6 +145,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909150246068_008.resx">
       <DependentUpon>201909150246068_008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909150830515_009.resx">
+      <DependentUpon>201909150830515_009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909150900598_0010.resx">
+      <DependentUpon>201909150900598_0010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909150916560_0011.resx">
+      <DependentUpon>201909150916560_0011.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

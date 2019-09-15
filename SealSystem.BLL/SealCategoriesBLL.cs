@@ -37,5 +37,20 @@ namespace SealSystem.BLL
                 return (await db.GetAll().FirstAsync(m => m.Id == id)).TestImagePath;
             }
         }
+        /// <summary>
+        /// 增加印章图片地址
+        /// </summary>
+        /// <param name="imagePath">图片地址</param>
+        /// <returns></returns>
+        public static async Task AddTestImagePath(string imagePath)
+        {
+            using (var db = new DAL.SealCategoriesDAL())
+            {
+                await db.AddAsync(new Models.SealCategory()
+                {
+                    TestImagePath = imagePath
+                });
+            }
+        }
     }
 }

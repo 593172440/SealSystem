@@ -30,7 +30,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FileAndImage fileAndImage = await db.FileAndImages.FindAsync(id);
+            DataToImage fileAndImage = await db.FileAndImages.FindAsync(id);
             if (fileAndImage == null)
             {
                 return HttpNotFound();
@@ -49,7 +49,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] DataToImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FileAndImage fileAndImage = await db.FileAndImages.FindAsync(id);
+            DataToImage fileAndImage = await db.FileAndImages.FindAsync(id);
             if (fileAndImage == null)
             {
                 return HttpNotFound();
@@ -81,7 +81,7 @@ namespace SealSystem.Web3.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] FileAndImage fileAndImage)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,NamePath,SealInforNew_Id,Note,CreateTime,IsRemoved")] DataToImage fileAndImage)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FileAndImage fileAndImage = await db.FileAndImages.FindAsync(id);
+            DataToImage fileAndImage = await db.FileAndImages.FindAsync(id);
             if (fileAndImage == null)
             {
                 return HttpNotFound();
@@ -112,7 +112,7 @@ namespace SealSystem.Web3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            FileAndImage fileAndImage = await db.FileAndImages.FindAsync(id);
+            DataToImage fileAndImage = await db.FileAndImages.FindAsync(id);
             db.FileAndImages.Remove(fileAndImage);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -152,7 +152,7 @@ namespace SealSystem.Web3.Controllers
         }
         public string ASJXUpFile(string name, string namePath, string SealInforNew_Id, string note)
         {
-            db.FileAndImages.Add(new FileAndImage()
+            db.FileAndImages.Add(new DataToImage()
             {
                 Name = name,
                 NamePath = namePath,
