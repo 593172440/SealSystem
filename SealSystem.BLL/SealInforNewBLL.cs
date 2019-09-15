@@ -236,24 +236,23 @@ namespace SealSystem.BLL
         }
 
         /// <summary>
-        /// 修改:根据订单号修改印章交付信息,
+        /// 修改:根据印章编码修改印章信息,
         /// </summary>
-        /// <param name="theOrders_TheOrderCode"></param>
+        /// <param name="sealInforNum"></param>
         /// <param name="models"></param>
         /// <returns></returns>
-        public static async Task SetForTheOrders_TheOrderCode(string theOrders_TheOrderCode, Models.SealInforNew models)
+        public static async Task SetForTheOrders_TheOrderCode(string sealInforNum, Models.SealInforNew models)
         {
             using (var db = new DAL.SealInforNewDAL())
             {
                 //根据订单号获取所有的信息包括外键信息
-                List<Models.SealInforNew> data = await db._db.SealInforNews.Include(s => s.SealCategory).Include(s => s.SealUseUnitInfor).Where(m => m.TheOrders_TheOrderCode == theOrders_TheOrderCode).ToListAsync();
-                foreach (Models.SealInforNew item in data)
-                {
-                    item.MakeWay = models.MakeWay;//制作方式
-                    item.Note = models.Note;//备注
-                    item.SealMaterial = models.SealMaterial;//章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
-                    await db.EditAsync(item);
-                }
+                //List<Models.SealInforNew> data = await db._db.SealInforNews.Include(s => s.SealCategory).Include(s => s.SealUseUnitInfor).Where(m => m.TheOrders_TheOrderCode == theOrders_TheOrderCode).ToListAsync();
+                var data = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
+                data.MakeWay = models.MakeWay;//制作方式
+                data.Note = models.Note;//备注
+                data.SealMaterial = models.SealMaterial;//章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+                await db.EditAsync(data);
+
             }
         }
     }

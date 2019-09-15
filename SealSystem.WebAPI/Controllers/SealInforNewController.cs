@@ -377,20 +377,20 @@ namespace SealSystem.WebAPI.Controllers
             return "/images/SealImages/" + await BLL.SealInforNewBLL.GetTestImagePathForSealInforNum(sealInforNum);
         }
         /// <summary>
-        /// 修改:根据订单号修改印章交付信息,(postman测试通过)
+        /// 修改:根据印章编码修改印章信息(postman测试通过)
         /// </summary>
-        /// <param name="theOrders_TheOrderCode">订单号</param>
+        /// <param name="sealInforNum"></param>
         /// <param name="models"></param>
         /// <returns></returns>
         [Route("setForTheOrders_TheOrderCode"), HttpPost]
-        public async Task SetForTheOrders_TheOrderCode(string theOrders_TheOrderCode, Models.SealINforNew.SealINforNewViewModelJiaoFu models)
+        public async Task<IHttpActionResult> SetForTheOrders_TheOrderCode(string sealInforNum, Models.SealINforNew.SealINforNewViewModelJiaoFu models)
         {
-            await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCode(theOrders_TheOrderCode, new SealSystem.Models.SealInforNew() {
+            await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCode(sealInforNum, new SealSystem.Models.SealInforNew() {
                 SealMaterial = models.SealMaterial,
                 MakeWay=models.MakeWay,
                 Note=models.Note
             });
-           
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
     }
 }
