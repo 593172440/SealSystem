@@ -26,11 +26,19 @@ namespace SealSystem.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var data = new SealSystem.Models.TheOrder();
-                data.TheOrderCode = model.TheOrderCode;
-                data.ForTheRecordType = model.ForTheRecordType;
-                data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
-                data.TheRegistrationArea = model.TheRegistrationArea;
+                var data = new SealSystem.Models.TheOrder
+                {
+                    TheOrderCode = model.TheOrderCode,
+                    ForTheRecordType = model.ForTheRecordType,
+                    SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name,
+                    TheRegistrationArea = model.TheRegistrationArea,
+                    DeliveryTime = model.DeliveryTime,
+                    IdCard=model.IdCard,
+                    Phone=model.Phone,
+                    TakeSealName=model.TakeSealName,
+                    TakeTime=model.TakeTime,
+                    UpTime=model.UpTime
+                };
                 await BLL.TheOrderBLL.Add(data);
                 return Ok(new Models.ResponseData() { code = 200, Data = "增加成功" });
             }
@@ -53,6 +61,12 @@ namespace SealSystem.WebAPI.Controllers
             data.ForTheRecordType = model.ForTheRecordType;
             data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
             data.TheRegistrationArea = model.TheRegistrationArea;
+            data.TakeSealName = model.TakeSealName;
+            data.TakeTime = model.TakeTime;
+            data.IdCard = model.IdCard;
+            data.Phone = model.Phone;
+            data.DeliveryTime = model.DeliveryTime;
+            data.UpTime = model.UpTime;
             await BLL.TheOrderBLL.Edit(id, data);
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
 
@@ -75,7 +89,13 @@ namespace SealSystem.WebAPI.Controllers
                     CreateTime = item.CreateTime,
                     ForTheRecordType = item.ForTheRecordType,
                     SealMakingUnitInfor_Name = item.SealMakingUnitInfor_Name,
-                    TheRegistrationArea = item.TheRegistrationArea
+                    TheRegistrationArea = item.TheRegistrationArea,
+                    DeliveryTime=item.DeliveryTime,
+                    IdCard=item.IdCard,
+                    Phone=item.Phone,
+                    TakeSealName=item.TakeSealName,
+                    TakeTime=item.TakeTime,
+                    UpTime=item.UpTime
                 });
             }
             return model;
@@ -96,7 +116,13 @@ namespace SealSystem.WebAPI.Controllers
                 CreateTime = data.CreateTime,
                 SealMakingUnitInfor_Name = data.SealMakingUnitInfor_Name,
                 TheOrderCode = data.TheOrderCode,
-                TheRegistrationArea = data.TheRegistrationArea
+                TheRegistrationArea = data.TheRegistrationArea,
+                TakeSealName=data.TakeSealName,
+                DeliveryTime=data.DeliveryTime,
+                IdCard=data.IdCard,
+                Phone=data.Phone,
+                TakeTime=data.TakeTime,
+                UpTime=data.UpTime
             };
             return model;
         }
@@ -109,6 +135,18 @@ namespace SealSystem.WebAPI.Controllers
         public async Task<string> GetForIdForTheOrderCode(int id)
         {
             return await BLL.TheOrderBLL.GetForIdForTheOrderCode(id);
+        }
+        /// <summary>
+        /// 修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)
+        /// </summary>
+        /// <param name="theOrderCode">订单号</param>
+        /// <param name="model">印章交付取章人信息</param>
+        /// <returns></returns>
+        [Route("setForTheOrderCode"), HttpPost]
+        public async Task<IHttpActionResult> SetForTheOrderCode(string theOrderCode,Models.TheOrder.TheOrderForSealJiaoFu model)
+        {
+            await BLL.TheOrderBLL.SetForTheOrderCode(theOrderCode, model.TakeSealName, model.IdCard, model.Phone);
+            return Ok(new Models.ResponseData() { code = 200, Data = "更新成功" });
         }
     }
 }

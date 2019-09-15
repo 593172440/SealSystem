@@ -35,9 +35,16 @@ namespace SealSystem.BLL
             using (var db = new DAL.TheOrderDAL())
             {
                 var data = await db.GetAll().FirstAsync(m => m.Id == id);
+                data.TheOrderCode = model.TheOrderCode;
                 data.ForTheRecordType = model.ForTheRecordType;
                 data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
                 data.TheRegistrationArea = model.TheRegistrationArea;
+                data.TakeSealName = model.TakeSealName;
+                data.TakeTime = model.TakeTime;
+                data.IdCard = model.IdCard;
+                data.Phone = model.Phone;
+                data.DeliveryTime = model.DeliveryTime;
+                data.UpTime = model.UpTime;
                 await db.EditAsync(data);
             }
         }
@@ -74,6 +81,26 @@ namespace SealSystem.BLL
             using (var db = new DAL.TheOrderDAL())
             {
                 return (await db.GetOneAsync(id)).TheOrderCode;
+            }
+        }
+        /// <summary>
+        /// 根据订单号更新,取章人姓名/身份证号/手机号码
+        /// </summary>
+        /// <param name="theOrderCode">订单号</param>
+        /// <param name="takeSealName">取章人姓名</param>
+        /// <param name="idCard">身份证号</param>
+        /// <param name="phone">手机号码</param>
+        /// <returns></returns>
+        public static async Task SetForTheOrderCode(string theOrderCode,string takeSealName,string idCard,string phone)
+        {
+            using (var db = new DAL.TheOrderDAL())
+            {
+                var data= await db.GetAll().FirstAsync(m => m.TheOrderCode == theOrderCode);
+                data.TakeSealName = takeSealName;
+                data.IdCard = idCard;
+                data.Phone = phone;
+                data.DeliveryTime = DateTime.Now;
+                await db.EditAsync(data);
             }
         }
     }

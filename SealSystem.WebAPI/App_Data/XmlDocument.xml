@@ -941,6 +941,14 @@
             <param name="id">id</param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.SetForTheOrderCode(System.String,SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu)">
+            <summary>
+            根据订单号更新,取章人姓名/身份证号/手机号码
+            </summary>
+            <param name="theOrderCode">订单号</param>
+            <param name="model">印章交付取章人信息</param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
             <summary>
             用户
@@ -1651,6 +1659,36 @@
             印章编码
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.TakeSealName">
+            <summary>
+            取章人姓名
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.TakeTime">
+            <summary>
+            取章日期
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.DeliveryTime">
+            <summary>
+            交付日期
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.UpTime">
+            <summary>
+            上传日期
+            </summary>
+        </member>
         <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL">
             <summary>
             订单信息
@@ -1681,14 +1719,59 @@
             备案类型(在SealUseUnitInforList表中定义)
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.SealInforNum">
-            <summary>
-            印章编码
-            </summary>
-        </member>
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.CreateTime">
             <summary>
             创建时间
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.TakeSealName">
+            <summary>
+            取章人姓名
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.TakeTime">
+            <summary>
+            取章日期
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.DeliveryTime">
+            <summary>
+            交付日期
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.UpTime">
+            <summary>
+            上传日期
+            </summary>
+        </member>
+        <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu">
+            <summary>
+            印章交付取章人信息
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.TakeSealName">
+            <summary>
+            取章人姓名
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.Phone">
+            <summary>
+            手机号
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">

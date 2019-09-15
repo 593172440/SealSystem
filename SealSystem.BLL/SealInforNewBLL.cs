@@ -234,5 +234,31 @@ namespace SealSystem.BLL
                 return await db.GetAllBypageOrder(pageSize, pageIndex, asc).ToListAsync();
             }
         }
+        //修改:根据订单号修改印章交付信息
+
+        public static async Task SetForTheOrders_TheOrderCode(string theOrders_TheOrderCode,List<Models.SealInforNew> models)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                //根据订单号获取所有的信息包括外键信息
+                List<Models.SealInforNew> data = await db._db.SealInforNews.Include(s => s.SealCategory).Include(s => s.SealUseUnitInfor).Where(m=>m.TheOrders_TheOrderCode==theOrders_TheOrderCode).ToListAsync();
+                foreach (Models.SealInforNew item in data)
+                {
+                    foreach (Models.SealInforNew itemModels in models)
+                    {
+                        if(item.SealInforNum==itemModels.SealInforNum)
+                        {
+                            item.MakeWay = itemModels.MakeWay;//制作方式
+                            item.Note = itemModels.Note;//备注
+                            item.SealMaterial = itemModels.SealMaterial;//章体材料代码(标准：GA 241.2)(在SealUseUnitInforList表中定义)
+
+                        }
+                    }
+                }
+
+
+
+            }
+        }
     }
 }

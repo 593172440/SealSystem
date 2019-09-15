@@ -338,7 +338,7 @@ namespace SealSystem.WebAPI.Controllers
             return await BLL.SealInforNewBLL.GetAllPage(pageSize, pageIndex, asc);
         }
         /// <summary>
-        /// 根据订单号修改所有的备案信息_id
+        /// 修改:根据订单号修改所有的备案信息_id
         /// </summary>
         /// <param name="theOrders_TheOrderCode">订单号</param>
         /// <param name="id">备案信息id</param>
@@ -349,6 +349,13 @@ namespace SealSystem.WebAPI.Controllers
             await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrders_TheOrderCode,id);
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
+
+        //修改:根据订单号修改印章交付信息
+
+        
+
+
+
         /// <summary>
         /// 根据id获取测试/正式印章图片(postman测试通过)
         /// </summary>

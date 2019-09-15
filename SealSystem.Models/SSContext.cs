@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con2")
+        public SSContext() : base("con1")
         {
             Database.SetInitializer<SSContext>(null);
         }
@@ -81,11 +81,6 @@
         /// 用户组表
         /// </summary>
         public DbSet<UserGroup> UserGroups { get; set; }
-
-        /// <summary>
-        /// 印章交付信息
-        /// </summary>
-        public DbSet<SealTheDeliveryInformation> SealTheDeliveryInformations { get; set; }
         /// <summary>
         /// 订单信息表
         /// </summary>
