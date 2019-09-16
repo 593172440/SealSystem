@@ -182,6 +182,7 @@
         $("#input-card1").fileinput({
             language: 'zh',
             uploadAsync: 'false',
+            allowedFileExtensions: ["doc", "docx", "txt"],
             uploadUrl: BASE_URL + "DataFile/updata?sealInforNum=" + SealInforNum + "&note=aa",
             // uploadExtraData:function(){ //如果想添加额外的参数，在这里设置
             //     var obj = {};
@@ -201,6 +202,19 @@
         console.log("here");
         // $("#datatable-seal").dataTable().fnDraw(false);
         table_instance.ajax.reload();
+    }
+    //用户权限管理
+    function get_usergroup() {
+        var group_name = "";
+        $.ajax({
+            url: BASE_URL + "user/getUserGroupForUserName?userName=" +session.getAttribute("loginName") ,//改成你自己的
+            async: false,
+            success: function (data) {
+                group_name = data;
+                console.log(data);
+            }
+        })
+        return group_name;
     }
 
     //初始化table
@@ -226,21 +240,21 @@
                     "targets": -1,
                     "bSortable": false,
                     render: function (data, type, row) {
-                        // var html = "<p>"
-                        // if(data.SealState=="已录入"){
-                        //   html += "<a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;"
-                        // }
-                        // if(data.SealState=="待审核"){
-                        //   html += "<a id=\"check\" href=\"#\">进行审核</a>&nbsp;&nbsp;"
-                        // }
-                        // if(data.SealState != "已备案" && data.SealState!="已取消"){
-                        //   html +="<a id=\"cancel\"  href=\"#\">撤销</a>&nbsp;&nbsp;"
-                        // }
-                        // html += "</p>"
+                        var html = "<p>"
+                        if(data.SealState=="已录入"){//这边也是同样道理
+                          html += "<a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;"
+                         }
+                        if (data.SealState == "待审核" && get_usergroup() == "备案单位组" || get_usergroup() == "管理员组"){//你也可以在这里加权限,如果公安用户并且当前状态椒待审核,才显示
+                           html += "<a id=\"check\" href=\"#\">进行审核</a>&nbsp;&nbsp;"
+                         }
+                         if(data.SealState != "已备案" && data.SealState!="已取消"){
+                           html +="<a id=\"cancel\"  href=\"#\">撤销</a>&nbsp;&nbsp;"
+                         }
+                         html += "</p>"
 
 
                         // 需要做条件判断，现在是调试模式，所以所有的状态都会出现，如果正式上线请参考上面注释来写
-                        var html = "<p><a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;<a id=\"check\" href=\"#\">进行审核</a>&nbsp;&nbsp;<a id=\"cancel\"  href=\"#\">撤销</a>&nbsp;&nbsp;</p>"
+                        //var html = "<p><a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;<a id=\"check\" href=\"#\">进行审核</a>&nbsp;&nbsp;<a id=\"cancel\"  href=\"#\">撤销</a>&nbsp;&nbsp;</p>"
                         return html;
                     }
                 }
@@ -260,8 +274,8 @@
         //判别路径后缀是不是图片格式
         function checkPic(filename) {
             var flag = false; //状态
-            //var arr = ["jpg", "png", "gif"];
-            var arr = ["doc", "docx", "txt"];
+            var arr = ["jpg", "png", "gif"];
+            //var arr = ["doc", "docx", "txt"];
             //取出上传文件的扩展名
             var index = filename.lastIndexOf(".");
             var ext = filename.substr(index + 1);
@@ -297,16 +311,19 @@
                     const BASE = "http://localhost:8003"
                     console.log("审核", data);
                     for (var i = 0; i < data.length; i++) {
-                        if (checkPic(data[i])) {
+                        var data_array = data[i].split(":");
+                        var name = data_array[0];
+                        var path = data_array[1];
+                        if (checkPic(path)) {
                             var temp = ''
-                            temp += '<a class="example-image-link" href="' + BASE + data[i] + '" data-lightbox="example-1" title="test1">'
-                            temp += '<img src="' + BASE + data[i] + '" alt="..."></a>'
+                            temp += '<a class="example-image-link" href="' + BASE + path + '" data-lightbox="example-1" title="test1">'
+                            temp += '<img src="' + BASE + path + '" alt="..."></a>'
                             $(".product_gallery").append(temp)
                         } else {
                             var temp = ''
-                            var index = data[i].lastIndexOf("/");
-                            var file_name = data[i].substr(index + 1);
-                            temp += '<li><a  href="' + BASE + data[i] + '" >' + file_name+'</a></li>'
+                            //var index = path.lastIndexOf("/");
+                            //var file_name = path.substr(index + 1);
+                            temp += '<li><a  href="' + BASE + path + '" >' + name+'</a></li>'
                             $("#files").append(temp)
                         }
                     }
@@ -320,7 +337,7 @@
         $('#datatable-seal tbody').on('click', 'a#cancel', function () {
             var row_data = $('#datatable-seal').DataTable().row($(this).parents('tr')).data();
             $.ajax({
-                url: BASE_URL + "SealInforNew/SetSealStateForCheXiao",
+                url: BASE_URL + "SealInforNew/setForCheXiao",
                 data: { "id": row_data.Id },
                 success: function (data) {
                     if (data.code == 200) {
@@ -339,7 +356,7 @@
     function checkSuccess() {
         var sealInforId = $("#form_infor input[name='SealInforId']").val();
         $.ajax({
-            url: BASE_URL + "SealInforNew/SetSealStateForBeiAn",
+            url: BASE_URL + "SealInforNew/setForBeiAn",
             data: { "id": sealInforId },
             success: function (data) {
                 if (data.code == 200) {

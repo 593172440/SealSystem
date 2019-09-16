@@ -1029,6 +1029,13 @@
             <param name="model"></param>
             <returns>返回token值</returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.UserController.GetUserGroupForUserName(System.String)">
+            <summary>
+            查询:根据用户名获取相应的用户组信息
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserGroupController">
             <summary>
             用户组

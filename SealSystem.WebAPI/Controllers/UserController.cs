@@ -48,5 +48,15 @@ namespace SealSystem.WebAPI.Controllers
                 });
             }
         }
+        /// <summary>
+        /// 查询:根据用户名获取相应的用户组信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        [Route("getUserGroupForUserName"), HttpGet]
+        public async Task<string> GetUserGroupForUserName(string userName)
+        {
+            return await BLL.UserBLL.GetUserGroupForUserName(userName);
+        }
     }
 }

@@ -104,6 +104,7 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
     function init_upload(sealId) {
+        $(".fileinput-remove-button").click();
         $("#input-card1").fileinput({
             language: 'zh',
             uploadAsync: 'false',
@@ -288,6 +289,7 @@
                 success: function (data) {
                     if (data.code == 200) {
                         alert("更新成功")
+                        window.location.href = "/SealInforNewsJiaoFu/Index"
                     }
                 }
             })
@@ -298,7 +300,7 @@
                 var SealMaterial = $(this).find(".SealMaterial").val()
                 var MakeWay = $(this).find(".MakeMethod").val()
                 var Note = $(this).find(".Note").val()
-                alert($(this).find(".sealNumber").html());
+                //alert($(this).find(".sealNumber").html());
                 $.ajax({
                     type: 'POST',
                     url: BASE_URL + 'SealInforNew/setForTheOrders_TheOrderCode?sealInforNum=' + $(this).find(".sealNumber").html(),

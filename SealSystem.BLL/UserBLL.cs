@@ -111,5 +111,17 @@ namespace SealSystem.BLL
                 }
             }
         }
+        /// <summary>
+        /// 查询:根据用户名获取相应的用户组信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public static async Task<string> GetUserGroupForUserName(string userName)
+        {
+            using (var db = new DAL.UserDAL())
+            {
+                return (await db._db.Users.Include(s => s.UserGroup).FirstAsync(m => m.UserName == userName)).UserGroup.Name;
+            }
+        }
     }
 }
