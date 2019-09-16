@@ -12,25 +12,14 @@ namespace SealSystem.BLL
     public class SealInforNewBLL
     {
         /// <summary>
-        /// 获取数据库中全部数据条数
+        /// 获取数据库中最大的id值
         /// </summary>
         /// <returns></returns>
-        public string GetAllCount()
+        public static async Task<int> GetMaxId()
         {
             using (var db = new DAL.SealInforNewDAL())
             {
-                int str = db.GetAll().Count() + 10;//100
-                string strs = str.ToString();
-                int j = str.ToString().Length;
-                int k = 7 - j;
-                if (j < 7)
-                {
-                    for (int i = 0; i < k; i++)
-                    {
-                        strs = "0" + strs;
-                    }
-                }
-                return strs;
+                 return (await db.GetAll().OrderByDescending(m => m.Id).FirstAsync()).Id;
             }
         }
         /// <summary>

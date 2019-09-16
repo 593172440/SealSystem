@@ -81,7 +81,7 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
-        /// 根据印章编号获取相应的文件路径 
+        /// 根据印章编号获取相应的文件名和文件路径
         /// </summary>
         /// <param name="sealInforNew_SealInforNum"></param>
         /// <returns></returns>
@@ -93,7 +93,7 @@ namespace SealSystem.BLL
                 var data = await db.GetAll().Where(m => m.SealInforNew_SealInforNum == sealInforNew_SealInforNum).ToListAsync();
                 foreach (var item in data)
                 {
-                    list.Add(item.NamePath);
+                    list.Add(item.Name+":"+item.NamePath);
                 }
                 return list;
             }

@@ -392,5 +392,14 @@ namespace SealSystem.WebAPI.Controllers
             });
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
+        /// <summary>
+        /// 获取数据库中最大的id值
+        /// </summary>
+        /// <returns></returns>
+        [Route("maxId"), HttpGet]
+        public async Task<int> GetMaxId()
+        {
+            return await BLL.SealInforNewBLL.GetMaxId();
+        }
     }
 }

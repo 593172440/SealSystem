@@ -30,12 +30,16 @@ namespace SealSystem.Web3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SealInforNew sealInforNew = await db.SealInforNews.FindAsync(id);
-            if (sealInforNew == null)
+            else
             {
-                return HttpNotFound();
+                SealInforNew sealInforNew = await db.SealInforNews.FindAsync(id);
+                if (sealInforNew == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(sealInforNew);
             }
-            return View(sealInforNew);
+
         }
 
         // GET: SealInforNews/Create
@@ -182,7 +186,8 @@ namespace SealSystem.Web3.Controllers
         /// <returns></returns>
         public async Task<int> CreateSealList(string seal, string ars)
         {
-            string guid= Guid.NewGuid().ToString();
+            string guid = Guid.NewGuid().ToString();
+            int id=await BLL.SealInforNewBLL.GetMaxId();
             List<Models.SealInforNew1> s1 = JsonConvert.DeserializeObject<List<Models.SealInforNew1>>(seal);
             Models.SealInforNew2 s2 = JsonConvert.DeserializeObject<Models.SealInforNew2>(ars);
 
@@ -198,7 +203,7 @@ namespace SealSystem.Web3.Controllers
                     list.RegistrationCategory = item.RegistrationCategory;
                     list.SealCategory_Id_Code = BLL.SealCategoriesBLL.GetSelected(item.SealCategory_Id_Code, item.SealSpecification);
                     list.SealContent = item.SealContent;
-                    list.SealInforNum = item.SealInforNum;
+                    list.SealInforNum = (1201160000000 + id++).ToString(); /*item.SealInforNum;*///印章编码
                     list.SealMaterial = item.SealMaterial;
                     list.SealShape = item.SealShape;
                     list.SealState = "已录入";
@@ -206,8 +211,8 @@ namespace SealSystem.Web3.Controllers
                     list.SealUseUnitInfor_Id_UnitNumber = await BLL.SealUseUnitInforBLL.GetOneForId(s2.SealUseUnitInfor_Id_UnitNumber);
 
                     await BLL.SealInforNewBLL.AddAsync(list);//增加一条印章信息
-                    
-                    
+
+
                 }
                 catch (Exception ex)
                 {

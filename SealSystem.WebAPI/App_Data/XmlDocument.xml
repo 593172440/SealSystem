@@ -549,7 +549,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.DataToFileController.GetFileUrl(System.String)">
             <summary>
-            根据印章编码获取相应的文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
+            根据印章编码获取相应的文件名和文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
             </summary>
             <param name="sealInforNew_SealInforNum">印章编码</param>
             <returns></returns>
@@ -588,7 +588,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.DataToImageController.UploadFileStream(System.String,System.String)">
             <summary>
-            添加印章图片
+            添加印章图片(判断印章编码是否存在,存在更新,不存在添加)
             </summary>
             <param name="sealInforNum">印章编码</param>
             <param name="note">备注</param>
@@ -826,6 +826,12 @@
             </summary>
             <param name="sealInforNum"></param>
             <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetMaxId">
+            <summary>
+            获取数据库中最大的id值
+            </summary>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealMakingUnitInforController">

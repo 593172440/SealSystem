@@ -8,7 +8,7 @@
     public class SSContext : DbContext
     {
         //con1是112.112.112.18；con2是本地
-        public SSContext() : base("con2")
+        public SSContext() : base("con1")
         {
             Database.SetInitializer<SSContext>(null);
         }

@@ -98,7 +98,7 @@ namespace SealSystem.WebAPI.Controllers
             return await BLL.DataToFileBLL.GetFileAndImageOneForSealInforNew_Id(sealInforNew_Id);
         }
         /// <summary>
-        /// 根据印章编码获取相应的文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
+        /// 根据印章编码获取相应的文件名和文件路径(postman测试通过)(一条印章信息里面包括许多条文件)
         /// </summary>
         /// <param name="sealInforNew_SealInforNum">印章编码</param>
         /// <returns></returns>

@@ -260,7 +260,8 @@
         //判别路径后缀是不是图片格式
         function checkPic(filename) {
             var flag = false; //状态
-            var arr = ["jpg", "png", "gif"];
+            //var arr = ["jpg", "png", "gif"];
+            var arr = ["doc", "docx", "txt"];
             //取出上传文件的扩展名
             var index = filename.lastIndexOf(".");
             var ext = filename.substr(index + 1);
