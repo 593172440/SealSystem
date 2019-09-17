@@ -2,14 +2,7 @@
             context.SealUseUnitInfors.AddOrUpdate(
                 new SealUseUnitInfor { EnterpriseDocumentsType = "企业证件类型", IdNumber = "120333345678443221", IdNumbers = "123123123123", LegelPerson = "企业法人", Name = "使用单位信息名称", Note = "备注", Phone = "1383190000", TheUnitType = "单位类型", UnitAddress = "单位地址", UnitClassification = "单位分类", UnitNumber = "1320222123123123" }
                 );
-			//印章备案信息
-            context.SealApprovalUnitInfors.AddOrUpdate(
-                new SealApprovalUnitInfor { Approval = "备案人小明", ApprovalUnitCode = "120600555489", Attention = "小刚", AttentionIdCard = "130589456213025415", Contact = "13051895555", Name = "这里是备案单位详细信息" }
-                );
-			//印章制作单位信息表
-            context.SealMakingUnitInfors.AddOrUpdate(
-                new SealMakingUnitInfor { BusinessLicense = "营业执照没有", BusinessState = "正在营业", Contact = "小明", ContanctPhone = "13524500012", IdNumber = "180152001215154212", LegelPerson = "小强", MakingUnitCode = "120600123456789", Name = "北京制章单位", Phone = "13831955555", UnitAddress = "北京市西山沟1号" }
-            );
+			
 			//印章类型代码表初始化
             context.SealCategorys.AddOrUpdate(
                   new SealCategory { Code = "01", Name = "单位专用章",SealSpecifications="40公章",TestImagePath= "40DWZY.png" },
@@ -126,8 +119,6 @@
                 new MenuTable { CodeId = 100, Name = "信息登记", SuperiorCodeId = 0, MenuPath = "" },
                 new MenuTable { CodeId = 2, Name = "印章信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealInforNews/Index'>印章信息管理</a></li>" },
                 new MenuTable { CodeId = 3, Name = "使用单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealUseUnitInfors/Index'>使用单位信息管理</a></li>" },
-                new MenuTable { CodeId = 4, Name = "制章单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealMakingUnitInfors/Index'>制章单位信息管理</a></li>" },
-                new MenuTable { CodeId = 5, Name = "备案单位信息", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealApprovalUnitInfors/Index'>备案单位信息</a></li>" },
                 new MenuTable { CodeId = 200, Name = "生产管理", SuperiorCodeId = 0, MenuPath = "" },
                 new MenuTable { CodeId = 7, Name = "印章制作", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsMaking/Index'>印章制作</a></li>" },
                 new MenuTable { CodeId = 8, Name = "印章交付", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>" },
@@ -141,7 +132,6 @@
                 new MenuTable { CodeId = 16, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
                 new MenuTable { CodeId = 17, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
                 new MenuTable { CodeId = 18, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
-                new MenuTable { CodeId = 19, Name = "文件管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/FileAndImages/Index'>文件管理</a></li>" },
                 new MenuTable { CodeId = 20, Name = "印章类型管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealCategories/Index'>印章类型管理</a></li>" }
                 );
 				//增加用户组
@@ -155,34 +145,31 @@
 				//--------------------以下信息要一个一个的来更新数据库------------------//
 
 
-				  //增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
+				 //增加管理员的权限管理(注：这个功能只能新建数据库运行一次)
             context.UserPermissions.AddOrUpdate(
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 2, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 3, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 4, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 5, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 7, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 8, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 9, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 11, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 12, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 14, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 15, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 16, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 17, Add = true, Delete = true, Edit = true },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 18 },
-                 new UserPermissions { UserGroup_Id = 1, Menu_Id = 19, Add = true, Delete = true, Edit = true }
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 2, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 3, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 7, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 8, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 9, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 11, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 12, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 14, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 15, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 16, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 17, Add = true, Delete = true, Edit = true },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 18 },
+                 new UserPermissions { UserGroup_Id = 1, MenuTables_CodeId = 19, Add = true, Delete = true, Edit = true }
                  );
-			
-				//增加管理员（注：这个最后增加）
+
+            //增加管理员（注：这个最后增加）
             context.Users.AddOrUpdate(
                 new User { UserName = "admin", UserPwd = "admin", EntityName = "管理员", UserGroup_Id = 1 }
                 );
-				//印章信息测试数据
-				context.SealInforNews.AddOrUpdate(
-                new SealInforNew { EngravingLevel = "一级", EngravingType = "圆形", ForeignLanguageContent = "测试外文内容", MakeWay = "制作方式", RegistrationCategory = "登记类别", Note = "备注", SealApprovalUnitInfor_Id = 1, SealCategory_Id_Code = 1, SealContent = "印章内容", SealInforNum = "1206123456789", SealMakingUnitInfor_Id = 1, SealMaterial = "章体材料", SealShape = "印章形状", SealState = "印章状态", SealUseUnitInfor_Id_UnitNumber = 1, TheProducer = "制作人" }
-                );
-
+            //印章信息测试数据
+            context.SealInforNews.AddOrUpdate(
+            new SealInforNew { EngravingLevel = "一级", EngravingType = "圆形", ForeignLanguageContent = "测试外文内容", MakeWay = "制作方式", RegistrationCategory = "登记类别", Note = "备注", User_Id = 1, SealCategory_Id_Code = 1, SealContent = "印章内容", SealInforNum = "1206123456789", SealMaterial = "章体材料", SealShape = "印章形状", SealState = "印章状态", SealUseUnitInfor_Id_UnitNumber = 1, TheProducer = "制作人" }
+            );
 
 				
 

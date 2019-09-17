@@ -31,13 +31,9 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// </summary>
         public int SealCategory_Id_Code { get; set; }
         /// <summary>
-        /// 备案信息Id
+        /// 用户信息id
         /// </summary>
-        public int SealApprovalUnitInfor_Id { get; set; }
-        /// <summary>
-        /// 印章制作单位Id
-        /// </summary>
-        public int SealMakingUnitInfor_Id { get; set; }
+        public string User_Id { get; set; }
 
         /// <summary>
         /// 印章内容(默认为使用单位名称)

@@ -26,13 +26,9 @@ namespace SealSystem.Models
         /// </summary>
         public string TheOrders_TheOrderCode { get; set; }
         /// <summary>
-        /// 备案信息Id
+        /// 用户信息id
         /// </summary>
-        public int SealApprovalUnitInfor_Id { get; set; }
-        /// <summary>
-        /// 印章制作单位Id
-        /// </summary>
-        public int SealMakingUnitInfor_Id { get; set; }
+        public int User_Id { get; set; }
 
         /// <summary>
         /// 印章类型代码(标准：GA 241.2)(外键)

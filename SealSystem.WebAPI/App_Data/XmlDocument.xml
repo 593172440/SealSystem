@@ -757,14 +757,6 @@
             <param name="asc">排序,true:正序,falas:降序</param>
             <returns></returns>
         </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(System.String,System.Int32)">
-            <summary>
-            修改:根据订单号修改所有的备案信息_id
-            </summary>
-            <param name="theOrders_TheOrderCode">订单号</param>
-            <param name="id">备案信息id</param>
-            <returns></returns>
-        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.GetTestImagePathForId(System.Int32)">
             <summary>
             根据id获取测试/正式印章图片(postman测试通过)
@@ -1055,14 +1047,9 @@
             印章类型代码(标准：GA 241.2)
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealApprovalUnitInfor_Id">
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.User_Id">
             <summary>
-            备案信息Id
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealMakingUnitInfor_Id">
-            <summary>
-            印章制作单位Id
+            用户信息id
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl.SealContent">
@@ -1155,14 +1142,9 @@
             印章类型代码(标准：GA 241.2)
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealApprovalUnitInfor_Id">
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.User_Id">
             <summary>
-            备案信息Id
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealMakingUnitInfor_Id">
-            <summary>
-            印章制作单位Id
+            用户信息id
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAll.SealContent">
@@ -1255,14 +1237,9 @@
             印章类型代码(标准：GA 241.2)
             </summary>
         </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealApprovalUnitInfor_Id">
+        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.User_Id">
             <summary>
-            备案信息Id
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealMakingUnitInfor_Id">
-            <summary>
-            印章制作单位Id
+            用户信息id
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModel.SealContent">

@@ -38,14 +38,14 @@ namespace SealSystem.WebAPI.Controllers
                     RegistrationCategory = item.RegistrationCategory,
                     SealCategory_Id_Code = item.SealCategory_Id_Code,
                     SealContent = item.SealContent,
+                    User_Id=item.User_Id,
                     SealInforNum = item.SealInforNum,
                     SealMaterial = item.SealMaterial,
                     SealShape = item.SealShape,
                     SealState = item.SealState,
                     SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
                     TheProducer = item.TheProducer,
-                    SealApprovalUnitInfor_Id = item.SealApprovalUnitInfor_Id,
-                    SealMakingUnitInfor_Id = item.SealMakingUnitInfor_Id,
+                   
                     Id = item.Id,
                     CreateTime = item.CreateTime
                 });
@@ -94,11 +94,10 @@ namespace SealSystem.WebAPI.Controllers
                     MakeWay = item.MakeWay,
                     Note = item.Note,
                     RegistrationCategory = item.RegistrationCategory,
-                    SealApprovalUnitInfor_Id = item.SealApprovalUnitInfor_Id,
                     SealCategory_Id_Code = item.SealCategory_Id_Code,
                     SealContent = item.SealContent,
                     SealInforNum = item.SealInforNum,
-                    SealMakingUnitInfor_Id = item.SealMakingUnitInfor_Id,
+                    User_Id=item.User_Id,
                     SealMaterial = item.SealMaterial,
                     SealShape = item.SealShape,
                     SealState = item.SealState,
@@ -272,12 +271,12 @@ namespace SealSystem.WebAPI.Controllers
         /// <param name="theOrders_TheOrderCode">订单号</param>
         /// <param name="id">备案信息id</param>
         /// <returns></returns>
-        [Route("setForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id"), HttpGet]
-        public async Task<IHttpActionResult> SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(string theOrders_TheOrderCode,int id)
-        {
-            await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrders_TheOrderCode,id);
-            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
-        }
+        //[Route("setForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id"), HttpGet]
+        //public async Task<IHttpActionResult> SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(string theOrders_TheOrderCode,int id)
+        //{
+        //    await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrders_TheOrderCode,id);
+        //    return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
+        //}
         /// <summary>
         /// 根据id获取测试/正式印章图片(postman测试通过)
         /// </summary>

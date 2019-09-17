@@ -103,11 +103,11 @@ namespace SealSystem.BLL
                 data.SealInforNum = model.SealInforNum;
                 data.SealMaterial = model.SealMaterial;
                 data.SealShape = model.SealShape;
+                data.User_Id = model.User_Id;
                 data.SealState = model.SealState;
                 data.SealUseUnitInfor_Id_UnitNumber = model.SealUseUnitInfor_Id_UnitNumber;
                 data.TheProducer = model.TheProducer;
-                data.SealApprovalUnitInfor_Id = model.SealApprovalUnitInfor_Id;
-                data.SealMakingUnitInfor_Id = model.SealMakingUnitInfor_Id;
+             
                 await db.EditAsync(data);
             }
         }
@@ -159,32 +159,32 @@ namespace SealSystem.BLL
         /// <param name="id"></param>
         /// <param name="sealApprovalUnitInfor_Id"></param>
         /// <returns></returns>
-        public static async Task SetForIdForSealApprovalUnitInfor_Id(int id, int sealApprovalUnitInfor_Id)
-        {
-            using (var db = new DAL.SealInforNewDAL())
-            {
-                var data = await db.GetOneAsync(id);
-                data.SealApprovalUnitInfor_Id = sealApprovalUnitInfor_Id;
-                await db.EditAsync(data);
-            }
-        }
+        //public static async Task SetForIdForSealApprovalUnitInfor_Id(int id, int sealApprovalUnitInfor_Id)
+        //{
+        //    using (var db = new DAL.SealInforNewDAL())
+        //    {
+        //        var data = await db.GetOneAsync(id);
+        //        data.SealApprovalUnitInfor_Id = sealApprovalUnitInfor_Id;
+        //        await db.EditAsync(data);
+        //    }
+        //}
         /// <summary>
         /// 根据订单号修改所有的备案信息_id
         /// </summary>
         /// <param name="theOrders_TheOrderCode"></param>
         /// <returns></returns>
-        public static async Task SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(string theOrders_TheOrderCode, int id)
-        {
-            using (var db = new DAL.SealInforNewDAL())
-            {
-                var data = await db.GetAll().Where(m => m.TheOrders_TheOrderCode == theOrders_TheOrderCode).ToListAsync();
-                foreach (var item in data)
-                {
-                    item.SealApprovalUnitInfor_Id = id;
-                    await db.EditAsync(item);
-                }
-            }
-        }
+        //public static async Task SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(string theOrders_TheOrderCode, int id)
+        //{
+        //    using (var db = new DAL.SealInforNewDAL())
+        //    {
+        //        var data = await db.GetAll().Where(m => m.TheOrders_TheOrderCode == theOrders_TheOrderCode).ToListAsync();
+        //        foreach (var item in data)
+        //        {
+        //            item.SealApprovalUnitInfor_Id = id;
+        //            await db.EditAsync(item);
+        //        }
+        //    }
+        //}
         /// <summary>
         /// 根据id获取测试/正式印章图片
         /// </summary>

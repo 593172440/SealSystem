@@ -19,10 +19,10 @@ namespace SealSystem.Models
         public int UserGroup_Id { get; set; }
         public UserGroup UserGroup { get; set; }
 
-
-        [ForeignKey(nameof(MenuTable))]
-        public int Menu_Id { get; set; }
-        public MenuTable MenuTable { get; set; }
+        /// <summary>
+        /// 菜单编号
+        /// </summary>
+       public int MenuTables_CodeId { get; set; }
         /// <summary>
         /// 增加权限
         /// </summary>
