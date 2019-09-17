@@ -15,7 +15,7 @@ namespace SealSystem.Web3.Controllers
         // GET: UserPermissions
         public async Task<ActionResult> Index()
         {
-            var userPermissions = db.UserPermissions.Include(u => u.MenuTable).Include(u => u.UserGroup);
+            var userPermissions = db.UserPermissions.Include(u => u.UserGroup);
             return View(await userPermissions.ToListAsync());
         }
 
@@ -56,7 +56,7 @@ namespace SealSystem.Web3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
+            //ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
             ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }
@@ -73,7 +73,7 @@ namespace SealSystem.Web3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
+            //ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
             ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }
@@ -91,7 +91,7 @@ namespace SealSystem.Web3.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
+            //ViewBag.Menu_Id = new SelectList(db.MenuTables, "Id", "Name", userPermissions.Menu_Id);
             ViewBag.UserGroup_Id = new SelectList(db.UserGroups, "Id", "Name", userPermissions.UserGroup_Id);
             return View(userPermissions);
         }

@@ -29,11 +29,11 @@ namespace SealSystem.Web3.Controllers
             var menusId = db.UserPermissions.Where(m => m.UserGroup_Id == user.UserGroup_Id);//根据用户组获取所有的相应的菜单Id
             foreach (var item in menusId)//获取每个权限的详细信息
             {
-                meunId.Add(item.Menu_Id);
-                if (item.Add) { sb6.Add(item.Menu_Id + ":Add"); }
-                if (item.Delete) { sb6.Add(item.Menu_Id + ":Delete"); }
-                if (item.Details) { sb6.Add(item.Menu_Id + ":Details"); }
-                if (item.Edit) { sb6.Add(item.Menu_Id + ":Edit"); }
+                meunId.Add(item.MenuTables_CodeId);
+                if (item.Add) { sb6.Add(item.MenuTables_CodeId + ":Add"); }
+                if (item.Delete) { sb6.Add(item.MenuTables_CodeId + ":Delete"); }
+                if (item.Details) { sb6.Add(item.MenuTables_CodeId + ":Details"); }
+                if (item.Edit) { sb6.Add(item.MenuTables_CodeId + ":Edit"); }
             }
             List<MenuTable> menusData = db.MenuTables.Where(m => meunId.Contains(m.Id)).ToList();//根据菜单Id在菜单表里获取相应的菜单
             //////////////////////////////////////

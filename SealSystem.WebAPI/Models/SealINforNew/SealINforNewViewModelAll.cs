@@ -34,7 +34,7 @@ namespace SealSystem.WebAPI.Models.SealINforNew
         /// <summary>
         /// 用户信息id
         /// </summary>
-        public string User_Id { get; set; }
+        public int User_Id { get; set; }
 
         /// <summary>
         /// 印章内容(默认为使用单位名称)
