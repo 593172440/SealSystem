@@ -640,54 +640,6 @@
             重命名上传的图片
             </summary>
         </member>
-        <member name="T:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController">
-            <summary>
-            印章备案(审批)单位信息
-            </summary>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.AddAsync(SealSystem.Models.SealApprovalUnitInfor)">
-            <summary>
-            增加印章备案(审批)单位信息
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.EditForApprovalUnitCodeAsync(System.String,SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel)">
-            <summary>
-            根据备案单位编码修改相应的信息
-            </summary>
-            <param name="approvalUnitCode"></param>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.EditForIdAsync(System.Int32,SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel)">
-            <summary>
-            根据Id修改相应的信息
-            </summary>
-            <param name="id"></param>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.GetAll">
-            <summary>
-            获取印章备案(审批)单位信息所有数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.GetForId(System.Int32)">
-            <summary>
-            根据Id获取相应的数据
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealApprovalUnitInforController.GetForApprovalUnitCode(System.String)">
-            <summary>
-            根据备案单位编码获取相应的数据
-            </summary>
-            <param name="approvalUnitCode"></param>
-            <returns></returns>
-        </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealCategoryController">
             <summary>
             印章类型规格表(印章类型,印章规格,测试印章图片地址)
@@ -839,46 +791,6 @@
             <summary>
             获取数据库中最大的id值
             </summary>
-            <returns></returns>
-        </member>
-        <member name="T:SealSystem.WebAPI.Controllers.SealMakingUnitInforController">
-            <summary>
-            印章制作单位信息
-            </summary>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.AddAsync(SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel)">
-            <summary>
-            增加印章制作单位
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.EditAsync(System.Int32,SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel)">
-            <summary>
-            根据印章制作单位Id修改相应的数据
-            </summary>
-            <param name="id"></param>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.GetAll">
-            <summary>
-            获取所有的印章制作单位数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.GetOneForMakingUnitCode(System.String)">
-            <summary>
-            根据制作单位编码获取相应的数据
-            </summary>
-            <param name="makingUnitCode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SealSystem.WebAPI.Controllers.SealMakingUnitInforController.RemoveAsyncForId(System.Int32)">
-            <summary>
-            根据Id删除相应的数据
-            </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.SealSystemListController">
@@ -1116,46 +1028,6 @@
         <member name="T:SealSystem.WebAPI.Models.ResponseData">
             <summary>
             服务器响应类
-            </summary>
-        </member>
-        <member name="T:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel">
-            <summary>
-            印章备案(审批)单位信息
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.ApprovalUnitCode">
-            <summary>
-            备案单位编码(标准：GA 241.1)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Name">
-            <summary>
-            备案单位名称
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Attention">
-            <summary>
-            经办人
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.AttentionIdCard">
-            <summary>
-            身份证
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Contact">
-            <summary>
-            联系方式
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Approval">
-            <summary>
-            备案人
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealApprovalUnitInfor.SealApprovalUnitInforViewModel.Note">
-            <summary>
-            备注
             </summary>
         </member>
         <member name="T:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelAllAndFileUrl">
@@ -1474,81 +1346,6 @@
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu.Note">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="T:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel">
-            <summary>
-            印章制作单位信息表
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.MakingUnitCode">
-            <summary>
-            制作单位编码(标准：GA241.1)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Name">
-            <summary>
-            单位名称(汉字)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.EthnicMinoritiesName">
-            <summary>
-            单位名称(少数民族文字)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.EnglishName">
-            <summary>
-            单位名称(英文名)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.LegelPerson">
-            <summary>
-            法定代表人(负责人)
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.IdNumber">
-            <summary>
-            法定代表人(负责人)身份证号
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.UnitAddress">
-            <summary>
-            单位地址
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.TheZipCode">
-            <summary>
-            邮政编码
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Contact">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.ContanctPhone">
-            <summary>
-            联系人电话
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.BusinessLicense">
-            <summary>
-            营业执照
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.BusinessState">
-            <summary>
-            营业状态
-            </summary>
-        </member>
-        <member name="P:SealSystem.WebAPI.Models.SealMakingUnitInfor.SealMakingUnitInforViewModel.Remarks">
             <summary>
             备注
             </summary>

@@ -18,16 +18,6 @@
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
-
-        /// <summary>
-        /// 印章备案(审批)单位信息表(数据上下文)
-        /// </summary>
-        public DbSet<SealApprovalUnitInfor> SealApprovalUnitInfors { get; set; }
-       
-        /// <summary>
-        /// 印章制作单位信息表(数据上下文)
-        /// </summary>
-        public DbSet<SealMakingUnitInfor> SealMakingUnitInfors { get; set; }
         /// <summary>
         /// 印章使用单位信息表(数据上下文)
         /// </summary>

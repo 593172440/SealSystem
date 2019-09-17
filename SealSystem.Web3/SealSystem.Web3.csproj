@@ -127,11 +127,9 @@
     <Compile Include="Controllers\FileAndImagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuTablesController.cs" />
-    <Compile Include="Controllers\SealApprovalUnitInforsController.cs" />
     <Compile Include="Controllers\SealCategoriesController.cs" />
     <Compile Include="Controllers\SealInforNewsController.cs" />
     <Compile Include="Controllers\SealInforNewsJiaoFuController.cs" />
-    <Compile Include="Controllers\SealMakingUnitInforsController.cs" />
     <Compile Include="Controllers\SealUseUnitInforsController.cs" />
     <Compile Include="Controllers\UserPermissionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -388,11 +386,6 @@
     <Content Include="Views\Areas\Details.cshtml" />
     <Content Include="Views\Areas\Edit.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
-    <Content Include="Views\SealMakingUnitInfors\Create.cshtml" />
-    <Content Include="Views\SealMakingUnitInfors\Delete.cshtml" />
-    <Content Include="Views\SealMakingUnitInfors\Details.cshtml" />
-    <Content Include="Views\SealMakingUnitInfors\Edit.cshtml" />
-    <Content Include="Views\SealMakingUnitInfors\Index.cshtml" />
     <Content Include="Views\Home\LoginIndex.cshtml" />
     <Content Include="Views\AnnouncementNotices\Create.cshtml" />
     <Content Include="Views\AnnouncementNotices\Delete.cshtml" />
@@ -444,11 +437,6 @@
     <Content Include="Views\SealUseUnitInfors\Details.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Edit.cshtml" />
     <Content Include="Views\SealUseUnitInfors\Index.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Create.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Delete.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Details.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Edit.cshtml" />
-    <Content Include="Views\SealApprovalUnitInfors\Index.cshtml" />
     <Content Include="Views\SealInforNewsJiaoFu\Index.cshtml" />
     <Content Include="Views\SealInforNewsJiaoFu\JiaoFu.cshtml" />
   </ItemGroup>

@@ -180,10 +180,8 @@
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\DataToFileController.cs" />
     <Compile Include="Controllers\DataToImageController.cs" />
-    <Compile Include="Controllers\SealApprovalUnitInforController.cs" />
     <Compile Include="Controllers\SealCategoryController.cs" />
     <Compile Include="Controllers\SealInforNewController.cs" />
-    <Compile Include="Controllers\SealMakingUnitInforController.cs" />
     <Compile Include="Controllers\SealSystemListController.cs" />
     <Compile Include="Controllers\SealUseUnitInfor.cs" />
     <Compile Include="Controllers\TheOrderController.cs" />
@@ -198,12 +196,10 @@
     <Compile Include="Models\Auth\UserIdentity.cs" />
     <Compile Include="Models\FileAndImage\FileAndImageViewModel.cs" />
     <Compile Include="Models\ResponseData.cs" />
-    <Compile Include="Models\SealApprovalUnitInfor\SealApprovalUnitInforViewModel.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModelAllAndFileUrl.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModelAll.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModel.cs" />
     <Compile Include="Models\SealINforNew\SealINforNewViewModelJiaoFu.cs" />
-    <Compile Include="Models\SealMakingUnitInfor\SealMakingUnitInforViewModel.cs" />
     <Compile Include="Models\SealSystemList\SealSystemListViewModel.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforForAdd.cs" />
     <Compile Include="Models\SealUseUnitInfor\SealUseUnitInforViewModel.cs" />
