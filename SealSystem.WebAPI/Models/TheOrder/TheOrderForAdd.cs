@@ -55,5 +55,9 @@ namespace SealSystem.WebAPI.Models.TheOrder
         /// 上传日期
         /// </summary>
         public DateTime? UpTime { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public string SealState { get; set; }
     }
 }

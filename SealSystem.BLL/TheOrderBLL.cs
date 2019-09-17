@@ -103,5 +103,20 @@ namespace SealSystem.BLL
                 await db.EditAsync(data);
             }
         }
+        /// <summary>
+        /// 修改:根据订单号更新状态
+        /// </summary>
+        /// <param name="theOrderCode">订单号</param>
+        /// <param name="sealState">订单状态</param>
+        /// <returns></returns>
+        public static async Task SetSealStateForTheOrderCode(string theOrderCode,string sealState)
+        {
+            using (var db = new DAL.TheOrderDAL())
+            {
+                var data = await db.GetAll().FirstAsync(m => m.TheOrderCode == theOrderCode);
+                data.SealState = sealState;
+                await db.EditAsync(data);
+            }
+        }
     }
 }

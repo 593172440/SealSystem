@@ -85,6 +85,7 @@ namespace SealSystem.WebAPI.Controllers
             }
             //var id= BLL.SealInforNewBLL.GetSealInforOne(sealInforNum).Id;
             await BLL.DataToFileBLL.AddAsync(orfilename, returns, sealInforNum, note);
+            await BLL.SealInforNewBLL.SetForSealInforNum(sealInforNum, "待交付");
             return returns;
         }
         /// <summary>

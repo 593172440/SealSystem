@@ -139,6 +139,21 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
+        /// 修改:根据印章编码修改状态
+        /// </summary>
+        /// <param name="SealInforNum"></param>
+        /// <param name="sealState"></param>
+        /// <returns></returns>
+        public static async Task SetForSealInforNum(string sealInforNum, string sealState)
+        {
+            using (var db = new DAL.SealInforNewDAL())
+            {
+                var data = await db.GetAll().FirstAsync(m => m.SealInforNum == sealInforNum);
+                data.SealState = sealState;
+                await db.EditAsync(data);
+            }
+        }
+        /// <summary>
         /// 根据id修改备案信息_id
         /// </summary>
         /// <param name="id"></param>

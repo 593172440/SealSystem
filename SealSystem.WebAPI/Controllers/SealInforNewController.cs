@@ -71,42 +71,7 @@ namespace SealSystem.WebAPI.Controllers
         {
             return await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);
         }
-        /// <summary>
-        /// 根据印章编码获取印章信息带文件/图像地址(posman测试通过)
-        /// </summary>
-        /// <param name="sealInforNum">印章编码</param>
-        /// <returns></returns>
-        //[Route("sealInForOneFileUrl"), HttpGet]
-        //public async Task<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl> GetSealInforOneFileUrl(string sealInforNum)
-        //{
-        //    var data = await BLL.SealInforNewBLL.GetSealInforOne(sealInforNum);
-        //    var model = new Models.SealINforNew.SealINforNewViewModelAllAndFileUrl()
-        //    {
-        //        CreateTime = data.CreateTime,
-        //        EngravingLevel = data.EngravingLevel,
-        //        EngravingType = data.EngravingType,
-        //        ForeignLanguageContent = data.ForeignLanguageContent,
-        //        Id = data.Id,
-        //        MakeWay = data.MakeWay,
-        //        Note = data.Note,
-        //        RegistrationCategory = data.RegistrationCategory,
-        //        SealApprovalUnitInfor_Id = data.SealApprovalUnitInfor_Id,
-        //        SealCategory_Id_Code = data.SealCategory_Id_Code,
-        //        SealContent = data.SealContent,
-        //        SealInforNum = data.SealInforNum,
-        //        SealMakingUnitInfor_Id = data.SealMakingUnitInfor_Id,
-        //        SealMaterial = data.SealMaterial,
-        //        SealShape = data.SealShape,
-        //        SealState = data.SealState,
-        //        SealUseUnitInfor_Id_UnitNumber = data.SealUseUnitInfor_Id_UnitNumber,
-        //        TheOrders_TheOrderCode = data.TheOrders_TheOrderCode,
-        //        TheProducer = data.TheProducer,
-        //        FileUrl = (await BLL.FileAndImageBLL.GetFileAndImageOneForSealInforNew_Id(data.SealInforNum)).NamePath
-        //    };
-        //    return model;
-
-
-        //}
+       
         /// <summary>
         /// 根据订单号获取所有印章信息(posman测试通过)
         /// </summary>
@@ -144,54 +109,7 @@ namespace SealSystem.WebAPI.Controllers
             }
             return model;
         }
-        /// <summary>
-        /// 根据订单号获取所有印章信息带文件/图像地址???这个有问题
-        /// </summary>
-        /// <param name="theOrders_TheOrderCode">订单号</param>
-        /// <returns></returns>
-        //[Route("sealListFortheOrderCodeFileUrl"), HttpGet]
-        //public async Task<List<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl>> GetAllForTheOrders_TheOrderCodeFileUrl(string theOrders_TheOrderCode)
-        //{
-        //    var data = await BLL.SealInforNewBLL.GetAllForTheOrders_TheOrderCode(theOrders_TheOrderCode);
-        //    var model = new List<Models.SealINforNew.SealINforNewViewModelAllAndFileUrl>();
-        //    foreach (SealSystem.Models.SealInforNew item in data)
-        //    {
-        //        string url = await BLL.FileAndImageBLL.GetFileUrl(item.SealInforNum);
-        //        try
-        //        {
-        //            model.Add(new Models.SealINforNew.SealINforNewViewModelAllAndFileUrl()
-        //            {
-        //                CreateTime = item.CreateTime,
-        //                EngravingLevel = item.EngravingLevel,
-        //                EngravingType = item.EngravingType,
-        //                ForeignLanguageContent = item.ForeignLanguageContent,
-        //                Id = item.Id,
-        //                MakeWay = item.MakeWay,
-        //                Note = item.Note,
-        //                RegistrationCategory = item.RegistrationCategory,
-        //                SealApprovalUnitInfor_Id = item.SealApprovalUnitInfor_Id,
-        //                SealCategory_Id_Code = item.SealCategory_Id_Code,
-        //                SealContent = item.SealContent,
-        //                SealInforNum = item.SealInforNum,
-        //                SealMakingUnitInfor_Id = item.SealMakingUnitInfor_Id,
-        //                SealMaterial = item.SealMaterial,
-        //                SealShape = item.SealShape,
-        //                SealState = item.SealState,
-        //                SealUseUnitInfor_Id_UnitNumber = item.SealUseUnitInfor_Id_UnitNumber,
-        //                TheOrders_TheOrderCode = item.TheOrders_TheOrderCode,
-        //                TheProducer = item.TheProducer,
-        //                FileUrl = url
-        //            });
-        //        }
-        //        catch (Exception ex)
-        //        {
-
-        //            throw ex;
-        //        }
-
-        //    }
-        //    return model;
-        //}
+       
         /// <summary>
         /// 增加一条印章信息数据
         /// </summary>
@@ -281,14 +199,25 @@ namespace SealSystem.WebAPI.Controllers
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
-        /// 根据id修改状态为-->[待核验]
+        /// 根据id修改状态为-->[待审核]
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("setForHeYan"), HttpGet]
         public async Task<IHttpActionResult> SetSealStateForHeYan(int id)
         {
-            await BLL.SealInforNewBLL.SetForSealState(id, "待核验");
+            await BLL.SealInforNewBLL.SetForSealState(id, "待审核");
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
+        }
+        /// <summary>
+        /// 修改:根据印章编码修改状态为-->[待审核]
+        /// </summary>
+        /// <param name="sealInforNum">印章编码</param>
+        /// <returns></returns>
+        [Route("setForSealInforNum"), HttpGet]
+        public async Task<IHttpActionResult> SetForSealInforNum(string sealInforNum)
+        {
+            await BLL.SealInforNewBLL.SetForSealInforNum(sealInforNum, "待审核");
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
@@ -349,13 +278,6 @@ namespace SealSystem.WebAPI.Controllers
             await BLL.SealInforNewBLL.SetForTheOrders_TheOrderCodeForSealApprovalUnitInfor_Id(theOrders_TheOrderCode,id);
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
-
-        //修改:根据订单号修改印章交付信息
-
-        
-
-
-
         /// <summary>
         /// 根据id获取测试/正式印章图片(postman测试通过)
         /// </summary>
@@ -377,9 +299,9 @@ namespace SealSystem.WebAPI.Controllers
             return "/images/SealImages/" + await BLL.SealInforNewBLL.GetTestImagePathForSealInforNum(sealInforNum);
         }
         /// <summary>
-        /// 修改:根据印章编码修改印章信息(postman测试通过)
+        /// 修改:根据印章编码修改印章信息(postman测试通过)注:并修改印章信息状态为-->[待审核]
         /// </summary>
-        /// <param name="sealInforNum"></param>
+        /// <param name="sealInforNum">印章编码</param>
         /// <param name="models"></param>
         /// <returns></returns>
         [Route("setForTheOrders_TheOrderCode"), HttpPost]
@@ -390,6 +312,7 @@ namespace SealSystem.WebAPI.Controllers
                 MakeWay=models.MakeWay,
                 Note=models.Note
             });
+            await BLL.SealInforNewBLL.SetForSealInforNum(sealInforNum, "待审核");
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>

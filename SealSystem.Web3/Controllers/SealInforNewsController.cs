@@ -227,6 +227,7 @@ namespace SealSystem.Web3.Controllers
             listss.SealMakingUnitInfor_Name = s2.SealMakingUnitInfor_Name;
             listss.TheRegistrationArea = s2.TheRegistrationArea;
             listss.TheOrderCode = guid;
+            listss.SealState = "待交付";
             await BLL.TheOrderBLL.Add(listss);
             return listss.Id;
         }

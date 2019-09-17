@@ -37,7 +37,8 @@ namespace SealSystem.WebAPI.Controllers
                     Phone=model.Phone,
                     TakeSealName=model.TakeSealName,
                     TakeTime=model.TakeTime,
-                    UpTime=model.UpTime
+                    UpTime=model.UpTime,
+                    SealState=model.SealState
                 };
                 await BLL.TheOrderBLL.Add(data);
                 return Ok(new Models.ResponseData() { code = 200, Data = "增加成功" });
@@ -56,17 +57,20 @@ namespace SealSystem.WebAPI.Controllers
         [Route("edit"), HttpPost]
         public async Task<IHttpActionResult> Edit(int id, Models.TheOrder.TheOrderForAdd model)
         {
-            var data = new SealSystem.Models.TheOrder();
-            data.TheOrderCode = model.TheOrderCode;
-            data.ForTheRecordType = model.ForTheRecordType;
-            data.SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name;
-            data.TheRegistrationArea = model.TheRegistrationArea;
-            data.TakeSealName = model.TakeSealName;
-            data.TakeTime = model.TakeTime;
-            data.IdCard = model.IdCard;
-            data.Phone = model.Phone;
-            data.DeliveryTime = model.DeliveryTime;
-            data.UpTime = model.UpTime;
+            var data = new SealSystem.Models.TheOrder
+            {
+                TheOrderCode = model.TheOrderCode,
+                ForTheRecordType = model.ForTheRecordType,
+                SealMakingUnitInfor_Name = model.SealMakingUnitInfor_Name,
+                TheRegistrationArea = model.TheRegistrationArea,
+                TakeSealName = model.TakeSealName,
+                TakeTime = model.TakeTime,
+                IdCard = model.IdCard,
+                Phone = model.Phone,
+                DeliveryTime = model.DeliveryTime,
+                UpTime = model.UpTime,
+                SealState = model.SealState
+            };
             await BLL.TheOrderBLL.Edit(id, data);
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
 
@@ -95,7 +99,8 @@ namespace SealSystem.WebAPI.Controllers
                     Phone=item.Phone,
                     TakeSealName=item.TakeSealName,
                     TakeTime=item.TakeTime,
-                    UpTime=item.UpTime
+                    UpTime=item.UpTime,
+                    SealState=item.SealState
                 });
             }
             return model;
@@ -122,7 +127,8 @@ namespace SealSystem.WebAPI.Controllers
                 IdCard=data.IdCard,
                 Phone=data.Phone,
                 TakeTime=data.TakeTime,
-                UpTime=data.UpTime
+                UpTime=data.UpTime,
+                SealState=data.SealState
             };
             return model;
         }
@@ -137,7 +143,7 @@ namespace SealSystem.WebAPI.Controllers
             return await BLL.TheOrderBLL.GetForIdForTheOrderCode(id);
         }
         /// <summary>
-        /// 修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)
+        /// 修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)并:更新订单信息状态-->[待审核]
         /// </summary>
         /// <param name="theOrderCode">订单号</param>
         /// <param name="model">印章交付取章人信息</param>
@@ -146,6 +152,18 @@ namespace SealSystem.WebAPI.Controllers
         public async Task<IHttpActionResult> SetForTheOrderCode(string theOrderCode,Models.TheOrder.TheOrderForSealJiaoFu model)
         {
             await BLL.TheOrderBLL.SetForTheOrderCode(theOrderCode, model.TakeSealName, model.IdCard, model.Phone);
+            await BLL.TheOrderBLL.SetSealStateForTheOrderCode(theOrderCode, "待审核");
+            return Ok(new Models.ResponseData() { code = 200, Data = "更新成功" });
+        }
+        /// <summary>
+        /// 修改:根据订单号更新状态-->[待审核]
+        /// </summary>
+        /// <param name="theOrderCode">订单号</param>
+        /// <returns></returns>
+        [Route("setSealStateForTheOrderCode"), HttpGet]
+        public async Task<IHttpActionResult> SetSealStateForTheOrderCode(string theOrderCode)
+        {
+            await BLL.TheOrderBLL.SetSealStateForTheOrderCode(theOrderCode, "待审核");
             return Ok(new Models.ResponseData() { code = 200, Data = "更新成功" });
         }
     }

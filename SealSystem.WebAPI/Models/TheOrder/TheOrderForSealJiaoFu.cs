@@ -22,5 +22,9 @@ namespace SealSystem.WebAPI.Models.TheOrder
         /// 手机号
         /// </summary>
         public string Phone { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public string SealState { get; set; }
     }
 }

@@ -207,7 +207,7 @@
     function get_usergroup() {
         var group_name = "";
         $.ajax({
-            url: BASE_URL + "user/getUserGroupForUserName?userName=" +session.getAttribute("loginName") ,//改成你自己的
+            url: BASE_URL + "user/getUserGroupForUserName?userName=@Session["loginName"]",//改成你自己的
             async: false,
             success: function (data) {
                 group_name = data;

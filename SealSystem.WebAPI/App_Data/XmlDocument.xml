@@ -762,9 +762,16 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForHeYan(System.Int32)">
             <summary>
-            根据id修改状态为-->[待核验]
+            根据id修改状态为-->[待审核]
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForSealInforNum(System.String)">
+            <summary>
+            修改:根据印章编码修改状态为-->[待审核]
+            </summary>
+            <param name="sealInforNum">印章编码</param>
             <returns></returns>
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetSealStateForBeiAn(System.Int32)">
@@ -822,9 +829,9 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForTheOrders_TheOrderCode(System.String,SealSystem.WebAPI.Models.SealINforNew.SealINforNewViewModelJiaoFu)">
             <summary>
-            修改:根据印章编码修改印章信息(postman测试通过)
+            修改:根据印章编码修改印章信息(postman测试通过)注:并修改印章信息状态为-->[待审核]
             </summary>
-            <param name="sealInforNum"></param>
+            <param name="sealInforNum">印章编码</param>
             <param name="models"></param>
             <returns></returns>
         </member>
@@ -1011,10 +1018,17 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.SetForTheOrderCode(System.String,SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu)">
             <summary>
-            修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)
+            修改:根据订单号更新,取章人姓名/身份证号/手机号码(postman测试通过)并:更新订单信息状态-->[待审核]
             </summary>
             <param name="theOrderCode">订单号</param>
             <param name="model">印章交付取章人信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.TheOrderController.SetSealStateForTheOrderCode(System.String)">
+            <summary>
+            修改:根据订单号更新状态-->[待审核]
+            </summary>
+            <param name="theOrderCode">订单号</param>
             <returns></returns>
         </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserController">
@@ -1784,6 +1798,11 @@
             上传日期
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForAdd.SealState">
+            <summary>
+            订单状态
+            </summary>
+        </member>
         <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL">
             <summary>
             订单信息
@@ -1849,6 +1868,11 @@
             上传日期
             </summary>
         </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForALL.SealState">
+            <summary>
+            订单状态
+            </summary>
+        </member>
         <member name="T:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu">
             <summary>
             印章交付取章人信息
@@ -1867,6 +1891,11 @@
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.Phone">
             <summary>
             手机号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.SealState">
+            <summary>
+            订单状态
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">
