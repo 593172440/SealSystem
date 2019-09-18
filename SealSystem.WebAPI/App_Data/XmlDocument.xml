@@ -954,6 +954,21 @@
             <param name="userName"></param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.UserController.GetUserForUserName(System.String)">
+            <summary>
+            查询:根据用户名获取用户信息
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SealSystem.WebAPI.Controllers.UserController.SetUserForUserName(System.String,SealSystem.WebAPI.Models.User.UserAll)">
+            <summary>
+            更新:根据用户名更新用户信息
+            </summary>
+            <param name="userName"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="T:SealSystem.WebAPI.Controllers.UserGroupController">
             <summary>
             用户组
@@ -1670,6 +1685,116 @@
         <member name="P:SealSystem.WebAPI.Models.TheOrder.TheOrderForSealJiaoFu.SealState">
             <summary>
             订单状态
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.UserPwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.EntityName">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.UnitCode">
+            <summary>
+            单位编码(标准：GA241.1)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Note">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.UserGroup_Id">
+            <summary>
+            每个组里有多个用户(用户组外键)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.EthnicMinoritiesName">
+            <summary>
+            单位名称(少数民族文字)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.EnglishName">
+            <summary>
+            单位名称(英文名)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.LegelPerson">
+            <summary>
+            法定代表人(负责人)
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.IdNumber">
+            <summary>
+            法定代表人(负责人)身份证号
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.UnitAddress">
+            <summary>
+            单位地址
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.TheZipCode">
+            <summary>
+            邮政编码
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.ContanctPhone">
+            <summary>
+            联系人电话
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.BusinessLicense">
+            <summary>
+            营业执照
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.BusinessState">
+            <summary>
+            营业状态
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Attention">
+            <summary>
+            经办人
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.AttentionIdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:SealSystem.WebAPI.Models.User.UserAll.Approval">
+            <summary>
+            备案人
             </summary>
         </member>
         <member name="P:SealSystem.WebAPI.Models.User.UserViewModel.UserName">

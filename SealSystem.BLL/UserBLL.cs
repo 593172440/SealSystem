@@ -123,5 +123,48 @@ namespace SealSystem.BLL
                 return (await db._db.Users.Include(s => s.UserGroup).FirstAsync(m => m.UserName == userName)).UserGroup.Name;
             }
         }
+        /// <summary>
+        /// 查询:根据用户名获取用户信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public static async Task<Models.User> GetUserForUserName(string userName)
+        {
+            using (var db = new DAL.UserDAL())
+            {
+                return await db.GetAll().FirstAsync(s => s.UserName == userName);
+            }
+        }
+        /// <summary>
+        /// 更新:根据用户名更新用户信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static async Task SetUserForUserName(string userName,Models.User model)
+        {
+            using (var db = new DAL.UserDAL())
+            {
+                var data= await db.GetAll().FirstAsync(s => s.UserName == userName);
+                data.Approval = model.Approval;
+                data.Attention = model.Attention;
+                data.AttentionIdCard = model.AttentionIdCard;
+                data.BusinessLicense = model.BusinessLicense;
+                data.BusinessState = model.BusinessState;
+                data.Contact = model.Contact;
+                data.ContanctPhone = model.ContanctPhone;
+                data.EnglishName = model.EnglishName;
+                data.EntityName = model.EntityName;
+                data.EthnicMinoritiesName = model.EthnicMinoritiesName;
+                data.IdNumber = model.IdNumber;
+                data.LegelPerson = model.LegelPerson;
+                data.Note = model.Note;
+                data.Phone = model.Phone;
+                data.TheZipCode = model.TheZipCode;
+                data.UnitAddress = model.UnitAddress;
+                data.UnitCode = model.UnitCode;
+                await db.EditAsync(data);
+            }
+        }
     }
 }

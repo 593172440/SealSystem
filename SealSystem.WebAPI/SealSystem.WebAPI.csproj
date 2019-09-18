@@ -206,6 +206,7 @@
     <Compile Include="Models\TheOrder\TheOrderForAdd.cs" />
     <Compile Include="Models\TheOrder\TheOrderForALL.cs" />
     <Compile Include="Models\TheOrder\TheOrderForSealJiaoFu.cs" />
+    <Compile Include="Models\User\UserAll.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Models\User\UserGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
