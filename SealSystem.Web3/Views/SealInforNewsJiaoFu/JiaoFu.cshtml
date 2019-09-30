@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SealSystem.Models.User>
-@{
+@*@{
     if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
     {
         List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
     }
-}
+}*@
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -108,7 +108,7 @@
         $("#input-card1").fileinput({
             language: 'zh',
             uploadAsync: 'false',
-            uploadUrl: BASE_URL + "FileAndImage/updata?sealInforNum=" + sealId + "&note=''",
+            uploadUrl: BASE_URL + "DataToImages/updata?sealInforNum=" + sealId + "&note=''",
             /*uploadExtraData:function(){ //如果想添加额外的参数，在这里设置
                 var obj = {};
                 obj.sealInforNum = sealId;
@@ -191,7 +191,7 @@
                 success: function (data) {
                     $("#img_" + seal_num_array[i]).attr('src', BASE + data);
                     $.ajax({
-                        url: BASE_URL + "FileAndImage/filePath?sealInforNew_SealInforNum=" + seal_num_array[i],
+                        url: BASE_URL + "DataToImages/filePath?sealInforNew_SealInforNum=" + seal_num_array[i],
                         async: false,
                         success: function (data1) {
                             console.log("最终地址", data1);

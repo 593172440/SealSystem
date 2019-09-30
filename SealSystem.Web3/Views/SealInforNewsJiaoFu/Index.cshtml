@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SealSystem.Models.User>
-@{
+@*@{
     if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
     {
         List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
     }
-}
+}*@
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -38,7 +38,7 @@
             </div>
         </div>
         <!-- 上传模块 -->
-        <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="uploadLabel" aria-hidden="true">
+        @*<div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="uploadLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -54,10 +54,10 @@
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
-        </div>
+        </div>*@
 
         <!-- 审核模块 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        @*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -129,7 +129,7 @@
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
-        </div>
+        </div>*@
         <!-- /page content -->
         @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
     </div>
@@ -179,6 +179,6 @@
     }
     $(function () {
         init_table();
-        init_upload();
+        //init_upload();
     })
 </script>

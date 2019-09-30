@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<SealSystem.Models.SealCategory>
-@{
+@*@{
     if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
     {
         List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
         if (list.Any(m => m == Session["loginName"] + ":印章类型管理:Add")) { ViewBag.add = Html.Raw("<h2><span class='glyphicon glyphicon-plus'></span>" + @Html.ActionLink("增加新印章类型规格", "Create") + "</h2>"); }
     }
-}
+}*@
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
@@ -39,7 +39,8 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                @ViewBag.add
+                                @*@ViewBag.add*@
+                                <h2><span class='glyphicon glyphicon-plus'></span>@Html.ActionLink("增加新印章类型规格", "Create")</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
                                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>

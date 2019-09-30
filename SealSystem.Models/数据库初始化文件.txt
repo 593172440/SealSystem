@@ -114,26 +114,7 @@
                 new Area { Code = "120116", Name = "天津" }
                 );
 				 
-				 //菜单表
-            context.MenuTables.AddOrUpdate(
-                new MenuTable { CodeId = 100, Name = "信息登记", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 2, Name = "印章信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealInforNews/Index'>印章信息管理</a></li>" },
-                new MenuTable { CodeId = 3, Name = "使用单位信息管理", SuperiorCodeId = 100, MenuPath = "<li><a href='/SealUseUnitInfors/Index'>使用单位信息管理</a></li>" },
-                new MenuTable { CodeId = 200, Name = "生产管理", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 7, Name = "印章制作", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsMaking/Index'>印章制作</a></li>" },
-                new MenuTable { CodeId = 8, Name = "印章交付", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>" },
-                new MenuTable { CodeId = 9, Name = "备案申请", SuperiorCodeId = 200, MenuPath = "<li><a href='/SealInforNewsBeiAn/Index'>备案申请</a></li>" },
-                new MenuTable { CodeId = 300, Name = "信息查询", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 11, Name = "印章信息查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/SealInforNewsQuery/Index'>印章信息查询</a></li>" },
-                new MenuTable { CodeId = 12, Name = "公告通知查询", SuperiorCodeId = 300, MenuPath = "<li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>" },
-                new MenuTable { CodeId = 400, Name = "后台设置", SuperiorCodeId = 0, MenuPath = "" },
-                new MenuTable { CodeId = 14, Name = "单位分类", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealUnitClasses/Index'>单位分类</a></li>" },
-                new MenuTable { CodeId = 15, Name = "区域管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Areas/Index'>区域管理</a></li>" },
-                new MenuTable { CodeId = 16, Name = "用户管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/Users/Index'>用户管理</a></li>" },
-                new MenuTable { CodeId = 17, Name = "权限管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/UserPermissions/Index'>权限管理</a></li>" },
-                new MenuTable { CodeId = 18, Name = "菜单管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/MenuTables/Index'>菜单管理</a></li>" },
-                new MenuTable { CodeId = 20, Name = "印章类型管理", SuperiorCodeId = 400, MenuPath = "<li><a href='/SealCategories/Index'>印章类型管理</a></li>" }
-                );
+				 
 				//增加用户组
 			context.UserGroups.AddOrUpdate(
                 new UserGroup { Name = "管理员组" },

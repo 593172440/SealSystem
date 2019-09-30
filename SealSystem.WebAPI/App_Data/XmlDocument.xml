@@ -956,7 +956,7 @@
         </member>
         <member name="M:SealSystem.WebAPI.Controllers.UserController.GetUserForUserName(System.String)">
             <summary>
-            查询:根据用户名获取用户信息
+            查询:根据用户名获取用户信息(postman Ok)
             </summary>
             <param name="userName"></param>
             <returns></returns>

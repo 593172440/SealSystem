@@ -14,7 +14,7 @@ namespace SealSystem.WebAPI.Controllers
     /// 印章图片信息
     /// </summary>
     [EnableCors(origins: "*", methods: "*", headers: "*")]
-    [RoutePrefix("api/FileAndImage")]
+    [RoutePrefix("api/DataToImages")]
     public class DataToImageController : ApiController
     {
         /// <summary>
@@ -83,7 +83,8 @@ namespace SealSystem.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                returns = ex.ToString();
+                //returns = ex.ToString();
+                returns = "";
             }
             //var id= BLL.SealInforNewBLL.GetSealInforOne(sealInforNum).Id;
             await BLL.DataToImageBLL.AddAsync(orfilename, returns, sealInforNum, note);
@@ -107,7 +108,16 @@ namespace SealSystem.WebAPI.Controllers
         [Route("filePath"),HttpGet]
         public async Task<string> GetFileUrl(string sealInforNew_SealInforNum)
         {
-            return await BLL.DataToImageBLL.GetFileUrl(sealInforNew_SealInforNum);
+            try
+            {
+                return await BLL.DataToImageBLL.GetFileUrl(sealInforNew_SealInforNum);
+            }
+            catch (Exception ex)
+            {
+
+                return "";
+            }
+            
         }
         /// <summary>
         /// 获取所有的图片数据

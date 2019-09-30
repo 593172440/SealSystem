@@ -14,7 +14,8 @@
             </div>
             <div class="profile_info">
                 <span>@Session["loginName"]</span>
-                <h2>@HttpUtility.UrlDecode(Request.Cookies["entityName"].Value)</h2>
+                @*<h2>@HttpUtility.UrlDecode(Request.Cookies["entityName"].Value)</h2>*@
+                <h2>测试信息</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -25,30 +26,77 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <ul class="nav side-menu">
-                    <li>
-                        <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiDengJi"].Value))
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-edit"></i> 生产管理 <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["ShengChanGuanLi"].Value))
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-database"></i> 信息查询 <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiChaXun"].Value))
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-desktop"></i> 后台设置 <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["HouTaiSheZhi"].Value))
-                        </ul>
-                    </li>
+                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("管理员组"))
+                    {
+                        <li>
+                            <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href='/SealInforNews/Index'>印章信息管理</a></li>
+                                <li><a href='/SealUseUnitInfors/Index'>使用单位信息管理</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-edit"></i> 生产管理 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href='/SealInforNewsMaking/Index'>印章制作</a></li>
+                                <li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>
+                                <li><a href='/SealInforNewsBeiAn/Index'>备案申请</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-database"></i> 信息查询 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href='/SealInforNewsQuery/Index'>印章信息查询</a></li>
+                                <li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-desktop"></i> 后台设置 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href='/Areas/Index'>区域管理</a></li>
+                                <li><a href='/Users/Index'>用户管理</a></li>
+                                <li><a href='/SealCategories/Index'>印章类型管理</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("制章单位组"))
+                    {
+
+                    }
+                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("备案单位组"))
+                    {
+
+                    }
+                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("使用单位组"))
+                    {
+
+                    }
+                    @*<li>
+            <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiDengJi"].Value))
+            </ul>
+        </li>
+        <li>
+            <a><i class="fa fa-edit"></i> 生产管理 <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["ShengChanGuanLi"].Value))
+            </ul>
+        </li>
+        <li>
+            <a><i class="fa fa-database"></i> 信息查询 <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["XinXiChaXun"].Value))
+            </ul>
+        </li>
+        <li>
+            <a><i class="fa fa-desktop"></i> 后台设置 <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                @Html.Raw(HttpUtility.UrlDecode(Request.Cookies["HouTaiSheZhi"].Value))
+                        <li><a href='/UserPermissions/Index'>权限管理</a></li>
+                        <li><a href='/SealUnitClasses/Index'>单位分类</a></li>
+            </ul>
+        </li>*@
 
                 </ul>
             </div>

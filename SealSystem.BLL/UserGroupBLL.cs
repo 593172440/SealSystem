@@ -37,6 +37,18 @@ namespace SealSystem.BLL
             }
         }
         /// <summary>
+        /// 根据id获取用户组名称
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task<string> GetUserGroupName(int id)
+        {
+            using (var db = new DAL.UserGroupDAL())
+            {
+                return (await db.GetAll().FirstAsync(m => m.Id == id)).Name;
+            }
+        }
+        /// <summary>
         /// 获取所有的用户组信息
         /// </summary>
         /// <returns></returns>
