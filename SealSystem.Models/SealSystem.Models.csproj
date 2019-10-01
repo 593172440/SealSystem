@@ -79,6 +79,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="系统制作.xmind" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="数据库初始化文件.txt" />

@@ -1,19 +1,14 @@
 ﻿@model IEnumerable<SealSystem.Models.User>
-@*@{
-    if (!string.IsNullOrEmpty(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value)))
-    {
-        List<string> list = JsonConvert.DeserializeObject<List<string>>(HttpUtility.UrlDecode(Request.Cookies["ZXGC"].Value));
-    }
-}*@
+
 <div class="container body">
     <div class="main_container">
         <!--右上角头像区-->
-        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml");
+        @Html.Partial("~/Views/Shared/_PartialTopHeadImages.cshtml")
         <!--/右上角头像区-->
         <!--顶部导航-->
         <div class="top_nav">
             <div class="nav_menu">
-                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml");
+                @Html.Partial("~/Views/Shared/_PartialTopNavigation.cshtml")
             </div>
         </div>
         <!--/顶部导航 -->
@@ -98,7 +93,7 @@
             </div><!-- /.modal -->
         </div>
         <!-- /page content -->
-        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml");
+        @Html.Partial("~/Views/Shared/_PartialFooter.cshtml")
     </div>
 </div>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
