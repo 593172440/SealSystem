@@ -313,7 +313,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <Content Include="Scripts\bootstrap-fileinput\.github\CODE_OF_CONDUCT.md" />
     <Content Include="Scripts\bootstrap-fileinput\.github\CONTRIBUTING.md" />
@@ -334,7 +333,6 @@
     <Content Include="Scripts\bootstrap-fileinput\scss\themes\explorer-fa\theme.scss" />
     <Content Include="Scripts\bootstrap-fileinput\scss\themes\explorer\theme.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
