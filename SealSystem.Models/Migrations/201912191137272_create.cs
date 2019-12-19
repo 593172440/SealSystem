@@ -3,7 +3,7 @@ namespace SealSystem.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _001 : DbMigration
+    public partial class create : DbMigration
     {
         public override void Up()
         {
@@ -96,7 +96,7 @@ namespace SealSystem.Models.Migrations
                         SealInforNum = c.String(nullable: false),
                         SealUseUnitInfor_Id_UnitNumber = c.Int(nullable: false),
                         TheOrders_TheOrderCode = c.String(),
-                        User_Id = c.String(),
+                        User_Id = c.Int(nullable: false),
                         SealCategory_Id_Code = c.Int(nullable: false),
                         SealContent = c.String(),
                         ForeignLanguageContent = c.String(),
@@ -193,7 +193,7 @@ namespace SealSystem.Models.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserGroup_Id = c.Int(nullable: false),
-                        Menu_Id = c.Int(nullable: false),
+                        MenuTables_CodeId = c.Int(nullable: false),
                         Add = c.Boolean(nullable: false),
                         Edit = c.Boolean(nullable: false),
                         Details = c.Boolean(nullable: false),
@@ -202,10 +202,8 @@ namespace SealSystem.Models.Migrations
                         IsRemoved = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.MenuTables", t => t.Menu_Id)
                 .ForeignKey("dbo.UserGroups", t => t.UserGroup_Id)
-                .Index(t => t.UserGroup_Id)
-                .Index(t => t.Menu_Id);
+                .Index(t => t.UserGroup_Id);
             
             CreateTable(
                 "dbo.Users",
@@ -245,11 +243,9 @@ namespace SealSystem.Models.Migrations
         {
             DropForeignKey("dbo.Users", "UserGroup_Id", "dbo.UserGroups");
             DropForeignKey("dbo.UserPermissions", "UserGroup_Id", "dbo.UserGroups");
-            DropForeignKey("dbo.UserPermissions", "Menu_Id", "dbo.MenuTables");
             DropForeignKey("dbo.SealInforNews", "SealUseUnitInfor_Id_UnitNumber", "dbo.SealUseUnitInfors");
             DropForeignKey("dbo.SealInforNews", "SealCategory_Id_Code", "dbo.SealCategories");
             DropIndex("dbo.Users", new[] { "UserGroup_Id" });
-            DropIndex("dbo.UserPermissions", new[] { "Menu_Id" });
             DropIndex("dbo.UserPermissions", new[] { "UserGroup_Id" });
             DropIndex("dbo.SealInforNews", new[] { "SealCategory_Id_Code" });
             DropIndex("dbo.SealInforNews", new[] { "SealUseUnitInfor_Id_UnitNumber" });

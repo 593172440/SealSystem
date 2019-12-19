@@ -42,7 +42,7 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm(FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <h1>信息中心管理系统</h1>

@@ -22,8 +22,21 @@
                             <div class="x_title">
                                 @*@ViewBag.add*@
                                 <h2>
-                                    <span class='glyphicon glyphicon-plus'></span>@Html.ActionLink("增加印章", "Create")
+                                    印章列表
+                                    @if (@Session["userGroupName"].ToString() == "制章单位组")
+                                    {
+                                        <h2 class="pull-right">
+                                            <span class='glyphicon glyphicon-plus'></span> @Html.ActionLink("增加印章", "Create")
+                                        </h2>
+                                    }
+                                    @if (@Session["userGroupName"].ToString() == "管理员组")
+                                    {
+                                        <h2 class="pull-right">
+                                            <span class='glyphicon glyphicon-plus'></span> @Html.ActionLink("增加印章", "Create")
+                                        </h2>
+                                    }
                                 </h2>
+                                <input type="text" value="@Session["userGroupName"]" style="display:none;" id="usergroupname"/>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
@@ -233,13 +246,14 @@
                     "bSortable": false,
                     render: function (data, type, row) {
                         var html = "<p>"
-                        if(data.SealState=="已录入"){//这边也是同样道理
-                          html += "<a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;"
-                         }
-                        if (data.SealState == "待审核" && get_usergroup() == "备案单位组" || get_usergroup() == "管理员组"){//你也可以在这里加权限,如果公安用户并且当前状态椒待审核,才显示
+                        if (data.SealState == "已录入" && $("#usergroupname").val() == "制章单位组" || $("#usergroupname").val() == "管理员组"){//这边也是同样道理
+                            html += "<a id=\"upload\" href=\"#\">上传证件</a>&nbsp;&nbsp;"
+                            html += "<a id=\"upload_success\" href=\"#\">上传完成</a>&nbsp;&nbsp;"
+                        }
+                        if (data.SealState == "待审核" && $("#usergroupname").val() == "备案单位组" || $("#usergroupname").val() == "管理员组"){//你也可以在这里加权限,如果公安用户并且当前状态椒待审核,才显示
                            html += "<a id=\"check\" href=\"#\">进行审核</a>&nbsp;&nbsp;"
-                         }
-                         if(data.SealState != "已备案" && data.SealState!="已取消"){
+                        }
+                        if (data.SealState != "已备案" && data.SealState != "已取消" && data.SealState !="已撤销") {
                            html +="<a id=\"cancel\"  href=\"#\">撤销</a>&nbsp;&nbsp;"
                          }
                          html += "</p>"
@@ -262,6 +276,26 @@
             console.log("上传证件：", data);
             console.log("上传证件对应的印章id：", data.SealInforNum);
         });
+
+
+        /**
+        * 上传证件完成
+        */
+        $('#datatable-seal tbody').on('click', 'a#upload_success', function () {
+            var row_data = $('#datatable-seal').DataTable().row($(this).parents('tr')).data();
+            $.ajax({
+                url: BASE_URL + "SealInforNew/setForSealJiaoFu",
+                data: { "id": row_data.Id },
+                success: function (data) {
+                    if (data.code == 200) {
+                        update_table();
+                        $('#myModal').modal('hide');
+                    } else {
+                        alert(data.ErrorMessage);
+                    }
+                }
+            })
+        })
 
         //判别路径后缀是不是图片格式
         function checkPic(filename) {

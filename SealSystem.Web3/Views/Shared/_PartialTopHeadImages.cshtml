@@ -24,7 +24,7 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <ul class="nav side-menu">
-                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("管理员组"))
+                    @if (@Session["userGroupName"].ToString() == "管理员组")
                     {
                         <li>
                             <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
@@ -57,11 +57,32 @@
                             </ul>
                         </li>
                     }
-                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("制章单位组"))
+                    @if (@Session["userGroupName"].ToString() == "制章单位组")
                     {
-
+                        <li>
+                            <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href='/SealInforNews/Index'>印章信息管理</a></li>
+                                <li><a href='/SealUseUnitInfors/Index'>使用单位信息管理</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-edit"></i> 生产管理 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                @*<li><a href='/SealInforNewsMaking/Index'>印章制作</a></li>*@
+                                <li><a href='/SealInforNewsJiaoFu/Index'>印章交付</a></li>
+                                @*<li><a href='/SealInforNewsBeiAn/Index'>备案申请</a></li>*@
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-database"></i> 信息查询 <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                @*<li><a href='/SealInforNewsQuery/Index'>印章信息查询</a></li>*@
+                                <li><a href='/AnnouncementNotices/Index'>公告通知查询</a></li>
+                            </ul>
+                        </li>
                     }
-                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("备案单位组"))
+                    @if (@Session["userGroupName"].ToString() == "备案单位组")
                     {
                         <li>
                             <a><i class="fa fa-home"></i> 信息登记 <span class="fa fa-chevron-down"></span></a>
@@ -70,7 +91,7 @@
                             </ul>
                         </li>
                     }
-                    @if (Request.Cookies["userGroupName"].Value == HttpUtility.UrlEncode("使用单位组"))
+                    @if (@Session["userGroupName"].ToString() == "使用单位组")
                     {
 
                     }

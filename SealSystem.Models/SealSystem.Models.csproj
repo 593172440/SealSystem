@@ -56,13 +56,9 @@
     <Compile Include="DataToFile.cs" />
     <Compile Include="DataToImage.cs" />
     <Compile Include="MenuTable.cs" />
-    <Compile Include="Migrations\201909171506172_001.cs" />
-    <Compile Include="Migrations\201909171506172_001.Designer.cs">
-      <DependentUpon>201909171506172_001.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909171516457_002.cs" />
-    <Compile Include="Migrations\201909171516457_002.Designer.cs">
-      <DependentUpon>201909171516457_002.cs</DependentUpon>
+    <Compile Include="Migrations\201912191137272_create.cs" />
+    <Compile Include="Migrations\201912191137272_create.Designer.cs">
+      <DependentUpon>201912191137272_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SealInforNew.cs" />
@@ -85,11 +81,8 @@
     <Content Include="数据库初始化文件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909171506172_001.resx">
-      <DependentUpon>201909171506172_001.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909171516457_002.resx">
-      <DependentUpon>201909171516457_002.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912191137272_create.resx">
+      <DependentUpon>201912191137272_create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

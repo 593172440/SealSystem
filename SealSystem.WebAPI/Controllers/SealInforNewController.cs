@@ -206,6 +206,17 @@ namespace SealSystem.WebAPI.Controllers
             return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
         }
         /// <summary>
+        /// 根据id修改状态为-->[待交付]
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("setForSealJiaoFu"), HttpGet]
+        public async Task<IHttpActionResult> SetForSealJiaoFu(int id)
+        {
+            await BLL.SealInforNewBLL.SetForSealState(id, "待交付");
+            return Ok(new Models.ResponseData() { code = 200, Data = "修改成功" });
+        }
+        /// <summary>
         /// 修改:根据印章编码修改状态为-->[待审核]
         /// </summary>
         /// <param name="sealInforNum">印章编码</param>

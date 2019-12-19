@@ -719,6 +719,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForSealJiaoFu(System.Int32)">
+            <summary>
+            根据id修改状态为-->[待交付]
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SealSystem.WebAPI.Controllers.SealInforNewController.SetForSealInforNum(System.String)">
             <summary>
             修改:根据印章编码修改状态为-->[待审核]

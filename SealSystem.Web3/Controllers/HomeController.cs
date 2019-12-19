@@ -14,13 +14,15 @@ namespace SealSystem.Web3.Controllers
     public class HomeController : Controller
     {
         [LoginFilter]
-        public async Task<ActionResult> Index(User user)
+        public ActionResult Index()
         {
-            string 用户组 = await BLL.UserGroupBLL.GetUserGroupName(user.UserGroup_Id);
-            Response.Cookies.Add(new HttpCookie("userGroupName")//将用户组名称存在cookie里面
-            {
-                Value = HttpUtility.UrlEncode(用户组)
-            });
+
+
+            //将用户组名称存在Session里面
+            //Response.Cookies.Add(new HttpCookie("userGroupName")//将用户组名称存在cookie里面
+            //{
+            //    Value = HttpUtility.UrlEncode(用户组)
+            //});
 
             //List<string> sb5 = new List<string>();
             //List<string> sb6 = new List<string>();//保存权限表中的菜单Id和标识符"Add";格式:1:Add
@@ -97,9 +99,9 @@ namespace SealSystem.Web3.Controllers
             //{
             //    Value = HttpUtility.UrlEncode(JsonConvert.SerializeObject(sb5))
             //});
-            return View(user);
+            return View();
         }
-        
+
         public ActionResult LoginIndex()
         {
             return View();
@@ -123,7 +125,9 @@ namespace SealSystem.Web3.Controllers
                     //跳转
                     //判断是用Session还是用cookie
                     Session["loginName"] = userName;
-                    return RedirectToAction("index", "Home", dbData);
+                    string 用户组 = await BLL.UserGroupBLL.GetUserGroupName(dbData.UserGroup_Id);
+                    Session["userGroupName"] = 用户组;
+                    return RedirectToAction("index", "Home");
                     //登录成功
                 }
                 else
